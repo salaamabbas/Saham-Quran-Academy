@@ -1,0 +1,1725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saham Qur'an Academy - Excellence in Islamic Education</title>
+    <link rel="icon" href="logo.png">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2D9E9C;
+            --primary-dark: #005f31;
+            --accent: #CEDA54;
+            --dark: #272727;
+            --light: #f9fafb;
+            --white: #ffffff;
+            --transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark);
+            background: var(--white);
+            overflow-x: hidden;
+        }
+
+        /* Loading Animation */
+        .page-loader {
+            position: fixed;
+            inset: 0;
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            transition: opacity 0.8s ease, visibility 0.8s ease;
+        }
+
+        .page-loader.hide {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loader-icon {
+            width: 250px;
+            height: 250px;
+            filter: drop-shadow(0 10px 30px rgba(255, 255, 255, 0.3));
+        }
+
+        .loader-text {
+            color: white;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-top: 2rem;
+            letter-spacing: 3px;
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.6; }
+        }
+
+        .loader-bar {
+            width: 250px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            margin-top: 2rem;
+            overflow: hidden;
+        }
+
+        .loader-progress {
+            height: 100%;
+            background: white;
+            animation: loading 2s ease-in-out;
+        }
+
+        @keyframes loading {
+            0% { width: 0; }
+            100% { width: 100%; }
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.2rem 0;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            padding: 0.8rem 0;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--primary);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .logo-icon {
+            width: 55px;
+            height: 55px;
+            object-fit: contain;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Mobile Menu */
+        .mobile-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 10px;
+            z-index: 1002;
+        }
+
+        .mobile-toggle span {
+            width: 28px;
+            height: 3px;
+            background: var(--dark);
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+
+        .mobile-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 300px;
+            height: auto;
+            max-height: 90vh;
+            background: white;
+            box-shadow: -5px 0 30px rgba(0, 0, 0, 0.15);
+            border-radius: 20px 0 0 20px;
+            padding: 2rem 1.5rem;
+            transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 1001;
+            margin: 1rem 0;
+        }
+
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        .mobile-menu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #f3f4f6;
+        }
+
+        .mobile-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .mobile-logo img {
+            width: 35px;
+            height: 35px;
+            object-fit: contain;
+        }
+
+        .mobile-close {
+            width: 35px;
+            height: 35px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(45, 158, 156, 0.3);
+        }
+
+        .mobile-close:hover {
+            transform: scale(1.1) rotate(90deg);
+            box-shadow: 0 6px 20px rgba(45, 158, 156, 0.4);
+        }
+
+        .mobile-menu ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .mobile-menu ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .mobile-menu ul li a {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            display: block;
+            padding: 1rem 1.2rem;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu ul li a:hover {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            transform: translateX(5px);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 8rem 2rem 4rem;
+            background:url('hero-bg.jpg');
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            top: -300px;
+            right: -300px;
+            animation: float 15s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(40px, 40px); }
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards 0.3s;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 0.7rem 1.8rem;
+            background: rgba(255, 255, 255, 0.15);
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            color: white;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            letter-spacing: 1px;
+            animation: fadeInUp 1s ease forwards 0.5s;
+            opacity: 0;
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            font-weight: 900;
+            line-height: 1.15;
+            color: white;
+            margin-bottom: 2rem;
+        }
+
+        .hero h1 span {
+            color: var(--accent);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.95);
+            line-height: 1.8;
+            margin-bottom: 3rem;
+            max-width: 650px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 1.2rem 3rem;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 1.05rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: white;
+            color: var(--primary-dark);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: var(--primary-dark);
+        }
+
+        /* Stats */
+        .stats {
+            padding: 4rem 2rem;
+            background: white;
+        }
+
+        .stats-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-item {
+            padding: 2rem 1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--primary-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            color: #6b7280;
+            font-weight: 600;
+        }
+
+        /* Page Sections */
+        .page-content {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: none;
+            opacity: 0;
+        }
+
+        .page-content.active {
+            display: block;
+            animation: fadeInPage 0.8s ease forwards;
+        }
+
+        @keyframes fadeInPage {
+            from { 
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            font-size: 1.15rem;
+            color: #6b7280;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Grid Layouts */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            border: 2px solid transparent;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+            box-shadow: 0 20px 50px rgba(45, 158, 156, 0.2);
+        }
+
+        .card-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover .card-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .card-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        .card-text {
+            color: #6b7280;
+            line-height: 1.7;
+        }
+
+        /* Image Cards */
+        .image-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+        }
+
+        .image-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 60px rgba(45, 158, 156, 0.2);
+        }
+
+        .image-placeholder {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .image-card:hover .image-placeholder {
+            transform: scale(1.05);
+        }
+
+        .image-card-content {
+            padding: 2rem;
+        }
+
+        .image-card-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+        }
+
+        .image-card-text {
+            color: #6b7280;
+            line-height: 1.6;
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Testimonial Slider */
+        .testimonial-slider {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 4rem;
+        }
+
+        .testimonial-track {
+            overflow: hidden;
+        }
+
+        .testimonial-item {
+            background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+            padding: 3rem;
+            border-radius: 25px;
+            text-align: center;
+            display: none;
+            animation: slideIn 0.6s ease;
+        }
+
+        .testimonial-item.active {
+            display: block;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .testimonial-avatar {
+            width: 80px;
+            height: 80px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            margin: 0 auto 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .testimonial-item:hover .testimonial-avatar {
+            transform: scale(1.1);
+        }
+
+        .testimonial-text {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: #374151;
+            font-style: italic;
+            margin-bottom: 1.5rem;
+        }
+
+        .testimonial-author {
+            font-weight: 700;
+            color: var(--dark);
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .testimonial-location {
+            color: #6b7280;
+        }
+
+        .testimonial-stars {
+            color: var(--accent);
+            font-size: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px;
+            background: white;
+            border: 2px solid var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--primary);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+
+        .slider-btn:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .slider-btn.prev {
+            left: 0;
+        }
+
+        .slider-btn.next {
+            right: 0;
+        }
+
+        /* Registration Form */
+        .registration-section {
+            background: var(--primary-dark);
+            padding: 5rem 2rem;
+        }
+
+        .registration-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .registration-header {
+            text-align: center;
+            color: white;
+            margin-bottom: 3rem;
+        }
+
+        .registration-header h2 {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+        }
+
+        .registration-header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .form-container {
+            background: white;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .form-container iframe {
+            width: 100%;
+            min-height: 1400px;
+            border: none;
+            display: block;
+            background: white;
+        }
+
+        .whatsapp-prompt {
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            padding: 2.5rem;
+            text-align: center;
+            color: white;
+        }
+
+        .whatsapp-prompt h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .whatsapp-prompt p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .btn-whatsapp {
+            background: white;
+            color: #128C7E;
+            padding: 1.2rem 3rem;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-whatsapp:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
+        }
+
+        /* WhatsApp Float */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 55px;
+            height: 55px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 30px rgba(37, 211, 102, 0.4);
+            z-index: 999;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            animation: bounceFloat 3s ease-in-out infinite;
+        }
+
+        @keyframes bounceFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .whatsapp-float svg {
+            width: 30px;
+            height: 30px;
+            fill: white;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.15) translateY(0);
+            box-shadow: 0 12px 40px rgba(37, 211, 102, 0.5);
+            animation: none;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 3rem 2rem 2rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-logo {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-logo img {
+            width: 100px;
+            height: 100px;
+            object-fit: contain;
+            margin: 0 auto;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+
+        .social-link {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: white;
+        }
+
+        .social-link:hover {
+            background: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        /* Pricing Cards */
+        .pricing-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .pricing-card {
+            background: white;
+            padding: 3rem;
+            border-radius: 25px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+            border: 3px solid transparent;
+            text-align: center;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+            box-shadow: 0 20px 60px rgba(45, 158, 156, 0.2);
+        }
+
+        .pricing-card.featured {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .pricing-card.featured:hover {
+            transform: scale(1.08) translateY(-10px);
+        }
+
+        .pricing-icon {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .pricing-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .pricing-price {
+            font-size: 3rem;
+            font-weight: 900;
+            margin: 1.5rem 0;
+        }
+
+        .pricing-period {
+            font-size: 1rem;
+            opacity: 0.8;
+            margin-bottom: 2rem;
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+
+        .pricing-features li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .pricing-card.featured .pricing-features li {
+            border-bottom-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .pricing-features li::before {
+            content: '✓';
+            margin-right: 0.8rem;
+            color: var(--primary);
+            font-weight: 900;
+        }
+
+        .pricing-card.featured .pricing-features li::before {
+            color: var(--accent);
+        }
+
+        /* Courses Preview */
+        .courses-preview {
+            padding: 5rem 2rem;
+            background: var(--light);
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-toggle {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .stats-container {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+
+            .stat-item {
+                padding: 1.5rem 0.5rem;
+            }
+
+            .stat-number {
+                font-size: 2.5rem;
+            }
+
+            .stat-label {
+                font-size: 0.9rem;
+            }
+
+            .grid-3 {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 2.2rem;
+            }
+
+            .testimonial-slider {
+                padding: 0 3rem;
+            }
+
+            .slider-btn {
+                width: 45px;
+                height: 45px;
+                font-size: 1.3rem;
+            }
+
+            .pricing-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-card.featured {
+                transform: scale(1);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .stats-container {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .stat-item {
+                padding: 1rem 0.5rem;
+            }
+
+            .stat-number {
+                font-size: 2rem;
+            }
+
+            .btn {
+                padding: 1rem 2rem;
+                font-size: 0.95rem;
+            }
+
+            .testimonial-slider {
+                padding: 0 2.5rem;
+            }
+
+            .slider-btn {
+                width: 40px;
+                height: 40px;
+            }
+
+            .mobile-menu {
+                width: 280px;
+            }
+
+            .registration-header h2 {
+                font-size: 2rem;
+            }
+
+            .whatsapp-prompt h3 {
+                font-size: 1.4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Page Loader -->
+    <div class="page-loader" id="pageLoader">
+        <img src="logo4.png" alt="Saham Academy" class="loader-icon">
+        
+        <div class="loader-bar">
+            <div class="loader-progress"></div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="logo" onclick="showPage('home')">
+                <img src="logo2.png" alt="Saham Academy" class="logo-icon">
+                <span>SAHAM ACADEMY</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#" onclick="showPage('home'); return false;">Home</a></li>
+                <li><a href="#" onclick="showPage('courses'); return false;">Courses</a></li>
+                <li><a href="#" onclick="showPage('pricing'); return false;">Pricing</a></li>
+                <li><a href="#" onclick="showPage('about'); return false;">About</a></li>
+                <li><a href="#" onclick="showPage('register'); return false;">Register</a></li>
+                <li><a href="#" onclick="showPage('contact'); return false;">Contact</a></li>
+            </ul>
+            <div class="mobile-toggle" id="mobileToggle" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-header">
+            <div class="mobile-logo">
+                <img src="logo2.png" alt="Saham Academy">
+                <span style="font-weight: 1000; color: var(--primary);">SAHAM</span>
+            </div>
+            <div class="mobile-close" onclick="closeMobileMenu()">✕</div>
+        </div>
+        <ul>
+            <li><a href="#" onclick="showPage('home'); closeMobileMenu();">Home</a></li>
+            <li><a href="#" onclick="showPage('courses'); closeMobileMenu();">Courses</a></li>
+            <li><a href="#" onclick="showPage('pricing'); closeMobileMenu();">Pricing</a></li>
+            <li><a href="#" onclick="showPage('about'); closeMobileMenu();">About</a></li>
+            <li><a href="#" onclick="showPage('register'); closeMobileMenu();">Register</a></li>
+            <li><a href="#" onclick="showPage('contact'); closeMobileMenu();">Contact</a></li>
+        </ul>
+    </div>
+
+    <!-- HOME PAGE -->
+    <div id="homePage">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <div class="hero-badge">✨ JOIN 500+ STUDENTS WORLDWIDE</div>
+                    <h1>Transform Your Life Through <span>Qur'anic Excellence</span></h1>
+                    <div class="hero-buttons">
+                        <a href="#" onclick="showPage('register'); return false;" class="btn btn-primary">
+                            Start Free Trial →
+                        </a>
+                        <a href="#" onclick="showPage('courses'); return false;" class="btn btn-secondary">
+                            Explore Courses
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="logo4.png" alt="Saham Academy" style="max-width: 400px; width: 100%; height: auto; display: block; margin: 0 auto; filter: drop-shadow(0 20px 50px rgba(0, 0, 0, 0.3));">
+                </div>
+            </div>
+        </section>
+
+        <!-- Simple Stats -->
+        <section class="stats">
+            <div class="stats-container">
+                <div class="stat-item">
+                    <div class="stat-number" data-target="15">0</div>
+                    <div class="stat-label">Countries</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="500">0</div>
+                    <div class="stat-label">Students</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="50">0</div>
+                    <div class="stat-label">Hifdh Completed</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">Support</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Courses Preview on Home -->
+        <section class="courses-preview">
+            <div style="text-align: center; margin-bottom: 3rem;">
+                <h2 style="font-size: 2.8rem; font-weight: 900; color: var(--dark); margin-bottom: 1rem;">Our Courses</h2>
+                <p style="font-size: 1.15rem; color: #6b7280;">Comprehensive Islamic education programs designed for excellence</p>
+            </div>
+            <div style="max-width: 1200px; margin: 0 auto;">
+                <div class="grid-3">
+                    <div class="image-card">
+                        <div class="image-placeholder">📖</div>
+                        <div class="image-card-content">
+                            <h3 class="image-card-title">Qur'an Memorisation (Hifdh)</h3>
+                            <p class="image-card-text">Master Qur'an memorization with proven techniques, daily practice sessions, and personalized feedback from experienced Hafidhs.</p>
+                        </div>
+                    </div>
+                    <div class="image-card">
+                        <div class="image-placeholder">🎵</div>
+                        <div class="image-card-content">
+                            <h3 class="image-card-title">Tajweed & Recitation</h3>
+                            <p class="image-card-text">Perfect your recitation with proper Tajweed rules, beautiful pronunciation, and authentic Qira'at from certified instructors.</p>
+                        </div>
+                    </div>
+                    <div class="image-card">
+                        <div class="image-placeholder">📚</div>
+                        <div class="image-card-content">
+                            <h3 class="image-card-title">Arabic Language</h3>
+                            <p class="image-card-text">Learn classical Arabic to understand the Qur'an deeply, from basic reading to advanced grammar and vocabulary.</p>
+                        </div>
+                    </div>
+                </div>
+                <div style="text-align: center; margin-top: 3rem;">
+                    <a href="#" onclick="showPage('courses'); return false;" class="btn btn-primary">View All Courses →</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials on Home Page -->
+        <section style="padding: 5rem 2rem; background: white;">
+            <div style="text-align: center; margin-bottom: 3rem;">
+                <h2 style="font-size: 2.8rem; font-weight: 900; color: var(--dark); margin-bottom: 1rem;">What Our Students Say</h2>
+                <p style="font-size: 1.15rem; color: #6b7280;">Real transformations from real students around the world</p>
+            </div>
+
+            <div class="testimonial-slider">
+                <div class="slider-btn prev" onclick="changeTestimonial(-1)">‹</div>
+                <div class="slider-btn next" onclick="changeTestimonial(1)">›</div>
+                
+                <div class="testimonial-track">
+                    <div class="testimonial-item active">
+                        <div class="testimonial-avatar">👩</div>
+                        <p class="testimonial-text">"Alhamdulillah! Completed my Hifdh in 2 years with Saham Academy. The teachers are patient, knowledgeable, and truly care about your progress. The flexible schedule allowed me to learn while working full-time. Best decision I ever made!"</p>
+                        <div class="testimonial-author">Fatima Ahmed</div>
+                        <div class="testimonial-location">🇰🇪 Nairobi, Kenya</div>
+                        <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                    </div>
+
+                    <div class="testimonial-item">
+                        <div class="testimonial-avatar">👨</div>
+                        <p class="testimonial-text">"My Tajweed improved dramatically in just 3 months. Sheikh Ahmed's teaching method is clear and easy to understand. I can now recite with confidence and proper pronunciation. The online format is convenient and professional."</p>
+                        <div class="testimonial-author">Abdullah Hassan</div>
+                        <div class="testimonial-location">🇬🇧 London, United Kingdom</div>
+                        <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                    </div>
+
+                    <div class="testimonial-item">
+                        <div class="testimonial-avatar">👧</div>
+                        <p class="testimonial-text">"Started as a complete beginner with zero Arabic knowledge. Within 4 months, I could read Qur'an fluently with proper Tajweed. The teachers are encouraging, supportive, and make learning enjoyable. Highly recommend Saham Academy!"</p>
+                        <div class="testimonial-author">Aisha Mohammed</div>
+                        <div class="testimonial-location">🇺🇸 New York, USA</div>
+                        <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                    </div>
+
+                    <div class="testimonial-item">
+                        <div class="testimonial-avatar">👨‍🦱</div>
+                        <p class="testimonial-text">"The personalized 1-on-1 Zoom sessions are excellent. Sheikh Ibrahim helped me understand Arabic grammar which transformed how I understand the Qur'an. The investment is worth every penny. Professional and dedicated teachers."</p>
+                        <div class="testimonial-author">Omar Khalid</div>
+                        <div class="testimonial-location">🇦🇪 Dubai, UAE</div>
+                        <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- COURSES PAGE -->
+    <div id="coursesPage" class="page-content">
+        <div class="section-header">
+            <h2 class="section-title">Our Courses</h2>
+            <p class="section-subtitle">Comprehensive Islamic education programs designed for excellence</p>
+        </div>
+        <div class="grid-3">
+            <div class="image-card">
+                <div class="image-placeholder">📖</div>
+                <div class="image-card-content">
+                    <h3 class="image-card-title">Qur'an Memorisation (Hifdh)</h3>
+                    <p class="image-card-text">Master Qur'an memorization with proven techniques, daily practice sessions, regular revision schedules, and personalized feedback from experienced Hafidhs with Ijazah.</p>
+                    <a href="#" onclick="showPage('register'); return false;" class="btn btn-primary" style="display: inline-block; margin-top: 1rem; padding: 0.8rem 2rem; font-size: 0.9rem;">Register Now →</a>
+                </div>
+            </div>
+            <div class="image-card">
+                <div class="image-placeholder">🎵</div>
+                <div class="image-card-content">
+                    <h3 class="image-card-title">Tajweed & Recitation</h3>
+                    <p class="image-card-text">Perfect your recitation with proper Tajweed rules, beautiful pronunciation, authentic Qira'at, and step-by-step guidance from certified instructors.</p>
+                    <a href="#" onclick="showPage('register'); return false;" class="btn btn-primary" style="display: inline-block; margin-top: 1rem; padding: 0.8rem 2rem; font-size: 0.9rem;">Register Now →</a>
+                </div>
+            </div>
+            <div class="image-card">
+                <div class="image-placeholder">📚</div>
+                <div class="image-card-content">
+                    <h3 class="image-card-title">Arabic Language</h3>
+                    <p class="image-card-text">Learn classical Arabic to understand the Qur'an deeply, from basic reading and writing to advanced grammar, morphology, and vocabulary.</p>
+                    <a href="#" onclick="showPage('register'); return false;" class="btn btn-primary" style="display: inline-block; margin-top: 1rem; padding: 0.8rem 2rem; font-size: 0.9rem;">Register Now →</a>
+                </div>
+            </div>
+            <div class="image-card">
+                <div class="image-placeholder">👶</div>
+                <div class="image-card-content">
+                    <h3 class="image-card-title">Qur'an for Kids</h3>
+                    <p class="image-card-text">Engaging and fun Qur'an classes specifically designed for children with interactive methods, games, and age-appropriate materials.</p>
+                    <a href="#" onclick="showPage('register'); return false;" class="btn btn-primary" style="display: inline-block; margin-top: 1rem; padding: 0.8rem 2rem; font-size: 0.9rem;">Register Now →</a>
+                </div>
+            </div>
+            <div class="image-card" style="opacity: 0.6; position: relative;">
+                <div style="position: absolute; top: 1rem; right: 1rem; background: var(--accent); color: var(--dark); padding: 0.5rem 1rem; border-radius: 8px; font-weight: 700; font-size: 0.85rem; z-index: 10;">COMING SOON</div>
+                <div class="image-placeholder">📿</div>
+                <div class="image-card-content">
+                    <h3 class="image-card-title">Islamic Studies</h3>
+                    <p class="image-card-text">Comprehensive Islamic education covering Aqeedah, Fiqh, Hadith, Seerah, and essential knowledge for every Muslim.</p>
+                    <button disabled class="btn btn-primary" style="display: inline-block; margin-top: 1rem; padding: 0.8rem 2rem; font-size: 0.9rem; opacity: 0.5; cursor: not-allowed;">Coming Soon</button>
+                </div>
+            </div>
+            <div class="image-card" style="opacity: 0.6; position: relative;">
+                <div style="position: absolute; top: 1rem; right: 1rem; background: var(--accent); color: var(--dark); padding: 0.5rem 1rem; border-radius: 8px; font-weight: 700; font-size: 0.85rem; z-index: 10;">COMING SOON</div>
+                <div class="image-placeholder">🎓</div>
+                <div class="image-card-content">
+                    <h3 class="image-card-title">Ijazah Program</h3>
+                    <p class="image-card-text">Obtain authentic Ijazah certification in Qur'an recitation with connected chains (Sanad) to the Prophet Muhammad (ﷺ).</p>
+                    <button disabled class="btn btn-primary" style="display: inline-block; margin-top: 1rem; padding: 0.8rem 2rem; font-size: 0.9rem; opacity: 0.5; cursor: not-allowed;">Coming Soon</button>
+                </div>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 4rem;">
+            <a href="#" onclick="showPage('register'); return false;" class="btn btn-primary" style="font-size: 1.2rem; padding: 1.3rem 3.5rem;">Enroll Now →</a>
+        </div>
+    </div>
+
+    <!-- PRICING PAGE -->
+    <div id="pricingPage" class="page-content">
+        <div class="section-header">
+            <h2 class="section-title">Affordable Pricing Plans</h2>
+            <p class="section-subtitle">Choose the learning format that works best for you</p>
+        </div>
+        
+        <div class="pricing-cards">
+            <div class="pricing-card">
+                <div class="pricing-icon">💬</div>
+                <h3 class="pricing-title">WhatsApp Classes</h3>
+                <div class="pricing-price">40K UGX</div>
+                <div class="pricing-period">per month</div>
+                <ul class="pricing-features">
+                    <li>Daily lessons via WhatsApp</li>
+                    <li>Voice note corrections</li>
+                    <li>Flexible timing</li>
+                    <li>Progress tracking</li>
+                    <li>Study materials included</li>
+                    <li>24/7 support</li>
+                </ul>
+                <a href="#" onclick="showPage('register'); return false;" class="btn btn-primary" style="width: 100%;">Get Started</a>
+            </div>
+
+            <div class="pricing-card featured">
+                <div class="pricing-icon">📹</div>
+                <h3 class="pricing-title">Zoom 1-on-1</h3>
+                <div class="pricing-price">60K UGX</div>
+                <div class="pricing-period">per month</div>
+                <ul class="pricing-features">
+                    <li>Live video sessions</li>
+                    <li>Personalized attention</li>
+                    <li>Screen sharing for Tajweed</li>
+                    <li>Recorded sessions</li>
+                    <li>Interactive whiteboard</li>
+                    <li>Priority support</li>
+                    <li>Flexible scheduling</li>
+                </ul>
+                <a href="#" onclick="showPage('register'); return false;" class="btn btn-primary" style="width: 100%; background: white; color: var(--primary-dark);">Get Started</a>
+            </div>
+        </div>
+
+        <div style="max-width: 700px; margin: 4rem auto; background: linear-gradient(135deg, #f0fdf4, #dcfce7); padding: 3rem; border-radius: 25px; text-align: center;">
+            <h3 style="font-size: 2rem; margin-bottom: 1.5rem; color: var(--dark);">Ready to Start Learning?</h3>
+            <p style="font-size: 1.1rem; color: #6b7280; margin-bottom: 2rem; line-height: 1.8;">
+                Join hundreds of students worldwide who are transforming their lives through Qur'anic education. Register today and begin your journey!
+            </p>
+            <a href="#" onclick="showPage('register'); return false;" class="btn btn-primary" style="background: var(--primary-dark);">Register Now →</a>
+        </div>
+    </div>
+
+    <!-- ABOUT PAGE -->
+    <div id="aboutPage" class="page-content">
+        <div class="section-header">
+            <h2 class="section-title">About Saham Academy</h2>
+            <p class="section-subtitle">Excellence in Islamic education from Kampala, Uganda to the world</p>
+        </div>
+        
+        <div style="max-width: 800px; margin: 0 auto 4rem; text-align: center;">
+            <div style="width: 100%; height: 400px; background: linear-gradient(135deg, var(--primary-dark), var(--primary)); border-radius: 20px; display: flex; align-items: center; justify-content: center; margin-bottom: 2rem;">
+                <img src="logo4.png" alt="Saham Academy" style="width: 400px; height: 400px; object-fit: contain;">
+            </div>
+            <p style="font-size: 1.15rem; line-height: 1.9; color: #6b7280; margin-bottom: 1.5rem;">
+                Founded in Kampala, Uganda, Saham Qur'an Academy is dedicated to making authentic Islamic education accessible to Muslims worldwide. We combine traditional teaching methods with modern technology to deliver world-class Qur'anic education.
+            </p>
+            <p style="font-size: 1.15rem; line-height: 1.9; color: #6b7280; margin-bottom: 1.5rem;">
+                Our mission is to nurture strong, confident, and knowledgeable Muslims who embody the teachings of the Qur'an in their daily lives. With over 10 years of combined teaching experience, our certified instructors have helped hundreds of students achieve their Islamic educational goals.
+            </p>
+            <p style="font-size: 1.15rem; line-height: 1.9; color: #6b7280;">
+                Whether you're a complete beginner or seeking advanced Islamic knowledge, we provide personalized learning experiences tailored to your pace and goals.
+            </p>
+        </div>
+
+        <h3 style="text-align: center; font-size: 2.5rem; font-weight: 900; margin-bottom: 3rem;">Meet Our Expert Team</h3>
+        <div class="grid-3">
+            <div class="image-card">
+                <div class="image-placeholder">👨‍🏫</div>
+                <div class="image-card-content">
+                    <h3 class="image-card-title">Sheikh Saham</h3>
+                    <p style="color: var(--primary-dark); font-weight: 700; margin-bottom: 0.8rem;">Founder & Director</p>
+                    <p class="image-card-text">Hafidh with Ijazah and 15+ years of teaching experience in Qur'anic sciences. Specializes in Hifdh programs and advanced Tajweed.</p>
+                </div>
+            </div>
+            <div class="image-card">
+                <div class="image-placeholder">👨‍🎓</div>
+                <div class="image-card-content">
+                    <h3 class="image-card-title">Sheikh Ahmed</h3>
+                    <p style="color: var(--primary-dark); font-weight: 700; margin-bottom: 0.8rem;">Senior Instructor</p>
+                    <p class="image-card-text">Expert in Tajweed with 10+ years experience and Ijazah from Al-Azhar University. Patient and skilled at teaching students of all levels.</p>
+                </div>
+            </div>
+            <div class="image-card">
+                <div class="image-placeholder">👨‍💼</div>
+                <div class="image-card-content">
+                    <h3 class="image-card-title">Sheikh Ibrahim</h3>
+                    <p style="color: var(--primary-dark); font-weight: 700; margin-bottom: 0.8rem;">Arabic Specialist</p>
+                    <p class="image-card-text">Native Arabic speaker with MA in Islamic Studies and teaching certification. Makes Arabic grammar accessible and enjoyable.</p>
+                </div>
+            </div>
+        </div>
+
+        <div style="max-width: 800px; margin: 4rem auto; padding: 3rem; background: linear-gradient(135deg, var(--primary-dark), var(--primary)); border-radius: 25px; color: white; text-align: center;">
+            <h3 style="font-size: 2rem; margin-bottom: 1.5rem;">Why Choose Saham Academy?</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-top: 2rem;">
+                <div>
+                    <div style="font-size: 3rem; margin-bottom: 0.5rem;">✅</div>
+                    <strong>Certified Teachers</strong>
+                    <p style="font-size: 0.9rem; opacity: 0.9; margin-top: 0.5rem;">All instructors have Ijazah</p>
+                </div>
+                <div>
+                    <div style="font-size: 3rem; margin-bottom: 0.5rem;">⏰</div>
+                    <strong>Flexible Schedule</strong>
+                    <p style="font-size: 0.9rem; opacity: 0.9; margin-top: 0.5rem;">Learn at your own pace</p>
+                </div>
+                <div>
+                    <div style="font-size: 3rem; margin-bottom: 0.5rem;">🌍</div>
+                    <strong>Global Reach</strong>
+                    <p style="font-size: 0.9rem; opacity: 0.9; margin-top: 0.5rem;">Students in 15+ countries</p>
+                </div>
+                <div>
+                    <div style="font-size: 3rem; margin-bottom: 0.5rem;">💯</div>
+                    <strong>Proven Results</strong>
+                    <p style="font-size: 0.9rem; opacity: 0.9; margin-top: 0.5rem;">50+ students completed Hifdh</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- REGISTRATION PAGE -->
+    <div id="registerPage" class="page-content" style="padding: 6rem 0;">
+        <div class="registration-section" style="margin: 0; padding: 5rem 2rem;">
+            <div class="registration-container">
+                <div class="registration-header">
+                    <h2>Start Your Qur'anic Journey Today</h2>
+                    <p>Fill out the form below to register for our Qur'an classes</p>
+                </div>
+
+                <div class="form-container">
+                    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSefBDvkfi731r53UJyj0eKrvY2SPlgzx779UeVv1ugehwFK8Q/viewform?embedded=true" width="100%" height="1400" frameborder="0" marginheight="0" marginwidth="0" style="border: none; background: white;">Loading…</iframe>
+                    
+                    <div class="whatsapp-prompt">
+                        <h3>📱 Complete Your Registration</h3>
+                        <p>After submitting the form above, click the button below to send us a WhatsApp message. This helps us process your registration faster and answer any questions you may have!</p>
+                        <a href="https://wa.me/256784560867?text=As-salaamu%20alaykum!%20I%20have%20just%20registered%20for%20Qur%27an%20classes%20via%20your%20website.%20My%20name%20is%20%5BYour%20Name%5D.%20I'm%20excited%20to%20start%20learning%20with%20Saham%20Academy!" class="btn-whatsapp">
+                            💬 Message Us on WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CONTACT PAGE -->
+    <div id="contactPage" class="page-content">
+        <div class="section-header">
+            <h2 class="section-title">Get in Touch</h2>
+            <p class="section-subtitle">Ready to begin your Qur'anic journey? Contact us today</p>
+        </div>
+
+        <div class="grid-3">
+            <div class="card">
+                <div class="card-icon">📱</div>
+                <h3 class="card-title">WhatsApp</h3>
+                <p class="card-text" style="font-weight: 700; color: var(--primary-dark); font-size: 1.2rem; margin-bottom: 0.5rem;">+256 784 560 867</p>
+                <p class="card-text" style="font-weight: 700; color: var(--primary-dark); font-size: 1.2rem; margin-bottom: 1rem;">+256 756 549 534</p>
+                <p class="card-text" style="margin-bottom: 1.5rem;">Fast response • Available 7 days a week</p>
+                <a href="https://wa.me/256784560867?text=Assalamu%20Alaikum!%20I'm%20interested%20in%20Saham%20Academy" class="btn btn-primary" style="display: inline-block; padding: 0.8rem 2rem; font-size: 0.9rem;">Message Us</a>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">📞</div>
+                <h3 class="card-title">Call Us</h3>
+                <p class="card-text" style="font-weight: 700; color: var(--primary-dark); font-size: 1.2rem; margin-bottom: 0.5rem;">+256 784 560 867</p>
+                <p class="card-text" style="font-weight: 700; color: var(--primary-dark); font-size: 1.2rem; margin-bottom: 1rem;">+256 756 549 534</p>
+                <p class="card-text">Available 7 days a week<br>9 AM - 9 PM EAT</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🌍</div>
+                <h3 class="card-title">Location</h3>
+                <p class="card-text" style="font-weight: 700; color: var(--primary-dark); font-size: 1.2rem; margin-bottom: 1rem;">Kampala, Uganda 🇺🇬</p>
+                <p class="card-text">Serving students worldwide through online classes via WhatsApp and Zoom</p>
+            </div>
+        </div>
+
+        <div style="max-width: 700px; margin: 4rem auto; background: linear-gradient(135deg, #f0fdf4, #dcfce7); padding: 3rem; border-radius: 25px; text-align: center;">
+            <h3 style="font-size: 2rem; margin-bottom: 1.5rem; color: var(--dark);">Ready to Enroll?</h3>
+            <p style="font-size: 1.1rem; color: #6b7280; margin-bottom: 2rem; line-height: 1.8;">
+                Contact us via WhatsApp or call to discuss your learning goals. We'll guide you through the enrollment process, answer all your questions, and help you choose the perfect course for your needs.
+            </p>
+            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-bottom: 2rem;">
+                <div style="background: white; padding: 1.5rem; border-radius: 15px;">
+                    <p style="font-weight: 700; margin-bottom: 0.5rem;">WhatsApp Classes</p>
+                    <p style="font-size: 2rem; font-weight: 900; color: var(--primary-dark);">40K UGX</p>
+                    <p style="color: #6b7280; font-size: 0.9rem;">per month</p>
+                </div>
+                <div style="background: white; padding: 1.5rem; border-radius: 15px;">
+                    <p style="font-weight: 700; margin-bottom: 0.5rem;">Zoom 1-on-1</p>
+                    <p style="font-size: 2rem; font-weight: 900; color: var(--primary-dark);">60K UGX</p>
+                    <p style="color: #6b7280; font-size: 0.9rem;">per month</p>
+                </div>
+            </div>
+            <a href="#" onclick="showPage('register'); return false;" class="btn btn-primary" style="background: var(--primary-dark);">Start Your Registration Now →</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="logo.png" alt="Saham Academy">
+            </div>
+            <h3 style="font-size: 1.8rem; margin-bottom: 1rem;">SAHAM QUR'AN ACADEMY</h3>
+            <p style="color: #9ca3af; max-width: 600px; margin: 0 auto 2rem;">Excellence in Islamic education from Kampala, Uganda to the world</p>
+            <div class="social-links">
+                <a href="https://wa.me/256784560867" class="social-link" title="WhatsApp">💬</a>
+                <a href="https://instagram.com/sahamacademy" class="social-link" title="Instagram">📷</a>
+                <a href="https://tiktok.com/@sahamacademy" class="social-link" title="TikTok">🎵</a>
+            </div>
+            <p style="color: #6b7280; font-size: 0.9rem; margin-top: 2rem;">© 2024 Saham Qur'an Academy | May Allah accept our efforts 🤲</p>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float -->
+    <a href="https://wa.me/256784560867?text=Assalamu%20Alaikum!" class="whatsapp-float" title="Chat on WhatsApp">
+        <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M16 0c-8.837 0-16 7.163-16 16 0 2.825 0.737 5.607 2.137 8.048l-2.137 7.952 7.933-2.127c2.42 1.37 5.173 2.127 8.067 2.127 8.837 0 16-7.163 16-16s-7.163-16-16-16zM16 29.467c-2.482 0-4.908-0.646-7.07-1.87l-0.507-0.292-4.713 1.262 1.262-4.669-0.292-0.508c-1.207-2.100-1.847-4.507-1.847-6.924 0-7.435 6.050-13.485 13.485-13.485s13.485 6.050 13.485 13.485c0 7.435-6.050 13.485-13.485 13.485zM21.798 18.614c-0.337-0.169-1.994-0.984-2.303-1.097-0.31-0.112-0.535-0.169-0.76 0.169s-0.875 1.097-1.072 1.323c-0.197 0.225-0.394 0.253-0.731 0.084s-1.425-0.525-2.714-1.675c-1.003-0.894-1.681-1.999-1.878-2.337s-0.021-0.52 0.148-0.688c0.152-0.152 0.337-0.394 0.506-0.591s0.225-0.337 0.337-0.563c0.112-0.225 0.056-0.422-0.028-0.591s-0.76-1.831-1.041-2.508c-0.274-0.66-0.552-0.571-0.76-0.581-0.197-0.010-0.422-0.012-0.647-0.012s-0.591 0.084-0.9 0.422c-0.31 0.337-1.181 1.153-1.181 2.808s1.209 3.258 1.378 3.483c0.169 0.225 2.382 3.637 5.771 5.101 0.806 0.348 1.435 0.556 1.925 0.713 0.809 0.256 1.544 0.22 2.126 0.133 0.648-0.097 1.994-0.815 2.275-1.602s0.281-1.462 0.197-1.602c-0.084-0.14-0.31-0.225-0.647-0.394z" fill="white"/>
+        </svg>
+    </a>
+
+    <script>
+        // Page Loader
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('pageLoader').classList.add('hide');
+            }, 2000);
+        });
+
+        // Navbar Scroll Effect
+        let lastScroll = 0;
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+            lastScroll = currentScroll;
+        });
+
+        // Page Navigation
+        function showPage(page) {
+            // Hide all pages
+            document.getElementById('homePage').style.display = 'none';
+            document.querySelectorAll('.page-content').forEach(p => {
+                p.classList.remove('active');
+            });
+
+            // Show selected page
+            if (page === 'home') {
+                document.getElementById('homePage').style.display = 'block';
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            } else {
+                const pageElement = document.getElementById(page + 'Page');
+                if (pageElement) {
+                    pageElement.classList.add('active');
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+            }
+
+            // Close mobile menu if open
+            closeMobileMenu();
+        }
+
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            const mobileToggle = document.getElementById('mobileToggle');
+            mobileMenu.classList.toggle('active');
+            mobileToggle.classList.toggle('active');
+        }
+
+        function closeMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            const mobileToggle = document.getElementById('mobileToggle');
+            mobileMenu.classList.remove('active');
+            mobileToggle.classList.remove('active');
+        }
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            const mobileMenu = document.getElementById('mobileMenu');
+            const mobileToggle = document.getElementById('mobileToggle');
+            
+            if (mobileMenu.classList.contains('active') && 
+                !mobileMenu.contains(e.target) && 
+                !mobileToggle.contains(e.target)) {
+                closeMobileMenu();
+            }
+        });
+
+        // Counter Animation
+        function animateCounter(element, target) {
+            let current = 0;
+            const increment = target / 80;
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    element.textContent = target + '+';
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(current) + '+';
+                }
+            }, 25);
+        }
+
+        // Intersection Observer for Counters
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counters = document.querySelectorAll('.stat-number[data-target]');
+                    counters.forEach(counter => {
+                        const target = parseInt(counter.getAttribute('data-target'));
+                        if (!isNaN(target)) {
+                            animateCounter(counter, target);
+                        }
+                    });
+                    counterObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        const statsSection = document.querySelector('.stats');
+        if (statsSection) {
+            counterObserver.observe(statsSection);
+        }
+
+        // Testimonial Slider
+        let currentTestimonial = 0;
+        const testimonials = document.querySelectorAll('.testimonial-item');
+
+        function showTestimonial(index) {
+            testimonials.forEach((item, i) => {
+                item.classList.remove('active');
+                if (i === index) {
+                    item.classList.add('active');
+                }
+            });
+        }
+
+        function changeTestimonial(direction) {
+            currentTestimonial += direction;
+            if (currentTestimonial >= testimonials.length) {
+                currentTestimonial = 0;
+            } else if (currentTestimonial < 0) {
+                currentTestimonial = testimonials.length - 1;
+            }
+            showTestimonial(currentTestimonial);
+        }
+
+        // Auto-play testimonials
+        setInterval(() => {
+            changeTestimonial(1);
+        }, 5000);
+
+        // Keyboard Navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                showPage('home');
+            }
+            if (e.key === 'ArrowLeft') {
+                changeTestimonial(-1);
+            }
+            if (e.key === 'ArrowRight') {
+                changeTestimonial(1);
+            }
+        });
+
+        // Smooth Scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = this.getAttribute('href').substring(1);
+                const element = document.getElementById(target);
+                if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
