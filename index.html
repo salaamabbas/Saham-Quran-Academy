@@ -643,19 +643,14 @@
             }
         }
 
-        .testimonial-avatar {
-            width: 80px;
-            height: 80px;
-            background: var(--primary);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            margin: 0 auto 1.5rem;
-            transition: transform 0.3s ease;
-        }
-
+  .testimonial-avatar-img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--primary);
+    margin-bottom: 1.5rem;
+}
         .testimonial-item:hover .testimonial-avatar {
             transform: scale(1.1);
         }
@@ -1181,154 +1176,164 @@
             </div>
         </section>
 
-        <!-- Courses Preview on Home -->
-        <section class="courses-preview">
-            <div style="text-align: center; margin-bottom: 3rem;">
-                <h2 style="font-size: 2.8rem; font-weight: 900; color: var(--dark); margin-bottom: 1rem;">Our Courses</h2>
-                <p style="font-size: 1.15rem; color: #6b7280;">Comprehensive Islamic education programs designed for excellence</p>
-            </div>
-            <div style="max-width: 1200px; margin: 0 auto;">
-                <div class="grid-3">
-                    <div class="image-card">
-                        <div class="image-placeholder">📖</div>
-                        <div class="image-card-content">
-                            <h3 class="image-card-title">Qur'an Memorisation (Hifdh)</h3>
-                            <p class="image-card-text">Master Qur'an memorization with proven techniques, daily practice sessions, and personalized feedback from experienced Hafidhs.</p>
-                        </div>
-                    </div>
-                    <div class="image-card">
-                        <div class="image-placeholder">🎵</div>
-                        <div class="image-card-content">
-                            <h3 class="image-card-title">Tajweed & Recitation</h3>
-                            <p class="image-card-text">Perfect your recitation with proper Tajweed rules, beautiful pronunciation, and authentic Qira'at from certified instructors.</p>
-                        </div>
-                    </div>
-                    <div class="image-card">
-                        <div class="image-placeholder">📚</div>
-                        <div class="image-card-content">
-                            <h3 class="image-card-title">Arabic Language</h3>
-                            <p class="image-card-text">Learn classical Arabic to understand the Qur'an deeply, from basic reading to advanced grammar and vocabulary.</p>
-                        </div>
-                    </div>
-                </div>
-                <div style="text-align: center; margin-top: 3rem;">
-                    <a href="#" onclick="showPage('courses'); return false;" class="btn btn-primary">View All Courses →</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Testimonials on Home Page -->
-        <section style="padding: 5rem 2rem; background: white;">
-            <div style="text-align: center; margin-bottom: 3rem;">
-                <h2 style="font-size: 2.8rem; font-weight: 900; color: var(--dark); margin-bottom: 1rem;">What Our Students Say</h2>
-                <p style="font-size: 1.15rem; color: #6b7280;">Real transformations from real students around the world</p>
-            </div>
-
-            <div class="testimonial-slider">
-                <div class="slider-btn prev" onclick="changeTestimonial(-1)">‹</div>
-                <div class="slider-btn next" onclick="changeTestimonial(1)">›</div>
-                
-                <div class="testimonial-track">
-                    <div class="testimonial-item active">
-                        <div class="testimonial-avatar">👩</div>
-                        <p class="testimonial-text">"Alhamdulillah! Completed my Hifdh in 2 years with Saham Academy. The teachers are patient, knowledgeable, and truly care about your progress. The flexible schedule allowed me to learn while working full-time. Best decision I ever made!"</p>
-                        <div class="testimonial-author">Fatima Ahmed</div>
-                        <div class="testimonial-location">🇰🇪 Nairobi, Kenya</div>
-                        <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
-                    </div>
-
-                    <div class="testimonial-item">
-                        <div class="testimonial-avatar">👨</div>
-                        <p class="testimonial-text">"My Tajweed improved dramatically in just 3 months. Sheikh Ahmed's teaching method is clear and easy to understand. I can now recite with confidence and proper pronunciation. The online format is convenient and professional."</p>
-                        <div class="testimonial-author">Abdullah Hassan</div>
-                        <div class="testimonial-location">🇬🇧 London, United Kingdom</div>
-                        <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
-                    </div>
-
-                    <div class="testimonial-item">
-                        <div class="testimonial-avatar">👧</div>
-                        <p class="testimonial-text">"Started as a complete beginner with zero Arabic knowledge. Within 4 months, I could read Qur'an fluently with proper Tajweed. The teachers are encouraging, supportive, and make learning enjoyable. Highly recommend Saham Academy!"</p>
-                        <div class="testimonial-author">Aisha Mohammed</div>
-                        <div class="testimonial-location">🇺🇸 New York, USA</div>
-                        <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
-                    </div>
-
-                    <div class="testimonial-item">
-                        <div class="testimonial-avatar">👨‍🦱</div>
-                        <p class="testimonial-text">"The personalized 1-on-1 Zoom sessions are excellent. Sheikh Ibrahim helped me understand Arabic grammar which transformed how I understand the Qur'an. The investment is worth every penny. Professional and dedicated teachers."</p>
-                        <div class="testimonial-author">Omar Khalid</div>
-                        <div class="testimonial-location">🇦🇪 Dubai, UAE</div>
-                        <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
-                    </div>
-                </div>
-            </div>
-        </section>
+      <!-- Courses Preview on Home -->
+<section class="courses-preview">
+    <div style="text-align: center; margin-bottom: 3rem;">
+        <h2 style="font-size: 2.8rem; font-weight: 900; color: var(--dark); margin-bottom: 1rem;">Our Courses</h2>
+        <p style="font-size: 1.15rem; color: #6b7280;">Comprehensive Islamic education programs designed for excellence</p>
     </div>
-
-    <!-- COURSES PAGE -->
-    <div id="coursesPage" class="page-content">
-        <div class="section-header">
-            <h2 class="section-title">Our Courses</h2>
-            <p class="section-subtitle">Comprehensive Islamic education programs designed for excellence</p>
-        </div>
+    <div style="max-width: 1200px; margin: 0 auto;">
         <div class="grid-3">
             <div class="image-card">
-                <div class="image-placeholder">📖</div>
+                <!-- Real image for Qur'an Memorisation (Hifdh) -->
+                <img src="https://www.fajralquran.com/blog/wp-content/uploads/2025/11/01-Quran-Memorization-Program.jpg" alt="Student memorizing Quran with guidance in Hifz program" style="width: 100%; height: 250px; object-fit: cover; border-radius: 8px 8px 0 0;">
                 <div class="image-card-content">
                     <h3 class="image-card-title">Qur'an Memorisation (Hifdh)</h3>
-                    <p class="image-card-text">Master Qur'an memorization with proven techniques, daily practice sessions, regular revision schedules, and personalized feedback from experienced Hafidhs with Ijazah.</p>
-                    <a href="#" onclick="showPage('register'); return false;" class="btn btn-primary" style="display: inline-block; margin-top: 1rem; padding: 0.8rem 2rem; font-size: 0.9rem;">Register Now →</a>
+                    <p class="image-card-text">Master Qur'an memorization with proven techniques, daily practice sessions, and personalized feedback from experienced Hafidhs.</p>
                 </div>
             </div>
             <div class="image-card">
-                <div class="image-placeholder">🎵</div>
+                <!-- Real image for Tajweed & Recitation -->
+                <img src="https://cdn-gblnp.nitrocdn.com/ckHDmEwPmzNuYYSirDDoRUCcNbqqNPjc/assets/images/optimized/rev-5ce5f86/www.getquranic.com/wp-content/uploads/2021/11/syed-aoun-abbas-RwWh6HbkP-s-unsplash-min-min-1080x675.jpg" alt="Muslim reciting Quran with proper Tajweed" style="width: 100%; height: 250px; object-fit: cover; border-radius: 8px 8px 0 0;">
                 <div class="image-card-content">
                     <h3 class="image-card-title">Tajweed & Recitation</h3>
-                    <p class="image-card-text">Perfect your recitation with proper Tajweed rules, beautiful pronunciation, authentic Qira'at, and step-by-step guidance from certified instructors.</p>
-                    <a href="#" onclick="showPage('register'); return false;" class="btn btn-primary" style="display: inline-block; margin-top: 1rem; padding: 0.8rem 2rem; font-size: 0.9rem;">Register Now →</a>
+                    <p class="image-card-text">Perfect your recitation with proper Tajweed rules, beautiful pronunciation, and authentic Qira'at from certified instructors.</p>
                 </div>
             </div>
             <div class="image-card">
-                <div class="image-placeholder">📚</div>
+                <!-- Real image for Arabic Language -->
+                <img src="https://mishkahacademy.com/wp-content/uploads/2023/11/Online-Quranic-Arabic-Course.jpg" alt="Online class learning Quranic Arabic language" style="width: 100%; height: 250px; object-fit: cover; border-radius: 8px 8px 0 0;">
                 <div class="image-card-content">
                     <h3 class="image-card-title">Arabic Language</h3>
-                    <p class="image-card-text">Learn classical Arabic to understand the Qur'an deeply, from basic reading and writing to advanced grammar, morphology, and vocabulary.</p>
-                    <a href="#" onclick="showPage('register'); return false;" class="btn btn-primary" style="display: inline-block; margin-top: 1rem; padding: 0.8rem 2rem; font-size: 0.9rem;">Register Now →</a>
-                </div>
-            </div>
-            <div class="image-card">
-                <div class="image-placeholder">👶</div>
-                <div class="image-card-content">
-                    <h3 class="image-card-title">Qur'an for Kids</h3>
-                    <p class="image-card-text">Engaging and fun Qur'an classes specifically designed for children with interactive methods, games, and age-appropriate materials.</p>
-                    <a href="#" onclick="showPage('register'); return false;" class="btn btn-primary" style="display: inline-block; margin-top: 1rem; padding: 0.8rem 2rem; font-size: 0.9rem;">Register Now →</a>
-                </div>
-            </div>
-            <div class="image-card" style="opacity: 0.6; position: relative;">
-                <div style="position: absolute; top: 1rem; right: 1rem; background: var(--accent); color: var(--dark); padding: 0.5rem 1rem; border-radius: 8px; font-weight: 700; font-size: 0.85rem; z-index: 10;">COMING SOON</div>
-                <div class="image-placeholder">📿</div>
-                <div class="image-card-content">
-                    <h3 class="image-card-title">Islamic Studies</h3>
-                    <p class="image-card-text">Comprehensive Islamic education covering Aqeedah, Fiqh, Hadith, Seerah, and essential knowledge for every Muslim.</p>
-                    <button disabled class="btn btn-primary" style="display: inline-block; margin-top: 1rem; padding: 0.8rem 2rem; font-size: 0.9rem; opacity: 0.5; cursor: not-allowed;">Coming Soon</button>
-                </div>
-            </div>
-            <div class="image-card" style="opacity: 0.6; position: relative;">
-                <div style="position: absolute; top: 1rem; right: 1rem; background: var(--accent); color: var(--dark); padding: 0.5rem 1rem; border-radius: 8px; font-weight: 700; font-size: 0.85rem; z-index: 10;">COMING SOON</div>
-                <div class="image-placeholder">🎓</div>
-                <div class="image-card-content">
-                    <h3 class="image-card-title">Ijazah Program</h3>
-                    <p class="image-card-text">Obtain authentic Ijazah certification in Qur'an recitation with connected chains (Sanad) to the Prophet Muhammad (ﷺ).</p>
-                    <button disabled class="btn btn-primary" style="display: inline-block; margin-top: 1rem; padding: 0.8rem 2rem; font-size: 0.9rem; opacity: 0.5; cursor: not-allowed;">Coming Soon</button>
+                    <p class="image-card-text">Learn classical Arabic to understand the Qur'an deeply, from basic reading to advanced grammar and vocabulary.</p>
                 </div>
             </div>
         </div>
+        <div style="text-align: center; margin-top: 3rem;">
+            <a href="#" onclick="showPage('courses'); return false;" class="btn btn-primary">View All Courses →</a>
+        </div>
+    </div>
+</section>
 
-        <div style="text-align: center; margin-top: 4rem;">
-            <a href="#" onclick="showPage('register'); return false;" class="btn btn-primary" style="font-size: 1.2rem; padding: 1.3rem 3.5rem;">Enroll Now →</a>
+      <!-- Testimonials on Home Page -->
+<section style="padding: 5rem 2rem; background: white;">
+    <div style="text-align: center; margin-bottom: 3rem;">
+        <h2 style="font-size: 2.8rem; font-weight: 900; color: var(--dark); margin-bottom: 1rem;">What Our Students Say</h2>
+        <p style="font-size: 1.15rem; color: #6b7280;">Real transformations from real students around the world</p>
+    </div>
+
+    <div class="testimonial-slider">
+        <div class="slider-btn prev" onclick="changeTestimonial(-1)">‹</div>
+        <div class="slider-btn next" onclick="changeTestimonial(1)">›</div>
+        
+        <div class="testimonial-track">
+            <div class="testimonial-item active">
+                <!-- Fatima Ahmed - Nairobi, Kenya -->
+                <img src="https://thumbs.dreamstime.com/b/love-concept-smiling-african-muslim-woman-hijab-showing-heart-gesture-love-concept-smiling-african-muslim-woman-hijab-392324507.jpg" alt="Fatima Ahmed, happy student from Nairobi, Kenya" class="testimonial-avatar-img">
+                <p class="testimonial-text">"Alhamdulillah! Completed my Hifdh in 2 years with Saham Academy. The teachers are patient, knowledgeable, and truly care about your progress. The flexible schedule allowed me to learn while working full-time. Best decision I ever made!"</p>
+                <div class="testimonial-author">Fatima Ahmed</div>
+                <div class="testimonial-location">🇰🇪 Nairobi, Kenya</div>
+                <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+            </div>
+
+            <div class="testimonial-item">
+                <!-- Abdullah Hassan - London, United Kingdom -->
+                <img src="https://img.freepik.com/premium-photo/portrait-arab-arabian-young-handsome-happy-muslim-bearded-man-with-beard-casual-clothes_157823-3221.jpg" alt="Abdullah Hassan, happy student from London, United Kingdom" class="testimonial-avatar-img">
+                <p class="testimonial-text">"My Tajweed improved dramatically in just 3 months. Sheikh Ahmed's teaching method is clear and easy to understand. I can now recite with confidence and proper pronunciation. The online format is convenient and professional."</p>
+                <div class="testimonial-author">Abdullah Hassan</div>
+                <div class="testimonial-location">🇬🇧 London, United Kingdom</div>
+                <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+            </div>
+
+            <div class="testimonial-item">
+                <!-- Aisha Mohammed - New York, USA -->
+                <img src="https://www.shutterstock.com/shutterstock/photos/1463904926/display_1500/stock-photo-portrait-of-happy-little-muslim-girls-child-with-hijab-dress-smiling-and-looking-at-camera-in-the-1463904926.jpg" alt="Aisha Mohammed, young happy student from New York, USA" class="testimonial-avatar-img">
+                <p class="testimonial-text">"Started as a complete beginner with zero Arabic knowledge. Within 4 months, I could read Qur'an fluently with proper Tajweed. The teachers are encouraging, supportive, and make learning enjoyable. Highly recommend Saham Academy!"</p>
+                <div class="testimonial-author">Aisha Mohammed</div>
+                <div class="testimonial-location">🇺🇸 New York, USA</div>
+                <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+            </div>
+
+            <div class="testimonial-item">
+                <!-- Omar Khalid - Dubai, UAE -->
+                <img src="https://media.istockphoto.com/id/1494356290/photo/handsome-saudi-arabian-middle-eastern-man-with-traditional-thwab-portrait-in-studio.jpg?s=612x612&w=0&k=20&c=yeptOvQE9uVdAlez0hvYMiUGQeENWQyoaRIeGLKpG3c=" alt="Omar Khalid, happy student from Dubai, UAE" class="testimonial-avatar-img">
+                <p class="testimonial-text">"The personalized 1-on-1 Zoom sessions are excellent. Sheikh Ibrahim helped me understand Arabic grammar which transformed how I understand the Qur'an. The investment is worth every penny. Professional and dedicated teachers."</p>
+                <div class="testimonial-author">Omar Khalid</div>
+                <div class="testimonial-location">🇦🇪 Dubai, UAE</div>
+                <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+            </div>
+        </div>
+    </div>
+</section>
+  <!-- COURSES PAGE -->
+<div id="coursesPage" class="page-content">
+    <div class="section-header">
+        <h2 class="section-title">Our Courses</h2>
+        <p class="section-subtitle">Comprehensive Islamic education programs designed for excellence</p>
+    </div>
+    <div class="grid-3">
+        <div class="image-card">
+            <!-- Qur'an Memorisation (Hifdh) -->
+            <img src="https://seekerspathway.com/wp-content/uploads/2024/05/Quran-Hifz-online-course-seekerspathway.com_.webp" alt="Student engaged in online Quran Hifz memorization program" style="width: 100%; height: 250px; object-fit: cover; border-radius: 8px 8px 0 0;">
+            <div class="image-card-content">
+                <h3 class="image-card-title">Qur'an Memorisation (Hifdh)</h3>
+                <p class="image-card-text">Master Qur'an memorization with proven techniques, daily practice sessions, regular revision schedules, and personalized feedback from experienced Hafidhs with Ijazah.</p>
+                <a href="#" onclick="showPage('register'); return false;" class="btn btn-primary" style="display: inline-block; margin-top: 1rem; padding: 0.8rem 2rem; font-size: 0.9rem;">Register Now →</a>
+            </div>
+        </div>
+        <div class="image-card">
+            <!-- Tajweed & Recitation -->
+            <img src="https://www.getquranic.com/wp-content/uploads/2021/11/syed-aoun-abbas-RwWh6HbkP-s-unsplash-min-min-scaled.jpg" alt="Muslim beautifully reciting the Quran with proper Tajweed" style="width: 100%; height: 250px; object-fit: cover; border-radius: 8px 8px 0 0;">
+            <div class="image-card-content">
+                <h3 class="image-card-title">Tajweed & Recitation</h3>
+                <p class="image-card-text">Perfect your recitation with proper Tajweed rules, beautiful pronunciation, authentic Qira'at, and step-by-step guidance from certified instructors.</p>
+                <a href="#" onclick="showPage('register'); return false;" class="btn btn-primary" style="display: inline-block; margin-top: 1rem; padding: 0.8rem 2rem; font-size: 0.9rem;">Register Now →</a>
+            </div>
+        </div>
+        <div class="image-card">
+            <!-- Arabic Language -->
+            <img src="https://www.fajralquran.com/blog/wp-content/uploads/2025/10/01-Flexible-Online-Quran-Classes-%E2%80%93-Learn-the-Holy-Quran-online.jpg" alt="Online class for learning Quranic Arabic and Islamic education" style="width: 100%; height: 250px; object-fit: cover; border-radius: 8px 8px 0 0;">
+            <div class="image-card-content">
+                <h3 class="image-card-title">Arabic Language</h3>
+                <p class="image-card-text">Learn classical Arabic to understand the Qur'an deeply, from basic reading and writing to advanced grammar, morphology, and vocabulary.</p>
+                <a href="#" onclick="showPage('register'); return false;" class="btn btn-primary" style="display: inline-block; margin-top: 1rem; padding: 0.8rem 2rem; font-size: 0.9rem;">Register Now →</a>
+            </div>
+        </div>
+        <div class="image-card">
+            <!-- Qur'an for Kids -->
+            <img src="https://super-muslim.com/wp-content/uploads/2025/06/10.jpg" alt="Children enjoying fun and engaging online Quran classes" style="width: 100%; height: 250px; object-fit: cover; border-radius: 8px 8px 0 0;">
+            <div class="image-card-content">
+                <h3 class="image-card-title">Qur'an for Kids</h3>
+                <p class="image-card-text">Engaging and fun Qur'an classes specifically designed for children with interactive methods, games, and age-appropriate materials.</p>
+                <a href="#" onclick="showPage('register'); return false;" class="btn btn-primary" style="display: inline-block; margin-top: 1rem; padding: 0.8rem 2rem; font-size: 0.9rem;">Register Now →</a>
+            </div>
+        </div>
+        <div class="image-card" style="opacity: 0.6; position: relative;">
+            <div style="position: absolute; top: 1rem; right: 1rem; background: var(--accent); color: var(--dark); padding: 0.5rem 1rem; border-radius: 8px; font-weight: 700; font-size: 0.85rem; z-index: 10;">COMING SOON</div>
+            <!-- Islamic Studies -->
+            <img src="https://sahlahacademy.net/wp-content/uploads/2024/06/Islamic-Studies-Lessons-for-Kids.jpg" alt="Islamic studies class covering Aqeedah, Fiqh, Hadith, and Seerah" style="width: 100%; height: 250px; object-fit: cover; border-radius: 8px 8px 0 0; opacity: 0.7;">
+            <div class="image-card-content">
+                <h3 class="image-card-title">Islamic Studies</h3>
+                <p class="image-card-text">Comprehensive Islamic education covering Aqeedah, Fiqh, Hadith, Seerah, and essential knowledge for every Muslim.</p>
+                <button disabled class="btn btn-primary" style="display: inline-block; margin-top: 1rem; padding: 0.8rem 2rem; font-size: 0.9rem; opacity: 0.5; cursor: not-allowed;">Coming Soon</button>
+            </div>
+        </div>
+        <div class="image-card" style="opacity: 0.6; position: relative;">
+            <div style="position: absolute; top: 1rem; right: 1rem; background: var(--accent); color: var(--dark); padding: 0.5rem 1rem; border-radius: 8px; font-weight: 700; font-size: 0.85rem; z-index: 10;">COMING SOON</div>
+            <!-- Ijazah Program -->
+            <img src="https://www.fajralquran.com/blog/wp-content/uploads/2025/05/fajr-04.jpg" alt="Quran Ijazah certification program with authentic Sanad" style="width: 100%; height: 250px; object-fit: cover; border-radius: 8px 8px 0 0; opacity: 0.7;">
+            <div class="image-card-content">
+                <h3 class="image-card-title">Ijazah Program</h3>
+                <p class="image-card-text">Obtain authentic Ijazah certification in Qur'an recitation with connected chains (Sanad) to the Prophet Muhammad (ﷺ).</p>
+                <button disabled class="btn btn-primary" style="display: inline-block; margin-top: 1rem; padding: 0.8rem 2rem; font-size: 0.9rem; opacity: 0.5; cursor: not-allowed;">Coming Soon</button>
+            </div>
         </div>
     </div>
 
+    <div style="text-align: center; margin-top: 4rem;">
+        <a href="#" onclick="showPage('register'); return false;" class="btn btn-primary" style="font-size: 1.2rem; padding: 1.3rem 3.5rem;">Enroll Now →</a>
+    </div>
+</div>
     <!-- PRICING PAGE -->
     <div id="pricingPage" class="page-content">
         <div class="section-header">
@@ -1376,87 +1381,93 @@
             <p style="font-size: 1.1rem; color: #6b7280; margin-bottom: 2rem; line-height: 1.8;">
                 Join hundreds of students worldwide who are transforming their lives through Qur'anic education. Register today and begin your journey!
             </p>
-            <a href="#" onclick="showPage('register'); return false;" class="btn btn-primary" style="background: var(--primary-dark);">Register Now →</a>
+         <a href="#" onclick="showPage('register'); return false;" 
+   class="btn btn-primary" 
+   style="background: var(--primary-dark); color: white;">
+   Register Now →
+</a>
         </div>
     </div>
 
     <!-- ABOUT PAGE -->
-    <div id="aboutPage" class="page-content">
-        <div class="section-header">
-            <h2 class="section-title">About Saham Academy</h2>
-            <p class="section-subtitle">Excellence in Islamic education from Kampala, Uganda to the world</p>
+<div id="aboutPage" class="page-content">
+    <div class="section-header">
+        <h2 class="section-title">About Saham Academy</h2>
+        <p class="section-subtitle">Excellence in Islamic education from Kampala, Uganda to the world</p>
+    </div>
+    
+    <div style="max-width: 800px; margin: 0 auto 4rem; text-align: center;">
+        <div style="width: 100%; height: 400px; background: linear-gradient(135deg, var(--primary-dark), var(--primary)); border-radius: 20px; display: flex; align-items: center; justify-content: center; margin-bottom: 2rem;">
+            <img src="logo4.png" alt="Saham Academy" style="width: 400px; height: 400px; object-fit: contain;">
         </div>
-        
-        <div style="max-width: 800px; margin: 0 auto 4rem; text-align: center;">
-            <div style="width: 100%; height: 400px; background: linear-gradient(135deg, var(--primary-dark), var(--primary)); border-radius: 20px; display: flex; align-items: center; justify-content: center; margin-bottom: 2rem;">
-                <img src="logo4.png" alt="Saham Academy" style="width: 400px; height: 400px; object-fit: contain;">
-            </div>
-            <p style="font-size: 1.15rem; line-height: 1.9; color: #6b7280; margin-bottom: 1.5rem;">
-                Founded in Kampala, Uganda, Saham Qur'an Academy is dedicated to making authentic Islamic education accessible to Muslims worldwide. We combine traditional teaching methods with modern technology to deliver world-class Qur'anic education.
-            </p>
-            <p style="font-size: 1.15rem; line-height: 1.9; color: #6b7280; margin-bottom: 1.5rem;">
-                Our mission is to nurture strong, confident, and knowledgeable Muslims who embody the teachings of the Qur'an in their daily lives. With over 10 years of combined teaching experience, our certified instructors have helped hundreds of students achieve their Islamic educational goals.
-            </p>
-            <p style="font-size: 1.15rem; line-height: 1.9; color: #6b7280;">
-                Whether you're a complete beginner or seeking advanced Islamic knowledge, we provide personalized learning experiences tailored to your pace and goals.
-            </p>
-        </div>
+        <p style="font-size: 1.15rem; line-height: 1.9; color: #6b7280; margin-bottom: 1.5rem;">
+            Founded in Kampala, Uganda, Saham Qur'an Academy is dedicated to making authentic Islamic education accessible to Muslims worldwide. We combine traditional teaching methods with modern technology to deliver world-class Qur'anic education.
+        </p>
+        <p style="font-size: 1.15rem; line-height: 1.9; color: #6b7280; margin-bottom: 1.5rem;">
+            Our mission is to nurture strong, confident, and knowledgeable Muslims who embody the teachings of the Qur'an in their daily lives. With over 10 years of combined teaching experience, our certified instructors have helped hundreds of students achieve their Islamic educational goals.
+        </p>
+        <p style="font-size: 1.15rem; line-height: 1.9; color: #6b7280;">
+            Whether you're a complete beginner or seeking advanced Islamic knowledge, we provide personalized learning experiences tailored to your pace and goals.
+        </p>
+    </div>
 
-        <h3 style="text-align: center; font-size: 2.5rem; font-weight: 900; margin-bottom: 3rem;">Meet Our Expert Team</h3>
-        <div class="grid-3">
-            <div class="image-card">
-                <div class="image-placeholder">👨‍🏫</div>
-                <div class="image-card-content">
-                    <h3 class="image-card-title">Sheikh Saham</h3>
-                    <p style="color: var(--primary-dark); font-weight: 700; margin-bottom: 0.8rem;">Founder & Director</p>
-                    <p class="image-card-text">Hafidh with Ijazah and 15+ years of teaching experience in Qur'anic sciences. Specializes in Hifdh programs and advanced Tajweed.</p>
-                </div>
-            </div>
-            <div class="image-card">
-                <div class="image-placeholder">👨‍🎓</div>
-                <div class="image-card-content">
-                    <h3 class="image-card-title">Sheikh Ahmed</h3>
-                    <p style="color: var(--primary-dark); font-weight: 700; margin-bottom: 0.8rem;">Senior Instructor</p>
-                    <p class="image-card-text">Expert in Tajweed with 10+ years experience and Ijazah from Al-Azhar University. Patient and skilled at teaching students of all levels.</p>
-                </div>
-            </div>
-            <div class="image-card">
-                <div class="image-placeholder">👨‍💼</div>
-                <div class="image-card-content">
-                    <h3 class="image-card-title">Sheikh Ibrahim</h3>
-                    <p style="color: var(--primary-dark); font-weight: 700; margin-bottom: 0.8rem;">Arabic Specialist</p>
-                    <p class="image-card-text">Native Arabic speaker with MA in Islamic Studies and teaching certification. Makes Arabic grammar accessible and enjoyable.</p>
-                </div>
+    <h3 style="text-align: center; font-size: 2.5rem; font-weight: 900; margin-bottom: 3rem;">Meet Our Expert Team</h3>
+    <div class="grid-3">
+        <div class="image-card">
+            <!-- Sheikh Abdulsalaam Abbas Ssenkindu - Founder (Ugandan/African context) -->
+            <img src="https://lookaside.fbsbx.com/lookaside/crawler/media/?media_id=997692919158451" alt="Sheikh Saham, Founder and Director of Saham Academy" style="width: 100%; height: 250px; object-fit: cover; border-radius: 8px 8px 0 0;">
+            <div class="image-card-content">
+                <h3 class="image-card-title">Sheikh Abdulsalaam Abbas Ssenkindu</h3>
+                <p style="color: var(--primary-dark); font-weight: 700; margin-bottom: 0.8rem;">Founder & Director</p>
+                <p class="image-card-text">Hafidh with Ijazah and 15+ years of teaching experience in Qur'anic sciences. Specializes in Hifdh programs and advanced Tajweed.</p>
             </div>
         </div>
-
-        <div style="max-width: 800px; margin: 4rem auto; padding: 3rem; background: linear-gradient(135deg, var(--primary-dark), var(--primary)); border-radius: 25px; color: white; text-align: center;">
-            <h3 style="font-size: 2rem; margin-bottom: 1.5rem;">Why Choose Saham Academy?</h3>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-top: 2rem;">
-                <div>
-                    <div style="font-size: 3rem; margin-bottom: 0.5rem;">✅</div>
-                    <strong>Certified Teachers</strong>
-                    <p style="font-size: 0.9rem; opacity: 0.9; margin-top: 0.5rem;">All instructors have Ijazah</p>
-                </div>
-                <div>
-                    <div style="font-size: 3rem; margin-bottom: 0.5rem;">⏰</div>
-                    <strong>Flexible Schedule</strong>
-                    <p style="font-size: 0.9rem; opacity: 0.9; margin-top: 0.5rem;">Learn at your own pace</p>
-                </div>
-                <div>
-                    <div style="font-size: 3rem; margin-bottom: 0.5rem;">🌍</div>
-                    <strong>Global Reach</strong>
-                    <p style="font-size: 0.9rem; opacity: 0.9; margin-top: 0.5rem;">Students in 15+ countries</p>
-                </div>
-                <div>
-                    <div style="font-size: 3rem; margin-bottom: 0.5rem;">💯</div>
-                    <strong>Proven Results</strong>
-                    <p style="font-size: 0.9rem; opacity: 0.9; margin-top: 0.5rem;">50+ students completed Hifdh</p>
-                </div>
+        <div class="image-card">
+            <!-- Sheikh Hashim Muhammad Bbanja - Tajweed Specialist -->
+            <img src="https://quranjanan.com/wp-content/uploads/2025/08/pexels-a-darmel-8164428.jpg" alt="Sheikh Ahmed, Senior Tajweed Instructor" style="width: 100%; height: 250px; object-fit: cover; border-radius: 8px 8px 0 0;">
+            <div class="image-card-content">
+                <h3 class="image-card-title">Sheikh Hashim Muhammad Bbanja</h3>
+                <p style="color: var(--primary-dark); font-weight: 700; margin-bottom: 0.8rem;">Senior Instructor</p>
+                <p class="image-card-text">Expert in Tajweed with 10+ years experience and Ijazah from Al-Azhar University. Patient and skilled at teaching students of all levels.</p>
+            </div>
+        </div>
+        <div class="image-card">
+            <!-- Sheikh Bashir Buvumbo - Arabic Specialist -->
+            <img src="https://media.istockphoto.com/id/1089060004/photo/arab-teacher-posing-on-blackboard.jpg?s=612x612&w=0&k=20&c=xSygM-5shne8pujYlt_Asock-UXRMYVXYe1VSI3emhw=" alt="Sheikh Ibrahim, Arabic Language Specialist" style="width: 100%; height: 250px; object-fit: cover; border-radius: 8px 8px 0 0;">
+            <div class="image-card-content">
+                <h3 class="image-card-title">Sheikh Bashir Buvumbo</h3>
+                <p style="color: var(--primary-dark); font-weight: 700; margin-bottom: 0.8rem;">Arabic Specialist</p>
+                <p class="image-card-text">Native Arabic speaker with MA in Islamic Studies and teaching certification. Makes Arabic grammar accessible and enjoyable.</p>
             </div>
         </div>
     </div>
 
+    <div style="max-width: 800px; margin: 4rem auto; padding: 3rem; background: linear-gradient(135deg, var(--primary-dark), var(--primary)); border-radius: 25px; color: white; text-align: center;">
+        <h3 style="font-size: 2rem; margin-bottom: 1.5rem;">Why Choose Saham Academy?</h3>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-top: 2rem;">
+            <div>
+                <div style="font-size: 3rem; margin-bottom: 0.5rem;">✅</div>
+                <strong>Certified Teachers</strong>
+                <p style="font-size: 0.9rem; opacity: 0.9; margin-top: 0.5rem;">All instructors have Ijazah</p>
+            </div>
+            <div>
+                <div style="font-size: 3rem; margin-bottom: 0.5rem;">⏰</div>
+                <strong>Flexible Schedule</strong>
+                <p style="font-size: 0.9rem; opacity: 0.9; margin-top: 0.5rem;">Learn at your own pace</p>
+            </div>
+            <div>
+                <div style="font-size: 3rem; margin-bottom: 0.5rem;">🌍</div>
+                <strong>Global Reach</strong>
+                <p style="font-size: 0.9rem; opacity: 0.9; margin-top: 0.5rem;">Students in 15+ countries</p>
+            </div>
+            <div>
+                <div style="font-size: 3rem; margin-bottom: 0.5rem;">💯</div>
+                <strong>Proven Results</strong>
+                <p style="font-size: 0.9rem; opacity: 0.9; margin-top: 0.5rem;">50+ students completed Hifdh</p>
+            </div>
+        </div>
+    </div>
+</div>
     <!-- REGISTRATION PAGE -->
     <div id="registerPage" class="page-content" style="padding: 6rem 0;">
         <div class="registration-section" style="margin: 0; padding: 5rem 2rem;">
@@ -1531,7 +1542,11 @@
                     <p style="color: #6b7280; font-size: 0.9rem;">per month</p>
                 </div>
             </div>
-            <a href="#" onclick="showPage('register'); return false;" class="btn btn-primary" style="background: var(--primary-dark);">Start Your Registration Now →</a>
+           <a href="#" onclick="showPage('register'); return false;" 
+   class="btn btn-primary" 
+   style="background: var(--primary-dark); color: white;">
+   Start Your Registration Now →
+</a>
         </div>
     </div>
 
