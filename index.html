@@ -290,145 +290,145 @@
             transform: translateX(5px);
         }
 
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            padding: 8rem 2rem 4rem;
-            background:url('hero-bg.jpg');
-            background-size: cover;
-            background-position: center center;
-            background-repeat: no-repeat;
-          
-            position: relative;
-            overflow: hidden;
-        }
+      /* Hero Section */
+.hero {
+    min-height: 90vh;
+    display: flex;
+    align-items: flex-start;        /* Changed: content starts from top */
+    justify-content: center;
+    padding: 12rem 2rem 4rem;       /* Increased top padding to push content down */
+    background: url('hero-bg.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    position: relative;
+    overflow: hidden;
+}
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
-            border-radius: 50%;
-            top: -300px;
-            right: -300px;
-            animation: float 15s ease-in-out infinite;
-        }
+.hero::before {
+    content: '';
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+    border-radius: 50%;
+    top: -300px;
+    right: -300px;
+    animation: float 15s ease-in-out infinite;
+}
 
-        @keyframes float {
-            0%, 100% { transform: translate(0, 0); }
-            50% { transform: translate(40px, 40px); }
-        }
+@keyframes float {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(40px, 40px); }
+}
 
-        .hero-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            text-align: center;
-            position: relative;
-            z-index: 1;
-        }
+.hero-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    width: 100%;
+}
 
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-            opacity: 0;
-            animation: fadeInUp 1s ease forwards 0.3s;
-            margin-top: 20rem;
-        }
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+    opacity: 0;
+    animation: fadeInUp 1s ease forwards 0.3s;
+    /* Removed margin-top — now controlled by .hero padding */
+}
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(40px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
-        .hero-badge {
-            display: inline-block;
-            padding: 0.7rem 1.8rem;
-            background: rgba(255, 255, 255, 0.15);
-            border: 2px solid rgba(255, 255, 255, 0.4);
-            color: white;
-            border-radius: 50px;
-            font-size: 0.9rem;
-            font-weight: 700;
-            margin-bottom: 2rem;
-            letter-spacing: 1px;
-            animation: fadeInUp 1s ease forwards 0.5s;
-            opacity: 0;
-        }
+.hero-badge {
+    display: inline-block;
+    padding: 0.7rem 1.8rem;
+    background: rgba(255, 255, 255, 0.15);
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    color: white;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    letter-spacing: 1px;
+    animation: fadeInUp 1s ease forwards 0.5s;
+    opacity: 0;
+}
 
-        .hero h1 {
-            font-size: 4.5rem;
-            font-weight: 900;
-            line-height: 1.15;
-            color: white;
-            margin-bottom: 2rem;
-        }
+.hero h1 {
+    font-size: 4.5rem;
+    font-weight: 900;
+    line-height: 1.15;
+    color: white;
+    margin-bottom: 2rem;
+}
 
-        .hero h1 span {
-            color: var(--accent);
-        }
+.hero h1 span {
+    color: var(--accent);
+}
 
-       .hero p {
+.hero p {
     font-size: 1.3rem;
     color: rgba(255, 255, 255, 0.95);
     line-height: 1.8;
-    margin-bottom: 3rem;  /* Reasonable spacing before buttons */
+    margin-bottom: 3rem;
     max-width: 650px;
     margin-left: auto;
     margin-right: auto;
 }
 
-        .hero-buttons {
-            display: flex;
-            gap: 1.5rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
+.hero-buttons {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
 
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.8rem;
-            padding: 1.2rem 3rem;
-            border-radius: 12px;
-            font-weight: 700;
-            font-size: 1.05rem;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-        }
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 1.2rem 3rem;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 1.05rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
 
-        .btn-primary {
-            background: white;
-            color: var(--primary-dark);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-        }
+.btn-primary {
+    background: white;
+    color: var(--primary-dark);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
 
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
-        }
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
 
-        .btn-secondary {
-            background: transparent;
-            color: white;
-            border: 2px solid white;
-        }
+.btn-secondary {
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+}
 
-        .btn-secondary:hover {
-            background: white;
-            color: var(--primary-dark);
-        }
-
+.btn-secondary:hover {
+    background: white;
+    color: var(--primary-dark);
+}
         /* Stats */
         .stats {
             padding: 4rem 2rem;
@@ -1266,7 +1266,8 @@
         </div>
     </div>
 </section>
-        </div>
+   </div>
+
   <!-- COURSES PAGE -->
 <div id="coursesPage" class="page-content">
     <div class="section-header">
@@ -1741,7 +1742,3 @@
 </body>
 
 </html>
-
-
-
-
