@@ -89,32 +89,33 @@
             100% { width: 100%; }
         }
 
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            padding: 1.2rem 0;
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(20px);
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-            z-index: 1000;
-            transition: all 0.3s ease;
-        }
+    nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 0.6rem 0;   /* reduced from 1.2rem */
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
 
-        nav.scrolled {
-            padding: 0.8rem 0;
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
-        }
+nav.scrolled {
+    padding: 0.4rem 0;   /* reduced from 0.8rem */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
+}
 
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+
+     .nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.2rem;  /* reduced from 2rem */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 
         .logo {
             display: flex;
@@ -1311,6 +1312,30 @@
                 <a href="#" onclick="showPage('register'); return false;" class="btn btn-primary" style="display: inline-block; margin-top: 1rem; padding: 0.8rem 2rem; font-size: 0.9rem;">Register Now →</a>
             </div>
         </div>
+<!-- Yassarnal Qur'an -->
+<img src="yassarnal.png" alt="Beginner-friendly Yassarnal Qur'an online classes" style="width: 100%; height: 250px; object-fit: cover; border-radius: 8px 8px 0 0;">
+<div class="image-card-content">
+    <h3 class="image-card-title">Yassarnal Qur'an</h3>
+    <p class="image-card-text">
+        A beginner-friendly Qur'an course that teaches Arabic letters and correct pronunciation step by step in a simple and easy way.
+    </p>
+    <a href="#" onclick="showPage('register'); return false;" class="btn btn-primary" style="display: inline-block; margin-top: 1rem; padding: 0.8rem 2rem; font-size: 0.9rem;">
+        Register Now →
+    </a>
+</div>
+
+<!-- Hadith Course -->
+<img src="hadith.png" alt="Online Hadith course teaching authentic sayings of the Prophet Muhammad ﷺ" style="width: 100%; height: 250px; object-fit: cover; border-radius: 8px 8px 0 0;">
+<div class="image-card-content">
+    <h3 class="image-card-title">Hadith Course</h3>
+    <p class="image-card-text">
+        Learn and memorize authentic Hadith of the Prophet Muhammad ﷺ, their meanings, and practical lessons for daily life in a simple and engaging way.
+    </p>
+    <a href="#" onclick="showPage('register'); return false;" class="btn btn-primary" style="display: inline-block; margin-top: 1rem; padding: 0.8rem 2rem; font-size: 0.9rem;">
+        Register Now →
+    </a>
+</div>
+
         <div class="image-card" style="opacity: 0.6; position: relative;">
             <div style="position: absolute; top: 1rem; right: 1rem; background: var(--accent); color: var(--dark); padding: 0.5rem 1rem; border-radius: 8px; font-weight: 700; font-size: 0.85rem; z-index: 10;">COMING SOON</div>
             <!-- Islamic Studies -->
@@ -1321,6 +1346,8 @@
                 <button disabled class="btn btn-primary" style="display: inline-block; margin-top: 1rem; padding: 0.8rem 2rem; font-size: 0.9rem; opacity: 0.5; cursor: not-allowed;">Coming Soon</button>
             </div>
         </div>
+         
+
         <div class="image-card" style="opacity: 0.6; position: relative;">
             <div style="position: absolute; top: 1rem; right: 1rem; background: var(--accent); color: var(--dark); padding: 0.5rem 1rem; border-radius: 8px; font-weight: 700; font-size: 0.85rem; z-index: 10;">COMING SOON</div>
             <!-- Ijazah Program -->
@@ -1417,30 +1444,30 @@
     <h3 style="text-align: center; font-size: 2.5rem; font-weight: 900; margin-bottom: 3rem;">Meet Our Expert Team</h3>
     <div class="grid-3">
         <div class="image-card">
-            <!-- Sheikh Abdulsalaam Abbas Ssenkindu - Founder (Ugandan/African context) -->
+            <!-- Sheikh Abdulsalaam Abbas Ssenkindu - Arabic Language Specialist -->
             <img src="abdulsalaam.png" alt="Sheikh Saham, Founder and Director of Saham Academy" style="width: 100%; height: 250px; object-fit: cover; border-radius: 8px 8px 0 0;">
             <div class="image-card-content">
                 <h3 class="image-card-title">Sheikh Abdulsalaam Abbas Ssenkindu</h3>
-                <p style="color: var(--primary-dark); font-weight: 700; margin-bottom: 0.8rem;">Founder & Director</p>
-                <p class="image-card-text">Hafidh with Ijazah and 15+ years of teaching experience in Qur'anic sciences. Specializes in Hifdh programs and advanced Tajweed.</p>
+                <p style="color: var(--primary-dark); font-weight: 700; margin-bottom: 0.8rem;">Arabic Language Specialist</p>
+                <p class="image-card-text"A skilled instructor in Arabic language, helping students understand Qur’anic Arabic through structured lessons in reading, vocabulary, and basic grammar.</p>
             </div>
         </div>
         <div class="image-card">
-            <!-- Sheikh Hashim Muhammad Bbanja - Tajweed Specialist -->
+            <!-- Sheikh Hashim Muhammad Bbanja - Hadith specialist -->
             <img src="https://quranjanan.com/wp-content/uploads/2025/08/pexels-a-darmel-8164428.jpg" alt="Sheikh Ahmed, Senior Tajweed Instructor" style="width: 100%; height: 250px; object-fit: cover; border-radius: 8px 8px 0 0;">
             <div class="image-card-content">
                 <h3 class="image-card-title">Sheikh Hashim Muhammad Bbanja</h3>
-                <p style="color: var(--primary-dark); font-weight: 700; margin-bottom: 0.8rem;">Senior Instructor</p>
-                <p class="image-card-text">Expert in Tajweed with 10+ years experience and Ijazah from Al-Azhar University. Patient and skilled at teaching students of all levels.</p>
+                <p style="color: var(--primary-dark); font-weight: 700; margin-bottom: 0.8rem;">Hadith specialist</p>
+                <p class="image-card-text">An expert in authentic Hadith studies, focusing on the sayings of the Prophet Muhammad ﷺ, their meanings, and practical application in everyday life.</p>
             </div>
         </div>
         <div class="image-card">
-            <!-- Sheikh Bashir Buvumbo - Arabic Specialist -->
+            <!-- Sheikh Bashir Buvumbo - Qur’an Specialist -->
             <img src="https://media.istockphoto.com/id/1089060004/photo/arab-teacher-posing-on-blackboard.jpg?s=612x612&w=0&k=20&c=xSygM-5shne8pujYlt_Asock-UXRMYVXYe1VSI3emhw=" alt="Sheikh Ibrahim, Arabic Language Specialist" style="width: 100%; height: 250px; object-fit: cover; border-radius: 8px 8px 0 0;">
             <div class="image-card-content">
                 <h3 class="image-card-title">Sheikh Bashir Buvumbo</h3>
-                <p style="color: var(--primary-dark); font-weight: 700; margin-bottom: 0.8rem;">Arabic Specialist</p>
-                <p class="image-card-text">Native Arabic speaker with MA in Islamic Studies and teaching certification. Makes Arabic grammar accessible and enjoyable.</p>
+                <p style="color: var(--primary-dark); font-weight: 700; margin-bottom: 0.8rem;">Qur’an Specialist</p>
+                <p class="image-card-text">A highly experienced teacher specializing in Qur’an recitation, Tajwīd, and memorization, dedicated to helping students read and understand the Qur’an correctly and confidently.</p>
             </div>
         </div>
     </div>
