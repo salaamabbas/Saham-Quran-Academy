@@ -4,6 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Saham Qur'an Academy - Excellence in Islamic Education</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Saham Qur'an Academy - Excellence in Islamic Education. Learn Quran memorization, Tajweed, Arabic language online with certified teachers from Uganda to worldwide.">
+    <meta name="keywords" content="Quran academy, online Quran classes, Hifdh program, Tajweed lessons, Arabic language, Islamic education, Uganda Quran school">
+    <meta name="author" content="Saham Qur'an Academy">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Saham Qur'an Academy - Excellence in Islamic Education">
+    <meta property="og:description" content="Transform your life through Quranic excellence with certified teachers from Uganda.">
+    <meta property="og:type" content="website">
+    
+    <!-- Preload Critical Resources -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="image" href="hero-bg.jpg">
+    
     <link rel="icon" href="logo3.png">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
@@ -89,33 +105,31 @@
             100% { width: 100%; }
         }
 
-    nav {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    padding: 0.6rem 0;   /* reduced from 1.2rem */
-    background: rgba(255, 255, 255, 0.98);
-    backdrop-filter: blur(20px);
-    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
-    transition: all 0.3s ease;
-}
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 0.6rem 0;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
 
-nav.scrolled {
-    padding: 0.4rem 0;   /* reduced from 0.8rem */
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
-}
+        nav.scrolled {
+            padding: 0.4rem 0;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
+        }
 
-
-     .nav-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 1.2rem;  /* reduced from 2rem */
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
         .logo {
             display: flex;
@@ -291,145 +305,143 @@ nav.scrolled {
             transform: translateX(5px);
         }
 
-      /* Hero Section */
-.hero {
-    min-height: 90vh;
-    display: flex;
-    align-items: flex-start;        /* Changed: content starts from top */
-    justify-content: center;
-    padding: 12rem 2rem 4rem;       /* Increased top padding to push content down */
-    background: url('hero-bg.jpg');
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-    position: relative;
-    overflow: hidden;
-}
+        /* Hero Section */
+        .hero {
+            min-height: 70vh;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            padding: 8rem 2rem 2rem;
+            background: url('hero-bg.jpg') center/cover no-repeat;
+            background-color: var(--primary-dark);
+            position: relative;
+            overflow: hidden;
+        }
 
-.hero::before {
-    content: '';
-    position: absolute;
-    width: 600px;
-    height: 600px;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
-    border-radius: 50%;
-    top: -300px;
-    right: -300px;
-    animation: float 15s ease-in-out infinite;
-}
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            top: -300px;
+            right: -300px;
+            animation: float 15s ease-in-out infinite;
+        }
 
-@keyframes float {
-    0%, 100% { transform: translate(0, 0); }
-    50% { transform: translate(40px, 40px); }
-}
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(40px, 40px); }
+        }
 
-.hero-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    text-align: center;
-    position: relative;
-    z-index: 1;
-    width: 100%;
-}
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            width: 100%;
+        }
 
-.hero-content {
-    max-width: 800px;
-    margin: 0 auto;
-    opacity: 0;
-    animation: fadeInUp 1s ease forwards 0.3s;
-    /* Removed margin-top — now controlled by .hero padding */
-}
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards 0.3s;
+        }
 
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(40px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
-.hero-badge {
-    display: inline-block;
-    padding: 0.7rem 1.8rem;
-    background: rgba(255, 255, 255, 0.15);
-    border: 2px solid rgba(255, 255, 255, 0.4);
-    color: white;
-    border-radius: 50px;
-    font-size: 0.9rem;
-    font-weight: 700;
-    margin-bottom: 2rem;
-    letter-spacing: 1px;
-    animation: fadeInUp 1s ease forwards 0.5s;
-    opacity: 0;
-}
+        .hero-badge {
+            display: inline-block;
+            padding: 0.7rem 1.8rem;
+            background: rgba(255, 255, 255, 0.15);
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            color: white;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            letter-spacing: 1px;
+            animation: fadeInUp 1s ease forwards 0.5s;
+            opacity: 0;
+        }
 
-.hero h1 {
-    font-size: 4.5rem;
-    font-weight: 900;
-    line-height: 1.15;
-    color: white;
-    margin-bottom: 2rem;
-}
+        .hero h1 {
+            font-size: 4.5rem;
+            font-weight: 900;
+            line-height: 1.15;
+            color: white;
+            margin-bottom: 1.5rem;
+        }
 
-.hero h1 span {
-    color: var(--accent);
-}
+        .hero h1 span {
+            color: var(--accent);
+        }
 
-.hero p {
-    font-size: 1.3rem;
-    color: rgba(255, 255, 255, 0.95);
-    line-height: 1.8;
-    margin-bottom: 3rem;
-    max-width: 650px;
-    margin-left: auto;
-    margin-right: auto;
-}
+        .hero p {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.95);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            max-width: 650px;
+            margin-left: auto;
+            margin-right: auto;
+        }
 
-.hero-buttons {
-    display: flex;
-    gap: 1.5rem;
-    justify-content: center;
-    flex-wrap: wrap;
-}
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
 
-.btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.8rem;
-    padding: 1.2rem 3rem;
-    border-radius: 12px;
-    font-weight: 700;
-    font-size: 1.05rem;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    border: none;
-    cursor: pointer;
-}
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 1.2rem 3rem;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 1.05rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
 
-.btn-primary {
-    background: white;
-    color: var(--primary-dark);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-}
+        .btn-primary {
+            background: white;
+            color: var(--primary-dark);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
 
-.btn-primary:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
-}
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
 
-.btn-secondary {
-    background: transparent;
-    color: white;
-    border: 2px solid white;
-}
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
 
-.btn-secondary:hover {
-    background: white;
-    color: var(--primary-dark);
-}
+        .btn-secondary:hover {
+            background: white;
+            color: var(--primary-dark);
+        }
+
         /* Stats */
         .stats {
             padding: 4rem 2rem;
@@ -577,19 +589,18 @@ nav.scrolled {
             box-shadow: 0 25px 60px rgba(45, 158, 156, 0.2);
         }
 
-        .image-placeholder {
+        .image-card img {
             width: 100%;
             height: 250px;
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 5rem;
-            transition: transform 0.3s ease;
+            object-fit: cover;
+            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+            background-size: 200% 100%;
+            animation: image-loading 1.5s infinite;
         }
 
-        .image-card:hover .image-placeholder {
-            transform: scale(1.05);
+        @keyframes image-loading {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
         }
 
         .image-card-content {
@@ -619,12 +630,14 @@ nav.scrolled {
 
         .testimonial-track {
             overflow: hidden;
+            min-height: 300px;
+            position: relative;
         }
 
         .testimonial-item {
             background: linear-gradient(135deg, #f0fdf4, #dcfce7);
-            padding: 3rem;
-            border-radius: 25px;
+            padding: 2rem;
+            border-radius: 20px;
             text-align: center;
             display: none;
             animation: slideIn 0.6s ease;
@@ -645,56 +658,54 @@ nav.scrolled {
             }
         }
 
-  .testimonial-avatar-img {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 4px solid var(--primary);
-    margin-bottom: 1.5rem;
-}
-        .testimonial-item:hover .testimonial-avatar {
-            transform: scale(1.1);
+        .testimonial-avatar-img {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--primary);
+            margin-bottom: 1rem;
         }
 
         .testimonial-text {
-            font-size: 1.15rem;
-            line-height: 1.8;
+            font-size: 1rem;
+            line-height: 1.6;
             color: #374151;
             font-style: italic;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
         }
 
         .testimonial-author {
             font-weight: 700;
             color: var(--dark);
-            font-size: 1.1rem;
-            margin-bottom: 0.3rem;
+            font-size: 1rem;
+            margin-bottom: 0.2rem;
         }
 
         .testimonial-location {
             color: #6b7280;
+            font-size: 0.9rem;
         }
 
         .testimonial-stars {
             color: var(--accent);
-            font-size: 1.5rem;
-            margin-top: 1rem;
+            font-size: 1.2rem;
+            margin-top: 0.8rem;
         }
 
         .slider-btn {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            width: 50px;
-            height: 50px;
+            width: 40px;
+            height: 40px;
             background: white;
             border: 2px solid var(--primary);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             color: var(--primary);
             cursor: pointer;
             transition: all 0.3s ease;
@@ -714,56 +725,121 @@ nav.scrolled {
         .slider-btn.next {
             right: 0;
         }
-/* Registration Form - Compact Version */
-.registration-section {
-    background: var(--primary-dark);
-    padding: 3rem 1.5rem; /* reduced from 5rem 2rem */
-}
 
-.registration-container {
-    max-width: 900px;
-    margin: 0 auto;
-}
+        /* Marquee Cards */
+        .marquee-card {
+            flex: 0 0 280px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.15));
+            backdrop-filter: blur(15px);
+            border-radius: 16px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
 
-.registration-header {
-    text-align: center;
-    color: white;
-    margin-bottom: 2rem; /* reduced from 3rem */
-}
+        .marquee-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0.25));
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+            border-color: rgba(255, 255, 255, 0.6);
+        }
 
-.registration-header h2 {
-    font-size: 3rem;
-    font-weight: 900;
-    margin-bottom: 1rem;
-}
+        .marquee-card-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--accent), #e1d747);
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2rem;
+            margin-bottom: 1.2rem;
+            color: var(--dark);
+            box-shadow: 0 8px 20px rgba(206, 218, 84, 0.3);
+        }
 
-.registration-header p {
-    font-size: 1.2rem;
-    opacity: 0.9;
-}
+        .marquee-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 20;
+            width: 45px;
+            height: 45px;
+            background: white;
+            border: none;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--primary);
+            cursor: pointer;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
 
-.form-container {
-    background: white;
-    border-radius: 25px;
-    overflow: hidden;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-}
+        .marquee-nav:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-50%) scale(1.1);
+            box-shadow: 0 8px 25px rgba(45, 158, 156, 0.4);
+        }
 
-.form-container iframe {
-    width: 100%; /* Changed from 85% to 100% */
-    height: 850px; /* reduced from 1400px */
-    border: none;
-    display: block;
-    background: white;
-}
+        .marquee-nav.prev {
+            left: -20px;
+        }
 
-/* Mobile-friendly adjustment */
-@media (max-width: 768px) {
-    .form-container iframe {
-        height: 950px; /* slightly taller on smaller screens */
-    }
-}
+        .marquee-nav.next {
+            right: -20px;
+        }
 
+        /* Registration Form */
+        .registration-section {
+            background: var(--primary-dark);
+            padding: 3rem 1.5rem;
+        }
+
+        .registration-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .registration-header {
+            text-align: center;
+            color: white;
+            margin-bottom: 2rem;
+        }
+
+        .registration-header h2 {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+        }
+
+        .registration-header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .form-container {
+            background: white;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .form-container iframe {
+            width: 100%;
+            height: 850px;
+            border: none;
+            display: block;
+            background: white;
+        }
 
         .whatsapp-prompt {
             background: linear-gradient(135deg, #25D366, #128C7E);
@@ -827,12 +903,6 @@ nav.scrolled {
             50% { transform: translateY(-10px); }
         }
 
-        .whatsapp-float svg {
-            width: 30px;
-            height: 30px;
-            fill: white;
-        }
-
         .whatsapp-float:hover {
             transform: scale(1.15) translateY(0);
             box-shadow: 0 12px 40px rgba(37, 211, 102, 0.5);
@@ -852,16 +922,15 @@ nav.scrolled {
             margin: 0 auto;
         }
 
-        .footer-logo {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-        }
-
         .footer-logo img {
             width: 100px;
             height: 100px;
             object-fit: contain;
             margin: 0 auto;
+        }
+
+        .footer-contact {
+            margin: 1.5rem 0;
         }
 
         .social-links {
@@ -980,6 +1049,78 @@ nav.scrolled {
             background: var(--light);
         }
 
+        /* Utility Classes */
+        .marquee-white-text {
+            color: white;
+            font-size: 1.3rem;
+            margin-bottom: 0.6rem;
+            font-weight: 800;
+        }
+
+        .marquee-white-subtext {
+            color: rgba(255, 255, 255, 0.95);
+            font-size: 0.95rem;
+            line-height: 1.5;
+            font-weight: 500;
+        }
+
+        .accent-gradient-btn {
+            background: linear-gradient(135deg, var(--accent), #e1d747);
+            color: var(--dark);
+            border: none;
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+            font-weight: 800;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(206, 218, 84, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .accent-gradient-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(206, 218, 84, 0.5);
+        }
+
+        /* Why Choose Us Section */
+        .why-choose-section {
+            max-width: 800px;
+            margin: 4rem auto;
+            padding: 3rem;
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+            border-radius: 25px;
+            color: white;
+            text-align: center;
+        }
+
+        .why-choose-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .why-choose-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .why-choose-icon {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .why-choose-title {
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .why-choose-desc {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin-top: 0.5rem;
+        }
+
         /* Responsive */
         @media (max-width: 968px) {
             .nav-links {
@@ -1040,6 +1181,70 @@ nav.scrolled {
             .pricing-card.featured {
                 transform: scale(1);
             }
+
+            .marquee-card {
+                flex: 0 0 260px !important;
+                padding: 1.5rem !important;
+            }
+
+            .marquee-nav {
+                width: 40px !important;
+                height: 40px !important;
+                font-size: 1.2rem !important;
+            }
+
+            .marquee-nav.prev {
+                left: -15px !important;
+            }
+
+            .marquee-nav.next {
+                right: -15px !important;
+            }
+
+            .form-container iframe {
+                height: 950px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            footer {
+                padding: 2.5rem 1.5rem 1.5rem;
+            }
+            
+            .footer-logo img {
+                width: 80px;
+                height: 80px;
+            }
+            
+            .social-link {
+                width: 45px;
+                height: 45px;
+            }
+            
+            .testimonial-item {
+                padding: 1.5rem;
+                margin: 0 0.5rem;
+            }
+            
+            .testimonial-avatar-img {
+                width: 60px;
+                height: 60px;
+                margin-bottom: 0.8rem;
+            }
+            
+            .testimonial-text {
+                font-size: 0.95rem;
+                line-height: 1.5;
+                margin-bottom: 0.8rem;
+            }
+            
+            .slider-btn.prev {
+                left: -10px;
+            }
+            
+            .slider-btn.next {
+                right: -10px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -1085,35 +1290,99 @@ nav.scrolled {
             .whatsapp-prompt h3 {
                 font-size: 1.4rem;
             }
+            
+            .marquee-card {
+                flex: 0 0 240px !important;
+                padding: 1.2rem !important;
+            }
+            
+            .marquee-card div div {
+                width: 60px !important;
+                height: 60px !important;
+                font-size: 1.8rem !important;
+            }
+            
+            .marquee-card h3 {
+                font-size: 1.1rem !important;
+            }
+            
+            .marquee-card p {
+                font-size: 0.85rem !important;
+            }
+            
+            footer {
+                padding: 2rem 1rem 1rem;
+            }
+            
+            .footer-logo img {
+                width: 70px;
+                height: 70px;
+            }
+            
+            .social-link {
+                width: 40px;
+                height: 40px;
+            }
+            
+            .testimonial-slider {
+                padding: 0 2.5rem;
+            }
+            
+            .testimonial-item {
+                padding: 1.2rem;
+            }
+            
+            .testimonial-avatar-img {
+                width: 50px;
+                height: 50px;
+            }
+            
+            .testimonial-text {
+                font-size: 0.9rem;
+                line-height: 1.4;
+            }
+            
+            .slider-btn {
+                width: 30px;
+                height: 30px;
+            }
+            
+            .slider-btn.prev {
+                left: -15px;
+            }
+            
+            .slider-btn.next {
+                right: -15px;
+            }
         }
     </style>
 </head>
 <body>
     <!-- Page Loader -->
     <div class="page-loader" id="pageLoader">
-        <img src="logo4.png" alt="Saham Academy" class="loader-icon">
-        
+        <img src="logo4.png" alt="Saham Academy Logo" class="loader-icon">
+        <div class="loader-text">SAHAM ACADEMY</div>
         <div class="loader-bar">
             <div class="loader-progress"></div>
         </div>
     </div>
 
     <!-- Navigation -->
-    <nav id="navbar">
+    <nav id="navbar" aria-label="Main Navigation">
         <div class="nav-container">
-            <div class="logo" onclick="showPage('home')">
-                <img src="logo2.png" alt="Saham Academy" class="logo-icon">
+            <div class="logo" onclick="showPage('home')" role="button" tabindex="0" aria-label="Go to Home">
+                <img src="logo2.png" alt="Saham Academy Logo" class="logo-icon">
                 <span>SAHAM ACADEMY</span>
             </div>
             <ul class="nav-links">
-                <li><a href="#" onclick="showPage('home'); return false;">Home</a></li>
-                <li><a href="#" onclick="showPage('courses'); return false;">Courses</a></li>
-                <li><a href="#" onclick="showPage('pricing'); return false;">Pricing</a></li>
-                <li><a href="#" onclick="showPage('about'); return false;">About</a></li>
-                <li><a href="#" onclick="showPage('register'); return false;">Register</a></li>
-                <li><a href="#" onclick="showPage('contact'); return false;">Contact</a></li>
+                <li><a href="#" onclick="showPage('home'); return false;" aria-label="Home Page">Home</a></li>
+                <li><a href="#" onclick="showPage('courses'); return false;" aria-label="Courses Page">Courses</a></li>
+                <li><a href="#" onclick="showPage('pricing'); return false;" aria-label="Pricing Page">Pricing</a></li>
+                <li><a href="#" onclick="showPage('about'); return false;" aria-label="About Page">About</a></li>
+                <li><a href="#" onclick="showPage('register'); return false;" aria-label="Registration Page">Register</a></li>
+                <li><a href="#" onclick="showPage('contact'); return false;" aria-label="Contact Page">Contact</a></li>
             </ul>
-            <div class="mobile-toggle" id="mobileToggle" onclick="toggleMobileMenu()">
+            <div class="mobile-toggle" id="mobileToggle" onclick="toggleMobileMenu()" aria-label="Toggle Mobile Menu" role="button" tabindex="0">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -1125,10 +1394,10 @@ nav.scrolled {
     <div class="mobile-menu" id="mobileMenu">
         <div class="mobile-menu-header">
             <div class="mobile-logo">
-                <img src="logo2.png" alt="Saham Academy">
+                <img src="logo2.png" alt="Saham Academy Logo">
                 <span style="font-weight: 1000; color: var(--primary);">SAHAM</span>
             </div>
-            <div class="mobile-close" onclick="closeMobileMenu()">✕</div>
+            <div class="mobile-close" onclick="closeMobileMenu()" aria-label="Close Menu" role="button" tabindex="0">✕</div>
         </div>
         <ul>
             <li><a href="#" onclick="showPage('home'); closeMobileMenu();">Home</a></li>
@@ -1140,651 +1409,637 @@ nav.scrolled {
         </ul>
     </div>
 
-    <!-- HOME PAGE -->
-    <div id="homePage">
-        <!-- Hero Section -->
-        <section class="hero">
-            <div class="hero-container">
-                <div class="hero-content">
-                    <div class="hero-badge">✨ JOIN 500+ STUDENTS WORLDWIDE</div>
-                    <h1>Transform Your Life Through <span>Qur'anic Excellence</span></h1>
-                    <div class="hero-buttons">
-                        <a href="#" onclick="showPage('register'); return false;" class="btn btn-primary">
-                            Register Now →
-                        </a>
-                        <a href="#" onclick="showPage('courses'); return false;" class="btn btn-secondary">
-                            Explore Courses
-                        </a>
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- HOME PAGE -->
+        <div id="homePage">
+            <!-- Hero Section -->
+            <section class="hero">
+                <div class="hero-container">
+                    <div class="hero-content">
+                        <div class="hero-badge">✨ JOIN 500+ STUDENTS WORLDWIDE</div>
+                        <h1>Transform Your Life Through <span>Qur'anic Excellence</span></h1>
+                        <p>Learn Qur'an memorization, Tajweed, and Arabic language online with certified teachers from Uganda to worldwide.</p>
+                        <div class="hero-buttons">
+                            <a href="#" onclick="showPage('register'); return false;" class="btn btn-primary" aria-label="Register Now">
+                                Register Now →
+                            </a>
+                            <a href="#" onclick="showPage('courses'); return false;" class="btn btn-secondary" aria-label="Explore Courses">
+                                Explore Courses
+                            </a>
+                        </div>
+                    </div>
+                    <div class="hero-image">
+                        <img src="logo4.png" alt="Saham Academy - Excellence in Islamic Education" style="max-width: 400px; width: 100%; height: auto; display: block; margin: 0 auto; filter: drop-shadow(0 20px 50px rgba(0, 0, 0, 0.3));">
                     </div>
                 </div>
-                <div class="hero-image">
-                    <img src="logo4.png" alt="Saham Academy" style="max-width: 400px; width: 100%; height: auto; display: block; margin: 0 auto; filter: drop-shadow(0 20px 50px rgba(0, 0, 0, 0.3));">
-                </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- Simple Stats -->
-        <section class="stats">
-            <div class="stats-container">
-                <div class="stat-item">
-                    <div class="stat-number" data-target="15">0</div>
-                    <div class="stat-label">Countries</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number" data-target="500">0</div>
-                    <div class="stat-label">Students</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number" data-target="50">0</div>
-                    <div class="stat-label">Hifdh Completed</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">24/7</div>
-                    <div class="stat-label">Support</div>
-                </div>
-            </div>
-        </section>
-
-      <!-- Courses Preview on Home -->
-<section class="courses-preview">
-    <div style="text-align: center; margin-bottom: 3rem;">
-        <h2 style="font-size: 2.8rem; font-weight: 900; color: var(--dark); margin-bottom: 1rem;">Our Courses</h2>
-        <p style="font-size: 1.15rem; color: #6b7280;">Comprehensive Islamic education programs designed for excellence</p>
-    </div>
-    <div style="max-width: 1200px; margin: 0 auto;">
-        <div class="grid-3">
-            <div class="image-card">
-                <!-- Real image for Qur'an Memorisation (Hifdh) -->
-                <img src="quran-memorization.png" alt="Student memorizing Quran with guidance in Hifz program" style="width: 100%; height: 250px; object-fit: cover; border-radius: 8px 8px 0 0;">
-                <div class="image-card-content">
-                    <h3 class="image-card-title">Qur'an Memorisation (Hifdh)</h3>
-                    <p class="image-card-text">Master Qur'an memorization with proven techniques, daily practice sessions, and personalized feedback from experienced Hafidhs.</p>
-                </div>
-            </div>
-            <div class="image-card">
-                <!-- Real image for Tajweed & Recitation -->
-                <img src="tajweed.png" alt="Muslim reciting Quran with proper Tajweed" style="width: 100%; height: 250px; object-fit: cover; border-radius: 8px 8px 0 0;">
-                <div class="image-card-content">
-                    <h3 class="image-card-title">Tajweed & Recitation</h3>
-                    <p class="image-card-text">Perfect your recitation with proper Tajweed rules, beautiful pronunciation, and authentic Qira'at from certified instructors.</p>
-                </div>
-            </div>
-            <div class="image-card">
-                <!-- Real image for Arabic Language -->
-                <img src="arabic.png" alt="Online class learning Quranic Arabic language" style="width: 100%; height: 250px; object-fit: cover; border-radius: 8px 8px 0 0;">
-                <div class="image-card-content">
-                    <h3 class="image-card-title">Arabic Language</h3>
-                    <p class="image-card-text">Learn classical Arabic to understand the Qur'an deeply, from basic reading to advanced grammar and vocabulary.</p>
-                </div>
-            </div>
-        </div>
-        <div style="text-align: center; margin-top: 3rem;">
-            <a href="#" onclick="showPage('courses'); return false;" class="btn btn-primary">View All Courses →</a>
-        </div>
-    </div>
-</section>
-
-         <!-- Beautiful Marquee Style - Why Choose Saham Qur'an Academy -->
-      <section style="padding: 5rem 2rem; background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%); overflow: hidden;">
-        <div style="text-align: center; margin-bottom: 3rem;">
-            <h2 style="font-size: 3rem; font-weight: 900; color: white; margin-bottom: 1rem;">Why Choose Saham Qur'an Academy?</h2>
-            <p style="font-size: 1.2rem; color: rgba(255, 255, 255, 0.9); max-width: 800px; margin: 0 auto;">Discover what makes us the preferred choice for Qur'anic education worldwide</p>
-        </div>
-
-        <!-- Marquee Container -->
-        <div style="position: relative; overflow: hidden; padding: 2rem 0;">
-            <!-- Marquee 1 - Right to Left -->
-            <div class="marquee" style="display: flex; width: 200%; animation: marqueeScroll 30s linear infinite;">
-                <div style="display: flex; gap: 2rem; padding: 1rem;">
-                    <!-- Item 1 -->
-                    <div style="background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.3); border-radius: 20px; padding: 2.5rem; min-width: 300px; display: flex; flex-direction: column; align-items: center; text-align: center; transition: all 0.3s ease;">
-                        <div style="width: 80px; height: 80px; background: var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; margin-bottom: 1.5rem; color: var(--dark);">✅</div>
-                        <h3 style="color: white; font-size: 1.5rem; margin-bottom: 0.8rem; font-weight: 700;">Certified Teachers</h3>
-                        <p style="color: rgba(255, 255, 255, 0.9); font-size: 1rem; line-height: 1.6;">Expert instructors with years of teaching experience</p>
+            <!-- Simple Stats -->
+            <section class="stats">
+                <div class="stats-container">
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="15">0</div>
+                        <div class="stat-label">Countries</div>
                     </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="500">0</div>
+                        <div class="stat-label">Students</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="50">0</div>
+                        <div class="stat-label">Hifdh Completed</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">24/7</div>
+                        <div class="stat-label">Support</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Courses Preview on Home -->
+            <section class="courses-preview">
+                <div style="text-align: center; margin-bottom: 3rem;">
+                    <h2 style="font-size: 2.8rem; font-weight: 900; color: var(--dark); margin-bottom: 1rem;">Our Courses</h2>
+                    <p style="font-size: 1.15rem; color: #6b7280;">Comprehensive Islamic education programs designed for excellence</p>
+                </div>
+                <div style="max-width: 1200px; margin: 0 auto;">
+                    <div class="grid-3">
+                        <div class="image-card">
+                            <img src="quran-memorization.png" alt="Student memorizing Quran with guidance in Hifz program" loading="lazy">
+                            <div class="image-card-content">
+                                <h3 class="image-card-title">Qur'an Memorisation (Hifdh)</h3>
+                                <p class="image-card-text">Master Qur'an memorization with proven techniques, daily practice sessions, and personalized feedback from experienced Hafidhs.</p>
+                            </div>
+                        </div>
+                        <div class="image-card">
+                            <img src="tajweed.png" alt="Muslim reciting Quran with proper Tajweed" loading="lazy">
+                            <div class="image-card-content">
+                                <h3 class="image-card-title">Tajweed & Recitation</h3>
+                                <p class="image-card-text">Perfect your recitation with proper Tajweed rules, beautiful pronunciation, and authentic Qira'at from certified instructors.</p>
+                            </div>
+                        </div>
+                        <div class="image-card">
+                            <img src="arabic.png" alt="Online class learning Quranic Arabic language" loading="lazy">
+                            <div class="image-card-content">
+                                <h3 class="image-card-title">Arabic Language</h3>
+                                <p class="image-card-text">Learn classical Arabic to understand the Qur'an deeply, from basic reading to advanced grammar and vocabulary.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="text-align: center; margin-top: 3rem;">
+                        <a href="#" onclick="showPage('courses'); return false;" class="btn btn-primary" aria-label="View All Courses">View All Courses →</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Professional Marquee - Why Choose Saham Qur'an Academy -->
+            <section style="padding: 4rem 2rem; background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%); overflow: hidden;">
+                <div style="text-align: center; margin-bottom: 2.5rem;">
+                    <h2 style="font-size: 2.5rem; font-weight: 900; color: white; margin-bottom: 0.8rem;">Why Choose Saham Qur'an Academy?</h2>
+                    <p style="font-size: 1.1rem; color: rgba(255, 255, 255, 0.9); max-width: 700px; margin: 0 auto;">Discover what makes us the preferred choice for Qur'anic education worldwide</p>
+                </div>
+
+                <!-- Marquee Container with Navigation -->
+                <div style="position: relative; max-width: 1200px; margin: 0 auto;">
+                    <!-- Navigation Arrows -->
+                    <button class="marquee-nav prev" onclick="scrollMarqueeLeft()" aria-label="Previous Marquee Item">
+                        ‹
+                    </button>
                     
-                    <!-- Item 2 -->
-                    <div style="background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.3); border-radius: 20px; padding: 2.5rem; min-width: 300px; display: flex; flex-direction: column; align-items: center; text-align: center; transition: all 0.3s ease;">
-                        <div style="width: 80px; height: 80px; background: var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; margin-bottom: 1.5rem; color: var(--dark);">⏰</div>
-                        <h3 style="color: white; font-size: 1.5rem; margin-bottom: 0.8rem; font-weight: 700;">Flexible Schedule</h3>
-                        <p style="color: rgba(255, 255, 255, 0.9); font-size: 1rem; line-height: 1.6;">Learn at your own pace, anytime, anywhere</p>
-                    </div>
-                    
-                    <!-- Item 3 -->
-                    <div style="background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.3); border-radius: 20px; padding: 2.5rem; min-width: 300px; display: flex; flex-direction: column; align-items: center; text-align: center; transition: all 0.3s ease;">
-                        <div style="width: 80px; height: 80px; background: var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; margin-bottom: 1.5rem; color: var(--dark);">🌍</div>
-                        <h3 style="color: white; font-size: 1.5rem; margin-bottom: 0.8rem; font-weight: 700;">Global Reach</h3>
-                        <p style="color: rgba(255, 255, 255, 0.9); font-size: 1rem; line-height: 1.6;">Students from 15+ countries worldwide</p>
-                    </div>
-                    
-                    <!-- Item 4 -->
-                    <div style="background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.3); border-radius: 20px; padding: 2.5rem; min-width: 300px; display: flex; flex-direction: column; align-items: center; text-align: center; transition: all 0.3s ease;">
-                        <div style="width: 80px; height: 80px; background: var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; margin-bottom: 1.5rem; color: var(--dark);">💯</div>
-                        <h3 style="color: white; font-size: 1.5rem; margin-bottom: 0.8rem; font-weight: 700;">Proven Results</h3>
-                        <p style="color: rgba(255, 255, 255, 0.9); font-size: 1rem; line-height: 1.6;">50+ students completed Hifdh successfully</p>
-                    </div>
-                    
-                    <!-- Duplicate items for seamless loop -->
-                    <!-- Item 1 Duplicate -->
-                    <div style="background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.3); border-radius: 20px; padding: 2.5rem; min-width: 300px; display: flex; flex-direction: column; align-items: center; text-align: center; transition: all 0.3s ease;">
-                        <div style="width: 80px; height: 80px; background: var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; margin-bottom: 1.5rem; color: var(--dark);">✅</div>
-                        <h3 style="color: white; font-size: 1.5rem; margin-bottom: 0.8rem; font-weight: 700;">Certified Teachers</h3>
-                        <p style="color: rgba(255, 255, 255, 0.9); font-size: 1rem; line-height: 1.6;">Expert instructors with years of teaching experience</p>
-                    </div>
-                    
-                    <!-- Item 2 Duplicate -->
-                    <div style="background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.3); border-radius: 20px; padding: 2.5rem; min-width: 300px; display: flex; flex-direction: column; align-items: center; text-align: center; transition: all 0.3s ease;">
-                        <div style="width: 80px; height: 80px; background: var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; margin-bottom: 1.5rem; color: var(--dark);">⏰</div>
-                        <h3 style="color: white; font-size: 1.5rem; margin-bottom: 0.8rem; font-weight: 700;">Flexible Schedule</h3>
-                        <p style="color: rgba(255, 255, 255, 0.9); font-size: 1rem; line-height: 1.6;">Learn at your own pace, anytime, anywhere</p>
+                    <button class="marquee-nav next" onclick="scrollMarqueeRight()" aria-label="Next Marquee Item">
+                        ›
+                    </button>
+
+                    <!-- Marquee Container -->
+                    <div class="marquee-container" style="overflow: hidden; padding: 1rem 0;">
+                        <!-- Marquee Track -->
+                        <div class="marquee-track" id="marqueeTrack" style="display: flex; gap: 1.5rem; transition: transform 0.5s ease;">
+                            <!-- Item 1 - Certified Teachers -->
+                            <div class="marquee-card">
+                                <div class="marquee-card-icon">✅</div>
+                                <h3 class="marquee-white-text">Certified Teachers</h3>
+                                <p class="marquee-white-subtext">Expert instructors with years of teaching experience</p>
+                            </div>
+                            
+                            <!-- Item 2 - Flexible Schedule -->
+                            <div class="marquee-card">
+                                <div class="marquee-card-icon">⏰</div>
+                                <h3 class="marquee-white-text">Flexible Schedule</h3>
+                                <p class="marquee-white-subtext">Learn at your own pace, anytime, anywhere</p>
+                            </div>
+                            
+                            <!-- Item 3 - Global Reach -->
+                            <div class="marquee-card">
+                                <div class="marquee-card-icon">🌍</div>
+                                <h3 class="marquee-white-text">Global Reach</h3>
+                                <p class="marquee-white-subtext">Students from 15+ countries worldwide</p>
+                            </div>
+                            
+                            <!-- Item 4 - Proven Results -->
+                            <div class="marquee-card">
+                                <div class="marquee-card-icon">💯</div>
+                                <h3 class="marquee-white-text">Proven Results</h3>
+                                <p class="marquee-white-subtext">50+ students completed Hifdh successfully</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
 
-        <!-- CTA Button -->
-        <div style="text-align: center; margin-top: 3rem;">
-            <a href="#" onclick="showPage('register'); return false;" class="btn btn-primary" style="background: var(--accent); color: var(--dark); border: none; padding: 1.2rem 3rem; font-size: 1.1rem; font-weight: 700;">
-                Start Your Journey Today →
-            </a>
-        </div>
-
-        <style>
-            @keyframes marqueeScroll {
-                0% { transform: translateX(0); }
-                100% { transform: translateX(-50%); }
-            }
-            
-            .marquee:hover {
-                animation-play-state: paused;
-            }
-            
-            .marquee div div:hover {
-                transform: translateY(-10px);
-                background: rgba(255, 255, 255, 0.25);
-                box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
-            }
-        </style>
-      </section>
-
-      <!-- Testimonials on Home Page -->
-      <section style="padding: 5rem 2rem; background: white;">
-    <div style="text-align: center; margin-bottom: 3rem;">
-        <h2 style="font-size: 2.8rem; font-weight: 900; color: var(--dark); margin-bottom: 1rem;">What Our Students Say</h2>
-        <p style="font-size: 1.15rem; color: #6b7280;">Real transformations from real students around the world</p>
-    </div>
-
-    <div class="testimonial-slider">
-        <div class="slider-btn prev" onclick="changeTestimonial(-1)">‹</div>
-        <div class="slider-btn next" onclick="changeTestimonial(1)">›</div>
-        
-        <div class="testimonial-track">
-            <div class="testimonial-item active">
-                <!-- Fatima Ahmed - Nairobi, Kenya -->
-                <img src="https://thumbs.dreamstime.com/b/love-concept-smiling-african-muslim-woman-hijab-showing-heart-gesture-love-concept-smiling-african-muslim-woman-hijab-392324507.jpg" alt="Fatima Ahmed, happy student from Nairobi, Kenya" class="testimonial-avatar-img">
-                <p class="testimonial-text">"Alhamdulillah! Completed my Hifdh in 2 years with Saham Academy. The teachers are patient, knowledgeable, and truly care about your progress. The flexible schedule allowed me to learn while working full-time. Best decision I ever made!"</p>
-                <div class="testimonial-author">Fatima Ahmed</div>
-                <div class="testimonial-location">🇰🇪 Nairobi, Kenya</div>
-                <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
-            </div>
-
-            <div class="testimonial-item">
-                <!-- Abdullah Hassan - London, United Kingdom -->
-                <img src="https://img.freepik.com/premium-photo/portrait-arab-arabian-young-handsome-happy-muslim-bearded-man-with-beard-casual-clothes_157823-3221.jpg" alt="Abdullah Hassan, happy student from London, United Kingdom" class="testimonial-avatar-img">
-                <p class="testimonial-text">"My Tajweed improved dramatically in just 3 months. Sheikh Ahmed's teaching method is clear and easy to understand. I can now recite with confidence and proper pronunciation. The online format is convenient and professional."</p>
-                <div class="testimonial-author">Abdullah Hassan</div>
-                <div class="testimonial-location">🇬🇧 London, United Kingdom</div>
-                <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
-            </div>
-
-            <div class="testimonial-item">
-                <!-- Aisha Mohammed - New York, USA -->
-                <img src="https://www.shutterstock.com/shutterstock/photos/1463904926/display_1500/stock-photo-portrait-of-happy-little-muslim-girls-child-with-hijab-dress-smiling-and-looking-at-camera-in-the-1463904926.jpg" alt="Aisha Mohammed, young happy student from New York, USA" class="testimonial-avatar-img">
-                <p class="testimonial-text">"Started as a complete beginner with zero Arabic knowledge. Within 4 months, I could read Qur'an fluently with proper Tajweed. The teachers are encouraging, supportive, and make learning enjoyable. Highly recommend Saham Academy!"</p>
-                <div class="testimonial-author">Aisha Mohammed</div>
-                <div class="testimonial-location">🇺🇸 New York, USA</div>
-                <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
-            </div>
-
-            <div class="testimonial-item">
-                <!-- Omar Khalid - Dubai, UAE -->
-                <img src="https://media.istockphoto.com/id/1494356290/photo/handsome-saudi-arabian-middle-eastern-man-with-traditional-thwab-portrait-in-studio.jpg?s=612x612&w=0&k=20&c=yeptOvQE9uVdAlez0hvYMiUGQeENWQyoaRIeGLKpG3c=" alt="Omar Khalid, happy student from Dubai, UAE" class="testimonial-avatar-img">
-                <p class="testimonial-text">"The personalized 1-on-1 Zoom sessions are excellent. Sheikh Ibrahim helped me understand Arabic grammar which transformed how I understand the Qur'an. The investment is worth every penny. Professional and dedicated teachers."</p>
-                <div class="testimonial-author">Omar Khalid</div>
-                <div class="testimonial-location">🇦🇪 Dubai, UAE</div>
-                <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
-            </div>
-        </div>
-    </div>
-</section>
-   </div>
-
-<!-- COURSES PAGE -->
-<div id="coursesPage" class="page-content">
-    <div class="section-header">
-        <h2 class="section-title">Our Courses</h2>
-        <p class="section-subtitle">Comprehensive Islamic education programs designed for excellence</p>
-    </div>
-    <div class="grid-3">
-        <div class="image-card">
-            <!-- Qur'an Memorisation (Hifdh) -->
-            <img src="quran-memorization.png" alt="Student engaged in online Quran Hifz memorization program" style="width: 100%; height: 250px; object-fit: cover; border-radius: 8px 8px 0 0;">
-            <div class="image-card-content">
-                <h3 class="image-card-title">Qur'an Memorisation (Hifdh)</h3>
-                <p class="image-card-text">Master Qur'an memorization with proven techniques, daily practice sessions, regular revision schedules, and personalized feedback from experienced Hafidhs with Ijazah.</p>
-                <a href="#" onclick="showPage('register'); return false;" class="btn btn-primary" style="display: inline-block; margin-top: 1rem; padding: 0.8rem 2rem; font-size: 0.9rem;">Register Now →</a>
-            </div>
-        </div>
-        <div class="image-card">
-            <!-- Tilaawah Al-Quran (Reciting The Holy Quran) -->
-            <img src="tajweed.png" alt="Muslim beautifully reciting the Quran with proper Tajweed" style="width: 100%; height: 250px; object-fit: cover; border-radius: 8px 8px 0 0;">
-            <div class="image-card-content">
-                <h3 class="image-card-title">Tilaawah Al-Quran (Reciting The Holy Quran)</h3>
-                <p class="image-card-text">Perfect your recitation with proper Tajweed rules, beautiful pronunciation, authentic Qira'at, and step-by-step guidance from certified instructors.</p>
-                <a href="#" onclick="showPage('register'); return false;" class="btn btn-primary" style="display: inline-block; margin-top: 1rem; padding: 0.8rem 2rem; font-size: 0.9rem;">Register Now →</a>
-            </div>
-        </div>
-        <div class="image-card">
-            <!-- Arabic Language -->
-            <img src="arabic.png" alt="Online class for learning Quranic Arabic and Islamic education" style="width: 100%; height: 250px; object-fit: cover; border-radius: 8px 8px 0 0;">
-            <div class="image-card-content">
-                <h3 class="image-card-title">Arabic Language</h3>
-                <p class="image-card-text">Learn classical Arabic to understand the Qur'an deeply, from basic reading and writing to advanced grammar, morphology, and vocabulary.</p>
-                <a href="#" onclick="showPage('register'); return false;" class="btn btn-primary" style="display: inline-block; margin-top: 1rem; padding: 0.8rem 2rem; font-size: 0.9rem;">Register Now →</a>
-            </div>
-        </div>
-        <div class="image-card">
-            <!-- Qur'an for Kids -->
-            <img src="kid.png" alt="Children enjoying fun and engaging online Quran classes" style="width: 100%; height: 250px; object-fit: cover; border-radius: 8px 8px 0 0;">
-            <div class="image-card-content">
-                <h3 class="image-card-title">Qur'an for Kids</h3>
-                <p class="image-card-text">Engaging and fun Qur'an classes specifically designed for children with interactive methods, games, and age-appropriate materials.</p>
-                <a href="#" onclick="showPage('register'); return false;" class="btn btn-primary" style="display: inline-block; margin-top: 1rem; padding: 0.8rem 2rem; font-size: 0.9rem;">Register Now →</a>
-            </div>
-        </div>
-
-        <div class="image-card">
-            <!-- Yassarnal Qur'an -->
-            <img src="yassarnal.png" alt="Beginner-friendly Yassarnal Qur'an online classes" style="width: 100%; height: 250px; object-fit: cover; border-radius: 8px 8px 0 0;">
-            <div class="image-card-content">
-                <h3 class="image-card-title">Yassarnal Qur'an</h3>
-                <p class="image-card-text">
-                    A beginner-friendly Qur'an course that teaches Arabic letters and correct pronunciation step by step in a simple and easy way.
-                </p>
-                <a href="#" onclick="showPage('register'); return false;" class="btn btn-primary" style="display: inline-block; margin-top: 1rem; padding: 0.8rem 2rem; font-size: 0.9rem;">
-                    Register Now →
-                </a>
-            </div>
-        </div>
-
-        <div class="image-card">
-            <!-- Hadith Course -->
-            <img src="hadith.png" alt="Online Hadith course teaching authentic sayings of the Prophet Muhammad ﷺ" style="width: 100%; height: 250px; object-fit: cover; border-radius: 8px 8px 0 0;">
-            <div class="image-card-content">
-                <h3 class="image-card-title">Hadith Course</h3>
-                <p class="image-card-text">
-                    Learn and memorize authentic Hadith of the Prophet Muhammad ﷺ, their meanings, and practical lessons for daily life in a simple and engaging way.
-                </p>
-                <a href="#" onclick="showPage('register'); return false;" class="btn btn-primary" style="display: inline-block; margin-top: 1rem; padding: 0.8rem 2rem; font-size: 0.9rem;">
-                    Register Now →
-                </a>
-            </div>
-        </div>
-
-        <div class="image-card" style="opacity: 0.6; position: relative;">
-            <div style="position: absolute; top: 1rem; right: 1rem; background: var(--accent); color: var(--dark); padding: 0.5rem 1rem; border-radius: 8px; font-weight: 700; font-size: 0.85rem; z-index: 10;">COMING SOON</div>
-            <!-- Islamic Studies -->
-            <img src="islamic-studies.png" alt="Islamic studies class covering Aqeedah, Fiqh, Hadith, and Seerah" style="width: 100%; height: 250px; object-fit: cover; border-radius: 8px 8px 0 0; opacity: 0.7;">
-            <div class="image-card-content">
-                <h3 class="image-card-title">Islamic Studies</h3>
-                <p class="image-card-text">Comprehensive Islamic education covering Aqeedah, Fiqh, Hadith, Seerah, and essential knowledge for every Muslim.</p>
-                <button disabled class="btn btn-primary" style="display: inline-block; margin-top: 1rem; padding: 0.8rem 2rem; font-size: 0.9rem; opacity: 0.5; cursor: not-allowed;">Coming Soon</button>
-            </div>
-        </div>
-         
-        <div class="image-card" style="opacity: 0.6; position: relative;">
-            <div style="position: absolute; top: 1rem; right: 1rem; background: var(--accent); color: var(--dark); padding: 0.5rem 1rem; border-radius: 8px; font-weight: 700; font-size: 0.85rem; z-index: 10;">COMING SOON</div>
-            <!-- Ijazah Program -->
-            <img src="https://www.fajralquran.com/blog/wp-content/uploads/2025/05/fajr-04.jpg" alt="Quran Ijazah certification program with authentic Sanad" style="width: 100%; height: 250px; object-fit: cover; border-radius: 8px 8px 0 0; opacity: 0.7;">
-            <div class="image-card-content">
-                <h3 class="image-card-title">Ijazah Program</h3>
-                <p class="image-card-text">Obtain authentic Ijazah certification in Qur'an recitation with connected chains (Sanad) to the Prophet Muhammad (ﷺ).</p>
-                <button disabled class="btn btn-primary" style="display: inline-block; margin-top: 1rem; padding: 0.8rem 2rem; font-size: 0.9rem; opacity: 0.5; cursor: not-allowed;">Coming Soon</button>
-            </div>
-        </div>
-    </div>
-
-    <div style="text-align: center; margin-top: 4rem;">
-        <a href="#" onclick="showPage('register'); return false;" class="btn btn-primary" style="font-size: 1.2rem; padding: 1.3rem 3.5rem;">Enroll Now →</a>
-    </div>
-    
-    <!-- ADD "Why Choose Saham Qur'an Academy?" at the BOTTOM -->
-    <div style="max-width: 800px; margin: 4rem auto; padding: 3rem; background: linear-gradient(135deg, var(--primary-dark), var(--primary)); border-radius: 25px; color: white; text-align: center;">
-        <h3 style="font-size: 2rem; margin-bottom: 1.5rem;">Why Choose Saham Qur'an Academy?</h3>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-top: 2rem;">
-            <div>
-                <div style="font-size: 3rem; margin-bottom: 0.5rem;">✅</div>
-                <strong>Certified Teachers</strong>
-                <p style="font-size: 0.9rem; opacity: 0.9; margin-top: 0.5rem;">Expert instructors with years of experience</p>
-            </div>
-            <div>
-                <div style="font-size: 3rem; margin-bottom: 0.5rem;">⏰</div>
-                <strong>Flexible Schedule</strong>
-                <p style="font-size: 0.9rem; opacity: 0.9; margin-top: 0.5rem;">Learn at your own pace</p>
-            </div>
-            <div>
-                <div style="font-size: 3rem; margin-bottom: 0.5rem;">🌍</div>
-                <strong>Global Reach</strong>
-                <p style="font-size: 0.9rem; opacity: 0.9; margin-top: 0.5rem;">Students in 15+ countries</p>
-            </div>
-            <div>
-                <div style="font-size: 3rem; margin-bottom: 0.5rem;">💯</div>
-                <strong>Proven Results</strong>
-                <p style="font-size: 0.9rem; opacity: 0.9; margin-top: 0.5rem;">50+ students completed Hifdh</p>
-            </div>
-        </div>
-    </div>
-</div>
-   <!-- PRICING PAGE -->
-<div id="pricingPage" class="page-content">
-    <div class="section-header">
-        <h2 class="section-title">Affordable Pricing Plans</h2>
-        <p class="section-subtitle">Choose the learning format that works best for you</p>
-    </div>
-    
-    <div class="pricing-cards">
-        <div class="pricing-card">
-            <div class="pricing-icon">💬</div>
-            <h3 class="pricing-title">WhatsApp Classes</h3>
-            <div class="pricing-price">40K UGX</div>
-            <div class="pricing-period">per month</div>
-            <ul class="pricing-features">
-                <li>Daily lessons via WhatsApp</li>
-                <li>Voice note corrections</li>
-                <li>Flexible timing</li>
-                <li>Progress tracking</li>
-                <li>Study materials included</li>
-                <li>24/7 support</li>
-            </ul>
-            <a href="#" onclick="showPage('register'); return false;" class="btn btn-primary" style="width: 100%;">Get Started</a>
-        </div>
-
-        <div class="pricing-card featured">
-            <div class="pricing-icon">📹</div>
-            <h3 class="pricing-title">Zoom 1-on-1</h3>
-            <div class="pricing-price">60K UGX</div>
-            <div class="pricing-period">per month</div>
-            <ul class="pricing-features">
-                <li>Live video sessions</li>
-                <li>Personalized attention</li>
-                <li>Screen sharing for Tajweed</li>
-                <li>Recorded sessions</li>
-                <li>Interactive whiteboard</li>
-                <li>Priority support</li>
-                <li>Flexible scheduling</li>
-            </ul>
-            <a href="#" onclick="showPage('register'); return false;" class="btn btn-primary" style="width: 100%; background: white; color: var(--primary-dark);">Get Started</a>
-        </div>
-    </div>
-
-    <!-- ADD "Why Choose Saham Qur'an Academy?" at the BOTTOM -->
-    <div style="max-width: 800px; margin: 4rem auto; padding: 3rem; background: linear-gradient(135deg, var(--primary-dark), var(--primary)); border-radius: 25px; color: white; text-align: center;">
-        <h3 style="font-size: 2rem; margin-bottom: 1.5rem;">Why Choose Saham Qur'an Academy?</h3>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-top: 2rem;">
-            <div>
-                <div style="font-size: 3rem; margin-bottom: 0.5rem;">✅</div>
-                <strong>Certified Teachers</strong>
-                <p style="font-size: 0.9rem; opacity: 0.9; margin-top: 0.5rem;">Expert instructors with years of experience</p>
-            </div>
-            <div>
-                <div style="font-size: 3rem; margin-bottom: 0.5rem;">⏰</div>
-                <strong>Flexible Schedule</strong>
-                <p style="font-size: 0.9rem; opacity: 0.9; margin-top: 0.5rem;">Learn at your own pace</p>
-            </div>
-            <div>
-                <div style="font-size: 3rem; margin-bottom: 0.5rem;">🌍</div>
-                <strong>Global Reach</strong>
-                <p style="font-size: 0.9rem; opacity: 0.9; margin-top: 0.5rem;">Students in 15+ countries</p>
-            </div>
-            <div>
-                <div style="font-size: 3rem; margin-bottom: 0.5rem;">💯</div>
-                <strong>Proven Results</strong>
-                <p style="font-size: 0.9rem; opacity: 0.9; margin-top: 0.5rem;">50+ students completed Hifdh</p>
-            </div>
-        </div>
-    </div>
-</div>
-
-  <!-- ABOUT PAGE -->
-<div id="aboutPage" class="page-content">
-    <div class="section-header">
-        <h2 class="section-title">About Saham Academy</h2>
-        <p class="section-subtitle">Excellence in Islamic education from Kampala, Uganda to the world</p>
-    </div>
-    
-    <div style="max-width: 800px; margin: 0 auto 4rem; text-align: center;">
-        <div style="width: 100%; height: 400px; background: linear-gradient(135deg, var(--primary-dark), var(--primary)); border-radius: 20px; display: flex; align-items: center; justify-content: center; margin-bottom: 2rem;">
-            <img src="logo4.png" alt="Saham Academy" style="width: 400px; height: 400px; object-fit: contain;">
-        </div>
-        <p style="font-size: 1.15rem; line-height: 1.9; color: #6b7280; margin-bottom: 1.5rem;">
-            Founded in Kampala, Uganda, Saham Qur'an Academy is dedicated to making authentic Islamic education accessible to Muslims worldwide. We combine traditional teaching methods with modern technology to deliver world-class Qur'anic education.
-        </p>
-        <p style="font-size: 1.15rem; line-height: 1.9; color: #6b7280; margin-bottom: 1.5rem;">
-            Our mission is to nurture strong, confident, and knowledgeable Muslims who embody the teachings of the Qur'an in their daily lives. With over 10 years of combined teaching experience, our certified instructors have helped hundreds of students achieve their Islamic educational goals.
-        </p>
-        <p style="font-size: 1.15rem; line-height: 1.9; color: #6b7280;">
-            Whether you're a complete beginner or seeking advanced Islamic knowledge, we provide personalized learning experiences tailored to your pace and goals.
-        </p>
-    </div>
-
-    <h3 style="text-align: center; font-size: 2.5rem; font-weight: 900; margin-bottom: 3rem;">Meet Our Expert Team</h3>
-    <div class="grid-3">
-        <div class="image-card">
-            <!-- Sheikh Abdulsalaam Abbas Ssenkindu - Arabic Language Specialist -->
-            <img src="abdulsalaam.png" alt="Sheikh Abdulsalaam Founder and Director of Saham Academy" style="width: 100%; height: 250px; object-fit: cover; border-radius: 8px 8px 0 0;">
-            <div class="image-card-content">
-                <h3 class="image-card-title">Sheikh Abdulsalaam Abbas Ssenkindu</h3>
-                <p style="color: var(--primary-dark); font-weight: 700; margin-bottom: 0.8rem;">Arabic specialist</p>
-                <p class="image-card-text">A skilled instructor in Arabic language, helping students understand Qur'anic Arabic through structured lessons in reading, vocabulary, and basic grammar.</p>
-            </div>
-        </div>
-
-        <div class="image-card">
-            <!-- Sheikh Hashim Muhammad Bbanja - Hadith specialist -->
-            <img src="hashim.jpeg" alt="Sheikh Hashim Muhammad Bbanja, Hadith Specialist" style="width: 100%; height: 250px; object-fit: cover; border-radius: 8px 8px 0 0;">
-            <div class="image-card-content">
-                <h3 class="image-card-title">Sheikh Hashim Muhammad Bbanja</h3>
-                <p style="color: var(--primary-dark); font-weight: 700; margin-bottom: 0.8rem;">Hadith specialist</p>
-                <p class="image-card-text">An expert in authentic Hadith studies, focusing on the sayings of the Prophet Muhammad ﷺ, their meanings, and practical application in everyday life.</p>
-            </div>
-        </div>
-        
-        <div class="image-card">
-            <!-- Sheikh Bashir Buvumbo - Qur'an Specialist -->
-            <img src="bashir.jpeg" alt="Sheikh Bashir Buvumbo, Qur'an Specialist" style="width: 100%; height: 250px; object-fit: cover; border-radius: 8px 8px 0 0;">
-            <div class="image-card-content">
-                <h3 class="image-card-title">Sheikh Bashir Buvumbo</h3>
-                <p style="color: var(--primary-dark); font-weight: 700; margin-bottom: 0.8rem;">Qur'an Specialist</p>
-                <p class="image-card-text">A highly experienced teacher specializing in Qur'an recitation, Tajwīd, and memorization, dedicated to helping students read and understand the Qur'an correctly and confidently.</p>
-            </div>
-        </div>
-        
-        <div class="image-card">
-            <!-- Sheikh Usaama Ssegujja - Qur'an Specialist -->
-            <img src="usaama.jpeg" alt="Sheikh Usaama Ssegujja, Qur'an Specialist" style="width: 100%; height: 250px; object-fit: cover; border-radius: 8px 8px 0 0;">
-            <div class="image-card-content">
-                <h3 class="image-card-title">Sheikh Usaama Ssegujja</h3>
-                <p style="color: var(--primary-dark); font-weight: 700; margin-bottom: 0.8rem;">Qur'an Specialist</p>
-                <p class="image-card-text">A highly experienced teacher specializing in Qur'an recitation, Tajwīd, and memorization, dedicated to helping students read and understand the Qur'an correctly and confidently.</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- ADD "Why Choose Saham Qur'an Academy?" at the BOTTOM -->
-    <div style="max-width: 800px; margin: 4rem auto; padding: 3rem; background: linear-gradient(135deg, var(--primary-dark), var(--primary)); border-radius: 25px; color: white; text-align: center;">
-        <h3 style="font-size: 2rem; margin-bottom: 1.5rem;">Why Choose Saham Qur'an Academy?</h3>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-top: 2rem;">
-            <div>
-                <div style="font-size: 3rem; margin-bottom: 0.5rem;">✅</div>
-                <strong>Certified Teachers</strong>
-                <p style="font-size: 0.9rem; opacity: 0.9; margin-top: 0.5rem;">Expert instructors with years of experience</p>
-            </div>
-            <div>
-                <div style="font-size: 3rem; margin-bottom: 0.5rem;">⏰</div>
-                <strong>Flexible Schedule</strong>
-                <p style="font-size: 0.9rem; opacity: 0.9; margin-top: 0.5rem;">Learn at your own pace</p>
-            </div>
-            <div>
-                <div style="font-size: 3rem; margin-bottom: 0.5rem;">🌍</div>
-                <strong>Global Reach</strong>
-                <p style="font-size: 0.9rem; opacity: 0.9; margin-top: 0.5rem;">Students in 15+ countries</p>
-            </div>
-            <div>
-                <div style="font-size: 3rem; margin-bottom: 0.5rem;">💯</div>
-                <strong>Proven Results</strong>
-                <p style="font-size: 0.9rem; opacity: 0.9; margin-top: 0.5rem;">50+ students completed Hifdh</p>
-            </div>
-        </div>
-    </div>
-</div>
-
-   
-<!-- REGISTRATION PAGE -->
-<div id="registerPage" class="page-content" style="padding: 6rem 0;">
-    <div class="registration-section" style="margin: 0; padding: 5rem 2rem;">
-        <div class="registration-container">
-            <div class="registration-header">
-                <h2>Start Your Qur'anic Journey Today</h2>
-                <p>Fill out the form below to register for our Qur'an classes</p>
-            </div>
-
-            <div class="form-container">
-                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSefBDvkfi731r53UJyj0eKrvY2SPlgzx779UeVv1ugehwFK8Q/viewform?embedded=true" width="100%" height="850" frameborder="0" marginheight="0" marginwidth="0" style="border: none; background: white;">Loading…</iframe>
-                
-                <div class="whatsapp-prompt">
-                    <h3>📱 Complete Your Registration</h3>
-                    <p>After submitting the form above, click the button below to send us a WhatsApp message. This helps us process your registration faster and answer any questions you may have!</p>
-                    <a href="https://wa.me/256784560867?text=As-salaamu%20alaykum!%20I%20have%20just%20registered%20for%20Qur%27an%20classes%20via%20your%20website.%20My%20name%20is%20%5BYour%20Name%5D.%20I'm%20excited%20to%20start%20learning%20with%20Saham%20Academy!" class="btn-whatsapp">
-                        💬 Message Us on WhatsApp
+                <!-- CTA Button -->
+                <div style="text-align: center; margin-top: 3rem;">
+                    <a href="#" onclick="showPage('register'); return false;" class="btn accent-gradient-btn" aria-label="Start Your Quranic Journey">
+                        Start Your Journey Today →
                     </a>
                 </div>
-            </div>
-        </div>
-    </div>
-    
-    <!-- ADD "Why Choose Saham Qur'an Academy?" section at the BOTTOM -->
-    <div style="max-width: 800px; margin: 4rem auto; padding: 3rem; background: linear-gradient(135deg, var(--primary-dark), var(--primary)); border-radius: 25px; color: white; text-align: center;">
-        <h3 style="font-size: 2rem; margin-bottom: 1.5rem;">Why Choose Saham Qur'an Academy?</h3>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-top: 2rem;">
-            <div>
-                <div style="font-size: 3rem; margin-bottom: 0.5rem;">✅</div>
-                <strong>Certified Teachers</strong>
-                <p style="font-size: 0.9rem; opacity: 0.9; margin-top: 0.5rem;">Expert instructors with years of experience</p>
-            </div>
-            <div>
-                <div style="font-size: 3rem; margin-bottom: 0.5rem;">⏰</div>
-                <strong>Flexible Schedule</strong>
-                <p style="font-size: 0.9rem; opacity: 0.9; margin-top: 0.5rem;">Learn at your own pace</p>
-            </div>
-            <div>
-                <div style="font-size: 3rem; margin-bottom: 0.5rem;">🌍</div>
-                <strong>Global Reach</strong>
-                <p style="font-size: 0.9rem; opacity: 0.9; margin-top: 0.5rem;">Students in 15+ countries</p>
-            </div>
-            <div>
-                <div style="font-size: 3rem; margin-bottom: 0.5rem;">💯</div>
-                <strong>Proven Results</strong>
-                <p style="font-size: 0.9rem; opacity: 0.9; margin-top: 0.5rem;">50+ students completed Hifdh</p>
-            </div>
-        </div>
-    </div>
-</div>
-    <!-- CONTACT PAGE -->
-    <div id="contactPage" class="page-content">
-        <div class="section-header">
-            <h2 class="section-title">Get in Touch</h2>
-            <p class="section-subtitle">Ready to begin your Qur'anic journey? Contact us today</p>
-        </div>
+            </section>
 
-        <div class="grid-3">
-            <div class="card">
-                <div class="card-icon">📱</div>
-                <h3 class="card-title">WhatsApp</h3>
-                <p class="card-text" style="font-weight: 700; color: var(--primary-dark); font-size: 1.2rem; margin-bottom: 0.5rem;">+256 784 560 867</p>
-                <p class="card-text" style="font-weight: 700; color: var(--primary-dark); font-size: 1.2rem; margin-bottom: 1rem;">+256 756 549 534</p>
-                <p class="card-text" style="margin-bottom: 1.5rem;">Fast response • Available 7 days a week</p>
-                <a href="https://wa.me/256784560867?text=Assalamu%20Alaikum!%20I'm%20interested%20in%20Saham%20Academy" class="btn btn-primary" style="display: inline-block; padding: 0.8rem 2rem; font-size: 0.9rem;">Message Us</a>
-            </div>
+            <!-- Testimonials on Home Page -->
+            <section style="padding: 5rem 2rem; background: white;">
+                <div style="text-align: center; margin-bottom: 3rem;">
+                    <h2 style="font-size: 2.8rem; font-weight: 900; color: var(--dark); margin-bottom: 1rem;">What Our Students Say</h2>
+                    <p style="font-size: 1.15rem; color: #6b7280;">Real transformations from real students around the world</p>
+                </div>
 
-            <div class="card">
-                <div class="card-icon">📞</div>
-                <h3 class="card-title">Call Us</h3>
-                <p class="card-text" style="font-weight: 700; color: var(--primary-dark); font-size: 1.2rem; margin-bottom: 0.5rem;">+256 784 560 867</p>
-                <p class="card-text" style="font-weight: 700; color: var(--primary-dark); font-size: 1.2rem; margin-bottom: 1rem;">+256 756 549 534</p>
-                <p class="card-text">Available 7 days a week<br>9 AM - 9 PM EAT</p>
-            </div>
+                <div class="testimonial-slider">
+                    <div class="slider-btn prev" onclick="changeTestimonial(-1)" aria-label="Previous Testimonial">‹</div>
+                    <div class="slider-btn next" onclick="changeTestimonial(1)" aria-label="Next Testimonial">›</div>
+                    
+                    <div class="testimonial-track">
+                        <div class="testimonial-item active">
+                            <img src="https://thumbs.dreamstime.com/b/love-concept-smiling-african-muslim-woman-hijab-showing-heart-gesture-love-concept-smiling-african-muslim-woman-hijab-392324507.jpg" alt="Fatima Ahmed, happy student from Nairobi, Kenya" class="testimonial-avatar-img" loading="lazy">
+                            <p class="testimonial-text">"Alhamdulillah! Completed my Hifdh in 2 years with Saham Academy. The teachers are patient, knowledgeable, and truly care about your progress. The flexible schedule allowed me to learn while working full-time. Best decision I ever made!"</p>
+                            <div class="testimonial-author">Fatima Ahmed</div>
+                            <div class="testimonial-location">🇰🇪 Nairobi, Kenya</div>
+                            <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                        </div>
 
-            <div class="card">
-                <div class="card-icon">🌍</div>
-                <h3 class="card-title">Location</h3>
-                <p class="card-text" style="font-weight: 700; color: var(--primary-dark); font-size: 1.2rem; margin-bottom: 1rem;">Kampala, Uganda 🇺🇬</p>
-                <p class="card-text">Serving students worldwide through online classes via WhatsApp and Zoom</p>
-            </div>
+                        <div class="testimonial-item">
+                            <img src="https://img.freepik.com/premium-photo/portrait-arab-arabian-young-handsome-happy-muslim-bearded-man-with-beard-casual-clothes_157823-3221.jpg" alt="Abdullah Hassan, happy student from London, United Kingdom" class="testimonial-avatar-img" loading="lazy">
+                            <p class="testimonial-text">"My Tajweed improved dramatically in just 3 months. Sheikh Ahmed's teaching method is clear and easy to understand. I can now recite with confidence and proper pronunciation. The online format is convenient and professional."</p>
+                            <div class="testimonial-author">Abdullah Hassan</div>
+                            <div class="testimonial-location">🇬🇧 London, United Kingdom</div>
+                            <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                        </div>
+
+                        <div class="testimonial-item">
+                            <img src="https://www.shutterstock.com/shutterstock/photos/1463904926/display_1500/stock-photo-portrait-of-happy-little-muslim-girls-child-with-hijab-dress-smiling-and-looking-at-camera-in-the-1463904926.jpg" alt="Aisha Mohammed, young happy student from New York, USA" class="testimonial-avatar-img" loading="lazy">
+                            <p class="testimonial-text">"Started as a complete beginner with zero Arabic knowledge. Within 4 months, I could read Qur'an fluently with proper Tajweed. The teachers are encouraging, supportive, and make learning enjoyable. Highly recommend Saham Academy!"</p>
+                            <div class="testimonial-author">Aisha Mohammed</div>
+                            <div class="testimonial-location">🇺🇸 New York, USA</div>
+                            <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                        </div>
+
+                        <div class="testimonial-item">
+                            <img src="https://media.istockphoto.com/id/1494356290/photo/handsome-saudi-arabian-middle-eastern-man-with-traditional-thwab-portrait-in-studio.jpg?s=612x612&w=0&k=20&c=yeptOvQE9uVdAlez0hvYMiUGQeENWQyoaRIeGLKpG3c=" alt="Omar Khalid, happy student from Dubai, UAE" class="testimonial-avatar-img" loading="lazy">
+                            <p class="testimonial-text">"The personalized 1-on-1 Zoom sessions are excellent. Sheikh Ibrahim helped me understand Arabic grammar which transformed how I understand the Qur'an. The investment is worth every penny. Professional and dedicated teachers."</p>
+                            <div class="testimonial-author">Omar Khalid</div>
+                            <div class="testimonial-location">🇦🇪 Dubai, UAE</div>
+                            <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
 
-        <div style="max-width: 700px; margin: 4rem auto; background: linear-gradient(135deg, #f0fdf4, #dcfce7); padding: 3rem; border-radius: 25px; text-align: center;">
-            <h3 style="font-size: 2rem; margin-bottom: 1.5rem; color: var(--dark);">Ready to Enroll?</h3>
-            <p style="font-size: 1.1rem; color: #6b7280; margin-bottom: 2rem; line-height: 1.8;">
-                Contact us via WhatsApp or call to discuss your learning goals. We'll guide you through the enrollment process, answer all your questions, and help you choose the perfect course for your needs.
+        <!-- COURSES PAGE -->
+        <div id="coursesPage" class="page-content">
+            <div class="section-header">
+                <h2 class="section-title">Our Courses</h2>
+                <p class="section-subtitle">Comprehensive Islamic education programs designed for excellence</p>
+            </div>
+            <div class="grid-3">
+                <div class="image-card">
+                    <img src="quran-memorization.png" alt="Student engaged in online Quran Hifz memorization program" loading="lazy">
+                    <div class="image-card-content">
+                        <h3 class="image-card-title">Qur'an Memorisation (Hifdh)</h3>
+                        <p class="image-card-text">Master Qur'an memorization with proven techniques, daily practice sessions, regular revision schedules, and personalized feedback from experienced Hafidhs with Ijazah.</p>
+                        <a href="#" onclick="showPage('register'); return false;" class="btn btn-primary" style="display: inline-block; margin-top: 1rem; padding: 0.8rem 2rem; font-size: 0.9rem;" aria-label="Register for Hifdh Course">Register Now →</a>
+                    </div>
+                </div>
+                <div class="image-card">
+                    <img src="tajweed.png" alt="Muslim beautifully reciting the Quran with proper Tajweed" loading="lazy">
+                    <div class="image-card-content">
+                        <h3 class="image-card-title">Tilaawah Al-Quran (Reciting The Holy Quran)</h3>
+                        <p class="image-card-text">Perfect your recitation with proper Tajweed rules, beautiful pronunciation, authentic Qira'at, and step-by-step guidance from certified instructors.</p>
+                        <a href="#" onclick="showPage('register'); return false;" class="btn btn-primary" style="display: inline-block; margin-top: 1rem; padding: 0.8rem 2rem; font-size: 0.9rem;" aria-label="Register for Tajweed Course">Register Now →</a>
+                    </div>
+                </div>
+                <div class="image-card">
+                    <img src="arabic.png" alt="Online class for learning Quranic Arabic and Islamic education" loading="lazy">
+                    <div class="image-card-content">
+                        <h3 class="image-card-title">Arabic Language</h3>
+                        <p class="image-card-text">Learn classical Arabic to understand the Qur'an deeply, from basic reading and writing to advanced grammar, morphology, and vocabulary.</p>
+                        <a href="#" onclick="showPage('register'); return false;" class="btn btn-primary" style="display: inline-block; margin-top: 1rem; padding: 0.8rem 2rem; font-size: 0.9rem;" aria-label="Register for Arabic Course">Register Now →</a>
+                    </div>
+                </div>
+                <div class="image-card">
+                    <img src="kid.png" alt="Children enjoying fun and engaging online Quran classes" loading="lazy">
+                    <div class="image-card-content">
+                        <h3 class="image-card-title">Qur'an for Kids</h3>
+                        <p class="image-card-text">Engaging and fun Qur'an classes specifically designed for children with interactive methods, games, and age-appropriate materials.</p>
+                        <a href="#" onclick="showPage('register'); return false;" class="btn btn-primary" style="display: inline-block; margin-top: 1rem; padding: 0.8rem 2rem; font-size: 0.9rem;" aria-label="Register for Kids Quran Course">Register Now →</a>
+                    </div>
+                </div>
+
+                <div class="image-card">
+                    <img src="yassarnal.png" alt="Beginner-friendly Yassarnal Qur'an online classes" loading="lazy">
+                    <div class="image-card-content">
+                        <h3 class="image-card-title">Yassarnal Qur'an</h3>
+                        <p class="image-card-text">A beginner-friendly Qur'an course that teaches Arabic letters and correct pronunciation step by step in a simple and easy way.</p>
+                        <a href="#" onclick="showPage('register'); return false;" class="btn btn-primary" style="display: inline-block; margin-top: 1rem; padding: 0.8rem 2rem; font-size: 0.9rem;" aria-label="Register for Yassarnal Quran Course">Register Now →</a>
+                    </div>
+                </div>
+
+                <div class="image-card">
+                    <img src="hadith.png" alt="Online Hadith course teaching authentic sayings of the Prophet Muhammad ﷺ" loading="lazy">
+                    <div class="image-card-content">
+                        <h3 class="image-card-title">Hadith Course</h3>
+                        <p class="image-card-text">Learn and memorize authentic Hadith of the Prophet Muhammad ﷺ, their meanings, and practical lessons for daily life in a simple and engaging way.</p>
+                        <a href="#" onclick="showPage('register'); return false;" class="btn btn-primary" style="display: inline-block; margin-top: 1rem; padding: 0.8rem 2rem; font-size: 0.9rem;" aria-label="Register for Hadith Course">Register Now →</a>
+                    </div>
+                </div>
+
+                <div class="image-card" style="opacity: 0.6; position: relative;">
+                    <div style="position: absolute; top: 1rem; right: 1rem; background: var(--accent); color: var(--dark); padding: 0.5rem 1rem; border-radius: 8px; font-weight: 700; font-size: 0.85rem; z-index: 10;">COMING SOON</div>
+                    <img src="islamic-studies.png" alt="Islamic studies class covering Aqeedah, Fiqh, Hadith, and Seerah" loading="lazy" style="opacity: 0.7;">
+                    <div class="image-card-content">
+                        <h3 class="image-card-title">Islamic Studies</h3>
+                        <p class="image-card-text">Comprehensive Islamic education covering Aqeedah, Fiqh, Hadith, Seerah, and essential knowledge for every Muslim.</p>
+                        <button disabled class="btn btn-primary" style="display: inline-block; margin-top: 1rem; padding: 0.8rem 2rem; font-size: 0.9rem; opacity: 0.5; cursor: not-allowed;">Coming Soon</button>
+                    </div>
+                </div>
+                 
+                <div class="image-card" style="opacity: 0.6; position: relative;">
+                    <div style="position: absolute; top: 1rem; right: 1rem; background: var(--accent); color: var(--dark); padding: 0.5rem 1rem; border-radius: 8px; font-weight: 700; font-size: 0.85rem; z-index: 10;">COMING SOON</div>
+                    <img src="https://www.fajralquran.com/blog/wp-content/uploads/2025/05/fajr-04.jpg" alt="Quran Ijazah certification program with authentic Sanad" loading="lazy" style="opacity: 0.7;">
+                    <div class="image-card-content">
+                        <h3 class="image-card-title">Ijazah Program</h3>
+                        <p class="image-card-text">Obtain authentic Ijazah certification in Qur'an recitation with connected chains (Sanad) to the Prophet Muhammad (ﷺ).</p>
+                        <button disabled class="btn btn-primary" style="display: inline-block; margin-top: 1rem; padding: 0.8rem 2rem; font-size: 0.9rem; opacity: 0.5; cursor: not-allowed;">Coming Soon</button>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 4rem;">
+                <a href="#" onclick="showPage('register'); return false;" class="btn btn-primary" style="font-size: 1.2rem; padding: 1.3rem 3.5rem;" aria-label="Enroll Now in All Courses">Enroll Now →</a>
+            </div>
+            
+            <!-- Why Choose Saham Qur'an Academy? -->
+            <div class="why-choose-section">
+                <h3 style="font-size: 2rem; margin-bottom: 1.5rem;">Why Choose Saham Qur'an Academy?</h3>
+                <div class="why-choose-grid">
+                    <div class="why-choose-item">
+                        <div class="why-choose-icon">✅</div>
+                        <strong class="why-choose-title">Certified Teachers</strong>
+                        <p class="why-choose-desc">Expert instructors with years of experience</p>
+                    </div>
+                    <div class="why-choose-item">
+                        <div class="why-choose-icon">⏰</div>
+                        <strong class="why-choose-title">Flexible Schedule</strong>
+                        <p class="why-choose-desc">Learn at your own pace</p>
+                    </div>
+                    <div class="why-choose-item">
+                        <div class="why-choose-icon">🌍</div>
+                        <strong class="why-choose-title">Global Reach</strong>
+                        <p class="why-choose-desc">Students in 15+ countries</p>
+                    </div>
+                    <div class="why-choose-item">
+                        <div class="why-choose-icon">💯</div>
+                        <strong class="why-choose-title">Proven Results</strong>
+                        <p class="why-choose-desc">50+ students completed Hifdh</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PRICING PAGE -->
+        <div id="pricingPage" class="page-content">
+            <div class="section-header">
+                <h2 class="section-title">Affordable Pricing Plans</h2>
+                <p class="section-subtitle">Choose the learning format that works best for you</p>
+            </div>
+            
+            <div class="pricing-cards">
+                <div class="pricing-card">
+                    <div class="pricing-icon">💬</div>
+                    <h3 class="pricing-title">WhatsApp Classes</h3>
+                    <div class="pricing-price">40K UGX</div>
+                    <div class="pricing-period">per month</div>
+                    <ul class="pricing-features">
+                        <li>Daily lessons via WhatsApp</li>
+                        <li>Voice note corrections</li>
+                        <li>Flexible timing</li>
+                        <li>Progress tracking</li>
+                        <li>Study materials included</li>
+                        <li>24/7 support</li>
+                    </ul>
+                    <a href="#" onclick="showPage('register'); return false;" class="btn btn-primary" style="width: 100%;" aria-label="Get Started with WhatsApp Classes">Get Started</a>
+                </div>
+
+                <div class="pricing-card featured">
+                    <div class="pricing-icon">📹</div>
+                    <h3 class="pricing-title">Zoom 1-on-1</h3>
+                    <div class="pricing-price">60K UGX</div>
+                    <div class="pricing-period">per month</div>
+                    <ul class="pricing-features">
+                        <li>Live video sessions</li>
+                        <li>Personalized attention</li>
+                        <li>Screen sharing for Tajweed</li>
+                        <li>Recorded sessions</li>
+                        <li>Interactive whiteboard</li>
+                        <li>Priority support</li>
+                        <li>Flexible scheduling</li>
+                    </ul>
+                    <a href="#" onclick="showPage('register'); return false;" class="btn btn-primary" style="width: 100%; background: white; color: var(--primary-dark);" aria-label="Get Started with Zoom 1-on-1 Classes">Get Started</a>
+                </div>
+            </div>
+
+            <!-- Why Choose Saham Qur'an Academy? -->
+            <div class="why-choose-section">
+                <h3 style="font-size: 2rem; margin-bottom: 1.5rem;">Why Choose Saham Qur'an Academy?</h3>
+                <div class="why-choose-grid">
+                    <div class="why-choose-item">
+                        <div class="why-choose-icon">✅</div>
+                        <strong class="why-choose-title">Certified Teachers</strong>
+                        <p class="why-choose-desc">Expert instructors with years of experience</p>
+                    </div>
+                    <div class="why-choose-item">
+                        <div class="why-choose-icon">⏰</div>
+                        <strong class="why-choose-title">Flexible Schedule</strong>
+                        <p class="why-choose-desc">Learn at your own pace</p>
+                    </div>
+                    <div class="why-choose-item">
+                        <div class="why-choose-icon">🌍</div>
+                        <strong class="why-choose-title">Global Reach</strong>
+                        <p class="why-choose-desc">Students in 15+ countries</p>
+                    </div>
+                    <div class="why-choose-item">
+                        <div class="why-choose-icon">💯</div>
+                        <strong class="why-choose-title">Proven Results</strong>
+                        <p class="why-choose-desc">50+ students completed Hifdh</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ABOUT PAGE -->
+        <div id="aboutPage" class="page-content">
+            <div class="section-header">
+                <h2 class="section-title">About Saham Academy</h2>
+                <p class="section-subtitle">Excellence in Islamic education from Kampala, Uganda to the world</p>
+            </div>
+            
+            <div style="max-width: 800px; margin: 0 auto 4rem; text-align: center;">
+                <div style="width: 100%; height: 400px; background: linear-gradient(135deg, var(--primary-dark), var(--primary)); border-radius: 20px; display: flex; align-items: center; justify-content: center; margin-bottom: 2rem;">
+                    <img src="logo4.png" alt="Saham Academy - Excellence in Islamic Education" style="width: 400px; height: 400px; object-fit: contain;">
+                </div>
+                <p style="font-size: 1.15rem; line-height: 1.9; color: #6b7280; margin-bottom: 1.5rem;">
+                    Founded in Kampala, Uganda, Saham Qur'an Academy is dedicated to making authentic Islamic education accessible to Muslims worldwide. We combine traditional teaching methods with modern technology to deliver world-class Qur'anic education.
+                </p>
+                <p style="font-size: 1.15rem; line-height: 1.9; color: #6b7280; margin-bottom: 1.5rem;">
+                    Our mission is to nurture strong, confident, and knowledgeable Muslims who embody the teachings of the Qur'an in their daily lives. With over 10 years of combined teaching experience, our certified instructors have helped hundreds of students achieve their Islamic educational goals.
+                </p>
+                <p style="font-size: 1.15rem; line-height: 1.9; color: #6b7280;">
+                    Whether you're a complete beginner or seeking advanced Islamic knowledge, we provide personalized learning experiences tailored to your pace and goals.
+                </p>
+            </div>
+
+            <h3 style="text-align: center; font-size: 2.5rem; font-weight: 900; margin-bottom: 3rem;">Meet Our Expert Team</h3>
+            <div class="grid-3">
+                <div class="image-card">
+                    <img src="abdulsalaam.png" alt="Sheikh Abdulsalaam Founder and Director of Saham Academy" loading="lazy">
+                    <div class="image-card-content">
+                        <h3 class="image-card-title">Sheikh Abdulsalaam Abbas Ssenkindu</h3>
+                        <p style="color: var(--primary-dark); font-weight: 700; margin-bottom: 0.8rem;">Arabic specialist</p>
+                        <p class="image-card-text">A skilled instructor in Arabic language, helping students understand Qur'anic Arabic through structured lessons in reading, vocabulary, and basic grammar.</p>
+                    </div>
+                </div>
+
+                <div class="image-card">
+                    <img src="hashim.jpeg" alt="Sheikh Hashim Muhammad Bbanja, Hadith Specialist" loading="lazy">
+                    <div class="image-card-content">
+                        <h3 class="image-card-title">Sheikh Hashim Muhammad Bbanja</h3>
+                        <p style="color: var(--primary-dark); font-weight: 700; margin-bottom: 0.8rem;">Hadith specialist</p>
+                        <p class="image-card-text">An expert in authentic Hadith studies, focusing on the sayings of the Prophet Muhammad ﷺ, their meanings, and practical application in everyday life.</p>
+                    </div>
+                </div>
+                
+                <div class="image-card">
+                    <img src="bashir.jpeg" alt="Sheikh Bashir Buvumbo, Qur'an Specialist" loading="lazy">
+                    <div class="image-card-content">
+                        <h3 class="image-card-title">Sheikh Bashir Buvumbo</h3>
+                        <p style="color: var(--primary-dark); font-weight: 700; margin-bottom: 0.8rem;">Qur'an Specialist</p>
+                        <p class="image-card-text">A highly experienced teacher specializing in Qur'an recitation, Tajwīd, and memorization, dedicated to helping students read and understand the Qur'an correctly and confidently.</p>
+                    </div>
+                </div>
+                
+                <div class="image-card">
+                    <img src="usaama.jpeg" alt="Sheikh Usaama Ssegujja, Qur'an Specialist" loading="lazy">
+                    <div class="image-card-content">
+                        <h3 class="image-card-title">Sheikh Usaama Ssegujja</h3>
+                        <p style="color: var(--primary-dark); font-weight: 700; margin-bottom: 0.8rem;">Qur'an Specialist</p>
+                        <p class="image-card-text">A highly experienced teacher specializing in Qur'an recitation, Tajwīd, and memorization, dedicated to helping students read and understand the Qur'an correctly and confidently.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Why Choose Saham Qur'an Academy? -->
+            <div class="why-choose-section">
+                <h3 style="font-size: 2rem; margin-bottom: 1.5rem;">Why Choose Saham Qur'an Academy?</h3>
+                <div class="why-choose-grid">
+                    <div class="why-choose-item">
+                        <div class="why-choose-icon">✅</div>
+                        <strong class="why-choose-title">Certified Teachers</strong>
+                        <p class="why-choose-desc">Expert instructors with years of experience</p>
+                    </div>
+                    <div class="why-choose-item">
+                        <div class="why-choose-icon">⏰</div>
+                        <strong class="why-choose-title">Flexible Schedule</strong>
+                        <p class="why-choose-desc">Learn at your own pace</p>
+                    </div>
+                    <div class="why-choose-item">
+                        <div class="why-choose-icon">🌍</div>
+                        <strong class="why-choose-title">Global Reach</strong>
+                        <p class="why-choose-desc">Students in 15+ countries</p>
+                    </div>
+                    <div class="why-choose-item">
+                        <div class="why-choose-icon">💯</div>
+                        <strong class="why-choose-title">Proven Results</strong>
+                        <p class="why-choose-desc">50+ students completed Hifdh</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- REGISTRATION PAGE -->
+        <div id="registerPage" class="page-content" style="padding: 6rem 0;">
+            <div class="registration-section" style="margin: 0; padding: 5rem 2rem;">
+                <div class="registration-container">
+                    <div class="registration-header">
+                        <h2>Start Your Qur'anic Journey Today</h2>
+                        <p>Fill out the form below to register for our Qur'an classes</p>
+                    </div>
+
+                    <div class="form-container">
+                        <div id="formPlaceholder" style="width: 100%; height: 850px; display: flex; align-items: center; justify-content: center; background: #f5f5f5; color: #666; font-size: 1.1rem;">
+                            Loading registration form...
+                        </div>
+                        
+                        <div class="whatsapp-prompt">
+                            <h3>📱 Complete Your Registration</h3>
+                            <p>After submitting the form above, click the button below to send us a WhatsApp message. This helps us process your registration faster and answer any questions you may have!</p>
+                            <a href="https://wa.me/256784560867?text=As-salaamu%20alaykum!%20I%20have%20just%20registered%20for%20Qur%27an%20classes%20via%20your%20website.%20My%20name%20is%20%5BYour%20Name%5D.%20I'm%20excited%20to%20start%20learning%20with%20Saham%20Academy!" class="btn-whatsapp" aria-label="Message us on WhatsApp to complete registration">
+                                💬 Message Us on WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Why Choose Saham Qur'an Academy? -->
+            <div class="why-choose-section">
+                <h3 style="font-size: 2rem; margin-bottom: 1.5rem;">Why Choose Saham Qur'an Academy?</h3>
+                <div class="why-choose-grid">
+                    <div class="why-choose-item">
+                        <div class="why-choose-icon">✅</div>
+                        <strong class="why-choose-title">Certified Teachers</strong>
+                        <p class="why-choose-desc">Expert instructors with years of experience</p>
+                    </div>
+                    <div class="why-choose-item">
+                        <div class="why-choose-icon">⏰</div>
+                        <strong class="why-choose-title">Flexible Schedule</strong>
+                        <p class="why-choose-desc">Learn at your own pace</p>
+                    </div>
+                    <div class="why-choose-item">
+                        <div class="why-choose-icon">🌍</div>
+                        <strong class="why-choose-title">Global Reach</strong>
+                        <p class="why-choose-desc">Students in 15+ countries</p>
+                    </div>
+                    <div class="why-choose-item">
+                        <div class="why-choose-icon">💯</div>
+                        <strong class="why-choose-title">Proven Results</strong>
+                        <p class="why-choose-desc">50+ students completed Hifdh</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CONTACT PAGE -->
+        <div id="contactPage" class="page-content">
+            <div class="section-header">
+                <h2 class="section-title">Get in Touch</h2>
+                <p class="section-subtitle">Ready to begin your Qur'anic journey? Contact us today</p>
+            </div>
+
+            <div class="grid-3">
+                <div class="card">
+                    <div class="card-icon">📱</div>
+                    <h3 class="card-title">WhatsApp</h3>
+                    <p class="card-text" style="font-weight: 700; color: var(--primary-dark); font-size: 1.2rem; margin-bottom: 0.5rem;">+256 784 560 867</p>
+                    <p class="card-text" style="font-weight: 700; color: var(--primary-dark); font-size: 1.2rem; margin-bottom: 1rem;">+256 756 549 534</p>
+                    <p class="card-text" style="margin-bottom: 1.5rem;">Fast response • Available 7 days a week</p>
+                    <a href="https://wa.me/256784560867?text=Assalamu%20Alaikum!%20I'm%20interested%20in%20Saham%20Academy" class="btn btn-primary" style="display: inline-block; padding: 0.8rem 2rem; font-size: 0.9rem;" aria-label="Message us on WhatsApp">Message Us</a>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">📞</div>
+                    <h3 class="card-title">Call Us</h3>
+                    <p class="card-text" style="font-weight: 700; color: var(--primary-dark); font-size: 1.2rem; margin-bottom: 0.5rem;">+256 784 560 867</p>
+                    <p class="card-text" style="font-weight: 700; color: var(--primary-dark); font-size: 1.2rem; margin-bottom: 1rem;">+256 756 549 534</p>
+                    <p class="card-text">Available 7 days a week<br>9 AM - 9 PM EAT</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">🌍</div>
+                    <h3 class="card-title">Location</h3>
+                    <p class="card-text" style="font-weight: 700; color: var(--primary-dark); font-size: 1.2rem; margin-bottom: 1rem;">Kampala, Uganda 🇺🇬</p>
+                    <p class="card-text">Serving students worldwide through online classes via WhatsApp and Zoom</p>
+                </div>
+            </div>
+
+            <div style="max-width: 700px; margin: 4rem auto; background: linear-gradient(135deg, #f0fdf4, #dcfce7); padding: 3rem; border-radius: 25px; text-align: center;">
+                <h3 style="font-size: 2rem; margin-bottom: 1.5rem; color: var(--dark);">Ready to Enroll?</h3>
+                <p style="font-size: 1.1rem; color: #6b7280; margin-bottom: 2rem; line-height: 1.8;">
+                    Contact us via WhatsApp or call to discuss your learning goals. We'll guide you through the enrollment process, answer all your questions, and help you choose the perfect course for your needs.
+                </p>
+                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-bottom: 2rem;">
+                    <div style="background: white; padding: 1.5rem; border-radius: 15px;">
+                        <p style="font-weight: 700; margin-bottom: 0.5rem;">WhatsApp Classes</p>
+                        <p style="font-size: 2rem; font-weight: 900; color: var(--primary-dark);">40K UGX</p>
+                        <p style="color: #6b7280; font-size: 0.9rem;">per month</p>
+                    </div>
+                    <div style="background: white; padding: 1.5rem; border-radius: 15px;">
+                        <p style="font-weight: 700; margin-bottom: 0.5rem;">Zoom 1-on-1</p>
+                        <p style="font-size: 2rem; font-weight: 900; color: var(--primary-dark);">60K UGX</p>
+                        <p style="color: #6b7280; font-size: 0.9rem;">per month</p>
+                    </div>
+                </div>
+                <a href="#" onclick="showPage('register'); return false;" class="btn btn-primary" style="background: var(--primary-dark); color: white;" aria-label="Start your registration now">
+                    Start Your Registration Now →
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer aria-label="Footer Information">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="logo.png" alt="Saham Academy Logo">
+            </div>
+            
+            <h3 style="font-size: 1.8rem; margin-bottom: 0.5rem;">SAHAM QUR'AN ACADEMY</h3>
+            <p style="color: #9ca3af; max-width: 600px; margin: 0 auto 2rem; font-size: 1rem;">
+                Excellence in Islamic education from Kampala, Uganda to the world.
             </p>
-            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-bottom: 2rem;">
-                <div style="background: white; padding: 1.5rem; border-radius: 15px;">
-                    <p style="font-weight: 700; margin-bottom: 0.5rem;">WhatsApp Classes</p>
-                    <p style="font-size: 2rem; font-weight: 900; color: var(--primary-dark);">40K UGX</p>
-                    <p style="color: #6b7280; font-size: 0.9rem;">per month</p>
+            
+            <!-- Contact Information -->
+            <div class="footer-contact">
+                <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; margin-bottom: 1.5rem;">
+                    <div style="display: flex; align-items: center; gap: 0.5rem;">
+                        <div style="width: 40px; height: 40px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem;">📱</div>
+                        <div style="text-align: left;">
+                            <div style="font-size: 0.9rem; color: #9ca3af;">Call/WhatsApp</div>
+                            <div style="font-weight: 700; font-size: 1.1rem;">+256 784 560 867</div>
+                        </div>
+                    </div>
+                    
+                    <div style="display: flex; align-items: center; gap: 0.5rem;">
+                        <div style="width: 40px; height: 40px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem;">📞</div>
+                        <div style="text-align: left;">
+                            <div style="font-size: 0.9rem; color: #9ca3af;">Phone Number</div>
+                            <div style="font-weight: 700; font-size: 1.1rem;">+256 752 852 645</div>
+                        </div>
+                    </div>
                 </div>
-                <div style="background: white; padding: 1.5rem; border-radius: 15px;">
-                    <p style="font-weight: 700; margin-bottom: 0.5rem;">Zoom 1-on-1</p>
-                    <p style="font-size: 2rem; font-weight: 900; color: var(--primary-dark);">60K UGX</p>
-                    <p style="color: #6b7280; font-size: 0.9rem;">per month</p>
+                
+                <div style="color: #9ca3af; font-size: 0.9rem;">
+                    Available 7 days a week • 9 AM - 9 PM EAT
                 </div>
             </div>
-           <a href="#" onclick="showPage('register'); return false;" 
-   class="btn btn-primary" 
-   style="background: var(--primary-dark); color: white;">
-   Start Your Registration Now →
-</a>
+            
+            <!-- Social Links -->
+            <div class="social-links">
+                <a href="https://wa.me/256784560867" class="social-link" title="WhatsApp" aria-label="WhatsApp">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Icon" style="width: 24px; height: 24px;">
+                </a>
+                <a href="https://instagram.com/sahamacademy" class="social-link" title="Instagram" aria-label="Instagram">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram Icon" style="width: 24px; height: 24px;">
+                </a>
+                <a href="https://tiktok.com/@sahamacademy" class="social-link" title="TikTok" aria-label="TikTok">
+                    <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/tiktok-icon.png" alt="TikTok Icon" style="width: 24px; height: 24px;">
+                </a>
+            </div>
+            
+            <p style="color: #6b7280; font-size: 0.9rem; margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid rgba(255, 255, 255, 0.1);">
+                © 2025 Saham Qur'an Academy | May Allah accept our efforts 🤲
+            </p>
         </div>
-    </div>
-
-<!-- Footer -->
-<footer>
-    <div class="footer-content">
-        <div class="footer-logo">
-            <!-- Your academy logo — replace 'logo.png' with your actual file if needed -->
-            <img src="logo.png" alt="Saham Academy Logo" style="width: 100px; height: 100px; object-fit: contain;">
-        </div>
-        <h3 style="font-size: 1.8rem; margin-bottom: 1rem;">SAHAM QUR'AN ACADEMY</h3>
-        <p style="color: #9ca3af; max-width: 600px; margin: 0 auto 2rem;">Excellence in Islamic education from Kampala, Uganda to the world.</p>
-        <div class="social-links">
-        <div class="social-links">
-            <a href="https://wa.me/256784560867" class="social-link" title="WhatsApp">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width: 30px; height: 30px;">
-            </a>
-            <a href="https://instagram.com/sahamacademy" class="social-link" title="Instagram">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" style="width: 30px; height: 30px;">
-            </a>
-            <a href="https://tiktok.com/@sahamacademy" class="social-link" title="TikTok">
-                <!-- Reliable alternative: High-quality black TikTok logo PNG (transparent background) -->
-                <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/tiktok-icon.png" alt="TikTok" style="width: 30px; height: 30px;">
-            </a>
-        </div>
-        <p style="color: #6b7280; font-size: 0.9rem; margin-top: 2rem;">© 2025 Saham Qur'an Academy | May Allah accept our efforts 🤲.c</p>
-    </div>
-</footer>
+    </footer>
 
     <!-- WhatsApp Float -->
-    <a href="https://wa.me/256784560867?text=Assalamu%20Alaikum!" class="whatsapp-float" title="Chat on WhatsApp">
+    <a href="https://wa.me/256784560867?text=Assalamu%20Alaikum!" class="whatsapp-float" title="Chat on WhatsApp" aria-label="Chat on WhatsApp">
         <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
             <path d="M16 0c-8.837 0-16 7.163-16 16 0 2.825 0.737 5.607 2.137 8.048l-2.137 7.952 7.933-2.127c2.42 1.37 5.173 2.127 8.067 2.127 8.837 0 16-7.163 16-16s-7.163-16-16-16zM16 29.467c-2.482 0-4.908-0.646-7.07-1.87l-0.507-0.292-4.713 1.262 1.262-4.669-0.292-0.508c-1.207-2.100-1.847-4.507-1.847-6.924 0-7.435 6.050-13.485 13.485-13.485s13.485 6.050 13.485 13.485c0 7.435-6.050 13.485-13.485 13.485zM21.798 18.614c-0.337-0.169-1.994-0.984-2.303-1.097-0.31-0.112-0.535-0.169-0.76 0.169s-0.875 1.097-1.072 1.323c-0.197 0.225-0.394 0.253-0.731 0.084s-1.425-0.525-2.714-1.675c-1.003-0.894-1.681-1.999-1.878-2.337s-0.021-0.52 0.148-0.688c0.152-0.152 0.337-0.394 0.506-0.591s0.225-0.337 0.337-0.563c0.112-0.225 0.056-0.422-0.028-0.591s-0.76-1.831-1.041-2.508c-0.274-0.66-0.552-0.571-0.76-0.581-0.197-0.010-0.422-0.012-0.647-0.012s-0.591 0.084-0.9 0.422c-0.31 0.337-1.181 1.153-1.181 2.808s1.209 3.258 1.378 3.483c0.169 0.225 2.382 3.637 5.771 5.101 0.806 0.348 1.435 0.556 1.925 0.713 0.809 0.256 1.544 0.22 2.126 0.133 0.648-0.097 1.994-0.815 2.275-1.602s0.281-1.462 0.197-1.602c-0.084-0.14-0.31-0.225-0.647-0.394z" fill="white"/>
         </svg>
@@ -1795,6 +2050,10 @@ nav.scrolled {
         window.addEventListener('load', () => {
             setTimeout(() => {
                 document.getElementById('pageLoader').classList.add('hide');
+                // Report performance
+                const perfData = window.performance.timing;
+                const loadTime = perfData.loadEventEnd - perfData.navigationStart;
+                console.log('Page load time:', loadTime + 'ms');
             }, 2000);
         });
 
@@ -1829,8 +2088,25 @@ nav.scrolled {
                 if (pageElement) {
                     pageElement.classList.add('active');
                     window.scrollTo({ top: 0, behavior: 'smooth' });
+                    
+                    // Lazy load form if on registration page
+                    if (page === 'register') {
+                        loadRegistrationForm();
+                    }
                 }
             }
+
+            // Set focus for screen readers
+            setTimeout(() => {
+                const mainContent = document.getElementById('main-content');
+                if (mainContent) {
+                    mainContent.setAttribute('tabindex', '-1');
+                    mainContent.focus();
+                }
+            }, 100);
+
+            // Track page view
+            trackPageView(page);
 
             // Close mobile menu if open
             closeMobileMenu();
@@ -1859,6 +2135,14 @@ nav.scrolled {
             if (mobileMenu.classList.contains('active') && 
                 !mobileMenu.contains(e.target) && 
                 !mobileToggle.contains(e.target)) {
+                closeMobileMenu();
+            }
+        });
+
+        // Keyboard support for mobile menu
+        document.addEventListener('keydown', (e) => {
+            const mobileMenu = document.getElementById('mobileMenu');
+            if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
                 closeMobileMenu();
             }
         });
@@ -1923,9 +2207,180 @@ nav.scrolled {
         }
 
         // Auto-play testimonials
-        setInterval(() => {
+        let testimonialInterval = setInterval(() => {
             changeTestimonial(1);
         }, 5000);
+
+        // Pause testimonial auto-play on hover
+        const testimonialSlider = document.querySelector('.testimonial-slider');
+        if (testimonialSlider) {
+            testimonialSlider.addEventListener('mouseenter', () => {
+                clearInterval(testimonialInterval);
+            });
+            
+            testimonialSlider.addEventListener('mouseleave', () => {
+                testimonialInterval = setInterval(() => {
+                    changeTestimonial(1);
+                }, 5000);
+            });
+        }
+
+        // MARQUEE FUNCTIONALITY
+        let marqueeCurrentPosition = 0;
+        let marqueeAutoScroll = true;
+        let marqueeAutoScrollInterval;
+
+        function scrollMarqueeLeft() {
+            const marqueeTrack = document.getElementById('marqueeTrack');
+            const cards = document.querySelectorAll('.marquee-card');
+            if (!marqueeTrack || !cards.length) return;
+            
+            const cardWidth = 280;
+            const gap = 24;
+            
+            marqueeCurrentPosition = Math.max(0, marqueeCurrentPosition - 1);
+            const translateX = -marqueeCurrentPosition * (cardWidth + gap);
+            marqueeTrack.style.transform = `translateX(${translateX}px)`;
+            
+            updateMarqueeArrows();
+            resetMarqueeAutoScroll();
+        }
+
+        function scrollMarqueeRight() {
+            const marqueeTrack = document.getElementById('marqueeTrack');
+            const cards = document.querySelectorAll('.marquee-card');
+            if (!marqueeTrack || !cards.length) return;
+            
+            const cardWidth = 280;
+            const gap = 24;
+            const visibleCards = Math.floor(window.innerWidth / (cardWidth + gap));
+            const maxPosition = Math.max(0, cards.length - visibleCards);
+            
+            marqueeCurrentPosition = Math.min(maxPosition, marqueeCurrentPosition + 1);
+            const translateX = -marqueeCurrentPosition * (cardWidth + gap);
+            marqueeTrack.style.transform = `translateX(${translateX}px)`;
+            
+            updateMarqueeArrows();
+            resetMarqueeAutoScroll();
+        }
+
+        function updateMarqueeArrows() {
+            const cards = document.querySelectorAll('.marquee-card');
+            if (!cards.length) return;
+            
+            const cardWidth = 280;
+            const gap = 24;
+            const visibleCards = Math.floor(window.innerWidth / (cardWidth + gap));
+            const maxPosition = Math.max(0, cards.length - visibleCards);
+            
+            const prevBtn = document.querySelector('.marquee-nav.prev');
+            const nextBtn = document.querySelector('.marquee-nav.next');
+            
+            if (prevBtn) {
+                prevBtn.style.opacity = marqueeCurrentPosition === 0 ? '0.5' : '1';
+                prevBtn.style.cursor = marqueeCurrentPosition === 0 ? 'not-allowed' : 'pointer';
+            }
+            
+            if (nextBtn) {
+                nextBtn.style.opacity = marqueeCurrentPosition >= maxPosition ? '0.5' : '1';
+                nextBtn.style.cursor = marqueeCurrentPosition >= maxPosition ? 'not-allowed' : 'pointer';
+            }
+        }
+
+        function startMarqueeAutoScroll() {
+            const cards = document.querySelectorAll('.marquee-card');
+            if (!cards.length) return;
+            
+            marqueeAutoScrollInterval = setInterval(() => {
+                if (marqueeAutoScroll) {
+                    const marqueeTrack = document.getElementById('marqueeTrack');
+                    const cardWidth = 280;
+                    const gap = 24;
+                    const visibleCards = Math.floor(window.innerWidth / (cardWidth + gap));
+                    const maxPosition = Math.max(0, cards.length - visibleCards);
+                    
+                    if (marqueeCurrentPosition >= maxPosition) {
+                        marqueeCurrentPosition = 0;
+                    } else {
+                        marqueeCurrentPosition++;
+                    }
+                    
+                    const translateX = -marqueeCurrentPosition * (cardWidth + gap);
+                    marqueeTrack.style.transform = `translateX(${translateX}px)`;
+                    updateMarqueeArrows();
+                }
+            }, 4000);
+        }
+
+        function resetMarqueeAutoScroll() {
+            marqueeAutoScroll = false;
+            clearInterval(marqueeAutoScrollInterval);
+            
+            setTimeout(() => {
+                marqueeAutoScroll = true;
+                startMarqueeAutoScroll();
+            }, 8000);
+        }
+
+        // Lazy Load Registration Form
+        function loadRegistrationForm() {
+            const formPlaceholder = document.getElementById('formPlaceholder');
+            if (formPlaceholder && !formPlaceholder.querySelector('iframe')) {
+                const iframe = document.createElement('iframe');
+                iframe.src = 'https://docs.google.com/forms/d/e/1FAIpQLSefBDvkfi731r53UJyj0eKrvY2SPlgzx779UeVv1ugehwFK8Q/viewform?embedded=true';
+                iframe.width = '100%';
+                iframe.height = '850';
+                iframe.frameBorder = '0';
+                iframe.marginHeight = '0';
+                iframe.marginWidth = '0';
+                iframe.style.border = 'none';
+                iframe.style.background = 'white';
+                iframe.title = 'Saham Academy Registration Form';
+                
+                formPlaceholder.innerHTML = '';
+                formPlaceholder.appendChild(iframe);
+            }
+        }
+
+        // Initialize Marquee and Testimonials
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize testimonial slider
+            if (testimonials.length > 0) {
+                showTestimonial(0);
+            }
+            
+            // Initialize marquee
+            const marqueeContainer = document.querySelector('.marquee-container');
+            if (marqueeContainer) {
+                marqueeContainer.addEventListener('mouseenter', () => {
+                    marqueeAutoScroll = false;
+                    clearInterval(marqueeAutoScrollInterval);
+                });
+                
+                marqueeContainer.addEventListener('mouseleave', () => {
+                    marqueeAutoScroll = true;
+                    startMarqueeAutoScroll();
+                });
+                
+                marqueeContainer.addEventListener('touchstart', () => {
+                    marqueeAutoScroll = false;
+                    clearInterval(marqueeAutoScrollInterval);
+                });
+                
+                marqueeContainer.addEventListener('touchend', () => {
+                    setTimeout(() => {
+                        marqueeAutoScroll = true;
+                        startMarqueeAutoScroll();
+                    }, 3000);
+                });
+                
+                updateMarqueeArrows();
+                startMarqueeAutoScroll();
+            }
+        });
+
+        // Update arrows on window resize
+        window.addEventListener('resize', updateMarqueeArrows);
 
         // Keyboard Navigation
         document.addEventListener('keydown', (e) => {
@@ -1934,24 +2389,30 @@ nav.scrolled {
             }
             if (e.key === 'ArrowLeft') {
                 changeTestimonial(-1);
+                const marqueeCards = document.querySelectorAll('.marquee-card');
+                if (marqueeCards.length > 0) {
+                    scrollMarqueeLeft();
+                }
             }
             if (e.key === 'ArrowRight') {
                 changeTestimonial(1);
+                const marqueeCards = document.querySelectorAll('.marquee-card');
+                if (marqueeCards.length > 0) {
+                    scrollMarqueeRight();
+                }
             }
         });
 
-        // Smooth Scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = this.getAttribute('href').substring(1);
-                const element = document.getElementById(target);
-                if (element) {
-                    element.scrollIntoView({ behavior: 'smooth' });
-                }
-            });
-        });
+        // Analytics Tracking (Optional)
+        function trackPageView(page) {
+            console.log('Page viewed:', page);
+            // Add your analytics code here (Google Analytics, etc.)
+        }
+
+        function trackConversion(type) {
+            console.log('Conversion tracked:', type);
+            // Add your conversion tracking code here
+        }
     </script>
 </body>
-
 </html>
