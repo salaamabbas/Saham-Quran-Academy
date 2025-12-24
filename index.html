@@ -19,7 +19,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" as="image" href="hero-bg.jpg">
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="icon" href="logo3.png">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
@@ -726,78 +726,167 @@
             right: 0;
         }
 
-        /* Marquee Cards */
-        .marquee-card {
-            flex: 0 0 280px;
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.15));
-            backdrop-filter: blur(15px);
-            border-radius: 16px;
-            padding: 2rem;
-            border: 1px solid rgba(255, 255, 255, 0.4);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-        }
+     /* Marquee Container */
+.marquee-section {
+    padding: 4rem 2rem;
+    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+    overflow: hidden;
+    position: relative;
+}
 
-        .marquee-card:hover {
-            transform: translateY(-8px) scale(1.02);
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0.25));
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
-            border-color: rgba(255, 255, 255, 0.6);
-        }
+.marquee-wrapper {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+}
 
-        .marquee-card-icon {
-            width: 70px;
-            height: 70px;
-            background: linear-gradient(135deg, var(--accent), #e1d747);
-            border-radius: 18px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.2rem;
-            margin-bottom: 1.2rem;
-            color: var(--dark);
-            box-shadow: 0 8px 20px rgba(206, 218, 84, 0.3);
-        }
+.marquee-container {
+    overflow: hidden;
+    padding: 1rem 0;
+}
 
-        .marquee-nav {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            z-index: 20;
-            width: 45px;
-            height: 45px;
-            background: white;
-            border: none;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            color: var(--primary);
-            cursor: pointer;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
-            transition: all 0.3s ease;
-        }
+.marquee-track {
+    display: flex;
+    gap: 1.5rem;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+}
 
-        .marquee-nav:hover {
-            background: var(--primary);
-            color: white;
-            transform: translateY(-50%) scale(1.1);
-            box-shadow: 0 8px 25px rgba(45, 158, 156, 0.4);
-        }
+/* Marquee Cards - FIXED VERSION */
+.marquee-card {
+    flex: 0 0 280px;
+    flex-shrink: 0; /* ADD THIS - Prevents cards from shrinking */
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.15));
+    backdrop-filter: blur(15px);
+    border-radius: 16px;
+    padding: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
 
-        .marquee-nav.prev {
-            left: -20px;
-        }
+.marquee-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0.25));
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+    border-color: rgba(255, 255, 255, 0.6);
+}
 
-        .marquee-nav.next {
-            right: -20px;
-        }
+.marquee-card-icon {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, var(--accent), #e1d747);
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.2rem;
+    margin-bottom: 1.2rem;
+    color: var(--dark);
+    box-shadow: 0 8px 20px rgba(206, 218, 84, 0.3);
+}
 
+/* Marquee Navigation - IMPROVED */
+.marquee-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 20;
+    width: 45px;
+    height: 45px;
+    background: white;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: var(--primary);
+    cursor: pointer;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    opacity: 0.9;
+}
+
+.marquee-nav:hover:not(.disabled) {
+    background: var(--primary);
+    color: white;
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 8px 25px rgba(45, 158, 156, 0.4);
+    opacity: 1;
+}
+
+.marquee-nav.prev {
+    left: 10px; /* Changed from -20px to prevent overflow */
+}
+
+.marquee-nav.next {
+    right: 10px; /* Changed from -20px to prevent overflow */
+}
+
+/* Disabled state for navigation */
+.marquee-nav.disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.marquee-nav.disabled:hover {
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.5);
+    color: var(--primary);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .marquee-card {
+        flex: 0 0 260px;
+        padding: 1.5rem;
+    }
+    
+    .marquee-card-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 1.8rem;
+    }
+    
+    .marquee-nav {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+    
+    .marquee-nav.prev {
+        left: 5px;
+    }
+    
+    .marquee-nav.next {
+        right: 5px;
+    }
+}
+
+@media (max-width: 480px) {
+    .marquee-card {
+        flex: 0 0 240px;
+        padding: 1.2rem;
+    }
+    
+    .marquee-card-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+    }
+    
+    .marquee-nav {
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
+    }
+}
         /* Registration Form */
         .registration-section {
             background: var(--primary-dark);
@@ -1493,59 +1582,65 @@
                 </div>
             </section>
 
-            <!-- Professional Marquee - Why Choose Saham Qur'an Academy -->
-            <section style="padding: 4rem 2rem; background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%); overflow: hidden;">
-                <div style="text-align: center; margin-bottom: 2.5rem;">
-                    <h2 style="font-size: 2.5rem; font-weight: 900; color: white; margin-bottom: 0.8rem;">Why Choose Saham Qur'an Academy?</h2>
-                    <p style="font-size: 1.1rem; color: rgba(255, 255, 255, 0.9); max-width: 700px; margin: 0 auto;">Discover what makes us the preferred choice for Qur'anic education worldwide</p>
+          <!-- Professional Marquee - Why Choose Saham Qur'an Academy -->
+<section class="marquee-section">
+    <div style="text-align: center; margin-bottom: 2.5rem;">
+        <h2 style="font-size: 2.5rem; font-weight: 900; color: white; margin-bottom: 0.8rem;">Why Choose Saham Qur'an Academy?</h2>
+        <p style="font-size: 1.1rem; color: rgba(255, 255, 255, 0.9); max-width: 700px; margin: 0 auto;">Discover what makes us the preferred choice for Qur'anic education worldwide</p>
+    </div>
+
+    <div class="marquee-wrapper">
+        <!-- Navigation Arrows -->
+        <button class="marquee-nav prev" onclick="scrollMarquee(-1)" aria-label="Previous Marquee Item">
+            ‹
+        </button>
+        
+        <button class="marquee-nav next" onclick="scrollMarquee(1)" aria-label="Next Marquee Item">
+            ›
+        </button>
+
+        <!-- Marquee Container -->
+        <div class="marquee-container">
+            <!-- Marquee Track -->
+            <div class="marquee-track" id="marqueeTrack">
+                <!-- Item 1 - Certified Teachers -->
+                <div class="marquee-card">
+                    <div class="marquee-card-icon">✅</div>
+                    <h3 style="color: white; font-size: 1.3rem; margin-bottom: 0.6rem; font-weight: 800;">Certified Teachers</h3>
+                    <p style="color: rgba(255, 255, 255, 0.95); font-size: 0.95rem; line-height: 1.5; font-weight: 500;">Expert instructors with years of teaching experience</p>
                 </div>
-
-                <!-- Marquee Container with Navigation -->
-                <div style="position: relative; max-width: 1200px; margin: 0 auto;">
-                    <!-- Navigation Arrows -->
-                    <button class="marquee-nav prev" onclick="scrollMarqueeLeft()" aria-label="Previous Marquee Item">
-                        ‹
-                    </button>
-                    
-                    <button class="marquee-nav next" onclick="scrollMarqueeRight()" aria-label="Next Marquee Item">
-                        ›
-                    </button>
-
-                    <!-- Marquee Container -->
-                    <div class="marquee-container" style="overflow: hidden; padding: 1rem 0;">
-                        <!-- Marquee Track -->
-                        <div class="marquee-track" id="marqueeTrack" style="display: flex; gap: 1.5rem; transition: transform 0.5s ease;">
-                            <!-- Item 1 - Certified Teachers -->
-                            <div class="marquee-card">
-                                <div class="marquee-card-icon">✅</div>
-                                <h3 class="marquee-white-text">Certified Teachers</h3>
-                                <p class="marquee-white-subtext">Expert instructors with years of teaching experience</p>
-                            </div>
-                            
-                            <!-- Item 2 - Flexible Schedule -->
-                            <div class="marquee-card">
-                                <div class="marquee-card-icon">⏰</div>
-                                <h3 class="marquee-white-text">Flexible Schedule</h3>
-                                <p class="marquee-white-subtext">Learn at your own pace, anytime, anywhere</p>
-                            </div>
-                            
-                            <!-- Item 3 - Global Reach -->
-                            <div class="marquee-card">
-                                <div class="marquee-card-icon">🌍</div>
-                                <h3 class="marquee-white-text">Global Reach</h3>
-                                <p class="marquee-white-subtext">Students from 15+ countries worldwide</p>
-                            </div>
-                            
-                            <!-- Item 4 - Proven Results -->
-                            <div class="marquee-card">
-                                <div class="marquee-card-icon">💯</div>
-                                <h3 class="marquee-white-text">Proven Results</h3>
-                                <p class="marquee-white-subtext">50+ students completed Hifdh successfully</p>
-                            </div>
-                        </div>
-                    </div>
+                
+                <!-- Item 2 - Flexible Schedule -->
+                <div class="marquee-card">
+                    <div class="marquee-card-icon">⏰</div>
+                    <h3 style="color: white; font-size: 1.3rem; margin-bottom: 0.6rem; font-weight: 800;">Flexible Schedule</h3>
+                    <p style="color: rgba(255, 255, 255, 0.95); font-size: 0.95rem; line-height: 1.5; font-weight: 500;">Learn at your own pace, anytime, anywhere</p>
                 </div>
+                
+                <!-- Item 3 - Global Reach -->
+                <div class="marquee-card">
+                    <div class="marquee-card-icon">🌍</div>
+                    <h3 style="color: white; font-size: 1.3rem; margin-bottom: 0.6rem; font-weight: 800;">Global Reach</h3>
+                    <p style="color: rgba(255, 255, 255, 0.95); font-size: 0.95rem; line-height: 1.5; font-weight: 500;">Students from 15+ countries worldwide</p>
+                </div>
+                
+                <!-- Item 4 - Proven Results -->
+                <div class="marquee-card">
+                    <div class="marquee-card-icon">💯</div>
+                    <h3 style="color: white; font-size: 1.3rem; margin-bottom: 0.6rem; font-weight: 800;">Proven Results</h3>
+                    <p style="color: rgba(255, 255, 255, 0.95); font-size: 0.95rem; line-height: 1.5; font-weight: 500;">50+ students completed Hifdh successfully</p>
+                </div>
+            </div>
+        </div>
+    </div>
 
+    <!-- CTA Button -->
+    <div style="text-align: center; margin-top: 3rem;">
+        <a href="#" onclick="showPage('register'); return false;" class="btn btn-primary" style="background: linear-gradient(135deg, var(--accent), #e1d747); color: var(--dark); border: none; padding: 1rem 2.5rem; font-size: 1.1rem; font-weight: 800; border-radius: 12px; box-shadow: 0 8px 25px rgba(206, 218, 84, 0.4); transition: all 0.3s ease;">
+            Start Your Journey Today →
+        </a>
+    </div>
+</section>
                 <!-- CTA Button -->
                 <div style="text-align: center; margin-top: 3rem;">
                     <a href="#" onclick="showPage('register'); return false;" class="btn accent-gradient-btn" aria-label="Start Your Quranic Journey">
@@ -2038,381 +2133,357 @@
         </div>
     </footer>
 
-    <!-- WhatsApp Float -->
-    <a href="https://wa.me/256784560867?text=Assalamu%20Alaikum!" class="whatsapp-float" title="Chat on WhatsApp" aria-label="Chat on WhatsApp">
-        <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-            <path d="M16 0c-8.837 0-16 7.163-16 16 0 2.825 0.737 5.607 2.137 8.048l-2.137 7.952 7.933-2.127c2.42 1.37 5.173 2.127 8.067 2.127 8.837 0 16-7.163 16-16s-7.163-16-16-16zM16 29.467c-2.482 0-4.908-0.646-7.07-1.87l-0.507-0.292-4.713 1.262 1.262-4.669-0.292-0.508c-1.207-2.100-1.847-4.507-1.847-6.924 0-7.435 6.050-13.485 13.485-13.485s13.485 6.050 13.485 13.485c0 7.435-6.050 13.485-13.485 13.485zM21.798 18.614c-0.337-0.169-1.994-0.984-2.303-1.097-0.31-0.112-0.535-0.169-0.76 0.169s-0.875 1.097-1.072 1.323c-0.197 0.225-0.394 0.253-0.731 0.084s-1.425-0.525-2.714-1.675c-1.003-0.894-1.681-1.999-1.878-2.337s-0.021-0.52 0.148-0.688c0.152-0.152 0.337-0.394 0.506-0.591s0.225-0.337 0.337-0.563c0.112-0.225 0.056-0.422-0.028-0.591s-0.76-1.831-1.041-2.508c-0.274-0.66-0.552-0.571-0.76-0.581-0.197-0.010-0.422-0.012-0.647-0.012s-0.591 0.084-0.9 0.422c-0.31 0.337-1.181 1.153-1.181 2.808s1.209 3.258 1.378 3.483c0.169 0.225 2.382 3.637 5.771 5.101 0.806 0.348 1.435 0.556 1.925 0.713 0.809 0.256 1.544 0.22 2.126 0.133 0.648-0.097 1.994-0.815 2.275-1.602s0.281-1.462 0.197-1.602c-0.084-0.14-0.31-0.225-0.647-0.394z" fill="white"/>
-        </svg>
-    </a>
+<!-- WhatsApp Float - FIXED -->
+<a href="https://wa.me/256784560867?text=Assalamu%20Alaikum!" class="whatsapp-float" title="Chat on WhatsApp" aria-label="Chat on WhatsApp">
+    <i class="fab fa-whatsapp" style="font-size: 28px; color: white;"></i>
+</a>
 
-    <script>
-        // Page Loader
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                document.getElementById('pageLoader').classList.add('hide');
-                // Report performance
-                const perfData = window.performance.timing;
-                const loadTime = perfData.loadEventEnd - perfData.navigationStart;
-                console.log('Page load time:', loadTime + 'ms');
-            }, 2000);
+   <script>
+    // Page Loader
+    window.addEventListener('load', () => {
+        setTimeout(() => {
+            document.getElementById('pageLoader').classList.add('hide');
+            // Report performance
+            const perfData = window.performance.timing;
+            const loadTime = perfData.loadEventEnd - perfData.navigationStart;
+            console.log('Page load time:', loadTime + 'ms');
+        }, 2000);
+    });
+
+    // Navbar Scroll Effect
+    let lastScroll = 0;
+    window.addEventListener('scroll', () => {
+        const navbar = document.getElementById('navbar');
+        const currentScroll = window.pageYOffset;
+        
+        if (currentScroll > 100) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+        lastScroll = currentScroll;
+    });
+
+    // Page Navigation
+    function showPage(page) {
+        // Hide all pages
+        document.getElementById('homePage').style.display = 'none';
+        document.querySelectorAll('.page-content').forEach(p => {
+            p.classList.remove('active');
         });
 
-        // Navbar Scroll Effect
-        let lastScroll = 0;
-        window.addEventListener('scroll', () => {
-            const navbar = document.getElementById('navbar');
-            const currentScroll = window.pageYOffset;
-            
-            if (currentScroll > 100) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-            lastScroll = currentScroll;
-        });
-
-        // Page Navigation
-        function showPage(page) {
-            // Hide all pages
-            document.getElementById('homePage').style.display = 'none';
-            document.querySelectorAll('.page-content').forEach(p => {
-                p.classList.remove('active');
-            });
-
-            // Show selected page
-            if (page === 'home') {
-                document.getElementById('homePage').style.display = 'block';
+        // Show selected page
+        if (page === 'home') {
+            document.getElementById('homePage').style.display = 'block';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        } else {
+            const pageElement = document.getElementById(page + 'Page');
+            if (pageElement) {
+                pageElement.classList.add('active');
                 window.scrollTo({ top: 0, behavior: 'smooth' });
-            } else {
-                const pageElement = document.getElementById(page + 'Page');
-                if (pageElement) {
-                    pageElement.classList.add('active');
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                    
-                    // Lazy load form if on registration page
-                    if (page === 'register') {
-                        loadRegistrationForm();
-                    }
+                
+                // Lazy load form if on registration page
+                if (page === 'register') {
+                    loadRegistrationForm();
                 }
             }
+        }
 
-            // Set focus for screen readers
-            setTimeout(() => {
-                const mainContent = document.getElementById('main-content');
-                if (mainContent) {
-                    mainContent.setAttribute('tabindex', '-1');
-                    mainContent.focus();
-                }
-            }, 100);
+        // Set focus for screen readers
+        setTimeout(() => {
+            const mainContent = document.getElementById('main-content');
+            if (mainContent) {
+                mainContent.setAttribute('tabindex', '-1');
+                mainContent.focus();
+            }
+        }, 100);
 
-            // Track page view
-            trackPageView(page);
+        // Track page view
+        trackPageView(page);
 
-            // Close mobile menu if open
+        // Close mobile menu if open
+        closeMobileMenu();
+    }
+
+    // Mobile Menu Toggle
+    function toggleMobileMenu() {
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileToggle = document.getElementById('mobileToggle');
+        mobileMenu.classList.toggle('active');
+        mobileToggle.classList.toggle('active');
+    }
+
+    function closeMobileMenu() {
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileToggle = document.getElementById('mobileToggle');
+        mobileMenu.classList.remove('active');
+        mobileToggle.classList.remove('active');
+    }
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (e) => {
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileToggle = document.getElementById('mobileToggle');
+        
+        if (mobileMenu.classList.contains('active') && 
+            !mobileMenu.contains(e.target) && 
+            !mobileToggle.contains(e.target)) {
             closeMobileMenu();
         }
+    });
 
-        // Mobile Menu Toggle
-        function toggleMobileMenu() {
-            const mobileMenu = document.getElementById('mobileMenu');
-            const mobileToggle = document.getElementById('mobileToggle');
-            mobileMenu.classList.toggle('active');
-            mobileToggle.classList.toggle('active');
+    // Keyboard support for mobile menu
+    document.addEventListener('keydown', (e) => {
+        const mobileMenu = document.getElementById('mobileMenu');
+        if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
+            closeMobileMenu();
         }
+    });
 
-        function closeMobileMenu() {
-            const mobileMenu = document.getElementById('mobileMenu');
-            const mobileToggle = document.getElementById('mobileToggle');
-            mobileMenu.classList.remove('active');
-            mobileToggle.classList.remove('active');
-        }
-
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', (e) => {
-            const mobileMenu = document.getElementById('mobileMenu');
-            const mobileToggle = document.getElementById('mobileToggle');
-            
-            if (mobileMenu.classList.contains('active') && 
-                !mobileMenu.contains(e.target) && 
-                !mobileToggle.contains(e.target)) {
-                closeMobileMenu();
+    // Counter Animation
+    function animateCounter(element, target) {
+        let current = 0;
+        const increment = target / 80;
+        const timer = setInterval(() => {
+            current += increment;
+            if (current >= target) {
+                element.textContent = target + '+';
+                clearInterval(timer);
+            } else {
+                element.textContent = Math.floor(current) + '+';
             }
-        });
+        }, 25);
+    }
 
-        // Keyboard support for mobile menu
-        document.addEventListener('keydown', (e) => {
-            const mobileMenu = document.getElementById('mobileMenu');
-            if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
-                closeMobileMenu();
-            }
-        });
-
-        // Counter Animation
-        function animateCounter(element, target) {
-            let current = 0;
-            const increment = target / 80;
-            const timer = setInterval(() => {
-                current += increment;
-                if (current >= target) {
-                    element.textContent = target + '+';
-                    clearInterval(timer);
-                } else {
-                    element.textContent = Math.floor(current) + '+';
-                }
-            }, 25);
-        }
-
-        // Intersection Observer for Counters
-        const counterObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const counters = document.querySelectorAll('.stat-number[data-target]');
-                    counters.forEach(counter => {
-                        const target = parseInt(counter.getAttribute('data-target'));
-                        if (!isNaN(target)) {
-                            animateCounter(counter, target);
-                        }
-                    });
-                    counterObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.5 });
-
-        const statsSection = document.querySelector('.stats');
-        if (statsSection) {
-            counterObserver.observe(statsSection);
-        }
-
-        // Testimonial Slider
-        let currentTestimonial = 0;
-        const testimonials = document.querySelectorAll('.testimonial-item');
-
-        function showTestimonial(index) {
-            testimonials.forEach((item, i) => {
-                item.classList.remove('active');
-                if (i === index) {
-                    item.classList.add('active');
-                }
-            });
-        }
-
-        function changeTestimonial(direction) {
-            currentTestimonial += direction;
-            if (currentTestimonial >= testimonials.length) {
-                currentTestimonial = 0;
-            } else if (currentTestimonial < 0) {
-                currentTestimonial = testimonials.length - 1;
-            }
-            showTestimonial(currentTestimonial);
-        }
-
-        // Auto-play testimonials
-        let testimonialInterval = setInterval(() => {
-            changeTestimonial(1);
-        }, 5000);
-
-        // Pause testimonial auto-play on hover
-        const testimonialSlider = document.querySelector('.testimonial-slider');
-        if (testimonialSlider) {
-            testimonialSlider.addEventListener('mouseenter', () => {
-                clearInterval(testimonialInterval);
-            });
-            
-            testimonialSlider.addEventListener('mouseleave', () => {
-                testimonialInterval = setInterval(() => {
-                    changeTestimonial(1);
-                }, 5000);
-            });
-        }
-
-        // MARQUEE FUNCTIONALITY
-        let marqueeCurrentPosition = 0;
-        let marqueeAutoScroll = true;
-        let marqueeAutoScrollInterval;
-
-        function scrollMarqueeLeft() {
-            const marqueeTrack = document.getElementById('marqueeTrack');
-            const cards = document.querySelectorAll('.marquee-card');
-            if (!marqueeTrack || !cards.length) return;
-            
-            const cardWidth = 280;
-            const gap = 24;
-            
-            marqueeCurrentPosition = Math.max(0, marqueeCurrentPosition - 1);
-            const translateX = -marqueeCurrentPosition * (cardWidth + gap);
-            marqueeTrack.style.transform = `translateX(${translateX}px)`;
-            
-            updateMarqueeArrows();
-            resetMarqueeAutoScroll();
-        }
-
-        function scrollMarqueeRight() {
-            const marqueeTrack = document.getElementById('marqueeTrack');
-            const cards = document.querySelectorAll('.marquee-card');
-            if (!marqueeTrack || !cards.length) return;
-            
-            const cardWidth = 280;
-            const gap = 24;
-            const visibleCards = Math.floor(window.innerWidth / (cardWidth + gap));
-            const maxPosition = Math.max(0, cards.length - visibleCards);
-            
-            marqueeCurrentPosition = Math.min(maxPosition, marqueeCurrentPosition + 1);
-            const translateX = -marqueeCurrentPosition * (cardWidth + gap);
-            marqueeTrack.style.transform = `translateX(${translateX}px)`;
-            
-            updateMarqueeArrows();
-            resetMarqueeAutoScroll();
-        }
-
-        function updateMarqueeArrows() {
-            const cards = document.querySelectorAll('.marquee-card');
-            if (!cards.length) return;
-            
-            const cardWidth = 280;
-            const gap = 24;
-            const visibleCards = Math.floor(window.innerWidth / (cardWidth + gap));
-            const maxPosition = Math.max(0, cards.length - visibleCards);
-            
-            const prevBtn = document.querySelector('.marquee-nav.prev');
-            const nextBtn = document.querySelector('.marquee-nav.next');
-            
-            if (prevBtn) {
-                prevBtn.style.opacity = marqueeCurrentPosition === 0 ? '0.5' : '1';
-                prevBtn.style.cursor = marqueeCurrentPosition === 0 ? 'not-allowed' : 'pointer';
-            }
-            
-            if (nextBtn) {
-                nextBtn.style.opacity = marqueeCurrentPosition >= maxPosition ? '0.5' : '1';
-                nextBtn.style.cursor = marqueeCurrentPosition >= maxPosition ? 'not-allowed' : 'pointer';
-            }
-        }
-
-        function startMarqueeAutoScroll() {
-            const cards = document.querySelectorAll('.marquee-card');
-            if (!cards.length) return;
-            
-            marqueeAutoScrollInterval = setInterval(() => {
-                if (marqueeAutoScroll) {
-                    const marqueeTrack = document.getElementById('marqueeTrack');
-                    const cardWidth = 280;
-                    const gap = 24;
-                    const visibleCards = Math.floor(window.innerWidth / (cardWidth + gap));
-                    const maxPosition = Math.max(0, cards.length - visibleCards);
-                    
-                    if (marqueeCurrentPosition >= maxPosition) {
-                        marqueeCurrentPosition = 0;
-                    } else {
-                        marqueeCurrentPosition++;
+    // Intersection Observer for Counters
+    const counterObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const counters = document.querySelectorAll('.stat-number[data-target]');
+                counters.forEach(counter => {
+                    const target = parseInt(counter.getAttribute('data-target'));
+                    if (!isNaN(target)) {
+                        animateCounter(counter, target);
                     }
-                    
-                    const translateX = -marqueeCurrentPosition * (cardWidth + gap);
-                    marqueeTrack.style.transform = `translateX(${translateX}px)`;
-                    updateMarqueeArrows();
-                }
-            }, 4000);
-        }
-
-        function resetMarqueeAutoScroll() {
-            marqueeAutoScroll = false;
-            clearInterval(marqueeAutoScrollInterval);
-            
-            setTimeout(() => {
-                marqueeAutoScroll = true;
-                startMarqueeAutoScroll();
-            }, 8000);
-        }
-
-        // Lazy Load Registration Form
-        function loadRegistrationForm() {
-            const formPlaceholder = document.getElementById('formPlaceholder');
-            if (formPlaceholder && !formPlaceholder.querySelector('iframe')) {
-                const iframe = document.createElement('iframe');
-                iframe.src = 'https://docs.google.com/forms/d/e/1FAIpQLSefBDvkfi731r53UJyj0eKrvY2SPlgzx779UeVv1ugehwFK8Q/viewform?embedded=true';
-                iframe.width = '100%';
-                iframe.height = '850';
-                iframe.frameBorder = '0';
-                iframe.marginHeight = '0';
-                iframe.marginWidth = '0';
-                iframe.style.border = 'none';
-                iframe.style.background = 'white';
-                iframe.title = 'Saham Academy Registration Form';
-                
-                formPlaceholder.innerHTML = '';
-                formPlaceholder.appendChild(iframe);
+                });
+                counterObserver.unobserve(entry.target);
             }
-        }
+        });
+    }, { threshold: 0.5 });
 
-        // Initialize Marquee and Testimonials
-        document.addEventListener('DOMContentLoaded', function() {
-            // Initialize testimonial slider
-            if (testimonials.length > 0) {
-                showTestimonial(0);
+    const statsSection = document.querySelector('.stats');
+    if (statsSection) {
+        counterObserver.observe(statsSection);
+    }
+
+    // Testimonial Slider
+    let currentTestimonial = 0;
+    const testimonials = document.querySelectorAll('.testimonial-item');
+
+    function showTestimonial(index) {
+        testimonials.forEach((item, i) => {
+            item.classList.remove('active');
+            if (i === index) {
+                item.classList.add('active');
             }
+        });
+    }
+
+    function changeTestimonial(direction) {
+        currentTestimonial += direction;
+        if (currentTestimonial >= testimonials.length) {
+            currentTestimonial = 0;
+        } else if (currentTestimonial < 0) {
+            currentTestimonial = testimonials.length - 1;
+        }
+        showTestimonial(currentTestimonial);
+    }
+
+    // Auto-play testimonials
+    let testimonialInterval = setInterval(() => {
+        changeTestimonial(1);
+    }, 5000);
+
+    // Pause testimonial auto-play on hover
+    const testimonialSlider = document.querySelector('.testimonial-slider');
+    if (testimonialSlider) {
+        testimonialSlider.addEventListener('mouseenter', () => {
+            clearInterval(testimonialInterval);
+        });
+        
+        testimonialSlider.addEventListener('mouseleave', () => {
+            testimonialInterval = setInterval(() => {
+                changeTestimonial(1);
+            }, 5000);
+        });
+    }
+
+    // ========== UPDATED MARQUEE FUNCTIONALITY ==========
+    let marqueeCurrentIndex = 0;
+    let marqueeItems = [];
+    let marqueeTrack;
+    let marqueeContainerWidth = 0;
+
+    // Initialize marquee
+    function initMarquee() {
+        marqueeTrack = document.getElementById('marqueeTrack');
+        if (!marqueeTrack) return;
+        
+        marqueeItems = document.querySelectorAll('.marquee-card');
+        const marqueeContainer = document.querySelector('.marquee-container');
+        if (marqueeContainer) {
+            marqueeContainerWidth = marqueeContainer.offsetWidth;
+        }
+        
+        updateMarqueeButtons();
+    }
+
+    // Scroll marquee in given direction (-1 for left, 1 for right)
+    function scrollMarquee(direction) {
+        if (!marqueeTrack || marqueeItems.length === 0) return;
+        
+        const cardWidth = 280; // Fixed width from CSS
+        const gap = 24; // Gap from CSS
+        const itemWidth = cardWidth + gap;
+        const visibleItems = Math.floor(marqueeContainerWidth / itemWidth);
+        const maxIndex = Math.max(0, marqueeItems.length - visibleItems);
+        
+        marqueeCurrentIndex += direction;
+        
+        // Clamp the index
+        if (marqueeCurrentIndex < 0) marqueeCurrentIndex = 0;
+        if (marqueeCurrentIndex > maxIndex) marqueeCurrentIndex = maxIndex;
+        
+        const translateX = -marqueeCurrentIndex * itemWidth;
+        marqueeTrack.style.transform = `translateX(${translateX}px)`;
+        
+        updateMarqueeButtons();
+    }
+
+    // Update button states
+    function updateMarqueeButtons() {
+        const prevBtn = document.querySelector('.marquee-nav.prev');
+        const nextBtn = document.querySelector('.marquee-nav.next');
+        
+        if (!prevBtn || !nextBtn || marqueeItems.length === 0) return;
+        
+        const cardWidth = 280;
+        const gap = 24;
+        const itemWidth = cardWidth + gap;
+        const visibleItems = Math.floor(marqueeContainerWidth / itemWidth);
+        const maxIndex = Math.max(0, marqueeItems.length - visibleItems);
+        
+        // Disable buttons at boundaries
+        if (marqueeCurrentIndex === 0) {
+            prevBtn.classList.add('disabled');
+        } else {
+            prevBtn.classList.remove('disabled');
+        }
+        
+        if (marqueeCurrentIndex >= maxIndex) {
+            nextBtn.classList.add('disabled');
+        } else {
+            nextBtn.classList.remove('disabled');
+        }
+    }
+
+    // Lazy Load Registration Form
+    function loadRegistrationForm() {
+        const formPlaceholder = document.getElementById('formPlaceholder');
+        if (formPlaceholder && !formPlaceholder.querySelector('iframe')) {
+            const iframe = document.createElement('iframe');
+            iframe.src = 'https://docs.google.com/forms/d/e/1FAIpQLSefBDvkfi731r53UJyj0eKrvY2SPlgzx779UeVv1ugehwFK8Q/viewform?embedded=true';
+            iframe.width = '100%';
+            iframe.height = '850';
+            iframe.frameBorder = '0';
+            iframe.marginHeight = '0';
+            iframe.marginWidth = '0';
+            iframe.style.border = 'none';
+            iframe.style.background = 'white';
+            iframe.title = 'Saham Academy Registration Form';
             
-            // Initialize marquee
+            formPlaceholder.innerHTML = '';
+            formPlaceholder.appendChild(iframe);
+        }
+    }
+
+    // Initialize everything
+    document.addEventListener('DOMContentLoaded', function() {
+        // Initialize testimonial slider
+        if (testimonials.length > 0) {
+            showTestimonial(0);
+        }
+        
+        // Initialize marquee
+        initMarquee();
+        
+        // Update marquee on window resize
+        window.addEventListener('resize', function() {
             const marqueeContainer = document.querySelector('.marquee-container');
             if (marqueeContainer) {
-                marqueeContainer.addEventListener('mouseenter', () => {
-                    marqueeAutoScroll = false;
-                    clearInterval(marqueeAutoScrollInterval);
-                });
-                
-                marqueeContainer.addEventListener('mouseleave', () => {
-                    marqueeAutoScroll = true;
-                    startMarqueeAutoScroll();
-                });
-                
-                marqueeContainer.addEventListener('touchstart', () => {
-                    marqueeAutoScroll = false;
-                    clearInterval(marqueeAutoScrollInterval);
-                });
-                
-                marqueeContainer.addEventListener('touchend', () => {
-                    setTimeout(() => {
-                        marqueeAutoScroll = true;
-                        startMarqueeAutoScroll();
-                    }, 3000);
-                });
-                
-                updateMarqueeArrows();
-                startMarqueeAutoScroll();
+                marqueeContainerWidth = marqueeContainer.offsetWidth;
+                updateMarqueeButtons();
             }
         });
-
-        // Update arrows on window resize
-        window.addEventListener('resize', updateMarqueeArrows);
-
-        // Keyboard Navigation
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
-                showPage('home');
-            }
-            if (e.key === 'ArrowLeft') {
-                changeTestimonial(-1);
-                const marqueeCards = document.querySelectorAll('.marquee-card');
-                if (marqueeCards.length > 0) {
-                    scrollMarqueeLeft();
+        
+        // Touch/swipe support for marquee
+        let startX = 0;
+        let currentX = 0;
+        const marqueeContainer = document.querySelector('.marquee-container');
+        
+        if (marqueeContainer) {
+            marqueeContainer.addEventListener('touchstart', (e) => {
+                startX = e.touches[0].clientX;
+            });
+            
+            marqueeContainer.addEventListener('touchmove', (e) => {
+                currentX = e.touches[0].clientX;
+            });
+            
+            marqueeContainer.addEventListener('touchend', () => {
+                const diff = startX - currentX;
+                if (Math.abs(diff) > 50) { // Minimum swipe distance
+                    if (diff > 0) {
+                        scrollMarquee(1); // Swipe left
+                    } else {
+                        scrollMarquee(-1); // Swipe right
+                    }
                 }
-            }
-            if (e.key === 'ArrowRight') {
-                changeTestimonial(1);
-                const marqueeCards = document.querySelectorAll('.marquee-card');
-                if (marqueeCards.length > 0) {
-                    scrollMarqueeRight();
-                }
-            }
-        });
-
-        // Analytics Tracking (Optional)
-        function trackPageView(page) {
-            console.log('Page viewed:', page);
-            // Add your analytics code here (Google Analytics, etc.)
+            });
         }
+    });
 
-        function trackConversion(type) {
-            console.log('Conversion tracked:', type);
-            // Add your conversion tracking code here
+    // Keyboard Navigation
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            showPage('home');
         }
-    </script>
+        if (e.key === 'ArrowLeft') {
+            changeTestimonial(-1);
+            // Also control marquee if it exists
+            if (marqueeItems && marqueeItems.length > 0) {
+                scrollMarquee(-1);
+            }
+        }
+        if (e.key === 'ArrowRight') {
+            changeTestimonial(1);
+            // Also control marquee if it exists
+            if (marqueeItems && marqueeItems.length > 0) {
+                scrollMarquee(1);
+            }
+        }
+    });
+
+    // Analytics Tracking (Optional)
+    function trackPageView(page) {
+        console.log('Page viewed:', page);
+        // Add your analytics code here (Google Analytics, etc.)
+    }
+
+    function trackConversion(type) {
+        console.log('Conversion tracked:', type);
+        // Add your conversion tracking code here
+    }
+</script>
 </body>
 </html>
