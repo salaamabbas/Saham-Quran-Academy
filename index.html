@@ -887,86 +887,190 @@
         font-size: 1rem;
     }
 }
-        /* Registration Form */
-        .registration-section {
-            background: var(--primary-dark);
-            padding: 3rem 1.5rem;
-        }
+      /* Registration Section */
+.registration-section {
+    background: var(--primary-dark);
+    padding: 4rem 2rem;
+}
 
-        .registration-container {
-            max-width: 900px;
-            margin: 0 auto;
-        }
+/* Container for centering */
+.registration-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
 
-        .registration-header {
-            text-align: center;
-            color: white;
-            margin-bottom: 2rem;
-        }
+/* Header styling */
+.registration-header {
+    text-align: center;
+    color: white;
+    margin-bottom: 2.5rem;
+}
 
-        .registration-header h2 {
-            font-size: 3rem;
-            font-weight: 900;
-            margin-bottom: 1rem;
-        }
+.registration-header h2 {
+    font-size: 3rem;
+    font-weight: 900;
+    margin-bottom: 1rem;
+}
 
-        .registration-header p {
-            font-size: 1.2rem;
-            opacity: 0.9;
-        }
+.registration-header p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
 
-        .form-container {
-            background: white;
-            border-radius: 25px;
-            overflow: hidden;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-        }
+/* Form container with shadow and padding */
+.form-container {
+    background: white;
+    border-radius: 25px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    padding: 3rem 2rem;
+}
 
-        .form-container iframe {
-            width: 100%;
-            height: 850px;
-            border: none;
-            display: block;
-            background: white;
-        }
+/* Form layout */
+.custom-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
 
-        .whatsapp-prompt {
-            background: linear-gradient(135deg, #25D366, #128C7E);
-            padding: 2.5rem;
-            text-align: center;
-            color: white;
-        }
+/* Rows for grouping inputs */
+.custom-form .form-row {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
 
-        .whatsapp-prompt h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-        }
+/* Inputs, selects, textarea */
+.custom-form input,
+.custom-form select,
+.custom-form textarea {
+    flex: 1;
+    padding: 1rem 1.2rem;
+    border-radius: 12px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    font-family: inherit;
+    outline: none;
+    transition: all 0.3s ease;
+}
 
-        .whatsapp-prompt p {
-            font-size: 1.1rem;
-            margin-bottom: 2rem;
-            opacity: 0.95;
-        }
+.custom-form input:focus,
+.custom-form select:focus,
+.custom-form textarea:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
 
-        .btn-whatsapp {
-            background: white;
-            color: #128C7E;
-            padding: 1.2rem 3rem;
-            border-radius: 12px;
-            font-weight: 700;
-            font-size: 1.1rem;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.8rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-        }
+.custom-form textarea {
+    resize: vertical;
+}
 
-        .btn-whatsapp:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
-        }
+.btn-submit {
+    background: #128C7E;
+    color: #ffffff;
+    padding: 1.1rem 2.8rem;
+    border-radius: 14px;
+    font-weight: 800;
+    font-size: 1.1rem;
+    border: none;
+    cursor: pointer;
+    display: block;
+    width: fit-content;
+    margin: 2rem auto 0 auto;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.btn-submit:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+}
+
+
+
+/* Success message styling */
+#successMsg {
+    display: none;
+    color: green;
+    margin-top: 1rem;
+    text-align: center;
+    font-weight: 600;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .custom-form .form-row {
+        flex-direction: column;
+    }
+}
+
+
+/* WhatsApp Prompt Section */
+.whatsapp-prompt {
+    margin-top: 3rem;
+    background: linear-gradient(135deg, #25D366, #128C7E);
+    padding: 2.5rem 2rem;
+    border-radius: 20px;
+    text-align: center;
+    color: #fff;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+}
+
+.whatsapp-prompt h3 {
+    font-size: 1.9rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+}
+
+.whatsapp-prompt p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    opacity: 0.95;
+}
+
+/* WhatsApp Button */
+.btn-whatsapp {
+    background: #ffffff;
+    color: #128C7E;
+    padding: 1.1rem 2.8rem;
+    border-radius: 14px;
+    font-weight: 800;
+    font-size: 1.1rem;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+}
+
+.btn-whatsapp:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+}
+
+/* Mobile optimization */
+@media (max-width: 600px) {
+    .whatsapp-prompt {
+        padding: 2rem 1.5rem;
+    }
+
+    .whatsapp-prompt h3 {
+        font-size: 1.6rem;
+    }
+
+    .whatsapp-prompt p {
+        font-size: 1rem;
+    }
+
+    .btn-whatsapp {
+        width: 100%;
+        padding: 1rem;
+    }
+}
+
 
         /* WhatsApp Float */
         .whatsapp-float {
@@ -1963,31 +2067,94 @@
             </div>
         </div>
 
-        <!-- REGISTRATION PAGE -->
-        <div id="registerPage" class="page-content" style="padding: 6rem 0;">
-            <div class="registration-section" style="margin: 0; padding: 5rem 2rem;">
-                <div class="registration-container">
-                    <div class="registration-header">
-                        <h2>Start Your Qur'anic Journey Today</h2>
-                        <p>Fill out the form below to register for our Qur'an classes</p>
-                    </div>
+<div class="form-container">
 
-                    <div class="form-container">
-                        <div id="formPlaceholder" style="width: 100%; height: 850px; display: flex; align-items: center; justify-content: center; background: #f5f5f5; color: #666; font-size: 1.1rem;">
-                            Loading registration form...
-                        </div>
-                        
-                        <div class="whatsapp-prompt">
-                            <h3>📱 Complete Your Registration</h3>
-                            <p>After submitting the form above, click the button below to send us a WhatsApp message. This helps us process your registration faster and answer any questions you may have!</p>
-                            <a href="https://wa.me/256784560867?text=As-salaamu%20alaykum!%20I%20have%20just%20registered%20for%20Qur%27an%20classes%20via%20your%20website.%20My%20name%20is%20%5BYour%20Name%5D.%20I'm%20excited%20to%20start%20learning%20with%20Saham%20Academy!" class="btn-whatsapp" aria-label="Message us on WhatsApp to complete registration">
-                                💬 Message Us on WhatsApp
-                            </a>
-                        </div>
-                    </div>
-                </div>
+  <!-- REGISTRATION PAGE -->
+<div id="registerPage" class="page-content">
+    <div class="section-header">
+        <h2 class="section-title">Register for Classes</h2>
+        <p class="section-subtitle">Begin your journey of Qur'anic excellence today</p>
+    </div>
+
+    <div class="form-container">
+        <!-- Registration Form -->
+        <form
+            action="https://formspree.io/f/xnjqqgor"
+            method="POST"
+            id="registrationForm"
+            class="custom-form"
+        >
+            <div class="form-row">
+                <input type="text" name="name" placeholder="Full Name" required>
+                <input type="tel" name="phone" placeholder="WhatsApp Number" required>
             </div>
-            
+
+            <div class="form-row">
+                <input type="email" name="email" placeholder="Email Address (Optional)">
+                <input type="text" name="country" placeholder="Country" required>
+            </div>
+
+            <div class="form-row">
+                <input type="number" name="age" placeholder="Age" required>
+                <select name="gender" required>
+                    <option value="">Gender</option>
+                    <option>Male</option>
+                    <option>Female</option>
+                </select>
+            </div>
+
+            <div class="form-row">
+                <select name="course" required>
+                    <option value="">Course Interested In</option>
+                    <option>Qur'an Memorization</option>
+                    <option>Tilāwah al-Qur'an (Recitation)</option>
+                    <option>Qur'an for Kids</option>
+                    <option>Yassarnal Qur'an</option>
+                    <option>Hadith Course</option>
+                </select>
+
+                <select name="preferred_time" required>
+                    <option value="">Preferred Class Time</option>
+                    <option>Morning</option>
+                    <option>Afternoon</option>
+                    <option>Evening</option>
+                    <option>Late Evening</option>
+                </select>
+            </div>
+
+            <textarea
+                name="questions"
+                rows="4"
+                placeholder="Any questions or additional information?"
+            ></textarea>
+
+            <button type="submit" class="btn-submit">
+                Submit Registration
+            </button>
+
+            <p id="successMsg" style="display:none;">
+                JazakAllahu khair! We'll contact you shortly on WhatsApp.
+            </p>
+        </form>
+
+        <!-- WhatsApp Prompt -->
+        <div class="whatsapp-prompt">
+            <h3>📱 Complete Your Registration</h3>
+            <p>
+                After submitting the form above, click the button below to send us a
+                WhatsApp message. This helps us process your registration faster and
+                answer any questions you may have!
+            </p>
+            <a
+                href="https://wa.me/256784560867?text=As-salaamu%20alaykum!%20I%20have%20just%20registered%20for%20Qur'an%20classes%20via%20your%20website.%20My%20name%20is%20[Your%20Name].%20I'm%20excited%20to%20start%20learning%20with%20Saham%20Academy!"
+                class="btn-whatsapp"
+                aria-label="Message us on WhatsApp to complete registration"
+            >
+                💬 Message Us on WhatsApp
+            </a>
+        </div>
+    </div
+
             <!-- Why Choose Saham Qur'an Academy? -->
             <div class="why-choose-section">
                 <h3 style="font-size: 2rem; margin-bottom: 1.5rem;">Why Choose Saham Qur'an Academy?</h3>
@@ -2134,352 +2301,410 @@
     <i class="fab fa-whatsapp" style="font-size: 28px; color: white;"></i>
 </a>
 
-   <script>
-    // Page Loader
-    window.addEventListener('load', () => {
-        setTimeout(() => {
-            document.getElementById('pageLoader').classList.add('hide');
-            // Report performance
-            const perfData = window.performance.timing;
-            const loadTime = perfData.loadEventEnd - perfData.navigationStart;
-            console.log('Page load time:', loadTime + 'ms');
-        }, 2000);
+  <script>
+// ========== GLOBAL STATE ==========
+let currentTestimonial = 0;
+let currentMarqueeIndex = 0;
+let testimonialInterval = null;
+let marqueeItems = [];
+let marqueeTrack = null;
+let marqueeContainerWidth = 0;
+let isMobileMenuOpen = false;
+
+// ========== DOM ELEMENTS CACHE ==========
+const elements = {
+    pageLoader: document.getElementById('pageLoader'),
+    navbar: document.getElementById('navbar'),
+    homePage: document.getElementById('homePage'),
+    mainContent: document.getElementById('main-content'),
+    mobileMenu: document.getElementById('mobileMenu'),
+    mobileToggle: document.getElementById('mobileToggle'),
+    statsSection: document.querySelector('.stats'),
+    testimonialSlider: document.querySelector('.testimonial-slider'),
+    testimonials: document.querySelectorAll('.testimonial-item'),
+    marqueeTrack: document.getElementById('marqueeTrack'),
+    marqueeContainer: document.querySelector('.marquee-container'),
+    registrationForm: document.getElementById('registrationForm'),
+    successMsg: document.getElementById('successMsg')
+};
+
+// ========== PAGE NAVIGATION ==========
+function showPage(page) {
+    console.log('Switching to page:', page);
+    
+    // Validate page
+    if (!page || typeof page !== 'string') {
+        console.error('Invalid page requested:', page);
+        return;
+    }
+    
+    // Hide home page
+    if (elements.homePage) {
+        elements.homePage.style.display = 'none';
+    }
+    
+    // Hide ALL page-content sections
+    document.querySelectorAll('.page-content').forEach(p => {
+        p.style.display = 'none';
+        p.classList.remove('active');
     });
 
-    // Navbar Scroll Effect
-    let lastScroll = 0;
-    window.addEventListener('scroll', () => {
-        const navbar = document.getElementById('navbar');
-        const currentScroll = window.pageYOffset;
-        
-        if (currentScroll > 100) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
+    // Show selected page
+    if (page === 'home') {
+        if (elements.homePage) {
+            elements.homePage.style.display = 'block';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
-        lastScroll = currentScroll;
-    });
-
-    // Page Navigation
-    function showPage(page) {
-        // Hide all pages
-        document.getElementById('homePage').style.display = 'none';
-        document.querySelectorAll('.page-content').forEach(p => {
-            p.classList.remove('active');
-        });
-
-        // Show selected page
-        if (page === 'home') {
-            document.getElementById('homePage').style.display = 'block';
+    } else {
+        const pageElement = document.getElementById(page + 'Page');
+        if (pageElement) {
+            pageElement.style.display = 'block';
+            pageElement.classList.add('active');
             window.scrollTo({ top: 0, behavior: 'smooth' });
         } else {
-            const pageElement = document.getElementById(page + 'Page');
-            if (pageElement) {
-                pageElement.classList.add('active');
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-                
-                // Lazy load form if on registration page
-                if (page === 'register') {
-                    loadRegistrationForm();
+            console.warn('Page element not found:', page + 'Page');
+            // Fallback to home
+            showPage('home');
+            return;
+        }
+    }
+
+    // Set focus for screen readers
+    setTimeout(() => {
+        if (elements.mainContent) {
+            elements.mainContent.setAttribute('tabindex', '-1');
+            elements.mainContent.focus();
+        }
+    }, 100);
+
+    // Close mobile menu if open
+    closeMobileMenu();
+}
+
+// ========== MOBILE MENU ==========
+function toggleMobileMenu() {
+    if (!elements.mobileMenu || !elements.mobileToggle) return;
+    
+    isMobileMenuOpen = !isMobileMenuOpen;
+    elements.mobileMenu.classList.toggle('active');
+    elements.mobileToggle.classList.toggle('active');
+    
+    // Update aria-expanded for accessibility
+    elements.mobileToggle.setAttribute('aria-expanded', isMobileMenuOpen);
+}
+
+function closeMobileMenu() {
+    if (!elements.mobileMenu || !elements.mobileToggle) return;
+    
+    isMobileMenuOpen = false;
+    elements.mobileMenu.classList.remove('active');
+    elements.mobileToggle.classList.remove('active');
+    elements.mobileToggle.setAttribute('aria-expanded', 'false');
+}
+
+// ========== PAGE LOADER ==========
+function handlePageLoad() {
+    setTimeout(() => {
+        if (elements.pageLoader) {
+            elements.pageLoader.classList.add('hide');
+        }
+    }, 2000);
+}
+
+// ========== NAVBAR SCROLL EFFECT ==========
+function handleNavbarScroll() {
+    if (!elements.navbar) return;
+    
+    const currentScroll = window.pageYOffset;
+    
+    if (currentScroll > 100) {
+        elements.navbar.classList.add('scrolled');
+    } else {
+        elements.navbar.classList.remove('scrolled');
+    }
+}
+
+// ========== COUNTER ANIMATION ==========
+function animateCounter(element, target) {
+    if (!element || isNaN(target)) return;
+    
+    let current = 0;
+    const increment = target / 60;
+    const duration = 1500;
+    const steps = duration / 25;
+    const stepIncrement = target / steps;
+    
+    const timer = setInterval(() => {
+        current += stepIncrement;
+        if (current >= target) {
+            element.textContent = target + (element.getAttribute('data-suffix') || '+');
+            clearInterval(timer);
+        } else {
+            element.textContent = Math.floor(current) + (element.getAttribute('data-suffix') || '+');
+        }
+    }, 25);
+}
+
+// Intersection Observer for Counters
+const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const counters = document.querySelectorAll('.stat-number[data-target]');
+            counters.forEach(counter => {
+                const target = parseInt(counter.getAttribute('data-target'));
+                if (!isNaN(target)) {
+                    animateCounter(counter, target);
                 }
-            }
-        }
-
-        // Set focus for screen readers
-        setTimeout(() => {
-            const mainContent = document.getElementById('main-content');
-            if (mainContent) {
-                mainContent.setAttribute('tabindex', '-1');
-                mainContent.focus();
-            }
-        }, 100);
-
-        // Track page view
-        trackPageView(page);
-
-        // Close mobile menu if open
-        closeMobileMenu();
-    }
-
-    // Mobile Menu Toggle
-    function toggleMobileMenu() {
-        const mobileMenu = document.getElementById('mobileMenu');
-        const mobileToggle = document.getElementById('mobileToggle');
-        mobileMenu.classList.toggle('active');
-        mobileToggle.classList.toggle('active');
-    }
-
-    function closeMobileMenu() {
-        const mobileMenu = document.getElementById('mobileMenu');
-        const mobileToggle = document.getElementById('mobileToggle');
-        mobileMenu.classList.remove('active');
-        mobileToggle.classList.remove('active');
-    }
-
-    // Close mobile menu when clicking outside
-    document.addEventListener('click', (e) => {
-        const mobileMenu = document.getElementById('mobileMenu');
-        const mobileToggle = document.getElementById('mobileToggle');
-        
-        if (mobileMenu.classList.contains('active') && 
-            !mobileMenu.contains(e.target) && 
-            !mobileToggle.contains(e.target)) {
-            closeMobileMenu();
+            });
+            counterObserver.unobserve(entry.target);
         }
     });
+}, { 
+    threshold: 0.5,
+    rootMargin: '0px 0px -50px 0px'
+});
 
-    // Keyboard support for mobile menu
-    document.addEventListener('keydown', (e) => {
-        const mobileMenu = document.getElementById('mobileMenu');
-        if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
-            closeMobileMenu();
+// ========== TESTIMONIAL SLIDER ==========
+function initTestimonialSlider() {
+    if (!elements.testimonials || elements.testimonials.length === 0) return;
+    
+    showTestimonial(0);
+}
+
+function showTestimonial(index) {
+    if (!elements.testimonials || elements.testimonials.length === 0) return;
+    
+    // Validate index
+    if (index < 0) index = 0;
+    if (index >= elements.testimonials.length) index = elements.testimonials.length - 1;
+    
+    currentTestimonial = index;
+    
+    elements.testimonials.forEach((item, i) => {
+        item.classList.remove('active');
+        item.setAttribute('aria-hidden', 'true');
+        if (i === index) {
+            item.classList.add('active');
+            item.setAttribute('aria-hidden', 'false');
         }
     });
+}
 
-    // Counter Animation
-    function animateCounter(element, target) {
-        let current = 0;
-        const increment = target / 80;
-        const timer = setInterval(() => {
-            current += increment;
-            if (current >= target) {
-                element.textContent = target + '+';
-                clearInterval(timer);
-            } else {
-                element.textContent = Math.floor(current) + '+';
-            }
-        }, 25);
+function changeTestimonial(direction) {
+    if (!elements.testimonials || elements.testimonials.length === 0) return;
+    
+    let newIndex = currentTestimonial + direction;
+    
+    if (newIndex >= elements.testimonials.length) {
+        newIndex = 0;
+    } else if (newIndex < 0) {
+        newIndex = elements.testimonials.length - 1;
     }
+    
+    showTestimonial(newIndex);
+}
 
-    // Intersection Observer for Counters
-    const counterObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const counters = document.querySelectorAll('.stat-number[data-target]');
-                counters.forEach(counter => {
-                    const target = parseInt(counter.getAttribute('data-target'));
-                    if (!isNaN(target)) {
-                        animateCounter(counter, target);
-                    }
-                });
-                counterObserver.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.5 });
-
-    const statsSection = document.querySelector('.stats');
-    if (statsSection) {
-        counterObserver.observe(statsSection);
+function startTestimonialAutoPlay() {
+    if (!elements.testimonials || elements.testimonials.length <= 1) return;
+    
+    // Clear any existing interval
+    if (testimonialInterval) {
+        clearInterval(testimonialInterval);
     }
-
-    // Testimonial Slider
-    let currentTestimonial = 0;
-    const testimonials = document.querySelectorAll('.testimonial-item');
-
-    function showTestimonial(index) {
-        testimonials.forEach((item, i) => {
-            item.classList.remove('active');
-            if (i === index) {
-                item.classList.add('active');
-            }
-        });
-    }
-
-    function changeTestimonial(direction) {
-        currentTestimonial += direction;
-        if (currentTestimonial >= testimonials.length) {
-            currentTestimonial = 0;
-        } else if (currentTestimonial < 0) {
-            currentTestimonial = testimonials.length - 1;
-        }
-        showTestimonial(currentTestimonial);
-    }
-
-    // Auto-play testimonials
-    let testimonialInterval = setInterval(() => {
+    
+    testimonialInterval = setInterval(() => {
         changeTestimonial(1);
     }, 5000);
-
-    // Pause testimonial auto-play on hover
-    const testimonialSlider = document.querySelector('.testimonial-slider');
-    if (testimonialSlider) {
-        testimonialSlider.addEventListener('mouseenter', () => {
-            clearInterval(testimonialInterval);
+    
+    // Pause on hover
+    if (elements.testimonialSlider) {
+        elements.testimonialSlider.addEventListener('mouseenter', () => {
+            if (testimonialInterval) {
+                clearInterval(testimonialInterval);
+            }
         });
         
-        testimonialSlider.addEventListener('mouseleave', () => {
-            testimonialInterval = setInterval(() => {
-                changeTestimonial(1);
-            }, 5000);
+        elements.testimonialSlider.addEventListener('mouseleave', () => {
+            startTestimonialAutoPlay();
         });
     }
+}
 
-    // ========== UPDATED MARQUEE FUNCTIONALITY ==========
-    let marqueeCurrentIndex = 0;
-    let marqueeItems = [];
-    let marqueeTrack;
-    let marqueeContainerWidth = 0;
+// ========== MARQUEE FUNCTIONALITY ==========
+function initMarquee() {
+    marqueeTrack = document.getElementById('marqueeTrack');
+    if (!marqueeTrack) return;
+    
+    marqueeItems = document.querySelectorAll('.marquee-card');
+    const marqueeContainer = document.querySelector('.marquee-container');
+    if (marqueeContainer) {
+        marqueeContainerWidth = marqueeContainer.offsetWidth;
+    }
+    
+    updateMarqueeButtons();
+}
 
-    // Initialize marquee
-    function initMarquee() {
-        marqueeTrack = document.getElementById('marqueeTrack');
-        if (!marqueeTrack) return;
+function scrollMarquee(direction) {
+    if (!marqueeTrack || marqueeItems.length === 0) return;
+    
+    const cardWidth = 280;
+    const gap = 24;
+    const itemWidth = cardWidth + gap;
+    const visibleItems = Math.floor(marqueeContainerWidth / itemWidth);
+    const maxIndex = Math.max(0, marqueeItems.length - visibleItems);
+    
+    currentMarqueeIndex += direction;
+    
+    // Clamp the index
+    if (currentMarqueeIndex < 0) currentMarqueeIndex = 0;
+    if (currentMarqueeIndex > maxIndex) currentMarqueeIndex = maxIndex;
+    
+    const translateX = -currentMarqueeIndex * itemWidth;
+    marqueeTrack.style.transform = `translateX(${translateX}px)`;
+    
+    updateMarqueeButtons();
+}
+
+function updateMarqueeButtons() {
+    const prevBtn = document.querySelector('.marquee-nav.prev');
+    const nextBtn = document.querySelector('.marquee-nav.next');
+    
+    if (!prevBtn || !nextBtn || marqueeItems.length === 0) return;
+    
+    const cardWidth = 280;
+    const gap = 24;
+    const itemWidth = cardWidth + gap;
+    const visibleItems = Math.floor(marqueeContainerWidth / itemWidth);
+    const maxIndex = Math.max(0, marqueeItems.length - visibleItems);
+    
+    // Disable buttons at boundaries
+    if (currentMarqueeIndex === 0) {
+        prevBtn.classList.add('disabled');
+        prevBtn.setAttribute('aria-disabled', 'true');
+    } else {
+        prevBtn.classList.remove('disabled');
+        prevBtn.setAttribute('aria-disabled', 'false');
+    }
+    
+    if (currentMarqueeIndex >= maxIndex) {
+        nextBtn.classList.add('disabled');
+        nextBtn.setAttribute('aria-disabled', 'true');
+    } else {
+        nextBtn.classList.remove('disabled');
+        nextBtn.setAttribute('aria-disabled', 'false');
+    }
+}
+
+// ========== FORM HANDLING ==========
+async function handleFormSubmit(e) {
+    e.preventDefault();
+    
+    if (!elements.registrationForm || !elements.successMsg) return;
+    
+    const form = elements.registrationForm;
+    const submitButton = form.querySelector('button[type="submit"]');
+    const originalButtonText = submitButton.textContent;
+    
+    // Show loading state
+    submitButton.textContent = 'Submitting...';
+    submitButton.disabled = true;
+    
+    try {
+        const formData = new FormData(form);
         
-        marqueeItems = document.querySelectorAll('.marquee-card');
-        const marqueeContainer = document.querySelector('.marquee-container');
-        if (marqueeContainer) {
-            marqueeContainerWidth = marqueeContainer.offsetWidth;
+        const response = await fetch(form.action, {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'Accept': 'application/json'
+            }
+        });
+
+        if (response.ok) {
+            // Success
+            form.reset();
+            elements.successMsg.style.display = 'block';
+            elements.successMsg.setAttribute('aria-live', 'polite');
+            
+            // Scroll to success message
+            elements.successMsg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            
+            // Hide success message after 10 seconds
+            setTimeout(() => {
+                elements.successMsg.style.display = 'none';
+            }, 10000);
+        } else {
+            throw new Error('Server responded with status: ' + response.status);
         }
-        
+    } catch (error) {
+        console.error('Form submission error:', error);
+        alert('Submission failed. Please try again or contact us directly.');
+    } finally {
+        // Reset button state
+        submitButton.textContent = originalButtonText;
+        submitButton.disabled = false;
+    }
+}
+
+// ========== EVENT LISTENERS ==========
+function setupEventListeners() {
+    // Window events
+    window.addEventListener('load', handlePageLoad);
+    window.addEventListener('scroll', handleNavbarScroll);
+    window.addEventListener('resize', handleWindowResize);
+    
+    // Mobile menu close on outside click
+    document.addEventListener('click', handleOutsideClick);
+    
+    // Form submission
+    if (elements.registrationForm) {
+        elements.registrationForm.addEventListener('submit', handleFormSubmit);
+    }
+}
+
+function handleOutsideClick(e) {
+    if (!isMobileMenuOpen) return;
+    
+    if (!elements.mobileMenu.contains(e.target) && 
+        !elements.mobileToggle.contains(e.target)) {
+        closeMobileMenu();
+    }
+}
+
+function handleWindowResize() {
+    // Update marquee container width
+    if (elements.marqueeContainer) {
+        marqueeContainerWidth = elements.marqueeContainer.offsetWidth;
         updateMarqueeButtons();
     }
+}
 
-    // Scroll marquee in given direction (-1 for left, 1 for right)
-    function scrollMarquee(direction) {
-        if (!marqueeTrack || marqueeItems.length === 0) return;
-        
-        const cardWidth = 280; // Fixed width from CSS
-        const gap = 24; // Gap from CSS
-        const itemWidth = cardWidth + gap;
-        const visibleItems = Math.floor(marqueeContainerWidth / itemWidth);
-        const maxIndex = Math.max(0, marqueeItems.length - visibleItems);
-        
-        marqueeCurrentIndex += direction;
-        
-        // Clamp the index
-        if (marqueeCurrentIndex < 0) marqueeCurrentIndex = 0;
-        if (marqueeCurrentIndex > maxIndex) marqueeCurrentIndex = maxIndex;
-        
-        const translateX = -marqueeCurrentIndex * itemWidth;
-        marqueeTrack.style.transform = `translateX(${translateX}px)`;
-        
-        updateMarqueeButtons();
+// ========== INITIALIZATION ==========
+function init() {
+    // Setup event listeners
+    setupEventListeners();
+    
+    // Initialize components
+    initTestimonialSlider();
+    initMarquee();
+    
+    // Start auto-play
+    startTestimonialAutoPlay();
+    
+    // Setup counter observer
+    if (elements.statsSection) {
+        counterObserver.observe(elements.statsSection);
     }
+    
+    console.log('Saham Academy initialized successfully');
+}
 
-    // Update button states
-    function updateMarqueeButtons() {
-        const prevBtn = document.querySelector('.marquee-nav.prev');
-        const nextBtn = document.querySelector('.marquee-nav.next');
-        
-        if (!prevBtn || !nextBtn || marqueeItems.length === 0) return;
-        
-        const cardWidth = 280;
-        const gap = 24;
-        const itemWidth = cardWidth + gap;
-        const visibleItems = Math.floor(marqueeContainerWidth / itemWidth);
-        const maxIndex = Math.max(0, marqueeItems.length - visibleItems);
-        
-        // Disable buttons at boundaries
-        if (marqueeCurrentIndex === 0) {
-            prevBtn.classList.add('disabled');
-        } else {
-            prevBtn.classList.remove('disabled');
-        }
-        
-        if (marqueeCurrentIndex >= maxIndex) {
-            nextBtn.classList.add('disabled');
-        } else {
-            nextBtn.classList.remove('disabled');
-        }
-    }
-
-    // Lazy Load Registration Form
-    function loadRegistrationForm() {
-        const formPlaceholder = document.getElementById('formPlaceholder');
-        if (formPlaceholder && !formPlaceholder.querySelector('iframe')) {
-            const iframe = document.createElement('iframe');
-            iframe.src = 'https://docs.google.com/forms/d/e/1FAIpQLSefBDvkfi731r53UJyj0eKrvY2SPlgzx779UeVv1ugehwFK8Q/viewform?embedded=true';
-            iframe.width = '100%';
-            iframe.height = '850';
-            iframe.frameBorder = '0';
-            iframe.marginHeight = '0';
-            iframe.marginWidth = '0';
-            iframe.style.border = 'none';
-            iframe.style.background = 'white';
-            iframe.title = 'Saham Academy Registration Form';
-            
-            formPlaceholder.innerHTML = '';
-            formPlaceholder.appendChild(iframe);
-        }
-    }
-
-    // Initialize everything
-    document.addEventListener('DOMContentLoaded', function() {
-        // Initialize testimonial slider
-        if (testimonials.length > 0) {
-            showTestimonial(0);
-        }
-        
-        // Initialize marquee
-        initMarquee();
-        
-        // Update marquee on window resize
-        window.addEventListener('resize', function() {
-            const marqueeContainer = document.querySelector('.marquee-container');
-            if (marqueeContainer) {
-                marqueeContainerWidth = marqueeContainer.offsetWidth;
-                updateMarqueeButtons();
-            }
-        });
-        
-        // Touch/swipe support for marquee
-        let startX = 0;
-        let currentX = 0;
-        const marqueeContainer = document.querySelector('.marquee-container');
-        
-        if (marqueeContainer) {
-            marqueeContainer.addEventListener('touchstart', (e) => {
-                startX = e.touches[0].clientX;
-            });
-            
-            marqueeContainer.addEventListener('touchmove', (e) => {
-                currentX = e.touches[0].clientX;
-            });
-            
-            marqueeContainer.addEventListener('touchend', () => {
-                const diff = startX - currentX;
-                if (Math.abs(diff) > 50) { // Minimum swipe distance
-                    if (diff > 0) {
-                        scrollMarquee(1); // Swipe left
-                    } else {
-                        scrollMarquee(-1); // Swipe right
-                    }
-                }
-            });
-        }
-    });
-
-    // Keyboard Navigation
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') {
-            showPage('home');
-        }
-        if (e.key === 'ArrowLeft') {
-            changeTestimonial(-1);
-            // Also control marquee if it exists
-            if (marqueeItems && marqueeItems.length > 0) {
-                scrollMarquee(-1);
-            }
-        }
-        if (e.key === 'ArrowRight') {
-            changeTestimonial(1);
-            // Also control marquee if it exists
-            if (marqueeItems && marqueeItems.length > 0) {
-                scrollMarquee(1);
-            }
-        }
-    });
-
-    // Analytics Tracking (Optional)
-    function trackPageView(page) {
-        console.log('Page viewed:', page);
-        // Add your analytics code here (Google Analytics, etc.)
-    }
-
-    function trackConversion(type) {
-        console.log('Conversion tracked:', type);
-        // Add your conversion tracking code here
-    }
+// Initialize when DOM is ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+} else {
+    init();
+}
 </script>
 </body>
 </html>
