@@ -887,146 +887,452 @@
         font-size: 1rem;
     }
 }
-      /* Registration Section */
-.registration-section {
-    background: var(--primary-dark);
-    padding: 4rem 2rem;
+/* ========== REGISTRATION PAGE STYLES ========== */
+
+/* Page Background - Using your theme gradient */
+#registerPage {
+    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+    padding: 80px 0 0;
+    min-height: 100vh;
 }
 
-/* Container for centering */
-.registration-container {
-    max-width: 900px;
+/* Two Column Layout */
+.registration-layout {
+    max-width: 1200px;
     margin: 0 auto;
+    padding: 0 2rem 4rem;
+    display: grid;
+    grid-template-columns: 1fr 400px;
+    gap: 3rem;
 }
 
-/* Header styling */
-.registration-header {
-    text-align: center;
-    color: white;
-    margin-bottom: 2.5rem;
-}
-
-.registration-header h2 {
-    font-size: 3rem;
-    font-weight: 900;
-    margin-bottom: 1rem;
-}
-
-.registration-header p {
-    font-size: 1.2rem;
-    opacity: 0.9;
-}
-
-/* Form container with shadow and padding */
-.form-container {
+/* Form Container */
+.registration-form-container {
     background: white;
     border-radius: 25px;
-    overflow: hidden;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-    padding: 3rem 2rem;
+    padding: 3rem;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
 }
 
-/* Form layout */
-.custom-form {
+.form-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 2px solid var(--primary-light);
+}
+
+.form-header h2 {
+    font-size: 2.5rem;
+    color: var(--dark);
+    margin-bottom: 0.5rem;
+}
+
+.form-header p {
+    color: #6b7280;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+/* Form Sections */
+.form-section {
+    margin-bottom: 2.5rem;
+    padding-bottom: 2.5rem;
+    border-bottom: 2px solid #f1f5f9;
+}
+
+.form-section:last-child {
+    border-bottom: none;
+}
+
+.section-title {
+    font-size: 1.3rem;
+    color: var(--primary-dark);
+    margin-bottom: 1.5rem;
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+    font-weight: 700;
+}
+
+.section-title::before {
+    content: '';
+    width: 10px;
+    height: 10px;
+    background: var(--primary);
+    border-radius: 50%;
+    display: inline-block;
+}
+
+/* Form Grid */
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
 }
 
-/* Rows for grouping inputs */
-.custom-form .form-row {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
+.form-group {
+    margin-bottom: 0;
 }
 
-/* Inputs, selects, textarea */
-.custom-form input,
-.custom-form select,
-.custom-form textarea {
-    flex: 1;
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--dark);
+    font-size: 0.95rem;
+}
+
+.form-group label::after {
+    content: ' *';
+    color: #e53e3e;
+    font-weight: bold;
+}
+
+.form-group label:has(input:optional)::after {
+    content: '';
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
     padding: 1rem 1.2rem;
     border-radius: 12px;
-    border: 1px solid #ccc;
+    border: 2px solid #e5e7eb;
     font-size: 1rem;
     font-family: inherit;
-    outline: none;
     transition: all 0.3s ease;
+    background: #f9fafb;
 }
 
-.custom-form input:focus,
-.custom-form select:focus,
-.custom-form textarea:focus {
-    border-color: var(--primary-color);
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px rgba(45, 158, 156, 0.15);
+    outline: none;
+    background: white;
 }
 
-.custom-form textarea {
+.form-group textarea {
+    min-height: 120px;
     resize: vertical;
 }
 
+/* Submit Section */
+.form-submit-section {
+    text-align: center;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 2px solid #f1f5f9;
+}
+
 .btn-submit {
-    background: #128C7E;
-    color: #ffffff;
-    padding: 1.1rem 2.8rem;
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: white;
+    padding: 1.2rem 3rem;
     border-radius: 14px;
     font-weight: 800;
     font-size: 1.1rem;
     border: none;
     cursor: pointer;
-    display: block;
-    width: fit-content;
-    margin: 2rem auto 0 auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
     transition: all 0.3s ease;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 10px 30px rgba(45, 158, 156, 0.4);
 }
 
 .btn-submit:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(45, 158, 156, 0.5);
+    background: linear-gradient(135deg, var(--primary-dark), var(--primary));
 }
 
+.btn-icon {
+    font-size: 1.2rem;
+}
 
-
-/* Success message styling */
-#successMsg {
-    display: none;
-    color: green;
+.form-note {
     margin-top: 1rem;
+    color: #6b7280;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.note-icon {
+    color: var(--primary);
+    font-weight: bold;
+}
+
+/* Success Message */
+#successMsg {
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-top: 2rem;
     text-align: center;
+    font-weight: 600;
+    display: none;
+    animation: fadeIn 0.5s ease;
+    box-shadow: 0 5px 20px rgba(45, 158, 156, 0.3);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.success-icon {
+    margin-right: 0.5rem;
+    font-size: 1.2rem;
+}
+
+/* Sidebar */
+.registration-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.sidebar-card {
+    background: white;
+    border-radius: 20px;
+    padding: 2.5rem;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.sidebar-card:hover {
+    transform: translateY(-5px);
+}
+
+.card-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: white;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 5px 15px rgba(45, 158, 156, 0.3);
+}
+
+.sidebar-card h3 {
+    font-size: 1.5rem;
+    color: var(--dark);
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.sidebar-card p {
+    color: #6b7280;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+}
+
+/* WhatsApp Card */
+.whatsapp-card {
+    background: linear-gradient(135deg, #25D366, #128C7E);
+    color: white;
+}
+
+.whatsapp-card .card-icon {
+    background: white;
+    color: #25D366;
+}
+
+.whatsapp-card h3,
+.whatsapp-card p {
+    color: white;
+}
+
+.btn-whatsapp {
+    background: white;
+    color: #128C7E;
+    padding: 1rem 2rem;
+    border-radius: 12px;
+    font-weight: 700;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+    font-size: 1.1rem;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+}
+
+.btn-whatsapp:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    background: #f0fdf4;
+}
+
+.whatsapp-icon {
+    font-size: 1.3rem;
+}
+
+.card-note {
+    font-size: 0.85rem;
+    opacity: 0.9;
+    margin-top: 1.5rem;
+    margin-bottom: 0;
+    text-align: center;
+    font-style: italic;
+}
+
+/* Stats Card */
+.stats-card .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.mini-stat {
+    text-align: center;
+    padding: 1rem;
+    background: #f8fafc;
+    border-radius: 12px;
+    border: 2px solid #f1f5f9;
+}
+
+.mini-stat-number {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--primary-dark);
+    margin-bottom: 0.3rem;
+}
+
+.mini-stat-label {
+    font-size: 0.85rem;
+    color: #6b7280;
     font-weight: 600;
 }
 
-/* Responsive adjustments */
-@media (max-width: 600px) {
-    .custom-form .form-row {
-        flex-direction: column;
+/* Benefits Card */
+.benefits-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 1rem;
+}
+
+.benefits-list li {
+    padding: 0.8rem 0;
+    border-bottom: 1px solid #f1f5f9;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    color: #6b7280;
+}
+
+.benefits-list li:last-child {
+    border-bottom: none;
+}
+
+.check-icon {
+    color: var(--primary);
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .registration-layout {
+        grid-template-columns: 1fr;
+        gap: 2rem;
     }
 }
 
-
-/* WhatsApp Prompt Section */
-.whatsapp-prompt {
-    margin-top: 3rem;
-    background: linear-gradient(135deg, #25D366, #128C7E);
-    padding: 2.5rem 2rem;
-    border-radius: 20px;
-    text-align: center;
-    color: #fff;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+@media (max-width: 768px) {
+    #registerPage {
+        padding: 70px 0 0;
+    }
+    
+    .registration-layout {
+        padding: 0 1rem 3rem;
+    }
+    
+    .registration-form-container {
+        padding: 2rem 1.5rem;
+    }
+    
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .form-header h2 {
+        font-size: 2rem;
+    }
+    
+    .sidebar-card {
+        padding: 2rem 1.5rem;
+    }
+    
+    .stats-card .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
-.whatsapp-prompt h3 {
-    font-size: 1.9rem;
+@media (max-width: 480px) {
+    .form-header h2 {
+        font-size: 1.8rem;
+    }
+    
+    .form-header p {
+        font-size: 1rem;
+    }
+    
+    .stats-card .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+    
+    .mini-stat {
+        padding: 0.8rem;
+    }
+    
+    .mini-stat-number {
+        font-size: 1.5rem;
+    }
+    
+    .btn-submit,
+    .btn-whatsapp {
+        width: 100%;
+        justify-content: center;
+    }
+}
+/* WhatsApp Button (keep for other pages) */
+.btn-whatsapp {
+    background: white;
+    color: #128C7E;
+    padding: 1.1rem 2.8rem;
+    border-radius: 14px;
     font-weight: 800;
-    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
 }
 
-.whatsapp-prompt p {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    margin-bottom: 2rem;
-    opacity: 0.95;
+.btn-whatsapp:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+    background: #f0fdf4;
 }
 
 /* WhatsApp Button */
@@ -2067,94 +2373,165 @@
             </div>
         </div>
 
-<div class="form-container">
 
-  <!-- REGISTRATION PAGE -->
+<!-- REGISTRATION PAGE -->
 <div id="registerPage" class="page-content">
-    <div class="section-header">
-        <h2 class="section-title">Register for Classes</h2>
-        <p class="section-subtitle">Begin your journey of Qur'anic excellence today</p>
-    </div>
-
-    <div class="form-container">
-        <!-- Registration Form -->
-        <form
-            action="https://formspree.io/f/xnjqqgor"
-            method="POST"
-            id="registrationForm"
-            class="custom-form"
-        >
-            <div class="form-row">
-                <input type="text" name="name" placeholder="Full Name" required>
-                <input type="tel" name="phone" placeholder="WhatsApp Number" required>
+    <!-- Two Column Layout: Form + Benefits -->
+    <div class="registration-layout" style="margin-top: 80px;">
+        <!-- Left Column: Registration Form -->
+        <div class="registration-form-container">
+            <div class="form-header">
+                <h2>Register for Qur'an Classes</h2>
+                <p>Fill out the form below to begin your learning journey with Saham Academy</p>
             </div>
 
-            <div class="form-row">
-                <input type="email" name="email" placeholder="Email Address (Optional)">
-                <input type="text" name="country" placeholder="Country" required>
-            </div>
-
-            <div class="form-row">
-                <input type="number" name="age" placeholder="Age" required>
-                <select name="gender" required>
-                    <option value="">Gender</option>
-                    <option>Male</option>
-                    <option>Female</option>
-                </select>
-            </div>
-
-            <div class="form-row">
-                <select name="course" required>
-                    <option value="">Course Interested In</option>
-                    <option>Qur'an Memorization</option>
-                    <option>Tilāwah al-Qur'an (Recitation)</option>
-                    <option>Qur'an for Kids</option>
-                    <option>Yassarnal Qur'an</option>
-                    <option>Hadith Course</option>
-                </select>
-
-                <select name="preferred_time" required>
-                    <option value="">Preferred Class Time</option>
-                    <option>Morning</option>
-                    <option>Afternoon</option>
-                    <option>Evening</option>
-                    <option>Late Evening</option>
-                </select>
-            </div>
-
-            <textarea
-                name="questions"
-                rows="4"
-                placeholder="Any questions or additional information?"
-            ></textarea>
-
-            <button type="submit" class="btn-submit">
-                Submit Registration
-            </button>
-
-            <p id="successMsg" style="display:none;">
-                JazakAllahu khair! We'll contact you shortly on WhatsApp.
-            </p>
-        </form>
-
-        <!-- WhatsApp Prompt -->
-        <div class="whatsapp-prompt">
-            <h3>📱 Complete Your Registration</h3>
-            <p>
-                After submitting the form above, click the button below to send us a
-                WhatsApp message. This helps us process your registration faster and
-                answer any questions you may have!
-            </p>
-            <a
-                href="https://wa.me/256784560867?text=As-salaamu%20alaykum!%20I%20have%20just%20registered%20for%20Qur'an%20classes%20via%20your%20website.%20My%20name%20is%20[Your%20Name].%20I'm%20excited%20to%20start%20learning%20with%20Saham%20Academy!"
-                class="btn-whatsapp"
-                aria-label="Message us on WhatsApp to complete registration"
+            <form
+                action="https://formspree.io/f/xnjqqgor"
+                method="POST"
+                id="registrationForm"
+                class="custom-form"
             >
-                💬 Message Us on WhatsApp
-            </a>
-        </div>
-    </div
+                <!-- Personal Information -->
+                <div class="form-section">
+                    <h3 class="section-title">Personal Information</h3>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">WhatsApp Number *</label>
+                            <input type="tel" id="phone" name="phone" placeholder="+256 XXX XXX XXX" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" placeholder="email@example.com (optional)">
+                        </div>
+                        <div class="form-group">
+                            <label for="country">Country *</label>
+                            <input type="text" id="country" name="country" placeholder="Your country" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="age">Age *</label>
+                            <input type="number" id="age" name="age" placeholder="Your age" min="5" max="80" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="gender">Gender *</label>
+                            <select id="gender" name="gender" required>
+                                <option value="">Select gender</option>
+                                <option>Male</option>
+                                <option>Female</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
 
+                <!-- Course Selection -->
+                <div class="form-section">
+                    <h3 class="section-title">Course Details</h3>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="course">Course Interested In *</label>
+                            <select id="course" name="course" required>
+                                <option value="">Select a course</option>
+                                <option>Qur'an Memorization (Hifdh)</option>
+                                <option>Tilāwah al-Qur'an (Recitation)</option>
+                                <option>Arabic Language</option>
+                                <option>Qur'an for Kids</option>
+                                <option>Yassarnal Qur'an</option>
+                                <option>Hadith Course</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="preferred_time">Preferred Class Time *</label>
+                            <select id="preferred_time" name="preferred_time" required>
+                                <option value="">Select time slot</option>
+                                <option>Morning (8AM - 12PM)</option>
+                                <option>Afternoon (12PM - 4PM)</option>
+                                <option>Evening (4PM - 8PM)</option>
+                                <option>Late Evening (8PM - 10PM)</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Additional Information -->
+                <div class="form-section">
+                    <h3 class="section-title">Additional Information</h3>
+                    <div class="form-group">
+                        <label for="questions">Any questions or specific requirements?</label>
+                        <textarea 
+                            id="questions" 
+                            name="questions" 
+                            rows="4" 
+                            placeholder="Tell us about your learning goals, previous experience, or any special requirements..."
+                        ></textarea>
+                    </div>
+                </div>
+
+                <!-- Submit Section -->
+                <div class="form-submit-section">
+                    <button type="submit" class="btn-submit">
+                        <span class="btn-icon">📝</span>
+                        Submit Registration
+                    </button>
+                    <p class="form-note">
+                        <span class="note-icon">ⓘ</span>
+                        We'll contact you within 24 hours to discuss your learning plan
+                    </p>
+                </div>
+
+                <p id="successMsg" style="display:none;">
+                    <span class="success-icon">✅</span>
+                    JazakAllahu khair! We'll contact you shortly on WhatsApp.
+                </p>
+            </form>
+        </div>
+
+        <!-- Right Column: Benefits & WhatsApp -->
+        <div class="registration-sidebar">
+            <!-- WhatsApp Prompt Card -->
+            <div class="sidebar-card whatsapp-card">
+                <div class="card-icon">💬</div>
+                <h3>Complete Registration on WhatsApp</h3>
+                <p>For faster processing and immediate response, message us directly on WhatsApp:</p>
+                <a
+                    href="https://wa.me/256784560867?text=As-salaamu%20alaykum!%20I%20have%20just%20registered%20for%20Qur'an%20classes%20via%20your%20website.%20My%20name%20is%20[Your%20Name].%20I'm%20excited%20to%20start%20learning%20with%20Saham%20Academy!"
+                    class="btn-whatsapp"
+                    aria-label="Message us on WhatsApp"
+                    target="_blank"
+                >
+                    <span class="whatsapp-icon">💬</span>
+                    Message on WhatsApp
+                </a>
+                <p class="card-note">Average response time: 15 minutes</p>
+            </div>
+            
+            <!-- Quick Stats Card -->
+            <div class="sidebar-card stats-card">
+                <div class="card-icon">📊</div>
+                <h3>Why Choose Us?</h3>
+                <div class="stats-grid">
+                    <div class="mini-stat">
+                        <div class="mini-stat-number">500+</div>
+                        <div class="mini-stat-label">Students</div>
+                    </div>
+                    <div class="mini-stat">
+                        <div class="mini-stat-number">15+</div>
+                        <div class="mini-stat-label">Countries</div>
+                    </div>
+                    <div class="mini-stat">
+                        <div class="mini-stat-number">50+</div>
+                        <div class="mini-stat-label">Hifdh Graduates</div>
+                    </div>
+                    <div class="mini-stat">
+                        <div class="mini-stat-number">24/7</div>
+                        <div class="mini-stat-label">Support</div>
+                    </div>
+                </div>
+            </div>
+            
+             
             <!-- Why Choose Saham Qur'an Academy? -->
             <div class="why-choose-section">
                 <h3 style="font-size: 2rem; margin-bottom: 1.5rem;">Why Choose Saham Qur'an Academy?</h3>
@@ -2285,7 +2662,7 @@
     <a href="https://instagram.com/sahamacademy" class="social-link" title="Instagram" aria-label="Instagram">
         <i class="fab fa-instagram" style="font-size: 24px;"></i>
     </a>
-    <a href="https://tiktok.com/@sahamacademy" class="social-link" title="TikTok" aria-label="TikTok">
+    <a href="https://www.tiktok.com/@saham_quran_academy?_r=1&_t=ZM-92XqGFXUMtY" class="social-link" title="TikTok" aria-label="TikTok">
         <i class="fab fa-tiktok" style="font-size: 24px;"></i>
     </a>
 </div>
