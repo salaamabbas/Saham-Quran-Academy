@@ -305,236 +305,116 @@
             transform: translateX(5px);
         }
 
-        /* Hero Section - Stacked Layout */
-.hero {
-    min-height: 60vh; /* Reduced from 70vh */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 6rem 2rem 3rem; /* Reduced top padding */
-    background: url('hero-bg.jpg') center/cover no-repeat;
-    background-color: var(--primary-dark);
-    position: relative;
-    overflow: hidden;
-}
+        /* Hero Section - Clean Version */
+        .hero {
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 100px 2rem 3rem;
+            background: url('hero-bg.jpg') center/cover no-repeat;
+            background-color: #005f31; /* Fallback color */
+            position: relative;
+            overflow: hidden;
+        }
 
-.hero::before {
-    content: '';
-    position: absolute;
-    width: 600px;
-    height: 600px;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
-    border-radius: 50%;
-    top: -300px;
-    right: -300px;
-    animation: float 15s ease-in-out infinite;
-}
+        
+        .hero-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 100;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+        }
 
-@keyframes float {
-    0%, 100% { transform: translate(0, 0); }
-    50% { transform: translate(40px, 40px); }
-}
+        /* Badge */
+        .hero-badge {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background: rgba(255, 255, 255, 0.95);
+            color: #005f31;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 900;
+            letter-spacing: 1px;
+            border: 2px solid #CEDA54;
+            text-transform: uppercase;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            margin-bottom: 1rem;
+        }
 
-.hero-container {
-    max-width: 800px; /* Reduced from 1200px for more compact layout */
-    margin: 0 auto;
-    text-align: center;
-    position: relative;
-    z-index: 1;
-    width: 100%;
-}
+        /* Title */
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            line-height: 1.1;
+            color: white;
+            margin: 0.5rem 0 1.5rem;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+            max-width: 900px;
+        }
 
-.hero-image {
-    margin-bottom: 2rem;
-    animation: fadeInUp 1s ease forwards 0.2s;
-    opacity: 0;
-}
+        .hero h1 span {
+            color: #CEDA54;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+        }
 
-.hero-image img {
-    display: block;
-    margin: 0 auto;
-    transition: transform 0.3s ease;
-}
+        /* Buttons */
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
 
-.hero-image img:hover {
-    transform: scale(1.05);
-}
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 1.2rem 3rem;
+            border-radius: 12px;
+            font-weight: 900;
+            font-size: 1.1rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 3px solid transparent;
+            cursor: pointer;
+        }
 
-.hero-content {
-    max-width: 700px;
-    margin: 0 auto;
-    opacity: 0;
-    animation: fadeInUp 1s ease forwards 0.4s;
-}
+        .btn-primary {
+            background: white;
+            color: #005f31;
+            border-color: #CEDA54;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
 
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+            
+        }
 
-.hero-badge {
-    display: inline-block;
-    padding: 0.7rem 1.8rem;
-    background: rgba(255, 255, 255, 0.15);
-    border: 2px solid rgba(255, 255, 255, 0.4);
-    color: white;
-    border-radius: 50px;
-    font-size: 0.9rem;
-    font-weight: 700;
-    margin-bottom: 1.5rem;
-    letter-spacing: 1px;
-    animation: fadeInUp 1s ease forwards 0.6s;
-    opacity: 0;
-    backdrop-filter: blur(10px);
-}
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+            border: 3px solid white;
+            backdrop-filter: blur(10px);
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+        }
 
-.hero h1 {
-    font-size: 3.2rem; /* Reduced from 4.5rem */
-    font-weight: 900;
-    line-height: 1.15;
-    color: white;
-    margin-bottom: 1rem;
-}
-
-.hero h1 span {
-    color: var(--accent);
-}
-
-.hero-description {
-    font-size: 1.1rem; /* Reduced from 1.3rem */
-    color: rgba(255, 255, 255, 0.95);
-    line-height: 1.7;
-    margin-bottom: 2rem;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.hero-buttons {
-    display: flex;
-    gap: 1.5rem;
-    justify-content: center;
-    flex-wrap: wrap;
-    animation: fadeInUp 1s ease forwards 0.8s;
-    opacity: 0;
-}
-
-.btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.8rem;
-    padding: 1.1rem 2.5rem; /* Slightly reduced padding */
-    border-radius: 12px;
-    font-weight: 700;
-    font-size: 1rem; /* Slightly smaller */
-    text-decoration: none;
-    transition: all 0.3s ease;
-    border: none;
-    cursor: pointer;
-}
-
-.btn-primary {
-    background: white;
-    color: var(--primary-dark);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-}
-
-.btn-primary:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
-}
-
-.btn-secondary {
-    background: transparent;
-    color: white;
-    border: 2px solid white;
-}
-
-.btn-secondary:hover {
-    background: white;
-    color: var(--primary-dark);
-}
-
-/* Responsive Design */
-@media (max-width: 968px) {
-    .hero {
-        min-height: 55vh;
-        padding: 5rem 1.5rem 2rem;
-    }
-    
-    .hero h1 {
-        font-size: 2.8rem;
-    }
-    
-    .hero-description {
-        font-size: 1rem;
-        line-height: 1.6;
-    }
-    
-    .hero-image img {
-        max-width: 180px !important;
-    }
-}
-
-@media (max-width: 768px) {
-    .hero {
-        min-height: 50vh;
-        padding: 4rem 1rem 2rem;
-    }
-    
-    .hero h1 {
-        font-size: 2.3rem;
-    }
-    
-    .hero-buttons {
-        flex-direction: column;
-        align-items: center;
-        gap: 1rem;
-    }
-    
-    .btn {
-        width: 100%;
-        max-width: 300px;
-        justify-content: center;
-    }
-    
-    .hero-image img {
-        max-width: 160px !important;
-    }
-    
-    .hero-badge {
-        font-size: 0.85rem;
-        padding: 0.6rem 1.5rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .hero {
-        min-height: 45vh;
-        padding: 3.5rem 1rem 1.5rem;
-    }
-    
-    .hero h1 {
-        font-size: 2rem;
-    }
-    
-    
-    
-    .hero-image img {
-        max-width: 140px !important;
-    }
-    
-    .hero-badge {
-        font-size: 0.8rem;
-        padding: 0.5rem 1.2rem;
-    }
-}
+        .btn-secondary:hover {
+            background: white;
+            color: #005f31;
+            border-color: #CEDA54;
+            
+        }
 
         /* Stats */
         .stats {
@@ -820,657 +700,491 @@
             right: 0;
         }
 
-     /* Marquee Container */
-.marquee-section {
-    padding: 4rem 2rem;
-    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
-    overflow: hidden;
-    position: relative;
-}
-
-.marquee-wrapper {
-    position: relative;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.marquee-container {
-    overflow: hidden;
-    padding: 1rem 0;
-}
-
-.marquee-track {
-    display: flex;
-    gap: 1.5rem;
-    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    will-change: transform;
-}
-
-/* Marquee Cards - FIXED VERSION */
-.marquee-card {
-    flex: 0 0 280px;
-    flex-shrink: 0; /* ADD THIS - Prevents cards from shrinking */
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.15));
-    backdrop-filter: blur(15px);
-    border-radius: 16px;
-    padding: 2rem;
-    border: 1px solid rgba(255, 255, 255, 0.4);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-}
-
-.marquee-card:hover {
-    transform: translateY(-8px) scale(1.02);
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0.25));
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
-    border-color: rgba(255, 255, 255, 0.6);
-}
-
-.marquee-card-icon {
-    width: 70px;
-    height: 70px;
-    background: linear-gradient(135deg, var(--accent), #e1d747);
-    border-radius: 18px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2.2rem;
-    margin-bottom: 1.2rem;
-    color: var(--dark);
-    box-shadow: 0 8px 20px rgba(206, 218, 84, 0.3);
-}
-
-/* Marquee Navigation - IMPROVED */
-.marquee-nav {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 20;
-    width: 45px;
-    height: 45px;
-    background: white;
-    border: none;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.5rem;
-    color: var(--primary);
-    cursor: pointer;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease;
-    opacity: 0.9;
-}
-
-.marquee-nav:hover:not(.disabled) {
-    background: var(--primary);
-    color: white;
-    transform: translateY(-50%) scale(1.1);
-    box-shadow: 0 8px 25px rgba(45, 158, 156, 0.4);
-    opacity: 1;
-}
-
-.marquee-nav.prev {
-    left: 10px; /* Changed from -20px to prevent overflow */
-}
-
-.marquee-nav.next {
-    right: 10px; /* Changed from -20px to prevent overflow */
-}
-
-/* Disabled state for navigation */
-.marquee-nav.disabled {
-    opacity: 0.4;
-    cursor: not-allowed;
-    background: rgba(255, 255, 255, 0.5);
-}
-
-.marquee-nav.disabled:hover {
-    transform: translateY(-50%);
-    background: rgba(255, 255, 255, 0.5);
-    color: var(--primary);
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .marquee-card {
-        flex: 0 0 260px;
-        padding: 1.5rem;
-    }
-    
-    .marquee-card-icon {
-        width: 60px;
-        height: 60px;
-        font-size: 1.8rem;
-    }
-    
-    .marquee-nav {
-        width: 40px;
-        height: 40px;
-        font-size: 1.2rem;
-    }
-    
-    .marquee-nav.prev {
-        left: 5px;
-    }
-    
-    .marquee-nav.next {
-        right: 5px;
-    }
-}
-
-@media (max-width: 480px) {
-    .marquee-card {
-        flex: 0 0 240px;
-        padding: 1.2rem;
-    }
-    
-    .marquee-card-icon {
-        width: 50px;
-        height: 50px;
-        font-size: 1.5rem;
-    }
-    
-    .marquee-nav {
-        width: 35px;
-        height: 35px;
-        font-size: 1rem;
-    }
-}
-/* ========== REGISTRATION PAGE STYLES ========== */
-
-/* Page Background - Using your theme gradient */
-#registerPage {
-    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
-    padding: 80px 0 0;
-    min-height: 100vh;
-}
-
-/* Two Column Layout */
-.registration-layout {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 2rem 4rem;
-    display: grid;
-    grid-template-columns: 1fr 400px;
-    gap: 3rem;
-}
-
-/* Form Container */
-.registration-form-container {
-    background: white;
-    border-radius: 25px;
-    padding: 3rem;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
-}
-
-.form-header {
-    text-align: center;
-    margin-bottom: 3rem;
-    padding-bottom: 2rem;
-    border-bottom: 2px solid var(--primary-light);
-}
-
-.form-header h2 {
-    font-size: 2.5rem;
-    color: var(--dark);
-    margin-bottom: 0.5rem;
-}
-
-.form-header p {
-    color: #6b7280;
-    font-size: 1.1rem;
-    line-height: 1.6;
-}
-
-/* Form Sections */
-.form-section {
-    margin-bottom: 2.5rem;
-    padding-bottom: 2.5rem;
-    border-bottom: 2px solid #f1f5f9;
-}
-
-.form-section:last-child {
-    border-bottom: none;
-}
-
-.section-title {
-    font-size: 1.3rem;
-    color: var(--primary-dark);
-    margin-bottom: 1.5rem;
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
-    font-weight: 700;
-}
-
-.section-title::before {
-    content: '';
-    width: 10px;
-    height: 10px;
-    background: var(--primary);
-    border-radius: 50%;
-    display: inline-block;
-}
-
-/* Form Grid */
-.form-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-}
-
-.form-group {
-    margin-bottom: 0;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: 600;
-    color: var(--dark);
-    font-size: 0.95rem;
-}
-
-.form-group label::after {
-    content: ' *';
-    color: #e53e3e;
-    font-weight: bold;
-}
-
-.form-group label:has(input:optional)::after {
-    content: '';
-}
-
-.form-group input,
-.form-group select,
-.form-group textarea {
-    width: 100%;
-    padding: 1rem 1.2rem;
-    border-radius: 12px;
-    border: 2px solid #e5e7eb;
-    font-size: 1rem;
-    font-family: inherit;
-    transition: all 0.3s ease;
-    background: #f9fafb;
-}
-
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
-    border-color: var(--primary);
-    box-shadow: 0 0 0 4px rgba(45, 158, 156, 0.15);
-    outline: none;
-    background: white;
-}
-
-.form-group textarea {
-    min-height: 120px;
-    resize: vertical;
-}
-
-/* Submit Section */
-.form-submit-section {
-    text-align: center;
-    margin-top: 3rem;
-    padding-top: 2rem;
-    border-top: 2px solid #f1f5f9;
-}
-
-.btn-submit {
-    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-    color: white;
-    padding: 1.2rem 3rem;
-    border-radius: 14px;
-    font-weight: 800;
-    font-size: 1.1rem;
-    border: none;
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.8rem;
-    transition: all 0.3s ease;
-    box-shadow: 0 10px 30px rgba(45, 158, 156, 0.4);
-}
-
-.btn-submit:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 15px 40px rgba(45, 158, 156, 0.5);
-    background: linear-gradient(135deg, var(--primary-dark), var(--primary));
-}
-
-.btn-icon {
-    font-size: 1.2rem;
-}
-
-.form-note {
-    margin-top: 1rem;
-    color: #6b7280;
-    font-size: 0.9rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-}
-
-.note-icon {
-    color: var(--primary);
-    font-weight: bold;
-}
-
-/* Success Message */
-#successMsg {
-    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-    color: white;
-    padding: 1.5rem;
-    border-radius: 12px;
-    margin-top: 2rem;
-    text-align: center;
-    font-weight: 600;
-    display: none;
-    animation: fadeIn 0.5s ease;
-    box-shadow: 0 5px 20px rgba(45, 158, 156, 0.3);
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-.success-icon {
-    margin-right: 0.5rem;
-    font-size: 1.2rem;
-}
-
-/* Sidebar */
-.registration-sidebar {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-}
-
-.sidebar-card {
-    background: white;
-    border-radius: 20px;
-    padding: 2.5rem;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-}
-
-.sidebar-card:hover {
-    transform: translateY(-5px);
-}
-
-.card-icon {
-    width: 60px;
-    height: 60px;
-    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-    border-radius: 15px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2rem;
-    color: white;
-    margin-bottom: 1.5rem;
-    box-shadow: 0 5px 15px rgba(45, 158, 156, 0.3);
-}
-
-.sidebar-card h3 {
-    font-size: 1.5rem;
-    color: var(--dark);
-    margin-bottom: 1rem;
-    font-weight: 700;
-}
-
-.sidebar-card p {
-    color: #6b7280;
-    line-height: 1.6;
-    margin-bottom: 1.5rem;
-    font-size: 1rem;
-}
-
-/* WhatsApp Card */
-.whatsapp-card {
-    background: linear-gradient(135deg, #25D366, #128C7E);
-    color: white;
-}
-
-.whatsapp-card .card-icon {
-    background: white;
-    color: #25D366;
-}
-
-.whatsapp-card h3,
-.whatsapp-card p {
-    color: white;
-}
-
-.btn-whatsapp {
-    background: white;
-    color: #128C7E;
-    padding: 1rem 2rem;
-    border-radius: 12px;
-    font-weight: 700;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.8rem;
-    transition: all 0.3s ease;
-    margin-top: 1rem;
-    font-size: 1.1rem;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
-}
-
-.btn-whatsapp:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
-    background: #f0fdf4;
-}
-
-.whatsapp-icon {
-    font-size: 1.3rem;
-}
-
-.card-note {
-    font-size: 0.85rem;
-    opacity: 0.9;
-    margin-top: 1.5rem;
-    margin-bottom: 0;
-    text-align: center;
-    font-style: italic;
-}
-
-/* Stats Card */
-.stats-card .stats-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-    margin-top: 1rem;
-}
-
-.mini-stat {
-    text-align: center;
-    padding: 1rem;
-    background: #f8fafc;
-    border-radius: 12px;
-    border: 2px solid #f1f5f9;
-}
-
-.mini-stat-number {
-    font-size: 1.8rem;
-    font-weight: 800;
-    color: var(--primary-dark);
-    margin-bottom: 0.3rem;
-}
-
-.mini-stat-label {
-    font-size: 0.85rem;
-    color: #6b7280;
-    font-weight: 600;
-}
-
-/* Benefits Card */
-.benefits-list {
-    list-style: none;
-    padding: 0;
-    margin-top: 1rem;
-}
-
-.benefits-list li {
-    padding: 0.8rem 0;
-    border-bottom: 1px solid #f1f5f9;
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
-    color: #6b7280;
-}
-
-.benefits-list li:last-child {
-    border-bottom: none;
-}
-
-.check-icon {
-    color: var(--primary);
-    font-weight: bold;
-    font-size: 1.1rem;
-}
-
-/* Responsive Design */
-@media (max-width: 1024px) {
-    .registration-layout {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-}
-
-@media (max-width: 768px) {
-    #registerPage {
-        padding: 70px 0 0;
-    }
-    
-    .registration-layout {
-        padding: 0 1rem 3rem;
-    }
-    
-    .registration-form-container {
-        padding: 2rem 1.5rem;
-    }
-    
-    .form-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .form-header h2 {
-        font-size: 2rem;
-    }
-    
-    .sidebar-card {
-        padding: 2rem 1.5rem;
-    }
-    
-    .stats-card .stats-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 480px) {
-    .form-header h2 {
-        font-size: 1.8rem;
-    }
-    
-    .form-header p {
-        font-size: 1rem;
-    }
-    
-    .stats-card .stats-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1rem;
-    }
-    
-    .mini-stat {
-        padding: 0.8rem;
-    }
-    
-    .mini-stat-number {
-        font-size: 1.5rem;
-    }
-    
-    .btn-submit,
-    .btn-whatsapp {
-        width: 100%;
-        justify-content: center;
-    }
-}
-/* WhatsApp Button (keep for other pages) */
-.btn-whatsapp {
-    background: white;
-    color: #128C7E;
-    padding: 1.1rem 2.8rem;
-    border-radius: 14px;
-    font-weight: 800;
-    font-size: 1.1rem;
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.6rem;
-    transition: all 0.3s ease;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
-}
-
-.btn-whatsapp:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
-    background: #f0fdf4;
-}
-
-/* WhatsApp Button */
-.btn-whatsapp {
-    background: #ffffff;
-    color: #128C7E;
-    padding: 1.1rem 2.8rem;
-    border-radius: 14px;
-    font-weight: 800;
-    font-size: 1.1rem;
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.6rem;
-    transition: all 0.3s ease;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
-}
-
-.btn-whatsapp:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
-}
-
-/* Mobile optimization */
-@media (max-width: 600px) {
-    .whatsapp-prompt {
-        padding: 2rem 1.5rem;
-    }
-
-    .whatsapp-prompt h3 {
-        font-size: 1.6rem;
-    }
-
-    .whatsapp-prompt p {
-        font-size: 1rem;
-    }
-
-    .btn-whatsapp {
-        width: 100%;
-        padding: 1rem;
-    }
-}
-
+        /* Marquee Container */
+        .marquee-section {
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .marquee-wrapper {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .marquee-container {
+            overflow: hidden;
+            padding: 1rem 0;
+        }
+
+        .marquee-track {
+            display: flex;
+            gap: 1.5rem;
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            will-change: transform;
+        }
+
+        /* Marquee Cards */
+        .marquee-card {
+            flex: 0 0 280px;
+            flex-shrink: 0;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.15));
+            backdrop-filter: blur(15px);
+            border-radius: 16px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .marquee-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0.25));
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+            border-color: rgba(255, 255, 255, 0.6);
+        }
+
+        .marquee-card-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--accent), #e1d747);
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2rem;
+            margin-bottom: 1.2rem;
+            color: var(--dark);
+            box-shadow: 0 8px 20px rgba(206, 218, 84, 0.3);
+        }
+
+        /* Marquee Navigation */
+        .marquee-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 20;
+            width: 45px;
+            height: 45px;
+            background: white;
+            border: none;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--primary);
+            cursor: pointer;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            opacity: 0.9;
+        }
+
+        .marquee-nav:hover:not(.disabled) {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-50%) scale(1.1);
+            box-shadow: 0 8px 25px rgba(45, 158, 156, 0.4);
+            opacity: 1;
+        }
+
+        .marquee-nav.prev {
+            left: 10px;
+        }
+
+        .marquee-nav.next {
+            right: 10px;
+        }
+
+        .marquee-nav.disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        .marquee-nav.disabled:hover {
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.5);
+            color: var(--primary);
+        }
+
+        /* Registration Page Styles */
+        #registerPage {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+            padding: 80px 0 0;
+            min-height: 100vh;
+        }
+
+        .registration-layout {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem 4rem;
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 3rem;
+        }
+
+        .registration-form-container {
+            background: white;
+            border-radius: 25px;
+            padding: 3rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+        }
+
+        .form-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid var(--primary);
+        }
+
+        .form-header h2 {
+            font-size: 2.5rem;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .form-header p {
+            color: #6b7280;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .form-section {
+            margin-bottom: 2.5rem;
+            padding-bottom: 2.5rem;
+            border-bottom: 2px solid #f1f5f9;
+        }
+
+        .form-section:last-child {
+            border-bottom: none;
+        }
+
+        .section-title {
+            font-size: 1.3rem;
+            color: var(--primary-dark);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-weight: 700;
+        }
+
+        .section-title::before {
+            content: '';
+            width: 10px;
+            height: 10px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 0;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--dark);
+            font-size: 0.95rem;
+        }
+
+        .form-group label::after {
+            content: ' *';
+            color: #e53e3e;
+            font-weight: bold;
+        }
+
+        .form-group label:has(input:optional)::after {
+            content: '';
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem 1.2rem;
+            border-radius: 12px;
+            border: 2px solid #e5e7eb;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: all 0.3s ease;
+            background: #f9fafb;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(45, 158, 156, 0.15);
+            outline: none;
+            background: white;
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .form-submit-section {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 2px solid #f1f5f9;
+        }
+
+        .btn-submit {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            padding: 1.2rem 3rem;
+            border-radius: 14px;
+            font-weight: 800;
+            font-size: 1.1rem;
+            border: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(45, 158, 156, 0.4);
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(45, 158, 156, 0.5);
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+        }
+
+        .btn-icon {
+            font-size: 1.2rem;
+        }
+
+        .form-note {
+            margin-top: 1rem;
+            color: #6b7280;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .note-icon {
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        #successMsg {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-top: 2rem;
+            text-align: center;
+            font-weight: 600;
+            display: none;
+            animation: fadeIn 0.5s ease;
+            box-shadow: 0 5px 20px rgba(45, 158, 156, 0.3);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .success-icon {
+            margin-right: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .registration-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .sidebar-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .sidebar-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .sidebar-card .card-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 5px 15px rgba(45, 158, 156, 0.3);
+        }
+
+        .sidebar-card h3 {
+            font-size: 1.5rem;
+            color: var(--dark);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .sidebar-card p {
+            color: #6b7280;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+        }
+
+        /* WhatsApp Card */
+        .whatsapp-card {
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            color: white;
+        }
+
+        .whatsapp-card .card-icon {
+            background: white;
+            color: #25D366;
+        }
+
+        .whatsapp-card h3,
+        .whatsapp-card p {
+            color: white;
+        }
+
+        .btn-whatsapp {
+            background: white;
+            color: #128C7E;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            font-weight: 700;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+            font-size: 1.1rem;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-whatsapp:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+            background: #f0fdf4;
+        }
+
+        .whatsapp-icon {
+            font-size: 1.3rem;
+        }
+
+        .card-note {
+            font-size: 0.85rem;
+            opacity: 0.9;
+            margin-top: 1.5rem;
+            margin-bottom: 0;
+            text-align: center;
+            font-style: italic;
+        }
+
+        /* Stats Card */
+        .stats-card .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .mini-stat {
+            text-align: center;
+            padding: 1rem;
+            background: #f8fafc;
+            border-radius: 12px;
+            border: 2px solid #f1f5f9;
+        }
+
+        .mini-stat-number {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary-dark);
+            margin-bottom: 0.3rem;
+        }
+
+        .mini-stat-label {
+            font-size: 0.85rem;
+            color: #6b7280;
+            font-weight: 600;
+        }
+
+        /* Benefits Card */
+        .benefits-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 1rem;
+        }
+
+        .benefits-list li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #f1f5f9;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            color: #6b7280;
+        }
+
+        .benefits-list li:last-child {
+            border-bottom: none;
+        }
+
+        .check-icon {
+            color: var(--primary);
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        /* WhatsApp Button */
+        .btn-whatsapp {
+            background: #ffffff;
+            color: #128C7E;
+            padding: 1.1rem 2.8rem;
+            border-radius: 14px;
+            font-weight: 800;
+            font-size: 1.1rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.6rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+        }
+
+        .btn-whatsapp:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+        }
 
         /* WhatsApp Float */
         .whatsapp-float {
@@ -1714,7 +1428,19 @@
             margin-top: 0.5rem;
         }
 
+        /* Contact Page Specific */
+        #contactPage .grid-3 {
+            margin-bottom: 4rem;
+        }
+
         /* Responsive */
+        @media (max-width: 1024px) {
+            .registration-layout {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
         @media (max-width: 968px) {
             .nav-links {
                 display: none;
@@ -1793,13 +1519,37 @@
             .marquee-nav.next {
                 right: -15px !important;
             }
-
-            .form-container iframe {
-                height: 950px;
-            }
         }
 
         @media (max-width: 768px) {
+            #registerPage {
+                padding: 70px 0 0;
+            }
+            
+            .registration-layout {
+                padding: 0 1rem 3rem;
+            }
+            
+            .registration-form-container {
+                padding: 2rem 1.5rem;
+            }
+            
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-header h2 {
+                font-size: 2rem;
+            }
+            
+            .sidebar-card {
+                padding: 2rem 1.5rem;
+            }
+            
+            .stats-card .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
             footer {
                 padding: 2.5rem 1.5rem 1.5rem;
             }
@@ -1876,30 +1626,26 @@
                 width: 280px;
             }
 
-            .registration-header h2 {
+            .form-header h2 {
                 font-size: 2rem;
             }
 
-            .whatsapp-prompt h3 {
-                font-size: 1.4rem;
-            }
-            
             .marquee-card {
                 flex: 0 0 240px !important;
                 padding: 1.2rem !important;
             }
             
-            .marquee-card div div {
-                width: 60px !important;
-                height: 60px !important;
-                font-size: 1.8rem !important;
+            .marquee-card-icon {
+                width: 50px !important;
+                height: 50px !important;
+                font-size: 1.5rem !important;
             }
             
-            .marquee-card h3 {
+            .marquee-white-text {
                 font-size: 1.1rem !important;
             }
             
-            .marquee-card p {
+            .marquee-white-subtext {
                 font-size: 0.85rem !important;
             }
             
@@ -1946,6 +1692,12 @@
             
             .slider-btn.next {
                 right: -15px;
+            }
+            
+            .btn-submit,
+            .btn-whatsapp {
+                width: 100%;
+                justify-content: center;
             }
         }
     </style>
@@ -2006,30 +1758,27 @@
     <main id="main-content">
         <!-- HOME PAGE -->
         <div id="homePage">
-         <!-- Hero Section - Stacked Layout -->
-<section class="hero">
-    <div class="hero-container">
-        <!-- Logo Image Above Text -->
-        <div class="hero-image">
-            <img src="logo4.png" alt="Saham Academy - Excellence in Islamic Education" 
-                 style="max-width: 200px; width: 100%; height: auto; filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.3));">
-        </div>
-        
-        <!-- Content Below Image -->
-        <div class="hero-content">
-            <div class="hero-badge">✨ JOIN 500+ STUDENTS WORLDWIDE</div>
-            <h1>Transform Your Life Through <span>Qur'anic Excellence</span></h1>
-            <div class="hero-buttons">
-                <a href="#" onclick="showPage('register'); return false;" class="btn btn-primary" aria-label="Register Now">
-                    Register Now →
-                </a>
-                <a href="#" onclick="showPage('courses'); return false;" class="btn btn-secondary" aria-label="Explore Courses">
-                    Explore Courses
-                </a>
-            </div>
-        </div>
-    </div>
-</section>
+
+            <!-- Hero Section -->
+            <section class="hero">
+                <div class="hero-container">
+                    <!-- Badge under navigation -->
+                    <div class="hero-badge">JOIN 500+ STUDENTS WORLDWIDE</div>
+                    
+                    <!-- Title only -->
+                    <h1>Transform Your Life Through <span>Qur'anic Excellence</span></h1>
+                    
+                    <!-- Buttons -->
+                    <div class="hero-buttons">
+                        <a href="#" onclick="showPage('register'); return false;" class="btn btn-primary" aria-label="Register Now">
+                            Register Now →
+                        </a>
+                        <a href="#" onclick="showPage('courses'); return false;" class="btn btn-secondary" aria-label="Explore Courses">
+                            Explore Courses
+                        </a>
+                    </div>
+                </div>
+            </section>
 
             <!-- Simple Stats -->
             <section class="stats">
@@ -2062,13 +1811,13 @@
                 <div style="max-width: 1200px; margin: 0 auto;">
                     <div class="grid-3">
                        <div class="image-card">
-                    <img src="quran-memorization.png" alt="Student engaged in online Quran Hifz memorization program" loading="lazy">
-                    <div class="image-card-content">
-                        <h3 class="image-card-title">Qur'an Memorisation (Hifdh)</h3>
-                        <p class="image-card-text">Master Qur'an memorization with proven techniques, daily practice sessions, regular revision schedules, and personalized feedback from experienced Hafidhs with Ijazah.</p>
-                        <a href="#" onclick="showPage('register'); return false;" class="btn btn-primary" style="display: inline-block; margin-top: 1rem; padding: 0.8rem 2rem; font-size: 0.9rem;" aria-label="Register for Hifdh Course">Register Now →</a>
-                    </div>
-                </div>
+                            <img src="quran-memorization.png" alt="Student engaged in online Quran Hifz memorization program" loading="lazy">
+                            <div class="image-card-content">
+                                <h3 class="image-card-title">Qur'an Memorisation (Hifdh)</h3>
+                                <p class="image-card-text">Master Qur'an memorization with proven techniques, daily practice sessions, regular revision schedules, and personalized feedback from experienced Hafidhs with Ijazah.</p>
+                                <a href="#" onclick="showPage('register'); return false;" class="btn btn-primary" style="display: inline-block; margin-top: 1rem; padding: 0.8rem 2rem; font-size: 0.9rem;" aria-label="Register for Hifdh Course">Register Now →</a>
+                            </div>
+                        </div>
                         <div class="image-card">
                             <img src="tajweed.png" alt="Muslim reciting Quran with proper Tajweed" loading="lazy">
                             <div class="image-card-content">
@@ -2092,65 +1841,65 @@
                 </div>
             </section>
 
-          <!-- Professional Marquee - Why Choose Saham Qur'an Academy -->
-<section class="marquee-section">
-    <div style="text-align: center; margin-bottom: 2.5rem;">
-        <h2 style="font-size: 2.5rem; font-weight: 900; color: white; margin-bottom: 0.8rem;">Why Choose Saham Qur'an Academy?</h2>
-        <p style="font-size: 1.1rem; color: rgba(255, 255, 255, 0.9); max-width: 700px; margin: 0 auto;">Discover what makes us the preferred choice for Qur'anic education worldwide</p>
-    </div>
+            <!-- Professional Marquee - Why Choose Saham Qur'an Academy -->
+            <section class="marquee-section">
+                <div style="text-align: center; margin-bottom: 2.5rem;">
+                    <h2 style="font-size: 2.5rem; font-weight: 900; color: white; margin-bottom: 0.8rem;">Why Choose Saham Qur'an Academy?</h2>
+                    <p style="font-size: 1.1rem; color: rgba(255, 255, 255, 0.9); max-width: 700px; margin: 0 auto;">Discover what makes us the preferred choice for Qur'anic education worldwide</p>
+                </div>
 
-    <div class="marquee-wrapper">
-        <!-- Navigation Arrows -->
-        <button class="marquee-nav prev" onclick="scrollMarquee(-1)" aria-label="Previous Marquee Item">
-            ‹
-        </button>
-        
-        <button class="marquee-nav next" onclick="scrollMarquee(1)" aria-label="Next Marquee Item">
-            ›
-        </button>
+                <div class="marquee-wrapper">
+                    <!-- Navigation Arrows -->
+                    <button class="marquee-nav prev" onclick="scrollMarquee(-1)" aria-label="Previous Marquee Item">
+                        ‹
+                    </button>
+                    
+                    <button class="marquee-nav next" onclick="scrollMarquee(1)" aria-label="Next Marquee Item">
+                        ›
+                    </button>
 
-        <!-- Marquee Container -->
-        <div class="marquee-container">
-            <!-- Marquee Track -->
-            <div class="marquee-track" id="marqueeTrack">
-                <!-- Item 1 - Certified Teachers -->
-                <div class="marquee-card">
-                    <div class="marquee-card-icon">✅</div>
-                    <h3 style="color: white; font-size: 1.3rem; margin-bottom: 0.6rem; font-weight: 800;">Certified Teachers</h3>
-                    <p style="color: rgba(255, 255, 255, 0.95); font-size: 0.95rem; line-height: 1.5; font-weight: 500;">Expert instructors with years of teaching experience</p>
+                    <!-- Marquee Container -->
+                    <div class="marquee-container">
+                        <!-- Marquee Track -->
+                        <div class="marquee-track" id="marqueeTrack">
+                            <!-- Item 1 - Certified Teachers -->
+                            <div class="marquee-card">
+                                <div class="marquee-card-icon">✅</div>
+                                <h3 style="color: white; font-size: 1.3rem; margin-bottom: 0.6rem; font-weight: 800;">Certified Teachers</h3>
+                                <p style="color: rgba(255, 255, 255, 0.95); font-size: 0.95rem; line-height: 1.5; font-weight: 500;">Expert instructors with years of teaching experience</p>
+                            </div>
+                            
+                            <!-- Item 2 - Flexible Schedule -->
+                            <div class="marquee-card">
+                                <div class="marquee-card-icon">⏰</div>
+                                <h3 style="color: white; font-size: 1.3rem; margin-bottom: 0.6rem; font-weight: 800;">Flexible Schedule</h3>
+                                <p style="color: rgba(255, 255, 255, 0.95); font-size: 0.95rem; line-height: 1.5; font-weight: 500;">Learn at your own pace, anytime, anywhere</p>
+                            </div>
+                            
+                            <!-- Item 3 - Global Reach -->
+                            <div class="marquee-card">
+                                <div class="marquee-card-icon">🌍</div>
+                                <h3 style="color: white; font-size: 1.3rem; margin-bottom: 0.6rem; font-weight: 800;">Global Reach</h3>
+                                <p style="color: rgba(255, 255, 255, 0.95); font-size: 0.95rem; line-height: 1.5; font-weight: 500;">Students from 15+ countries worldwide</p>
+                            </div>
+                            
+                            <!-- Item 4 - Proven Results -->
+                            <div class="marquee-card">
+                                <div class="marquee-card-icon">💯</div>
+                                <h3 style="color: white; font-size: 1.3rem; margin-bottom: 0.6rem; font-weight: 800;">Proven Results</h3>
+                                <p style="color: rgba(255, 255, 255, 0.95); font-size: 0.95rem; line-height: 1.5; font-weight: 500;">50+ students completed Hifdh successfully</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                
-                <!-- Item 2 - Flexible Schedule -->
-                <div class="marquee-card">
-                    <div class="marquee-card-icon">⏰</div>
-                    <h3 style="color: white; font-size: 1.3rem; margin-bottom: 0.6rem; font-weight: 800;">Flexible Schedule</h3>
-                    <p style="color: rgba(255, 255, 255, 0.95); font-size: 0.95rem; line-height: 1.5; font-weight: 500;">Learn at your own pace, anytime, anywhere</p>
-                </div>
-                
-                <!-- Item 3 - Global Reach -->
-                <div class="marquee-card">
-                    <div class="marquee-card-icon">🌍</div>
-                    <h3 style="color: white; font-size: 1.3rem; margin-bottom: 0.6rem; font-weight: 800;">Global Reach</h3>
-                    <p style="color: rgba(255, 255, 255, 0.95); font-size: 0.95rem; line-height: 1.5; font-weight: 500;">Students from 15+ countries worldwide</p>
-                </div>
-                
-                <!-- Item 4 - Proven Results -->
-                <div class="marquee-card">
-                    <div class="marquee-card-icon">💯</div>
-                    <h3 style="color: white; font-size: 1.3rem; margin-bottom: 0.6rem; font-weight: 800;">Proven Results</h3>
-                    <p style="color: rgba(255, 255, 255, 0.95); font-size: 0.95rem; line-height: 1.5; font-weight: 500;">50+ students completed Hifdh successfully</p>
-                </div>
-            </div>
-        </div>
-    </div>
 
-    <!-- CTA Button -->
-    <div style="text-align: center; margin-top: 3rem;">
-        <a href="#" onclick="showPage('register'); return false;" class="btn btn-primary" style="background: linear-gradient(135deg, var(--accent), #e1d747); color: var(--dark); border: none; padding: 1rem 2.5rem; font-size: 1.1rem; font-weight: 800; border-radius: 12px; box-shadow: 0 8px 25px rgba(206, 218, 84, 0.4); transition: all 0.3s ease;">
-            Start Your Journey Today →
-        </a>
-    </div>
-</section>
+                <!-- CTA Button -->
+                <div style="text-align: center; margin-top: 3rem;">
+                    <a href="#" onclick="showPage('register'); return false;" class="btn btn-primary" style="background: linear-gradient(135deg, var(--accent), #e1d747); color: var(--dark); border: none; padding: 1rem 2.5rem; font-size: 1.1rem; font-weight: 800; border-radius: 12px; box-shadow: 0 8px 25px rgba(206, 218, 84, 0.4); transition: all 0.3s ease;">
+                        Start Your Journey Today →
+                    </a>
+                </div>
+            </section>
              
 
             <!-- Testimonials on Home Page -->
@@ -2471,165 +2220,178 @@
             </div>
         </div>
 
+        <!-- REGISTRATION PAGE -->
+        <div id="registerPage" class="page-content">
+            <!-- Two Column Layout: Form + Benefits -->
+            <div class="registration-layout" style="margin-top: 80px;">
+                <!-- Left Column: Registration Form -->
+                <div class="registration-form-container">
+                    <div class="form-header">
+                        <h2>Register for Qur'an Classes</h2>
+                        <p>Fill out the form below to begin your learning journey with Saham Academy</p>
+                    </div>
 
-<!-- REGISTRATION PAGE -->
-<div id="registerPage" class="page-content">
-    <!-- Two Column Layout: Form + Benefits -->
-    <div class="registration-layout" style="margin-top: 80px;">
-        <!-- Left Column: Registration Form -->
-        <div class="registration-form-container">
-            <div class="form-header">
-                <h2>Register for Qur'an Classes</h2>
-                <p>Fill out the form below to begin your learning journey with Saham Academy</p>
+                    <form
+                        action="https://formspree.io/f/xnjqqgor"
+                        method="POST"
+                        id="registrationForm"
+                        class="custom-form"
+                    >
+                        <!-- Personal Information -->
+                        <div class="form-section">
+                            <h3 class="section-title">Personal Information</h3>
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="name">Full Name *</label>
+                                    <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone">WhatsApp Number *</label>
+                                    <input type="tel" id="phone" name="phone" placeholder="+256 XXX XXX XXX" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email Address</label>
+                                    <input type="email" id="email" name="email" placeholder="email@example.com (optional)">
+                                </div>
+                                <div class="form-group">
+                                    <label for="country">Country *</label>
+                                    <input type="text" id="country" name="country" placeholder="Your country" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="age">Age *</label>
+                                    <input type="number" id="age" name="age" placeholder="Your age" min="5" max="80" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="gender">Gender *</label>
+                                    <select id="gender" name="gender" required>
+                                        <option value="">Select gender</option>
+                                        <option>Male</option>
+                                        <option>Female</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Course Selection -->
+                        <div class="form-section">
+                            <h3 class="section-title">Course Details</h3>
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="course">Course Interested In *</label>
+                                    <select id="course" name="course" required>
+                                        <option value="">Select a course</option>
+                                        <option>Qur'an Memorization (Hifdh)</option>
+                                        <option>Tilāwah al-Qur'an (Recitation)</option>
+                                        <option>Arabic Language</option>
+                                        <option>Qur'an for Kids</option>
+                                        <option>Yassarnal Qur'an</option>
+                                        <option>Hadith Course</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="preferred_time">Preferred Class Time *</label>
+                                    <select id="preferred_time" name="preferred_time" required>
+                                        <option value="">Select time slot</option>
+                                        <option>Morning (8AM - 12PM)</option>
+                                        <option>Afternoon (12PM - 4PM)</option>
+                                        <option>Evening (4PM - 8PM)</option>
+                                        <option>Late Evening (8PM - 10PM)</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Additional Information -->
+                        <div class="form-section">
+                            <h3 class="section-title">Additional Information</h3>
+                            <div class="form-group">
+                                <label for="questions">Any questions or specific requirements?</label>
+                                <textarea 
+                                    id="questions" 
+                                    name="questions" 
+                                    rows="4" 
+                                    placeholder="Tell us about your learning goals, previous experience, or any special requirements..."
+                                ></textarea>
+                            </div>
+                        </div>
+
+                        <!-- Submit Section -->
+                        <div class="form-submit-section">
+                            <button type="submit" class="btn-submit">
+                                <span class="btn-icon">📝</span>
+                                Submit Registration
+                            </button>
+                            <p class="form-note">
+                                <span class="note-icon">ⓘ</span>
+                                We'll contact you within 24 hours to discuss your learning plan
+                            </p>
+                        </div>
+
+                        <p id="successMsg" style="display:none;">
+                            <span class="success-icon">✅</span>
+                            JazakAllahu khair! We'll contact you shortly on WhatsApp.
+                        </p>
+                    </form>
+                </div>
+
+                <!-- Right Column: Benefits & WhatsApp -->
+                <div class="registration-sidebar">
+                    <!-- WhatsApp Prompt Card -->
+                    <div class="sidebar-card whatsapp-card">
+                        <div class="card-icon">💬</div>
+                        <h3>Complete Registration on WhatsApp</h3>
+                        <p>For faster processing and immediate response, message us directly on WhatsApp:</p>
+                        <a
+                            href="https://wa.me/256784560867?text=As-salaamu%20alaykum!%20I%20have%20just%20registered%20for%20Qur'an%20classes%20via%20your%20website.%20My%20name%20is%20[Your%20Name].%20I'm%20excited%20to%20start%20learning%20with%20Saham%20Academy!"
+                            class="btn-whatsapp"
+                            aria-label="Message us on WhatsApp"
+                            target="_blank"
+                        >
+                            <span class="whatsapp-icon">💬</span>
+                            Message on WhatsApp
+                        </a>
+                        <p class="card-note">Average response time: 15 minutes</p>
+                    </div>
+                    
+                    <!-- Quick Stats Card -->
+                    <div class="sidebar-card stats-card">
+                        <div class="card-icon">📊</div>
+                        <h3>Why Choose Us?</h3>
+                        <div class="stats-grid">
+                            <div class="mini-stat">
+                                <div class="mini-stat-number">500+</div>
+                                <div class="mini-stat-label">Students</div>
+                            </div>
+                            <div class="mini-stat">
+                                <div class="mini-stat-number">15+</div>
+                                <div class="mini-stat-label">Countries</div>
+                            </div>
+                            <div class="mini-stat">
+                                <div class="mini-stat-number">50+</div>
+                                <div class="mini-stat-label">Hifdh Graduates</div>
+                            </div>
+                            <div class="mini-stat">
+                                <div class="mini-stat-number">24/7</div>
+                                <div class="mini-stat-label">Support</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Benefits Card -->
+                    <div class="sidebar-card">
+                        <div class="card-icon">✅</div>
+                        <h3>Key Benefits</h3>
+                        <ul class="benefits-list">
+                            <li><span class="check-icon">✓</span> Flexible scheduling</li>
+                            <li><span class="check-icon">✓</span> Certified instructors</li>
+                            <li><span class="check-icon">✓</span> Personalized attention</li>
+                            <li><span class="check-icon">✓</span> Progress tracking</li>
+                            <li><span class="check-icon">✓</span> 24/7 support</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
 
-            <form
-                action="https://formspree.io/f/xnjqqgor"
-                method="POST"
-                id="registrationForm"
-                class="custom-form"
-            >
-                <!-- Personal Information -->
-                <div class="form-section">
-                    <h3 class="section-title">Personal Information</h3>
-                    <div class="form-grid">
-                        <div class="form-group">
-                            <label for="name">Full Name *</label>
-                            <input type="text" id="name" name="name" placeholder="Enter your full name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">WhatsApp Number *</label>
-                            <input type="tel" id="phone" name="phone" placeholder="+256 XXX XXX XXX" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" id="email" name="email" placeholder="email@example.com (optional)">
-                        </div>
-                        <div class="form-group">
-                            <label for="country">Country *</label>
-                            <input type="text" id="country" name="country" placeholder="Your country" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="age">Age *</label>
-                            <input type="number" id="age" name="age" placeholder="Your age" min="5" max="80" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="gender">Gender *</label>
-                            <select id="gender" name="gender" required>
-                                <option value="">Select gender</option>
-                                <option>Male</option>
-                                <option>Female</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Course Selection -->
-                <div class="form-section">
-                    <h3 class="section-title">Course Details</h3>
-                    <div class="form-grid">
-                        <div class="form-group">
-                            <label for="course">Course Interested In *</label>
-                            <select id="course" name="course" required>
-                                <option value="">Select a course</option>
-                                <option>Qur'an Memorization (Hifdh)</option>
-                                <option>Tilāwah al-Qur'an (Recitation)</option>
-                                <option>Arabic Language</option>
-                                <option>Qur'an for Kids</option>
-                                <option>Yassarnal Qur'an</option>
-                                <option>Hadith Course</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="preferred_time">Preferred Class Time *</label>
-                            <select id="preferred_time" name="preferred_time" required>
-                                <option value="">Select time slot</option>
-                                <option>Morning (8AM - 12PM)</option>
-                                <option>Afternoon (12PM - 4PM)</option>
-                                <option>Evening (4PM - 8PM)</option>
-                                <option>Late Evening (8PM - 10PM)</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Additional Information -->
-                <div class="form-section">
-                    <h3 class="section-title">Additional Information</h3>
-                    <div class="form-group">
-                        <label for="questions">Any questions or specific requirements?</label>
-                        <textarea 
-                            id="questions" 
-                            name="questions" 
-                            rows="4" 
-                            placeholder="Tell us about your learning goals, previous experience, or any special requirements..."
-                        ></textarea>
-                    </div>
-                </div>
-
-                <!-- Submit Section -->
-                <div class="form-submit-section">
-                    <button type="submit" class="btn-submit">
-                        <span class="btn-icon">📝</span>
-                        Submit Registration
-                    </button>
-                    <p class="form-note">
-                        <span class="note-icon">ⓘ</span>
-                        We'll contact you within 24 hours to discuss your learning plan
-                    </p>
-                </div>
-
-                <p id="successMsg" style="display:none;">
-                    <span class="success-icon">✅</span>
-                    JazakAllahu khair! We'll contact you shortly on WhatsApp.
-                </p>
-            </form>
-        </div>
-
-        <!-- Right Column: Benefits & WhatsApp -->
-        <div class="registration-sidebar">
-            <!-- WhatsApp Prompt Card -->
-            <div class="sidebar-card whatsapp-card">
-                <div class="card-icon">💬</div>
-                <h3>Complete Registration on WhatsApp</h3>
-                <p>For faster processing and immediate response, message us directly on WhatsApp:</p>
-                <a
-                    href="https://wa.me/256784560867?text=As-salaamu%20alaykum!%20I%20have%20just%20registered%20for%20Qur'an%20classes%20via%20your%20website.%20My%20name%20is%20[Your%20Name].%20I'm%20excited%20to%20start%20learning%20with%20Saham%20Academy!"
-                    class="btn-whatsapp"
-                    aria-label="Message us on WhatsApp"
-                    target="_blank"
-                >
-                    <span class="whatsapp-icon">💬</span>
-                    Message on WhatsApp
-                </a>
-                <p class="card-note">Average response time: 15 minutes</p>
-            </div>
-            
-            <!-- Quick Stats Card -->
-            <div class="sidebar-card stats-card">
-                <div class="card-icon">📊</div>
-                <h3>Why Choose Us?</h3>
-                <div class="stats-grid">
-                    <div class="mini-stat">
-                        <div class="mini-stat-number">500+</div>
-                        <div class="mini-stat-label">Students</div>
-                    </div>
-                    <div class="mini-stat">
-                        <div class="mini-stat-number">15+</div>
-                        <div class="mini-stat-label">Countries</div>
-                    </div>
-                    <div class="mini-stat">
-                        <div class="mini-stat-number">50+</div>
-                        <div class="mini-stat-label">Hifdh Graduates</div>
-                    </div>
-                    <div class="mini-stat">
-                        <div class="mini-stat-number">24/7</div>
-                        <div class="mini-stat-label">Support</div>
-                    </div>
-                </div>
-            </div>
-            
-             
             <!-- Why Choose Saham Qur'an Academy? -->
             <div class="why-choose-section">
                 <h3 style="font-size: 2rem; margin-bottom: 1.5rem;">Why Choose Saham Qur'an Academy?</h3>
@@ -2712,6 +2474,33 @@
                     Start Your Registration Now →
                 </a>
             </div>
+
+            <!-- Why Choose Saham Qur'an Academy? -->
+            <div class="why-choose-section">
+                <h3 style="font-size: 2rem; margin-bottom: 1.5rem;">Why Choose Saham Qur'an Academy?</h3>
+                <div class="why-choose-grid">
+                    <div class="why-choose-item">
+                        <div class="why-choose-icon">✅</div>
+                        <strong class="why-choose-title">Certified Teachers</strong>
+                        <p class="why-choose-desc">Expert instructors with years of experience</p>
+                    </div>
+                    <div class="why-choose-item">
+                        <div class="why-choose-icon">⏰</div>
+                        <strong class="why-choose-title">Flexible Schedule</strong>
+                        <p class="why-choose-desc">Learn at your own pace</p>
+                    </div>
+                    <div class="why-choose-item">
+                        <div class="why-choose-icon">🌍</div>
+                        <strong class="why-choose-title">Global Reach</strong>
+                        <p class="why-choose-desc">Students in 15+ countries</p>
+                    </div>
+                    <div class="why-choose-item">
+                        <div class="why-choose-icon">💯</div>
+                        <strong class="why-choose-title">Proven Results</strong>
+                        <p class="why-choose-desc">50+ students completed Hifdh</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </main>
 
@@ -2752,18 +2541,18 @@
                 </div>
             </div>
             
-          <!-- Social Links - FIXED -->
-<div class="social-links">
-    <a href="https://wa.me/256784560867" class="social-link" title="WhatsApp" aria-label="WhatsApp">
-        <i class="fab fa-whatsapp" style="font-size: 24px;"></i>
-    </a>
-    <a href="https://instagram.com/sahamacademy" class="social-link" title="Instagram" aria-label="Instagram">
-        <i class="fab fa-instagram" style="font-size: 24px;"></i>
-    </a>
-    <a href="https://www.tiktok.com/@saham_quran_academy?_r=1&_t=ZM-92XqGFXUMtY" class="social-link" title="TikTok" aria-label="TikTok">
-        <i class="fab fa-tiktok" style="font-size: 24px;"></i>
-    </a>
-</div>
+            <!-- Social Links -->
+            <div class="social-links">
+                <a href="https://wa.me/256784560867" class="social-link" title="WhatsApp" aria-label="WhatsApp">
+                    <i class="fab fa-whatsapp" style="font-size: 24px;"></i>
+                </a>
+                <a href="https://instagram.com/sahamacademy" class="social-link" title="Instagram" aria-label="Instagram">
+                    <i class="fab fa-instagram" style="font-size: 24px;"></i>
+                </a>
+                <a href="https://www.tiktok.com/@saham_quran_academy?_r=1&_t=ZM-92XqGFXUMtY" class="social-link" title="TikTok" aria-label="TikTok">
+                    <i class="fab fa-tiktok" style="font-size: 24px;"></i>
+                </a>
+            </div>
             
             <p style="color: #6b7280; font-size: 0.9rem; margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid rgba(255, 255, 255, 0.1);">
                 © 2025 Saham Qur'an Academy | May Allah accept our efforts 🤲
@@ -2771,415 +2560,428 @@
         </div>
     </footer>
 
-<!-- WhatsApp Float - FIXED -->
-<a href="https://wa.me/256784560867?text=Assalamu%20Alaikum!" class="whatsapp-float" title="Chat on WhatsApp" aria-label="Chat on WhatsApp">
-    <i class="fab fa-whatsapp" style="font-size: 28px; color: white;"></i>
-</a>
+    <!-- WhatsApp Float -->
+    <a href="https://wa.me/256784560867?text=Assalamu%20Alaikum!" class="whatsapp-float" title="Chat on WhatsApp" aria-label="Chat on WhatsApp">
+        <i class="fab fa-whatsapp" style="font-size: 28px; color: white;"></i>
+    </a>
 
-  <script>
-// ========== GLOBAL STATE ==========
-let currentTestimonial = 0;
-let currentMarqueeIndex = 0;
-let testimonialInterval = null;
-let marqueeItems = [];
-let marqueeTrack = null;
-let marqueeContainerWidth = 0;
-let isMobileMenuOpen = false;
+    <script>
+        // ========== GLOBAL STATE ==========
+        let currentTestimonial = 0;
+        let currentMarqueeIndex = 0;
+        let testimonialInterval = null;
+        let marqueeItems = [];
+        let marqueeTrack = null;
+        let marqueeContainerWidth = 0;
+        let isMobileMenuOpen = false;
 
-// ========== DOM ELEMENTS CACHE ==========
-const elements = {
-    pageLoader: document.getElementById('pageLoader'),
-    navbar: document.getElementById('navbar'),
-    homePage: document.getElementById('homePage'),
-    mainContent: document.getElementById('main-content'),
-    mobileMenu: document.getElementById('mobileMenu'),
-    mobileToggle: document.getElementById('mobileToggle'),
-    statsSection: document.querySelector('.stats'),
-    testimonialSlider: document.querySelector('.testimonial-slider'),
-    testimonials: document.querySelectorAll('.testimonial-item'),
-    marqueeTrack: document.getElementById('marqueeTrack'),
-    marqueeContainer: document.querySelector('.marquee-container'),
-    registrationForm: document.getElementById('registrationForm'),
-    successMsg: document.getElementById('successMsg')
-};
+        // ========== DOM ELEMENTS CACHE ==========
+        const elements = {
+            pageLoader: document.getElementById('pageLoader'),
+            navbar: document.getElementById('navbar'),
+            homePage: document.getElementById('homePage'),
+            mobileMenu: document.getElementById('mobileMenu'),
+            mobileToggle: document.getElementById('mobileToggle'),
+            statsSection: document.querySelector('.stats'),
+            testimonialSlider: document.querySelector('.testimonial-slider'),
+            testimonials: document.querySelectorAll('.testimonial-item'),
+            marqueeTrack: document.getElementById('marqueeTrack'),
+            marqueeContainer: document.querySelector('.marquee-container'),
+            registrationForm: document.getElementById('registrationForm'),
+            successMsg: document.getElementById('successMsg')
+        };
 
-// ========== PAGE NAVIGATION ==========
-function showPage(page) {
-    console.log('Switching to page:', page);
-    
-    // Validate page
-    if (!page || typeof page !== 'string') {
-        console.error('Invalid page requested:', page);
-        return;
-    }
-    
-    // Hide home page
-    if (elements.homePage) {
-        elements.homePage.style.display = 'none';
-    }
-    
-    // Hide ALL page-content sections
-    document.querySelectorAll('.page-content').forEach(p => {
-        p.style.display = 'none';
-        p.classList.remove('active');
-    });
+        // ========== PAGE NAVIGATION ==========
+        function showPage(page) {
+            console.log('Switching to page:', page);
+            
+            // Validate page
+            if (!page || typeof page !== 'string') {
+                console.error('Invalid page requested:', page);
+                return;
+            }
+            
+            // Hide home page
+            if (elements.homePage) {
+                elements.homePage.style.display = 'none';
+            }
+            
+            // Hide ALL page-content sections
+            document.querySelectorAll('.page-content').forEach(p => {
+                p.style.display = 'none';
+                p.classList.remove('active');
+            });
 
-    // Show selected page
-    if (page === 'home') {
-        if (elements.homePage) {
-            elements.homePage.style.display = 'block';
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            // Show selected page
+            if (page === 'home') {
+                if (elements.homePage) {
+                    elements.homePage.style.display = 'block';
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+            } else {
+                const pageElement = document.getElementById(page + 'Page');
+                if (pageElement) {
+                    pageElement.style.display = 'block';
+                    pageElement.classList.add('active');
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                } else {
+                    console.warn('Page element not found:', page + 'Page');
+                    // Fallback to home
+                    showPage('home');
+                    return;
+                }
+            }
+
+            // Set focus for screen readers
+            setTimeout(() => {
+                const mainContent = document.getElementById('main-content');
+                if (mainContent) {
+                    mainContent.setAttribute('tabindex', '-1');
+                    mainContent.focus();
+                }
+            }, 100);
+
+            // Close mobile menu if open
+            closeMobileMenu();
         }
-    } else {
-        const pageElement = document.getElementById(page + 'Page');
-        if (pageElement) {
-            pageElement.style.display = 'block';
-            pageElement.classList.add('active');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        } else {
-            console.warn('Page element not found:', page + 'Page');
-            // Fallback to home
-            showPage('home');
-            return;
+
+        // ========== MOBILE MENU ==========
+        function toggleMobileMenu() {
+            if (!elements.mobileMenu || !elements.mobileToggle) return;
+            
+            isMobileMenuOpen = !isMobileMenuOpen;
+            elements.mobileMenu.classList.toggle('active');
+            elements.mobileToggle.classList.toggle('active');
+            
+            // Update aria-expanded for accessibility
+            elements.mobileToggle.setAttribute('aria-expanded', isMobileMenuOpen);
+            
+            // Prevent body scroll when menu is open
+            document.body.style.overflow = isMobileMenuOpen ? 'hidden' : '';
         }
-    }
 
-    // Set focus for screen readers
-    setTimeout(() => {
-        if (elements.mainContent) {
-            elements.mainContent.setAttribute('tabindex', '-1');
-            elements.mainContent.focus();
+        function closeMobileMenu() {
+            if (!elements.mobileMenu || !elements.mobileToggle) return;
+            
+            isMobileMenuOpen = false;
+            elements.mobileMenu.classList.remove('active');
+            elements.mobileToggle.classList.remove('active');
+            elements.mobileToggle.setAttribute('aria-expanded', 'false');
+            document.body.style.overflow = '';
         }
-    }, 100);
 
-    // Close mobile menu if open
-    closeMobileMenu();
-}
-
-// ========== MOBILE MENU ==========
-function toggleMobileMenu() {
-    if (!elements.mobileMenu || !elements.mobileToggle) return;
-    
-    isMobileMenuOpen = !isMobileMenuOpen;
-    elements.mobileMenu.classList.toggle('active');
-    elements.mobileToggle.classList.toggle('active');
-    
-    // Update aria-expanded for accessibility
-    elements.mobileToggle.setAttribute('aria-expanded', isMobileMenuOpen);
-}
-
-function closeMobileMenu() {
-    if (!elements.mobileMenu || !elements.mobileToggle) return;
-    
-    isMobileMenuOpen = false;
-    elements.mobileMenu.classList.remove('active');
-    elements.mobileToggle.classList.remove('active');
-    elements.mobileToggle.setAttribute('aria-expanded', 'false');
-}
-
-// ========== PAGE LOADER ==========
-function handlePageLoad() {
-    setTimeout(() => {
-        if (elements.pageLoader) {
-            elements.pageLoader.classList.add('hide');
+        // ========== PAGE LOADER ==========
+        function handlePageLoad() {
+            setTimeout(() => {
+                if (elements.pageLoader) {
+                    elements.pageLoader.classList.add('hide');
+                }
+            }, 2000);
         }
-    }, 2000);
-}
 
-// ========== NAVBAR SCROLL EFFECT ==========
-function handleNavbarScroll() {
-    if (!elements.navbar) return;
-    
-    const currentScroll = window.pageYOffset;
-    
-    if (currentScroll > 100) {
-        elements.navbar.classList.add('scrolled');
-    } else {
-        elements.navbar.classList.remove('scrolled');
-    }
-}
-
-// ========== COUNTER ANIMATION ==========
-function animateCounter(element, target) {
-    if (!element || isNaN(target)) return;
-    
-    let current = 0;
-    const increment = target / 60;
-    const duration = 1500;
-    const steps = duration / 25;
-    const stepIncrement = target / steps;
-    
-    const timer = setInterval(() => {
-        current += stepIncrement;
-        if (current >= target) {
-            element.textContent = target + (element.getAttribute('data-suffix') || '+');
-            clearInterval(timer);
-        } else {
-            element.textContent = Math.floor(current) + (element.getAttribute('data-suffix') || '+');
+        // ========== NAVBAR SCROLL EFFECT ==========
+        function handleNavbarScroll() {
+            if (!elements.navbar) return;
+            
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll > 100) {
+                elements.navbar.classList.add('scrolled');
+            } else {
+                elements.navbar.classList.remove('scrolled');
+            }
         }
-    }, 25);
-}
 
-// Intersection Observer for Counters
-const counterObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            const counters = document.querySelectorAll('.stat-number[data-target]');
-            counters.forEach(counter => {
-                const target = parseInt(counter.getAttribute('data-target'));
-                if (!isNaN(target)) {
-                    animateCounter(counter, target);
+        // ========== COUNTER ANIMATION ==========
+        function animateCounter(element, target) {
+            if (!element || isNaN(target)) return;
+            
+            let current = 0;
+            const increment = target / 60;
+            const duration = 1500;
+            const steps = duration / 25;
+            const stepIncrement = target / steps;
+            
+            const timer = setInterval(() => {
+                current += stepIncrement;
+                if (current >= target) {
+                    element.textContent = target;
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(current);
+                }
+            }, 25);
+        }
+
+        // Intersection Observer for Counters
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counters = document.querySelectorAll('.stat-number[data-target]');
+                    counters.forEach(counter => {
+                        const target = parseInt(counter.getAttribute('data-target'));
+                        if (!isNaN(target)) {
+                            animateCounter(counter, target);
+                        }
+                    });
+                    counterObserver.unobserve(entry.target);
                 }
             });
-            counterObserver.unobserve(entry.target);
+        }, { 
+            threshold: 0.5,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        // ========== TESTIMONIAL SLIDER ==========
+        function initTestimonialSlider() {
+            if (!elements.testimonials || elements.testimonials.length === 0) return;
+            
+            showTestimonial(0);
         }
-    });
-}, { 
-    threshold: 0.5,
-    rootMargin: '0px 0px -50px 0px'
-});
 
-// ========== TESTIMONIAL SLIDER ==========
-function initTestimonialSlider() {
-    if (!elements.testimonials || elements.testimonials.length === 0) return;
-    
-    showTestimonial(0);
-}
-
-function showTestimonial(index) {
-    if (!elements.testimonials || elements.testimonials.length === 0) return;
-    
-    // Validate index
-    if (index < 0) index = 0;
-    if (index >= elements.testimonials.length) index = elements.testimonials.length - 1;
-    
-    currentTestimonial = index;
-    
-    elements.testimonials.forEach((item, i) => {
-        item.classList.remove('active');
-        item.setAttribute('aria-hidden', 'true');
-        if (i === index) {
-            item.classList.add('active');
-            item.setAttribute('aria-hidden', 'false');
+        function showTestimonial(index) {
+            if (!elements.testimonials || elements.testimonials.length === 0) return;
+            
+            // Validate index
+            if (index < 0) index = 0;
+            if (index >= elements.testimonials.length) index = elements.testimonials.length - 1;
+            
+            currentTestimonial = index;
+            
+            elements.testimonials.forEach((item, i) => {
+                item.classList.remove('active');
+                item.setAttribute('aria-hidden', 'true');
+                if (i === index) {
+                    item.classList.add('active');
+                    item.setAttribute('aria-hidden', 'false');
+                }
+            });
         }
-    });
-}
 
-function changeTestimonial(direction) {
-    if (!elements.testimonials || elements.testimonials.length === 0) return;
-    
-    let newIndex = currentTestimonial + direction;
-    
-    if (newIndex >= elements.testimonials.length) {
-        newIndex = 0;
-    } else if (newIndex < 0) {
-        newIndex = elements.testimonials.length - 1;
-    }
-    
-    showTestimonial(newIndex);
-}
+        function changeTestimonial(direction) {
+            if (!elements.testimonials || elements.testimonials.length === 0) return;
+            
+            let newIndex = currentTestimonial + direction;
+            
+            if (newIndex >= elements.testimonials.length) {
+                newIndex = 0;
+            } else if (newIndex < 0) {
+                newIndex = elements.testimonials.length - 1;
+            }
+            
+            showTestimonial(newIndex);
+        }
 
-function startTestimonialAutoPlay() {
-    if (!elements.testimonials || elements.testimonials.length <= 1) return;
-    
-    // Clear any existing interval
-    if (testimonialInterval) {
-        clearInterval(testimonialInterval);
-    }
-    
-    testimonialInterval = setInterval(() => {
-        changeTestimonial(1);
-    }, 5000);
-    
-    // Pause on hover
-    if (elements.testimonialSlider) {
-        elements.testimonialSlider.addEventListener('mouseenter', () => {
+        function startTestimonialAutoPlay() {
+            if (!elements.testimonials || elements.testimonials.length <= 1) return;
+            
+            // Clear any existing interval
             if (testimonialInterval) {
                 clearInterval(testimonialInterval);
             }
-        });
-        
-        elements.testimonialSlider.addEventListener('mouseleave', () => {
-            startTestimonialAutoPlay();
-        });
-    }
-}
-
-// ========== MARQUEE FUNCTIONALITY ==========
-function initMarquee() {
-    marqueeTrack = document.getElementById('marqueeTrack');
-    if (!marqueeTrack) return;
-    
-    marqueeItems = document.querySelectorAll('.marquee-card');
-    const marqueeContainer = document.querySelector('.marquee-container');
-    if (marqueeContainer) {
-        marqueeContainerWidth = marqueeContainer.offsetWidth;
-    }
-    
-    updateMarqueeButtons();
-}
-
-function scrollMarquee(direction) {
-    if (!marqueeTrack || marqueeItems.length === 0) return;
-    
-    const cardWidth = 280;
-    const gap = 24;
-    const itemWidth = cardWidth + gap;
-    const visibleItems = Math.floor(marqueeContainerWidth / itemWidth);
-    const maxIndex = Math.max(0, marqueeItems.length - visibleItems);
-    
-    currentMarqueeIndex += direction;
-    
-    // Clamp the index
-    if (currentMarqueeIndex < 0) currentMarqueeIndex = 0;
-    if (currentMarqueeIndex > maxIndex) currentMarqueeIndex = maxIndex;
-    
-    const translateX = -currentMarqueeIndex * itemWidth;
-    marqueeTrack.style.transform = `translateX(${translateX}px)`;
-    
-    updateMarqueeButtons();
-}
-
-function updateMarqueeButtons() {
-    const prevBtn = document.querySelector('.marquee-nav.prev');
-    const nextBtn = document.querySelector('.marquee-nav.next');
-    
-    if (!prevBtn || !nextBtn || marqueeItems.length === 0) return;
-    
-    const cardWidth = 280;
-    const gap = 24;
-    const itemWidth = cardWidth + gap;
-    const visibleItems = Math.floor(marqueeContainerWidth / itemWidth);
-    const maxIndex = Math.max(0, marqueeItems.length - visibleItems);
-    
-    // Disable buttons at boundaries
-    if (currentMarqueeIndex === 0) {
-        prevBtn.classList.add('disabled');
-        prevBtn.setAttribute('aria-disabled', 'true');
-    } else {
-        prevBtn.classList.remove('disabled');
-        prevBtn.setAttribute('aria-disabled', 'false');
-    }
-    
-    if (currentMarqueeIndex >= maxIndex) {
-        nextBtn.classList.add('disabled');
-        nextBtn.setAttribute('aria-disabled', 'true');
-    } else {
-        nextBtn.classList.remove('disabled');
-        nextBtn.setAttribute('aria-disabled', 'false');
-    }
-}
-
-// ========== FORM HANDLING ==========
-async function handleFormSubmit(e) {
-    e.preventDefault();
-    
-    if (!elements.registrationForm || !elements.successMsg) return;
-    
-    const form = elements.registrationForm;
-    const submitButton = form.querySelector('button[type="submit"]');
-    const originalButtonText = submitButton.textContent;
-    
-    // Show loading state
-    submitButton.textContent = 'Submitting...';
-    submitButton.disabled = true;
-    
-    try {
-        const formData = new FormData(form);
-        
-        const response = await fetch(form.action, {
-            method: 'POST',
-            body: formData,
-            headers: {
-                'Accept': 'application/json'
+            
+            testimonialInterval = setInterval(() => {
+                changeTestimonial(1);
+            }, 5000);
+            
+            // Pause on hover
+            if (elements.testimonialSlider) {
+                elements.testimonialSlider.addEventListener('mouseenter', () => {
+                    if (testimonialInterval) {
+                        clearInterval(testimonialInterval);
+                    }
+                });
+                
+                elements.testimonialSlider.addEventListener('mouseleave', () => {
+                    startTestimonialAutoPlay();
+                });
             }
-        });
-
-        if (response.ok) {
-            // Success
-            form.reset();
-            elements.successMsg.style.display = 'block';
-            elements.successMsg.setAttribute('aria-live', 'polite');
-            
-            // Scroll to success message
-            elements.successMsg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-            
-            // Hide success message after 10 seconds
-            setTimeout(() => {
-                elements.successMsg.style.display = 'none';
-            }, 10000);
-        } else {
-            throw new Error('Server responded with status: ' + response.status);
         }
-    } catch (error) {
-        console.error('Form submission error:', error);
-        alert('Submission failed. Please try again or contact us directly.');
-    } finally {
-        // Reset button state
-        submitButton.textContent = originalButtonText;
-        submitButton.disabled = false;
-    }
-}
 
-// ========== EVENT LISTENERS ==========
-function setupEventListeners() {
-    // Window events
-    window.addEventListener('load', handlePageLoad);
-    window.addEventListener('scroll', handleNavbarScroll);
-    window.addEventListener('resize', handleWindowResize);
-    
-    // Mobile menu close on outside click
-    document.addEventListener('click', handleOutsideClick);
-    
-    // Form submission
-    if (elements.registrationForm) {
-        elements.registrationForm.addEventListener('submit', handleFormSubmit);
-    }
-}
+        // ========== MARQUEE FUNCTIONALITY ==========
+        function initMarquee() {
+            marqueeTrack = document.getElementById('marqueeTrack');
+            if (!marqueeTrack) return;
+            
+            marqueeItems = document.querySelectorAll('.marquee-card');
+            const marqueeContainer = document.querySelector('.marquee-container');
+            if (marqueeContainer) {
+                marqueeContainerWidth = marqueeContainer.offsetWidth;
+            }
+            
+            updateMarqueeButtons();
+        }
 
-function handleOutsideClick(e) {
-    if (!isMobileMenuOpen) return;
-    
-    if (!elements.mobileMenu.contains(e.target) && 
-        !elements.mobileToggle.contains(e.target)) {
-        closeMobileMenu();
-    }
-}
+        function scrollMarquee(direction) {
+            if (!marqueeTrack || marqueeItems.length === 0) return;
+            
+            const cardWidth = 280;
+            const gap = 24;
+            const itemWidth = cardWidth + gap;
+            const visibleItems = Math.floor(marqueeContainerWidth / itemWidth);
+            const maxIndex = Math.max(0, marqueeItems.length - visibleItems);
+            
+            currentMarqueeIndex += direction;
+            
+            // Clamp the index
+            if (currentMarqueeIndex < 0) currentMarqueeIndex = 0;
+            if (currentMarqueeIndex > maxIndex) currentMarqueeIndex = maxIndex;
+            
+            const translateX = -currentMarqueeIndex * itemWidth;
+            marqueeTrack.style.transform = `translateX(${translateX}px)`;
+            
+            updateMarqueeButtons();
+        }
 
-function handleWindowResize() {
-    // Update marquee container width
-    if (elements.marqueeContainer) {
-        marqueeContainerWidth = elements.marqueeContainer.offsetWidth;
-        updateMarqueeButtons();
-    }
-}
+        function updateMarqueeButtons() {
+            const prevBtn = document.querySelector('.marquee-nav.prev');
+            const nextBtn = document.querySelector('.marquee-nav.next');
+            
+            if (!prevBtn || !nextBtn || marqueeItems.length === 0) return;
+            
+            const cardWidth = 280;
+            const gap = 24;
+            const itemWidth = cardWidth + gap;
+            const visibleItems = Math.floor(marqueeContainerWidth / itemWidth);
+            const maxIndex = Math.max(0, marqueeItems.length - visibleItems);
+            
+            // Disable buttons at boundaries
+            if (currentMarqueeIndex === 0) {
+                prevBtn.classList.add('disabled');
+                prevBtn.setAttribute('aria-disabled', 'true');
+            } else {
+                prevBtn.classList.remove('disabled');
+                prevBtn.setAttribute('aria-disabled', 'false');
+            }
+            
+            if (currentMarqueeIndex >= maxIndex) {
+                nextBtn.classList.add('disabled');
+                nextBtn.setAttribute('aria-disabled', 'true');
+            } else {
+                nextBtn.classList.remove('disabled');
+                nextBtn.setAttribute('aria-disabled', 'false');
+            }
+        }
 
-// ========== INITIALIZATION ==========
-function init() {
-    // Setup event listeners
-    setupEventListeners();
-    
-    // Initialize components
-    initTestimonialSlider();
-    initMarquee();
-    
-    // Start auto-play
-    startTestimonialAutoPlay();
-    
-    // Setup counter observer
-    if (elements.statsSection) {
-        counterObserver.observe(elements.statsSection);
-    }
-    
-    console.log('Saham Academy initialized successfully');
-}
+        // ========== FORM HANDLING ==========
+        async function handleFormSubmit(e) {
+            e.preventDefault();
+            
+            if (!elements.registrationForm || !elements.successMsg) return;
+            
+            const form = elements.registrationForm;
+            const submitButton = form.querySelector('button[type="submit"]');
+            const originalButtonText = submitButton.textContent;
+            
+            // Show loading state
+            submitButton.textContent = 'Submitting...';
+            submitButton.disabled = true;
+            
+            try {
+                const formData = new FormData(form);
+                
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
 
-// Initialize when DOM is ready
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-} else {
-    init();
-}
-</script>
+                if (response.ok) {
+                    // Success
+                    form.reset();
+                    elements.successMsg.style.display = 'block';
+                    elements.successMsg.setAttribute('aria-live', 'polite');
+                    
+                    // Scroll to success message
+                    elements.successMsg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                    
+                    // Hide success message after 10 seconds
+                    setTimeout(() => {
+                        elements.successMsg.style.display = 'none';
+                    }, 10000);
+                } else {
+                    throw new Error('Server responded with status: ' + response.status);
+                }
+            } catch (error) {
+                console.error('Form submission error:', error);
+                alert('Submission failed. Please try again or contact us directly.');
+            } finally {
+                // Reset button state
+                submitButton.textContent = originalButtonText;
+                submitButton.disabled = false;
+            }
+        }
+
+        // ========== EVENT LISTENERS ==========
+        function setupEventListeners() {
+            // Window events
+            window.addEventListener('load', handlePageLoad);
+            window.addEventListener('scroll', handleNavbarScroll);
+            window.addEventListener('resize', handleWindowResize);
+            
+            // Mobile menu close on outside click
+            document.addEventListener('click', handleOutsideClick);
+            
+            // Form submission
+            if (elements.registrationForm) {
+                elements.registrationForm.addEventListener('submit', handleFormSubmit);
+            }
+            
+            // Close mobile menu on Escape key
+            document.addEventListener('keydown', handleEscapeKey);
+        }
+
+        function handleOutsideClick(e) {
+            if (!isMobileMenuOpen) return;
+            
+            if (!elements.mobileMenu.contains(e.target) && 
+                !elements.mobileToggle.contains(e.target)) {
+                closeMobileMenu();
+            }
+        }
+
+        function handleEscapeKey(e) {
+            if (e.key === 'Escape' && isMobileMenuOpen) {
+                closeMobileMenu();
+            }
+        }
+
+        function handleWindowResize() {
+            // Update marquee container width
+            if (elements.marqueeContainer) {
+                marqueeContainerWidth = elements.marqueeContainer.offsetWidth;
+                updateMarqueeButtons();
+            }
+        }
+
+        // ========== INITIALIZATION ==========
+        function init() {
+            // Setup event listeners
+            setupEventListeners();
+            
+            // Initialize components
+            initTestimonialSlider();
+            initMarquee();
+            
+            // Start auto-play
+            startTestimonialAutoPlay();
+            
+            // Setup counter observer
+            if (elements.statsSection) {
+                counterObserver.observe(elements.statsSection);
+            }
+            
+            console.log('Saham Academy initialized successfully');
+        }
+
+        // Initialize when DOM is ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', init);
+        } else {
+            init();
+        }
+    </script>
 </body>
 </html>
