@@ -1,0 +1,5 @@
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://sahamquran.academy/$1 [R=301,L]
+RewriteCond %{HTTP_HOST} ^www\.sahamquran\.academy [NC]
+RewriteRule ^(.*)$ https://sahamquran.academy/$1 [R=301,L]
