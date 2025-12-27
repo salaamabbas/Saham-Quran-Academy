@@ -5,4 +5,9 @@ Disallow: /admin/
 
 Sitemap: https://sahamquran.academy/sitemap.xml
 
+# GitHub Pages specific
 Crawl-delay: 2
+
+# Block www version
+User-agent: *
+Disallow: https://www.sahamquran.academy/
