@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="icon" href="logo3.png">
     <style>
+        /* ALL YOUR EXISTING CSS STAYS EXACTLY THE SAME - NO CHANGES */
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 
         * {
@@ -1844,14 +1845,14 @@
                 <img src="logo2.png" alt="Saham Academy Logo" class="logo-icon">
                 <span>SAHAM ACADEMY</span>
             </div>
-         <ul class="nav-links">
-    <li><a href="https://sahamquran.academy/" onclick="showPage('home'); return false;" aria-label="Home Page">Home</a></li>
-    <li><a href="https://sahamquran.academy/courses" onclick="showPage('courses'); return false;" aria-label="Courses Page">Courses</a></li>
-    <li><a href="https://sahamquran.academy/pricing" onclick="showPage('pricing'); return false;" aria-label="Pricing Page">Pricing</a></li>
-    <li><a href="https://sahamquran.academy/about" onclick="showPage('about'); return false;" aria-label="About Page">About</a></li>
-    <li><a href="https://sahamquran.academy/register" onclick="showPage('register'); return false;" aria-label="Registration Page">Register</a></li>
-    <li><a href="https://sahamquran.academy/contact" onclick="showPage('contact'); return false;" aria-label="Contact Page">Contact</a></li>
-</ul>
+            <ul class="nav-links">
+                <li><a href="#" onclick="showPage('home'); return false;" aria-label="Home Page">Home</a></li>
+                <li><a href="#" onclick="showPage('courses'); return false;" aria-label="Courses Page">Courses</a></li>
+                <li><a href="#" onclick="showPage('pricing'); return false;" aria-label="Pricing Page">Pricing</a></li>
+                <li><a href="#" onclick="showPage('about'); return false;" aria-label="About Page">About</a></li>
+                <li><a href="#" onclick="showPage('register'); return false;" aria-label="Registration Page">Register</a></li>
+                <li><a href="#" onclick="showPage('contact'); return false;" aria-label="Contact Page">Contact</a></li>
+            </ul>
             <div class="mobile-toggle" id="mobileToggle" onclick="toggleMobileMenu()" aria-label="Toggle Mobile Menu" role="button" tabindex="0">
                 <span></span>
                 <span></span>
@@ -1869,14 +1870,14 @@
             </div>
             <div class="mobile-close" onclick="closeMobileMenu()" aria-label="Close Menu" role="button" tabindex="0">✕</div>
         </div>
-       <ul>
-    <li><a href="https://sahamquran.academy/" onclick="showPage('home'); closeMobileMenu();">Home</a></li>
-    <li><a href="https://sahamquran.academy/courses" onclick="showPage('courses'); closeMobileMenu();">Courses</a></li>
-    <li><a href="https://sahamquran.academy/pricing" onclick="showPage('pricing'); closeMobileMenu();">Pricing</a></li>
-    <li><a href="https://sahamquran.academy/about" onclick="showPage('about'); closeMobileMenu();">About</a></li>
-    <li><a href="https://sahamquran.academy/register" onclick="showPage('register'); closeMobileMenu();">Register</a></li>
-    <li><a href="https://sahamquran.academy/contact" onclick="showPage('contact'); closeMobileMenu();">Contact</a></li>
-</ul>
+        <ul>
+            <li><a href="#" onclick="showPage('home'); closeMobileMenu();">Home</a></li>
+            <li><a href="#" onclick="showPage('courses'); closeMobileMenu();">Courses</a></li>
+            <li><a href="#" onclick="showPage('pricing'); closeMobileMenu();">Pricing</a></li>
+            <li><a href="#" onclick="showPage('about'); closeMobileMenu();">About</a></li>
+            <li><a href="#" onclick="showPage('register'); closeMobileMenu();">Register</a></li>
+            <li><a href="#" onclick="showPage('contact'); closeMobileMenu();">Contact</a></li>
+        </ul>
     </div>
 
     <!-- Main Content -->
@@ -2690,7 +2691,8 @@
         <i class="fab fa-whatsapp" style="font-size: 28px; color: white;"></i>
     </a>
 
-      <a href="/sitemap.html" style="display: none;">Sitemap</a>
+    <!-- Hidden sitemap link for SEO -->
+    <a href="/sitemap.html" style="display: none;">Sitemap</a>
     
     <script>
         // ========== GLOBAL STATE ==========
@@ -3101,6 +3103,22 @@
             }
             
             console.log('Saham Academy initialized successfully');
+            
+            // Handle direct URLs for GitHub Pages
+            handleDirectURLs();
+        }
+
+        // ========== SIMPLE GITHUB PAGES FIX ==========
+        function handleDirectURLs() {
+            // If someone tries to access /courses, just redirect to homepage
+            const path = window.location.pathname;
+            
+            // If it's not the homepage and not a real file, redirect to homepage
+            if (path !== '/' && path !== '/index.html' && 
+                !path.includes('sitemap') && !path.includes('robots')) {
+                // Simple redirect to homepage
+                window.location.href = '/';
+            }
         }
 
         // Initialize when DOM is ready
@@ -3109,68 +3127,6 @@
         } else {
             init();
         }
-
-        // ========== SIMPLE URL ROUTING FIX ==========
-// Add this function to handle direct URLs
-function handleDirectURLs() {
-    // Get the current URL path
-    const path = window.location.pathname;
-    
-    // Remove leading slash and any file extensions
-    const page = path.replace('/', '').replace('.html', '').replace('.php', '');
-    
-    // If we're on the homepage, show home page
-    if (!page || page === '' || page === 'index') {
-        showPage('home');
-        return;
-    }
-    
-    // List of valid pages
-    const validPages = {
-        'courses': 'courses',
-        'pricing': 'pricing', 
-        'about': 'about',
-        'register': 'register',
-        'contact': 'contact',
-        'sitemap': null, // Don't handle sitemap - it's a separate file
-        'sitemap.xml': null,
-        'robots.txt': null
-    };
-    
-    // If it's a valid page, show it
-    if (validPages[page] && validPages[page] !== null) {
-        showPage(validPages[page]);
-    }
-    // If not found, show home page
-    else {
-        showPage('home');
-    }
-}
-
-// Update your showPage function to change URL
-const originalShowPage = showPage;
-showPage = function(page) {
-    // Call original function
-    originalShowPage(page);
-    
-    // Update browser URL without reloading
-    if (history.pushState) {
-        const url = page === 'home' ? '/' : '/' + page;
-        history.pushState({ page: page }, '', url);
-    }
-};
-
-// Run on page load
-document.addEventListener('DOMContentLoaded', handleDirectURLs);
-
-// Also handle browser back/forward buttons
-window.addEventListener('popstate', function(event) {
-    handleDirectURLs();
-});
     </script>
 </body>
 </html>
-
-
-
-
