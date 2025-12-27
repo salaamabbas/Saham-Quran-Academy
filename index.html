@@ -3109,9 +3109,68 @@
         } else {
             init();
         }
+
+        // ========== SIMPLE URL ROUTING FIX ==========
+// Add this function to handle direct URLs
+function handleDirectURLs() {
+    // Get the current URL path
+    const path = window.location.pathname;
+    
+    // Remove leading slash and any file extensions
+    const page = path.replace('/', '').replace('.html', '').replace('.php', '');
+    
+    // If we're on the homepage, show home page
+    if (!page || page === '' || page === 'index') {
+        showPage('home');
+        return;
+    }
+    
+    // List of valid pages
+    const validPages = {
+        'courses': 'courses',
+        'pricing': 'pricing', 
+        'about': 'about',
+        'register': 'register',
+        'contact': 'contact',
+        'sitemap': null, // Don't handle sitemap - it's a separate file
+        'sitemap.xml': null,
+        'robots.txt': null
+    };
+    
+    // If it's a valid page, show it
+    if (validPages[page] && validPages[page] !== null) {
+        showPage(validPages[page]);
+    }
+    // If not found, show home page
+    else {
+        showPage('home');
+    }
+}
+
+// Update your showPage function to change URL
+const originalShowPage = showPage;
+showPage = function(page) {
+    // Call original function
+    originalShowPage(page);
+    
+    // Update browser URL without reloading
+    if (history.pushState) {
+        const url = page === 'home' ? '/' : '/' + page;
+        history.pushState({ page: page }, '', url);
+    }
+};
+
+// Run on page load
+document.addEventListener('DOMContentLoaded', handleDirectURLs);
+
+// Also handle browser back/forward buttons
+window.addEventListener('popstate', function(event) {
+    handleDirectURLs();
+});
     </script>
 </body>
 </html>
+
 
 
 
