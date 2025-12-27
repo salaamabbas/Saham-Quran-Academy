@@ -3,6 +3,6 @@ Allow: /
 Disallow: /private/
 Disallow: /admin/
 
-Sitemap: https://sahamquranacademy.com/sitemap.xml
+Sitemap: https://sahamquran.academy/sitemap.xml
 
 Crawl-delay: 2
