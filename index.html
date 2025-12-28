@@ -25,7 +25,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="icon" href="logo3.png">
     <style>
-        /* ALL YOUR EXISTING CSS STAYS EXACTLY THE SAME - NO CHANGES */
+        /* ALL YOUR EXISTING CSS STAYS THE SAME UNTIL HERO SECTION */
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 
         * {
@@ -49,6 +49,13 @@
             color: var(--dark);
             background: var(--white);
             overflow-x: hidden;
+            opacity: 0;
+            animation: fadeInBody 1.5s ease forwards;
+        }
+
+        @keyframes fadeInBody {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
         /* Loading Animation */
@@ -73,6 +80,12 @@
             width: 250px;
             height: 250px;
             filter: drop-shadow(0 10px 30px rgba(255, 255, 255, 0.3));
+            animation: floatLogo 3s ease-in-out infinite;
+        }
+
+        @keyframes floatLogo {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-15px) scale(1.05); }
         }
 
         .loader-text {
@@ -82,6 +95,17 @@
             margin-top: 2rem;
             letter-spacing: 3px;
             animation: pulse 1.5s ease-in-out infinite;
+            background: linear-gradient(90deg, #fff, var(--accent), #fff);
+            background-size: 200% auto;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shimmer 3s linear infinite;
+        }
+
+        @keyframes shimmer {
+            0% { background-position: -200% center; }
+            100% { background-position: 200% center; }
         }
 
         @keyframes pulse {
@@ -100,7 +124,7 @@
 
         .loader-progress {
             height: 100%;
-            background: white;
+            background: linear-gradient(90deg, var(--accent), white);
             animation: loading 2s ease-in-out;
         }
 
@@ -119,6 +143,13 @@
             box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
             z-index: 1000;
             transition: all 0.3s ease;
+            transform: translateY(-100%);
+            animation: slideDownNav 0.8s ease forwards 1s;
+        }
+
+        @keyframes slideDownNav {
+            from { transform: translateY(-100%); }
+            to { transform: translateY(0); }
         }
 
         nav.scrolled {
@@ -144,6 +175,19 @@
             color: var(--primary);
             cursor: pointer;
             transition: transform 0.3s ease;
+            opacity: 0;
+            animation: fadeInLeft 0.8s ease forwards 1.2s;
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
         }
 
         .logo:hover {
@@ -160,6 +204,19 @@
             display: flex;
             gap: 2.5rem;
             list-style: none;
+            opacity: 0;
+            animation: fadeInRight 0.8s ease forwards 1.4s;
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
         }
 
         .nav-links a {
@@ -309,244 +366,224 @@
             transform: translateX(5px);
         }
 
-        /* Hero Section - Auto-fit Version */
-.hero {
-    min-height: 100vh; /* Changed from 70vh to 100vh */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 100px 2rem 3rem; /* Keep top padding for nav, adjust others */
-    background: url('hero-bg.jpg') center/cover no-repeat;
-    background-color: #005f31; /* Fallback color */
-    position: relative;
-    overflow: hidden;
-}
+        /* Hero Section - Enhanced with Animations */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 100px 2rem 3rem;
+            background: url('hero-bg.jpg') center/cover no-repeat;
+            background-color: #005f31;
+            position: relative;
+            overflow: hidden;
+        }
 
-/* Remove the overlay completely */
-/* .hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 95, 49, 0.7);
-    z-index: 1;
-} */
+     
 
-.hero-container {
-    max-width: 1200px; /* Increased from 800px */
-    margin: 0 auto;
-    text-align: center;
-    position: relative;
-    z-index: 100;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center; /* Added for vertical centering */
-    gap: 1.5rem;
-    padding: 2rem; /* Added padding for mobile */
-}
+        @keyframes gradientShift {
+            0% { opacity: 0.85; }
+            100% { opacity: 0.95; }
+        }
 
-/* Badge */
-.hero-badge {
-    display: inline-block;
-    padding: 0.8rem 2rem;
-    background: rgba(255, 255, 255, 0.95);
-    color: #005f31;
-    border-radius: 50px;
-    font-size: clamp(0.9rem, 2vw, 1.2rem); /* Responsive font */
-    font-weight: 900;
-    letter-spacing: 1px;
-    border: 2px solid #CEDA54;
-    text-transform: uppercase;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    margin-bottom: 1rem;
-}
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 100;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
+            padding: 2rem;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: heroContentAppear 1.2s ease forwards 1.5s;
+        }
 
-/* Title */
-.hero h1 {
-    font-size: clamp(2rem, 5vw, 4rem); /* Fully responsive font size */
-    font-weight: 900;
-    line-height: 1.1;
-    color: white;
-    margin: 0.5rem 0 1.5rem;
-    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
-    max-width: 100%; /* Changed from 900px */
-    padding: 0 1rem; /* Added padding for mobile */
-}
+        @keyframes heroContentAppear {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
-.hero h1 span {
-    color: #CEDA54;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
-    display: block; /* Make it stack on mobile if needed */
-}
+        /* Badge */
+        .hero-badge {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background: rgba(255, 255, 255, 0.95);
+            color: #005f31;
+            border-radius: 50px;
+            font-size: clamp(0.9rem, 2vw, 1.2rem);
+            font-weight: 900;
+            letter-spacing: 1px;
+            border: 2px solid #CEDA54;
+            text-transform: uppercase;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            margin-bottom: 1rem;
+            transform: scale(0);
+            animation: badgePopIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards 1.7s;
+        }
 
-/* Buttons */
-.hero-buttons {
-    display: flex;
-    gap: 1.5rem;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-top: 2rem;
-    width: 100%;
-    max-width: 600px; /* Limit width on large screens */
-}
+        @keyframes badgePopIn {
+            0% {
+                transform: scale(0);
+                opacity: 0;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
 
-.btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.8rem;
-    padding: clamp(1rem, 3vw, 1.2rem) clamp(2rem, 5vw, 3rem); /* Responsive padding */
-    border-radius: 12px;
-    font-weight: 900;
-    font-size: clamp(0.9rem, 1.5vw, 1.1rem); /* Responsive font */
-    text-decoration: none;
-    transition: all 0.3s ease;
-    border: 3px solid transparent;
-    cursor: pointer;
-    text-align: center;
-    flex: 1; /* Make buttons flexible */
-    min-width: 200px; /* Minimum width */
-    max-width: 300px; /* Maximum width */
-    justify-content: center;
-}
+        /* Title */
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 4rem);
+            font-weight: 900;
+            line-height: 1.1;
+            color: white;
+            margin: 0.5rem 0 1.5rem;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+            max-width: 100%;
+            padding: 0 1rem;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: titleSlideUp 0.8s ease forwards 1.9s;
+        }
 
-.btn-primary {
-    background: white;
-    color: #005f31;
-    border-color: #CEDA54;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-}
+        @keyframes titleSlideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
-.btn-primary:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
-}
+        .hero h1 span {
+            color: #CEDA54;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+            display: block;
+            position: relative;
+            overflow: hidden;
+        }
 
-.btn-secondary {
-    background: rgba(255, 255, 255, 0.15);
-    color: white;
-    border: 3px solid white;
-    backdrop-filter: blur(10px);
-    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
-}
+        .hero h1 span::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(206, 218, 84, 0.3), transparent);
+            animation: shimmerText 3s infinite;
+        }
 
-.btn-secondary:hover {
-    background: white;
-    color: #005f31;
-    border-color: #CEDA54;
-}
+        @keyframes shimmerText {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
 
-/* Responsive adjustments for hero */
-@media (max-width: 768px) {
-    .hero {
-        min-height: 100vh;
-        padding: 80px 1rem 2rem; /* Adjust padding for mobile */
-    }
-    
-    .hero-container {
-        padding: 1rem;
-        gap: 1rem;
-    }
-    
-    .hero-badge {
-        padding: 0.6rem 1.5rem;
-        font-size: 0.9rem;
-        margin-bottom: 0.5rem;
-    }
-    
-    .hero h1 {
-        font-size: 2.5rem;
-        margin: 0.5rem 0 1rem;
-        line-height: 1.2;
-    }
-    
-    .hero-buttons {
-        flex-direction: column;
-        align-items: center;
-        gap: 1rem;
-        margin-top: 1.5rem;
-    }
-    
-    .btn {
-        width: 100%;
-        max-width: 300px;
-        padding: 1rem 2rem;
-    }
-}
+        /* Buttons */
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+            width: 100%;
+            max-width: 600px;
+            opacity: 0;
+            animation: fadeInButtons 0.8s ease forwards 2.1s;
+        }
 
-@media (max-width: 480px) {
-    .hero {
-        min-height: 100vh;
-        padding: 70px 0.5rem 1.5rem;
-    }
-    
-    .hero h1 {
-        font-size: 2rem;
-        line-height: 1.3;
-    }
-    
-    .hero-badge {
-        font-size: 0.8rem;
-        padding: 0.5rem 1.2rem;
-    }
-    
-    .btn {
-        padding: 0.9rem 1.5rem;
-        font-size: 0.95rem;
-        min-width: 180px;
-    }
-}
+        @keyframes fadeInButtons {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
 
-/* For very tall screens (tablets in portrait) */
-@media (min-height: 1000px) and (max-width: 1024px) {
-    .hero {
-        min-height: 100vh;
-    }
-    
-    .hero-container {
-        gap: 2rem;
-    }
-    
-    .hero h1 {
-        font-size: 3.5rem;
-    }
-}
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: clamp(1rem, 3vw, 1.2rem) clamp(2rem, 5vw, 3rem);
+            border-radius: 12px;
+            font-weight: 900;
+            font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 3px solid transparent;
+            cursor: pointer;
+            text-align: center;
+            flex: 1;
+            min-width: 200px;
+            max-width: 300px;
+            justify-content: center;
+            transform: translateY(0);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
 
-/* For landscape orientation on mobile */
-@media (max-height: 600px) and (orientation: landscape) {
-    .hero {
-        min-height: 100vh;
-        padding: 60px 1rem 1rem;
-    }
-    
-    .hero-container {
-        gap: 0.5rem;
-    }
-    
-    .hero h1 {
-        font-size: 2rem;
-        margin: 0.2rem 0 0.5rem;
-    }
-    
-    .hero-buttons {
-        margin-top: 1rem;
-        flex-direction: row;
-    }
-    
-    .btn {
-        padding: 0.7rem 1.5rem;
-        font-size: 0.9rem;
-    }
-}
+        .btn:hover {
+            transform: translateY(-5px) scale(1.03);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
 
-        /* Stats */
+        .btn-primary {
+            background: linear-gradient(135deg, #ffffff, #f0f0f0);
+            color: #005f31;
+            border-color: #CEDA54;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #CEDA54, #e1d747);
+            color: #005f31;
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+            border: 3px solid white;
+            backdrop-filter: blur(10px);
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: #005f31;
+            border-color: #CEDA54;
+        }
+
+        /* Floating Animation for Hero Elements */
+        .hero .hero-badge,
+        .hero h1,
+        .hero .btn {
+            animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Stats Section with Scroll Animation */
         .stats {
             padding: 4rem 2rem;
             background: white;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1s ease;
+        }
+
+        .stats.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .stats-container {
@@ -560,11 +597,19 @@
 
         .stat-item {
             padding: 2rem 1rem;
-            transition: transform 0.3s ease;
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .stat-item.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .stat-item:hover {
-            transform: translateY(-5px);
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 20px 40px rgba(45, 158, 156, 0.15);
         }
 
         .stat-number {
@@ -572,21 +617,32 @@
             font-weight: 900;
             color: var(--primary-dark);
             margin-bottom: 0.5rem;
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .stat-label {
             font-size: 1rem;
             color: #6b7280;
             font-weight: 600;
+            transition: color 0.3s ease;
         }
 
-        /* Page Sections */
+        .stat-item:hover .stat-label {
+            color: var(--primary);
+        }
+
+        /* Page Sections with Enhanced Animations */
         .page-content {
             padding: 6rem 2rem;
             max-width: 1200px;
             margin: 0 auto;
             display: none;
             opacity: 0;
+            transform: translateY(50px);
         }
 
         .page-content.active {
@@ -597,7 +653,7 @@
         @keyframes fadeInPage {
             from { 
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(50px);
             }
             to { 
                 opacity: 1;
@@ -608,7 +664,14 @@
         .section-header {
             text-align: center;
             margin-bottom: 4rem;
-            animation: fadeInUp 0.8s ease forwards;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s ease;
+        }
+
+        .section-header.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .section-title {
@@ -616,6 +679,20 @@
             font-weight: 900;
             color: var(--dark);
             margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            border-radius: 2px;
         }
 
         .section-subtitle {
@@ -623,28 +700,74 @@
             color: #6b7280;
             max-width: 700px;
             margin: 0 auto;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 1s ease 0.2s;
         }
 
-        /* Grid Layouts */
+        .section-header.visible .section-subtitle {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Grid Layouts with Staggered Animations */
         .grid-3 {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 2.5rem;
         }
 
+        .grid-3 > * {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s ease;
+        }
+
+        .grid-3.visible > * {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .grid-3.visible > *:nth-child(1) { transition-delay: 0.1s; }
+        .grid-3.visible > *:nth-child(2) { transition-delay: 0.2s; }
+        .grid-3.visible > *:nth-child(3) { transition-delay: 0.3s; }
+        .grid-3.visible > *:nth-child(4) { transition-delay: 0.4s; }
+        .grid-3.visible > *:nth-child(5) { transition-delay: 0.5s; }
+        .grid-3.visible > *:nth-child(6) { transition-delay: 0.6s; }
+        .grid-3.visible > *:nth-child(7) { transition-delay: 0.7s; }
+        .grid-3.visible > *:nth-child(8) { transition-delay: 0.8s; }
+
+        /* Card Animations */
         .card {
             background: white;
             padding: 2.5rem;
             border-radius: 20px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            transition: all 0.4s ease;
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
             border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(45, 158, 156, 0.1), transparent);
+            transition: left 0.7s ease;
+        }
+
+        .card:hover::before {
+            left: 100%;
         }
 
         .card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-15px) scale(1.02);
             border-color: var(--primary);
-            box-shadow: 0 20px 50px rgba(45, 158, 156, 0.2);
+            box-shadow: 0 25px 60px rgba(45, 158, 156, 0.25);
         }
 
         .card-icon {
@@ -657,11 +780,14 @@
             justify-content: center;
             font-size: 2.5rem;
             margin-bottom: 1.5rem;
-            transition: transform 0.3s ease;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            color: white;
+            box-shadow: 0 8px 20px rgba(45, 158, 156, 0.3);
         }
 
         .card:hover .card-icon {
-            transform: scale(1.1) rotate(5deg);
+            transform: scale(1.1) rotate(10deg);
+            box-shadow: 0 12px 30px rgba(45, 158, 156, 0.4);
         }
 
         .card-title {
@@ -669,49 +795,71 @@
             font-weight: 700;
             margin-bottom: 1rem;
             color: var(--dark);
+            transition: color 0.3s ease;
+        }
+
+        .card:hover .card-title {
+            color: var(--primary);
         }
 
         .card-text {
             color: #6b7280;
             line-height: 1.7;
+            transition: color 0.3s ease;
         }
 
-        /* Image Cards */
+        /* Image Cards with Enhanced Animations */
         .image-card {
             background: white;
             border-radius: 20px;
             overflow: hidden;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            transition: all 0.4s ease;
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            opacity: 0;
+            transform: translateY(40px);
+        }
+
+        .image-card.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .image-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 25px 60px rgba(45, 158, 156, 0.2);
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 30px 70px rgba(45, 158, 156, 0.3);
         }
 
         .image-card img {
             width: 100%;
             height: 250px;
             object-fit: cover;
-            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
-            background-size: 200% 100%;
-            animation: image-loading 1.5s infinite;
+            transition: all 0.6s ease;
+            filter: brightness(0.95);
         }
 
-        @keyframes image-loading {
-            0% { background-position: 200% 0; }
-            100% { background-position: -200% 0; }
+        .image-card:hover img {
+            transform: scale(1.05);
+            filter: brightness(1);
         }
 
         .image-card-content {
             padding: 2rem;
+            position: relative;
+            z-index: 2;
+            background: white;
         }
 
         .image-card-title {
             font-size: 1.3rem;
             font-weight: 700;
             margin-bottom: 0.8rem;
+            color: var(--dark);
+            transition: color 0.3s ease;
+        }
+
+        .image-card:hover .image-card-title {
+            color: var(--primary);
         }
 
         .image-card-text {
@@ -721,12 +869,20 @@
             margin-bottom: 1rem;
         }
 
-        /* Testimonial Slider */
+        /* Testimonial Slider with Enhanced Animations */
         .testimonial-slider {
             position: relative;
             max-width: 900px;
             margin: 0 auto;
             padding: 0 4rem;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1s ease;
+        }
+
+        .testimonial-slider.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .testimonial-track {
@@ -737,11 +893,19 @@
 
         .testimonial-item {
             background: linear-gradient(135deg, #f0fdf4, #dcfce7);
-            padding: 2rem;
+            padding: 2.5rem;
             border-radius: 20px;
             text-align: center;
             display: none;
             animation: slideIn 0.6s ease;
+            border: 2px solid transparent;
+            transition: all 0.5s ease;
+        }
+
+        .testimonial-item:hover {
+            border-color: var(--primary);
+            box-shadow: 0 20px 50px rgba(45, 158, 156, 0.15);
+            transform: translateY(-5px);
         }
 
         .testimonial-item.active {
@@ -751,7 +915,7 @@
         @keyframes slideIn {
             from {
                 opacity: 0;
-                transform: translateX(50px);
+                transform: translateX(80px);
             }
             to {
                 opacity: 1;
@@ -766,6 +930,13 @@
             object-fit: cover;
             border: 3px solid var(--primary);
             margin-bottom: 1rem;
+            transition: all 0.5s ease;
+            box-shadow: 0 8px 20px rgba(45, 158, 156, 0.3);
+        }
+
+        .testimonial-item:hover .testimonial-avatar-img {
+            transform: scale(1.1);
+            box-shadow: 0 12px 30px rgba(45, 158, 156, 0.4);
         }
 
         .testimonial-text {
@@ -774,6 +945,7 @@
             color: #374151;
             font-style: italic;
             margin-bottom: 1rem;
+            transition: color 0.3s ease;
         }
 
         .testimonial-author {
@@ -792,31 +964,39 @@
             color: var(--accent);
             font-size: 1.2rem;
             margin-top: 0.8rem;
+            animation: starPulse 2s infinite;
+        }
+
+        @keyframes starPulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
         }
 
         .slider-btn {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            width: 40px;
-            height: 40px;
+            width: 50px;
+            height: 50px;
             background: white;
             border: 2px solid var(--primary);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.2rem;
+            font-size: 1.5rem;
             color: var(--primary);
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             z-index: 10;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
 
         .slider-btn:hover {
             background: var(--primary);
             color: white;
-            transform: translateY(-50%) scale(1.1);
+            transform: translateY(-50%) scale(1.15);
+            box-shadow: 0 8px 25px rgba(45, 158, 156, 0.4);
         }
 
         .slider-btn.prev {
@@ -827,12 +1007,20 @@
             right: 0;
         }
 
-        /* Marquee Container */
+        /* Marquee Container with Enhanced Animations */
         .marquee-section {
             padding: 4rem 2rem;
             background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
             overflow: hidden;
             position: relative;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1s ease;
+        }
+
+        .marquee-section.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .marquee-wrapper {
@@ -853,7 +1041,7 @@
             will-change: transform;
         }
 
-        /* Marquee Cards */
+        /* Marquee Cards with Enhanced Effects */
         .marquee-card {
             flex: 0 0 280px;
             flex-shrink: 0;
@@ -866,15 +1054,22 @@
             flex-direction: column;
             align-items: center;
             text-align: center;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            opacity: 0;
+            transform: translateX(50px);
+        }
+
+        .marquee-card.visible {
+            opacity: 1;
+            transform: translateX(0);
         }
 
         .marquee-card:hover {
-            transform: translateY(-8px) scale(1.02);
+            transform: translateY(-10px) scale(1.05);
             background: linear-gradient(135deg, rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0.25));
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
-            border-color: rgba(255, 255, 255, 0.6);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+            border-color: rgba(255, 255, 255, 0.8);
         }
 
         .marquee-card-icon {
@@ -889,6 +1084,12 @@
             margin-bottom: 1.2rem;
             color: var(--dark);
             box-shadow: 0 8px 20px rgba(206, 218, 84, 0.3);
+            transition: all 0.5s ease;
+        }
+
+        .marquee-card:hover .marquee-card-icon {
+            transform: rotate(15deg) scale(1.1);
+            box-shadow: 0 12px 30px rgba(206, 218, 84, 0.4);
         }
 
         /* Marquee Navigation */
@@ -897,27 +1098,27 @@
             top: 50%;
             transform: translateY(-50%);
             z-index: 20;
-            width: 45px;
-            height: 45px;
+            width: 50px;
+            height: 50px;
             background: white;
             border: none;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             color: var(--primary);
             cursor: pointer;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             opacity: 0.9;
         }
 
         .marquee-nav:hover:not(.disabled) {
             background: var(--primary);
             color: white;
-            transform: translateY(-50%) scale(1.1);
-            box-shadow: 0 8px 25px rgba(45, 158, 156, 0.4);
+            transform: translateY(-50%) scale(1.2);
+            box-shadow: 0 10px 30px rgba(45, 158, 156, 0.4);
             opacity: 1;
         }
 
@@ -955,6 +1156,14 @@
             display: grid;
             grid-template-columns: 1fr 400px;
             gap: 3rem;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1s ease;
+        }
+
+        .registration-layout.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .registration-form-container {
@@ -962,6 +1171,14 @@
             border-radius: 25px;
             padding: 3rem;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+            transform: translateY(30px);
+            opacity: 0;
+            transition: all 0.8s ease 0.2s;
+        }
+
+        .registration-layout.visible .registration-form-container {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .form-header {
@@ -987,11 +1204,19 @@
             margin-bottom: 2.5rem;
             padding-bottom: 2.5rem;
             border-bottom: 2px solid #f1f5f9;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s ease;
         }
 
-        .form-section:last-child {
-            border-bottom: none;
+        .registration-layout.visible .form-section {
+            opacity: 1;
+            transform: translateY(0);
         }
+
+        .registration-layout.visible .form-section:nth-child(1) { transition-delay: 0.3s; }
+        .registration-layout.visible .form-section:nth-child(2) { transition-delay: 0.4s; }
+        .registration-layout.visible .form-section:nth-child(3) { transition-delay: 0.5s; }
 
         .section-title {
             font-size: 1.3rem;
@@ -1020,6 +1245,14 @@
 
         .form-group {
             margin-bottom: 0;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.5s ease;
+        }
+
+        .registration-layout.visible .form-group {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .form-group label {
@@ -1060,6 +1293,7 @@
             box-shadow: 0 0 0 4px rgba(45, 158, 156, 0.15);
             outline: none;
             background: white;
+            transform: translateY(-2px);
         }
 
         .form-group textarea {
@@ -1072,6 +1306,14 @@
             margin-top: 3rem;
             padding-top: 2rem;
             border-top: 2px solid #f1f5f9;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s ease 0.6s;
+        }
+
+        .registration-layout.visible .form-submit-section {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .btn-submit {
@@ -1086,12 +1328,29 @@
             display: inline-flex;
             align-items: center;
             gap: 0.8rem;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             box-shadow: 0 10px 30px rgba(45, 158, 156, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-submit::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.7s ease;
+        }
+
+        .btn-submit:hover::before {
+            left: 100%;
         }
 
         .btn-submit:hover {
-            transform: translateY(-3px);
+            transform: translateY(-5px) scale(1.05);
             box-shadow: 0 15px 40px rgba(45, 158, 156, 0.5);
             background: linear-gradient(135deg, var(--primary-dark), var(--primary));
         }
@@ -1124,18 +1383,30 @@
             text-align: center;
             font-weight: 600;
             display: none;
-            animation: fadeIn 0.5s ease;
+            animation: fadeInUp 0.5s ease;
             box-shadow: 0 5px 20px rgba(45, 158, 156, 0.3);
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-10px); }
-            to { opacity: 1; transform: translateY(0); }
+        @keyframes fadeInUp {
+            from { 
+                opacity: 0; 
+                transform: translateY(-10px); 
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0); 
+            }
         }
 
         .success-icon {
             margin-right: 0.5rem;
             font-size: 1.2rem;
+            animation: successSpin 1s ease;
+        }
+
+        @keyframes successSpin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
         }
 
         .registration-sidebar {
@@ -1149,11 +1420,23 @@
             border-radius: 20px;
             padding: 2.5rem;
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
+            transition: all 0.5s ease;
+            opacity: 0;
+            transform: translateX(30px);
         }
 
+        .registration-layout.visible .sidebar-card {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .registration-layout.visible .sidebar-card:nth-child(1) { transition-delay: 0.4s; }
+        .registration-layout.visible .sidebar-card:nth-child(2) { transition-delay: 0.5s; }
+        .registration-layout.visible .sidebar-card:nth-child(3) { transition-delay: 0.6s; }
+
         .sidebar-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
         }
 
         .sidebar-card .card-icon {
@@ -1168,6 +1451,11 @@
             color: white;
             margin-bottom: 1.5rem;
             box-shadow: 0 5px 15px rgba(45, 158, 156, 0.3);
+            transition: all 0.5s ease;
+        }
+
+        .sidebar-card:hover .card-icon {
+            transform: scale(1.1) rotate(10deg);
         }
 
         .sidebar-card h3 {
@@ -1211,14 +1499,31 @@
             align-items: center;
             justify-content: center;
             gap: 0.8rem;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             margin-top: 1rem;
             font-size: 1.1rem;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-whatsapp::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(37, 211, 102, 0.2), transparent);
+            transition: left 0.7s ease;
+        }
+
+        .btn-whatsapp:hover::before {
+            left: 100%;
         }
 
         .btn-whatsapp:hover {
-            transform: translateY(-3px);
+            transform: translateY(-5px) scale(1.05);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
             background: #f0fdf4;
         }
@@ -1250,6 +1555,13 @@
             background: #f8fafc;
             border-radius: 12px;
             border: 2px solid #f1f5f9;
+            transition: all 0.4s ease;
+        }
+
+        .mini-stat:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: 0 10px 25px rgba(45, 158, 156, 0.1);
         }
 
         .mini-stat-number {
@@ -1279,6 +1591,12 @@
             align-items: center;
             gap: 0.8rem;
             color: #6b7280;
+            transition: all 0.3s ease;
+        }
+
+        .benefits-list li:hover {
+            color: var(--primary);
+            transform: translateX(5px);
         }
 
         .benefits-list li:last-child {
@@ -1318,8 +1636,8 @@
             position: fixed;
             bottom: 2rem;
             right: 2rem;
-            width: 55px;
-            height: 55px;
+            width: 60px;
+            height: 60px;
             background: #25D366;
             border-radius: 50%;
             display: flex;
@@ -1328,18 +1646,23 @@
             box-shadow: 0 8px 30px rgba(37, 211, 102, 0.4);
             z-index: 999;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             animation: bounceFloat 3s ease-in-out infinite;
+            transform-origin: center;
         }
 
         @keyframes bounceFloat {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
+            0%, 100% { 
+                transform: translateY(0) scale(1); 
+            }
+            50% { 
+                transform: translateY(-15px) scale(1.1); 
+            }
         }
 
         .whatsapp-float:hover {
-            transform: scale(1.15) translateY(0);
-            box-shadow: 0 12px 40px rgba(37, 211, 102, 0.5);
+            transform: scale(1.2) rotate(15deg);
+            box-shadow: 0 12px 40px rgba(37, 211, 102, 0.6);
             animation: none;
         }
 
@@ -1349,6 +1672,14 @@
             color: white;
             padding: 3rem 2rem 2rem;
             text-align: center;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1s ease;
+        }
+
+        footer.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .footer-content {
@@ -1361,6 +1692,11 @@
             height: 100px;
             object-fit: contain;
             margin: 0 auto;
+            transition: all 0.5s ease;
+        }
+
+        .footer-logo img:hover {
+            transform: scale(1.1) rotate(5deg);
         }
 
         .footer-contact {
@@ -1383,23 +1719,32 @@
             align-items: center;
             justify-content: center;
             font-size: 1.5rem;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             text-decoration: none;
             color: white;
         }
 
         .social-link:hover {
             background: var(--primary);
-            transform: translateY(-5px);
+            transform: translateY(-8px) scale(1.1);
+            box-shadow: 0 10px 25px rgba(45, 158, 156, 0.3);
         }
 
-        /* Pricing Cards */
+        /* Pricing Cards with Enhanced Animations */
         .pricing-cards {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 3rem;
             max-width: 900px;
             margin: 0 auto;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1s ease;
+        }
+
+        .pricing-cards.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .pricing-card {
@@ -1407,15 +1752,32 @@
             padding: 3rem;
             border-radius: 25px;
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-            transition: all 0.4s ease;
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
             border: 3px solid transparent;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pricing-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(45, 158, 156, 0.1), transparent);
+            transition: left 0.7s ease;
+        }
+
+        .pricing-card:hover::before {
+            left: 100%;
         }
 
         .pricing-card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-15px) scale(1.03);
             border-color: var(--primary);
-            box-shadow: 0 20px 60px rgba(45, 158, 156, 0.2);
+            box-shadow: 0 25px 70px rgba(45, 158, 156, 0.25);
         }
 
         .pricing-card.featured {
@@ -1425,12 +1787,17 @@
         }
 
         .pricing-card.featured:hover {
-            transform: scale(1.08) translateY(-10px);
+            transform: scale(1.08) translateY(-15px);
         }
 
         .pricing-icon {
             font-size: 4rem;
             margin-bottom: 1.5rem;
+            transition: all 0.5s ease;
+        }
+
+        .pricing-card:hover .pricing-icon {
+            transform: scale(1.1) rotate(10deg);
         }
 
         .pricing-title {
@@ -1443,6 +1810,17 @@
             font-size: 3rem;
             font-weight: 900;
             margin: 1.5rem 0;
+            background: linear-gradient(135deg, var(--accent), #e1d747);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .pricing-card.featured .pricing-price {
+            background: linear-gradient(135deg, white, #f0f0f0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .pricing-period {
@@ -1460,6 +1838,12 @@
         .pricing-features li {
             padding: 0.8rem 0;
             border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .pricing-features li:hover {
+            transform: translateX(10px);
+            color: var(--primary);
         }
 
         .pricing-card.featured .pricing-features li {
@@ -1471,6 +1855,11 @@
             margin-right: 0.8rem;
             color: var(--primary);
             font-weight: 900;
+            transition: all 0.3s ease;
+        }
+
+        .pricing-features li:hover::before {
+            transform: scale(1.3);
         }
 
         .pricing-card.featured .pricing-features li::before {
@@ -1481,6 +1870,14 @@
         .courses-preview {
             padding: 5rem 2rem;
             background: var(--light);
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1s ease;
+        }
+
+        .courses-preview.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         /* Utility Classes */
@@ -1507,11 +1904,28 @@
             font-weight: 800;
             border-radius: 12px;
             box-shadow: 0 8px 25px rgba(206, 218, 84, 0.4);
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .accent-gradient-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.7s ease;
+        }
+
+        .accent-gradient-btn:hover::before {
+            left: 100%;
         }
 
         .accent-gradient-btn:hover {
-            transform: translateY(-3px);
+            transform: translateY(-5px) scale(1.05);
             box-shadow: 0 12px 35px rgba(206, 218, 84, 0.5);
         }
 
@@ -1524,6 +1938,14 @@
             border-radius: 25px;
             color: white;
             text-align: center;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1s ease;
+        }
+
+        .why-choose-section.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .why-choose-grid {
@@ -1537,16 +1959,45 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            padding: 1.5rem;
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            transition: all 0.5s ease;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .why-choose-section.visible .why-choose-item {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .why-choose-section.visible .why-choose-item:nth-child(1) { transition-delay: 0.2s; }
+        .why-choose-section.visible .why-choose-item:nth-child(2) { transition-delay: 0.3s; }
+        .why-choose-section.visible .why-choose-item:nth-child(3) { transition-delay: 0.4s; }
+        .why-choose-section.visible .why-choose-item:nth-child(4) { transition-delay: 0.5s; }
+        .why-choose-section.visible .why-choose-item:nth-child(5) { transition-delay: 0.6s; }
+
+        .why-choose-item:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
         }
 
         .why-choose-icon {
             font-size: 3rem;
             margin-bottom: 0.5rem;
+            transition: all 0.5s ease;
+        }
+
+        .why-choose-item:hover .why-choose-icon {
+            transform: scale(1.2) rotate(10deg);
         }
 
         .why-choose-title {
             font-weight: 700;
             margin-bottom: 0.5rem;
+            font-size: 1.1rem;
         }
 
         .why-choose-desc {
@@ -1558,6 +2009,74 @@
         /* Contact Page Specific */
         #contactPage .grid-3 {
             margin-bottom: 4rem;
+        }
+
+        /* Dual Currency Styles */
+        .dual-currency {
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+            align-items: center;
+        }
+
+        .currency-ugx {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--primary-dark);
+        }
+
+        .currency-usd {
+            font-size: 1.2rem;
+            color: #6b7280;
+            font-weight: 600;
+        }
+
+        .pricing-card.featured .currency-ugx {
+            color: white;
+        }
+
+        .pricing-card.featured .currency-usd {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* Price Badge */
+        .price-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--accent), #e1d747);
+            color: var(--dark);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 800;
+            font-size: 1.1rem;
+            margin-top: 0.5rem;
+            box-shadow: 0 4px 15px rgba(206, 218, 84, 0.3);
+        }
+
+        /* Female Tutors Badge */
+        .female-tutors-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        /* Scroll Reveal Classes */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1s ease;
+        }
+
+        .scroll-reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         /* Responsive */
@@ -1626,6 +2145,10 @@
 
             .pricing-card.featured {
                 transform: scale(1);
+            }
+
+            .pricing-card.featured:hover {
+                transform: scale(1.02) translateY(-15px);
             }
 
             .marquee-card {
@@ -1714,6 +2237,20 @@
             
             .slider-btn.next {
                 right: -10px;
+            }
+
+            .dual-currency {
+                flex-direction: row;
+                justify-content: center;
+                gap: 1rem;
+            }
+
+            .currency-ugx {
+                font-size: 2rem;
+            }
+
+            .currency-usd {
+                font-size: 1rem;
             }
         }
 
@@ -1826,6 +2363,23 @@
                 width: 100%;
                 justify-content: center;
             }
+
+            .why-choose-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .dual-currency {
+                flex-direction: column;
+                gap: 0.2rem;
+            }
+
+            .currency-ugx {
+                font-size: 1.8rem;
+            }
+
+            .currency-usd {
+                font-size: 0.9rem;
+            }
         }
     </style>
 </head>
@@ -1908,21 +2462,21 @@
             </section>
 
             <!-- Simple Stats -->
-            <section class="stats">
+            <section class="stats scroll-reveal" id="statsSection">
                 <div class="stats-container">
-                    <div class="stat-item">
+                    <div class="stat-item scroll-reveal">
                         <div class="stat-number" data-target="15">0</div>
                         <div class="stat-label">Countries</div>
                     </div>
-                    <div class="stat-item">
+                    <div class="stat-item scroll-reveal">
                         <div class="stat-number" data-target="500">0</div>
                         <div class="stat-label">Students</div>
                     </div>
-                    <div class="stat-item">
+                    <div class="stat-item scroll-reveal">
                         <div class="stat-number" data-target="50">0</div>
                         <div class="stat-label">Hifdh Completed</div>
                     </div>
-                    <div class="stat-item">
+                    <div class="stat-item scroll-reveal">
                         <div class="stat-number">24/7</div>
                         <div class="stat-label">Support</div>
                     </div>
@@ -1930,14 +2484,14 @@
             </section>
 
             <!-- Courses Preview on Home -->
-            <section class="courses-preview">
+            <section class="courses-preview scroll-reveal" id="coursesPreview">
                 <div style="text-align: center; margin-bottom: 3rem;">
                     <h2 style="font-size: 2.8rem; font-weight: 900; color: var(--dark); margin-bottom: 1rem;">Our Courses</h2>
                     <p style="font-size: 1.15rem; color: #6b7280;">Comprehensive Islamic education programs designed for excellence</p>
                 </div>
                 <div style="max-width: 1200px; margin: 0 auto;">
-                    <div class="grid-3">
-                       <div class="image-card">
+                    <div class="grid-3 scroll-reveal" id="homeCoursesGrid">
+                       <div class="image-card scroll-reveal">
                             <img src="quran-memorization.png" alt="Student engaged in online Quran Hifz memorization program" loading="lazy">
                             <div class="image-card-content">
                                 <h3 class="image-card-title">Qur'an Memorisation (Hifdh)</h3>
@@ -1945,7 +2499,7 @@
                                 <a href="#" onclick="showPage('register'); return false;" class="btn btn-primary" style="display: inline-block; margin-top: 1rem; padding: 0.8rem 2rem; font-size: 0.9rem;" aria-label="Register for Hifdh Course">Register Now →</a>
                             </div>
                         </div>
-                        <div class="image-card">
+                        <div class="image-card scroll-reveal">
                             <img src="tajweed.png" alt="Muslim reciting Quran with proper Tajweed" loading="lazy">
                             <div class="image-card-content">
                                 <h3 class="image-card-title">Tajweed & Recitation</h3>
@@ -1953,7 +2507,7 @@
                              <a href="#" onclick="showPage('register'); return false;" class="btn btn-primary" style="display: inline-block; margin-top: 1rem; padding: 0.8rem 2rem; font-size: 0.9rem;" aria-label="Register for Hifdh Course">Register Now →</a>
                             </div>
                         </div>
-                        <div class="image-card">
+                        <div class="image-card scroll-reveal">
                             <img src="arabic.png" alt="Online class learning Quranic Arabic language" loading="lazy">
                             <div class="image-card-content">
                                 <h3 class="image-card-title">Arabic Language</h3>
@@ -1969,7 +2523,7 @@
             </section>
 
             <!-- Professional Marquee - Why Choose Saham Qur'an Academy -->
-            <section class="marquee-section">
+            <section class="marquee-section scroll-reveal" id="marqueeSection">
                 <div style="text-align: center; margin-bottom: 2.5rem;">
                     <h2 style="font-size: 2.5rem; font-weight: 900; color: white; margin-bottom: 0.8rem;">Why Choose Saham Qur'an Academy?</h2>
                     <p style="font-size: 1.1rem; color: rgba(255, 255, 255, 0.9); max-width: 700px; margin: 0 auto;">Discover what makes us the preferred choice for Qur'anic education worldwide</p>
@@ -1990,31 +2544,42 @@
                         <!-- Marquee Track -->
                         <div class="marquee-track" id="marqueeTrack">
                             <!-- Item 1 - Certified Teachers -->
-                            <div class="marquee-card">
+                            <div class="marquee-card scroll-reveal">
                                 <div class="marquee-card-icon">✅</div>
-                                <h3 style="color: white; font-size: 1.3rem; margin-bottom: 0.6rem; font-weight: 800;">Certified Teachers</h3>
-                                <p style="color: rgba(255, 255, 255, 0.95); font-size: 0.95rem; line-height: 1.5; font-weight: 500;">Expert instructors with years of teaching experience</p>
+                                <h3 class="marquee-white-text">Certified Teachers</h3>
+                                <p class="marquee-white-subtext">Expert instructors with years of teaching experience</p>
                             </div>
                             
                             <!-- Item 2 - Flexible Schedule -->
-                            <div class="marquee-card">
+                            <div class="marquee-card scroll-reveal">
                                 <div class="marquee-card-icon">⏰</div>
-                                <h3 style="color: white; font-size: 1.3rem; margin-bottom: 0.6rem; font-weight: 800;">Flexible Schedule</h3>
-                                <p style="color: rgba(255, 255, 255, 0.95); font-size: 0.95rem; line-height: 1.5; font-weight: 500;">Learn at your own pace, anytime, anywhere</p>
+                                <h3 class="marquee-white-text">Flexible Schedule</h3>
+                                <p class="marquee-white-subtext">Learn at your own pace, anytime, anywhere</p>
                             </div>
                             
                             <!-- Item 3 - Global Reach -->
-                            <div class="marquee-card">
+                            <div class="marquee-card scroll-reveal">
                                 <div class="marquee-card-icon">🌍</div>
-                                <h3 style="color: white; font-size: 1.3rem; margin-bottom: 0.6rem; font-weight: 800;">Global Reach</h3>
-                                <p style="color: rgba(255, 255, 255, 0.95); font-size: 0.95rem; line-height: 1.5; font-weight: 500;">Students from 15+ countries worldwide</p>
+                                <h3 class="marquee-white-text">Global Reach</h3>
+                                <p class="marquee-white-subtext">Students from 15+ countries worldwide</p>
                             </div>
                             
-                            <!-- Item 4 - Proven Results -->
-                            <div class="marquee-card">
+                            <!-- Item 4 - Female Tutors -->
+                            <div class="marquee-card scroll-reveal">
+                                <div class="marquee-card-icon">👩‍🏫</div>
+                                <h3 class="marquee-white-text">Female Tutors Available</h3>
+                                <p class="marquee-white-subtext">Comfortable learning environment for sisters</p>
+                                <div class="female-tutors-badge">
+                                    <span>👩‍🎓</span>
+                                    <span>Available for Sisters</span>
+                                </div>
+                            </div>
+                            
+                            <!-- Item 5 - Proven Results -->
+                            <div class="marquee-card scroll-reveal">
                                 <div class="marquee-card-icon">💯</div>
-                                <h3 style="color: white; font-size: 1.3rem; margin-bottom: 0.6rem; font-weight: 800;">Proven Results</h3>
-                                <p style="color: rgba(255, 255, 255, 0.95); font-size: 0.95rem; line-height: 1.5; font-weight: 500;">50+ students completed Hifdh successfully</p>
+                                <h3 class="marquee-white-text">Proven Results</h3>
+                                <p class="marquee-white-subtext">50+ students completed Hifdh successfully</p>
                             </div>
                         </div>
                     </div>
@@ -2022,7 +2587,7 @@
 
                 <!-- CTA Button -->
                 <div style="text-align: center; margin-top: 3rem;">
-                    <a href="#" onclick="showPage('register'); return false;" class="btn btn-primary" style="background: linear-gradient(135deg, var(--accent), #e1d747); color: var(--dark); border: none; padding: 1rem 2.5rem; font-size: 1.1rem; font-weight: 800; border-radius: 12px; box-shadow: 0 8px 25px rgba(206, 218, 84, 0.4); transition: all 0.3s ease;">
+                    <a href="#" onclick="showPage('register'); return false;" class="accent-gradient-btn" aria-label="Start Your Journey Today">
                         Start Your Journey Today →
                     </a>
                 </div>
@@ -2030,13 +2595,13 @@
              
 
             <!-- Testimonials on Home Page -->
-            <section style="padding: 5rem 2rem; background: white;">
-                <div style="text-align: center; margin-bottom: 3rem;">
-                    <h2 style="font-size: 2.8rem; font-weight: 900; color: var(--dark); margin-bottom: 1rem;">What Our Students Say</h2>
-                    <p style="font-size: 1.15rem; color: #6b7280;">Real transformations from real students around the world</p>
+            <section style="padding: 5rem 2rem; background: white;" class="scroll-reveal" id="testimonialsSection">
+                <div class="section-header scroll-reveal">
+                    <h2 class="section-title">What Our Students Say</h2>
+                    <p class="section-subtitle">Real transformations from real students around the world</p>
                 </div>
 
-                <div class="testimonial-slider">
+                <div class="testimonial-slider scroll-reveal">
                     <div class="slider-btn prev" onclick="changeTestimonial(-1)" aria-label="Previous Testimonial">‹</div>
                     <div class="slider-btn next" onclick="changeTestimonial(1)" aria-label="Next Testimonial">›</div>
                     
@@ -2079,12 +2644,12 @@
 
         <!-- COURSES PAGE -->
         <div id="coursesPage" class="page-content">
-            <div class="section-header">
+            <div class="section-header scroll-reveal">
                 <h2 class="section-title">Our Courses</h2>
                 <p class="section-subtitle">Comprehensive Islamic education programs designed for excellence</p>
             </div>
-            <div class="grid-3">
-                <div class="image-card">
+            <div class="grid-3 scroll-reveal">
+                <div class="image-card scroll-reveal">
                     <img src="quran-memorization.png" alt="Student engaged in online Quran Hifz memorization program" loading="lazy">
                     <div class="image-card-content">
                         <h3 class="image-card-title">Qur'an Memorisation (Hifdh)</h3>
@@ -2092,7 +2657,7 @@
                         <a href="#" onclick="showPage('register'); return false;" class="btn btn-primary" style="display: inline-block; margin-top: 1rem; padding: 0.8rem 2rem; font-size: 0.9rem;" aria-label="Register for Hifdh Course">Register Now →</a>
                     </div>
                 </div>
-                <div class="image-card">
+                <div class="image-card scroll-reveal">
                     <img src="tajweed.png" alt="Muslim beautifully reciting the Quran with proper Tajweed" loading="lazy">
                     <div class="image-card-content">
                         <h3 class="image-card-title">Tilaawah Al-Quran (Reciting The Holy Quran)</h3>
@@ -2100,7 +2665,7 @@
                         <a href="#" onclick="showPage('register'); return false;" class="btn btn-primary" style="display: inline-block; margin-top: 1rem; padding: 0.8rem 2rem; font-size: 0.9rem;" aria-label="Register for Tajweed Course">Register Now →</a>
                     </div>
                 </div>
-                <div class="image-card">
+                <div class="image-card scroll-reveal">
                     <img src="arabic.png" alt="Online class for learning Quranic Arabic and Islamic education" loading="lazy">
                     <div class="image-card-content">
                         <h3 class="image-card-title">Arabic Language</h3>
@@ -2108,7 +2673,7 @@
                         <a href="#" onclick="showPage('register'); return false;" class="btn btn-primary" style="display: inline-block; margin-top: 1rem; padding: 0.8rem 2rem; font-size: 0.9rem;" aria-label="Register for Arabic Course">Register Now →</a>
                     </div>
                 </div>
-                <div class="image-card">
+                <div class="image-card scroll-reveal">
                     <img src="kid.png" alt="Children enjoying fun and engaging online Quran classes" loading="lazy">
                     <div class="image-card-content">
                         <h3 class="image-card-title">Qur'an for Kids</h3>
@@ -2117,7 +2682,7 @@
                     </div>
                 </div>
 
-                <div class="image-card">
+                <div class="image-card scroll-reveal">
                     <img src="yassarnal.png" alt="Beginner-friendly Yassarnal Qur'an online classes" loading="lazy">
                     <div class="image-card-content">
                         <h3 class="image-card-title">Yassarnal Qur'an</h3>
@@ -2126,7 +2691,7 @@
                     </div>
                 </div>
 
-                <div class="image-card">
+                <div class="image-card scroll-reveal">
                     <img src="hadith.png" alt="Online Hadith course teaching authentic sayings of the Prophet Muhammad ﷺ" loading="lazy">
                     <div class="image-card-content">
                         <h3 class="image-card-title">Hadith Course</h3>
@@ -2135,7 +2700,7 @@
                     </div>
                 </div>
 
-                <div class="image-card" style="opacity: 0.6; position: relative;">
+                <div class="image-card scroll-reveal" style="opacity: 0.6; position: relative;">
                     <div style="position: absolute; top: 1rem; right: 1rem; background: var(--accent); color: var(--dark); padding: 0.5rem 1rem; border-radius: 8px; font-weight: 700; font-size: 0.85rem; z-index: 10;">COMING SOON</div>
                     <img src="islamic-studies.png" alt="Islamic studies class covering Aqeedah, Fiqh, Hadith, and Seerah" loading="lazy" style="opacity: 0.7;">
                     <div class="image-card-content">
@@ -2145,7 +2710,7 @@
                     </div>
                 </div>
                  
-                <div class="image-card" style="opacity: 0.6; position: relative;">
+                <div class="image-card scroll-reveal" style="opacity: 0.6; position: relative;">
                     <div style="position: absolute; top: 1rem; right: 1rem; background: var(--accent); color: var(--dark); padding: 0.5rem 1rem; border-radius: 8px; font-weight: 700; font-size: 0.85rem; z-index: 10;">COMING SOON</div>
                     <img src="https://www.fajralquran.com/blog/wp-content/uploads/2025/05/fajr-04.jpg" alt="Quran Ijazah certification program with authentic Sanad" loading="lazy" style="opacity: 0.7;">
                     <div class="image-card-content">
@@ -2161,25 +2726,30 @@
             </div>
             
             <!-- Why Choose Saham Qur'an Academy? -->
-            <div class="why-choose-section">
+            <div class="why-choose-section scroll-reveal" id="whyChooseCourses">
                 <h3 style="font-size: 2rem; margin-bottom: 1.5rem;">Why Choose Saham Qur'an Academy?</h3>
                 <div class="why-choose-grid">
-                    <div class="why-choose-item">
+                    <div class="why-choose-item scroll-reveal">
                         <div class="why-choose-icon">✅</div>
                         <strong class="why-choose-title">Certified Teachers</strong>
                         <p class="why-choose-desc">Expert instructors with years of experience</p>
                     </div>
-                    <div class="why-choose-item">
+                    <div class="why-choose-item scroll-reveal">
                         <div class="why-choose-icon">⏰</div>
                         <strong class="why-choose-title">Flexible Schedule</strong>
                         <p class="why-choose-desc">Learn at your own pace</p>
                     </div>
-                    <div class="why-choose-item">
+                    <div class="why-choose-item scroll-reveal">
                         <div class="why-choose-icon">🌍</div>
                         <strong class="why-choose-title">Global Reach</strong>
                         <p class="why-choose-desc">Students in 15+ countries</p>
                     </div>
-                    <div class="why-choose-item">
+                    <div class="why-choose-item scroll-reveal">
+                        <div class="why-choose-icon">👩‍🏫</div>
+                        <strong class="why-choose-title">Female Tutors</strong>
+                        <p class="why-choose-desc">Available for sisters' classes</p>
+                    </div>
+                    <div class="why-choose-item scroll-reveal">
                         <div class="why-choose-icon">💯</div>
                         <strong class="why-choose-title">Proven Results</strong>
                         <p class="why-choose-desc">50+ students completed Hifdh</p>
@@ -2190,16 +2760,19 @@
 
         <!-- PRICING PAGE -->
         <div id="pricingPage" class="page-content">
-            <div class="section-header">
+            <div class="section-header scroll-reveal">
                 <h2 class="section-title">Affordable Pricing Plans</h2>
                 <p class="section-subtitle">Choose the learning format that works best for you</p>
             </div>
             
-            <div class="pricing-cards">
-                <div class="pricing-card">
+            <div class="pricing-cards scroll-reveal" id="pricingCards">
+                <div class="pricing-card scroll-reveal">
                     <div class="pricing-icon">💬</div>
                     <h3 class="pricing-title">WhatsApp Classes</h3>
-                    <div class="pricing-price">40K UGX</div>
+                    <div class="dual-currency">
+                        <div class="currency-ugx">40K UGX</div>
+                        <div class="currency-usd">≈ $10.81 USD</div>
+                    </div>
                     <div class="pricing-period">per month</div>
                     <ul class="pricing-features">
                         <li>Daily lessons via WhatsApp</li>
@@ -2208,14 +2781,18 @@
                         <li>Progress tracking</li>
                         <li>Study materials included</li>
                         <li>24/7 support</li>
+                        <li>Female tutors available</li>
                     </ul>
                     <a href="#" onclick="showPage('register'); return false;" class="btn btn-primary" style="width: 100%;" aria-label="Get Started with WhatsApp Classes">Get Started</a>
                 </div>
 
-                <div class="pricing-card featured">
+                <div class="pricing-card featured scroll-reveal">
                     <div class="pricing-icon">📹</div>
                     <h3 class="pricing-title">Zoom 1-on-1</h3>
-                    <div class="pricing-price">60K UGX</div>
+                    <div class="dual-currency">
+                        <div class="currency-ugx">60K UGX</div>
+                        <div class="currency-usd">≈ $16.22 USD</div>
+                    </div>
                     <div class="pricing-period">per month</div>
                     <ul class="pricing-features">
                         <li>Live video sessions</li>
@@ -2225,31 +2802,37 @@
                         <li>Interactive whiteboard</li>
                         <li>Priority support</li>
                         <li>Flexible scheduling</li>
+                        <li>Female tutors available</li>
                     </ul>
                     <a href="#" onclick="showPage('register'); return false;" class="btn btn-primary" style="width: 100%; background: white; color: var(--primary-dark);" aria-label="Get Started with Zoom 1-on-1 Classes">Get Started</a>
                 </div>
             </div>
 
             <!-- Why Choose Saham Qur'an Academy? -->
-            <div class="why-choose-section">
+            <div class="why-choose-section scroll-reveal" id="whyChoosePricing">
                 <h3 style="font-size: 2rem; margin-bottom: 1.5rem;">Why Choose Saham Qur'an Academy?</h3>
                 <div class="why-choose-grid">
-                    <div class="why-choose-item">
+                    <div class="why-choose-item scroll-reveal">
                         <div class="why-choose-icon">✅</div>
                         <strong class="why-choose-title">Certified Teachers</strong>
                         <p class="why-choose-desc">Expert instructors with years of experience</p>
                     </div>
-                    <div class="why-choose-item">
+                    <div class="why-choose-item scroll-reveal">
                         <div class="why-choose-icon">⏰</div>
                         <strong class="why-choose-title">Flexible Schedule</strong>
                         <p class="why-choose-desc">Learn at your own pace</p>
                     </div>
-                    <div class="why-choose-item">
+                    <div class="why-choose-item scroll-reveal">
                         <div class="why-choose-icon">🌍</div>
                         <strong class="why-choose-title">Global Reach</strong>
                         <p class="why-choose-desc">Students in 15+ countries</p>
                     </div>
-                    <div class="why-choose-item">
+                    <div class="why-choose-item scroll-reveal">
+                        <div class="why-choose-icon">👩‍🏫</div>
+                        <strong class="why-choose-title">Female Tutors</strong>
+                        <p class="why-choose-desc">Available for sisters' classes</p>
+                    </div>
+                    <div class="why-choose-item scroll-reveal">
                         <div class="why-choose-icon">💯</div>
                         <strong class="why-choose-title">Proven Results</strong>
                         <p class="why-choose-desc">50+ students completed Hifdh</p>
@@ -2260,12 +2843,12 @@
 
         <!-- ABOUT PAGE -->
         <div id="aboutPage" class="page-content">
-            <div class="section-header">
+            <div class="section-header scroll-reveal">
                 <h2 class="section-title">About Saham Academy</h2>
                 <p class="section-subtitle">Excellence in Islamic education from Kampala, Uganda to the world</p>
             </div>
             
-            <div style="max-width: 800px; margin: 0 auto 4rem; text-align: center;">
+            <div style="max-width: 800px; margin: 0 auto 4rem; text-align: center;" class="scroll-reveal">
                 <div style="width: 100%; height: 400px; background: linear-gradient(135deg, var(--primary-dark), var(--primary)); border-radius: 20px; display: flex; align-items: center; justify-content: center; margin-bottom: 2rem;">
                     <img src="logo4.png" alt="Saham Academy - Excellence in Islamic Education" style="width: 400px; height: 400px; object-fit: contain;">
                 </div>
@@ -2280,9 +2863,9 @@
                 </p>
             </div>
 
-            <h3 style="text-align: center; font-size: 2.5rem; font-weight: 900; margin-bottom: 3rem;">Meet Our Expert Team</h3>
-            <div class="grid-3">
-                <div class="image-card">
+            <h3 style="text-align: center; font-size: 2.5rem; font-weight: 900; margin-bottom: 3rem;" class="scroll-reveal">Meet Our Expert Team</h3>
+            <div class="grid-3 scroll-reveal">
+                <div class="image-card scroll-reveal">
                     <img src="abdulsalaam.png" alt="Sheikh Abdulsalaam Founder and Director of Saham Academy" loading="lazy">
                     <div class="image-card-content">
                         <h3 class="image-card-title">Sheikh Abdulsalaam Abbas Ssenkindu</h3>
@@ -2291,7 +2874,7 @@
                     </div>
                 </div>
 
-                <div class="image-card">
+                <div class="image-card scroll-reveal">
                     <img src="hashim.jpeg" alt="Sheikh Hashim Muhammad Bbanja, Hadith Specialist" loading="lazy">
                     <div class="image-card-content">
                         <h3 class="image-card-title">Sheikh Hashim Muhammad Bbanja</h3>
@@ -2300,7 +2883,7 @@
                     </div>
                 </div>
                 
-                <div class="image-card">
+                <div class="image-card scroll-reveal">
                     <img src="bashir.jpeg" alt="Sheikh Bashir Buvumbo, Qur'an Specialist" loading="lazy">
                     <div class="image-card-content">
                         <h3 class="image-card-title">Sheikh Bashir Buvumbo</h3>
@@ -2309,7 +2892,7 @@
                     </div>
                 </div>
                 
-                <div class="image-card">
+                <div class="image-card scroll-reveal">
                     <img src="usaama.jpeg" alt="Sheikh Usaama Ssegujja, Qur'an Specialist" loading="lazy">
                     <div class="image-card-content">
                         <h3 class="image-card-title">Sheikh Usaama Ssegujja</h3>
@@ -2320,25 +2903,30 @@
             </div>
 
             <!-- Why Choose Saham Qur'an Academy? -->
-            <div class="why-choose-section">
+            <div class="why-choose-section scroll-reveal" id="whyChooseAbout">
                 <h3 style="font-size: 2rem; margin-bottom: 1.5rem;">Why Choose Saham Qur'an Academy?</h3>
                 <div class="why-choose-grid">
-                    <div class="why-choose-item">
+                    <div class="why-choose-item scroll-reveal">
                         <div class="why-choose-icon">✅</div>
                         <strong class="why-choose-title">Certified Teachers</strong>
                         <p class="why-choose-desc">Expert instructors with years of experience</p>
                     </div>
-                    <div class="why-choose-item">
+                    <div class="why-choose-item scroll-reveal">
                         <div class="why-choose-icon">⏰</div>
                         <strong class="why-choose-title">Flexible Schedule</strong>
                         <p class="why-choose-desc">Learn at your own pace</p>
                     </div>
-                    <div class="why-choose-item">
+                    <div class="why-choose-item scroll-reveal">
                         <div class="why-choose-icon">🌍</div>
                         <strong class="why-choose-title">Global Reach</strong>
                         <p class="why-choose-desc">Students in 15+ countries</p>
                     </div>
-                    <div class="why-choose-item">
+                    <div class="why-choose-item scroll-reveal">
+                        <div class="why-choose-icon">👩‍🏫</div>
+                        <strong class="why-choose-title">Female Tutors</strong>
+                        <p class="why-choose-desc">Available for sisters' classes</p>
+                    </div>
+                    <div class="why-choose-item scroll-reveal">
                         <div class="why-choose-icon">💯</div>
                         <strong class="why-choose-title">Proven Results</strong>
                         <p class="why-choose-desc">50+ students completed Hifdh</p>
@@ -2350,7 +2938,7 @@
         <!-- REGISTRATION PAGE -->
         <div id="registerPage" class="page-content">
             <!-- Two Column Layout: Form + Benefits -->
-            <div class="registration-layout" style="margin-top: 80px;">
+            <div class="registration-layout scroll-reveal" id="registrationLayout" style="margin-top: 80px;">
                 <!-- Left Column: Registration Form -->
                 <div class="registration-form-container">
                     <div class="form-header">
@@ -2464,7 +3052,7 @@
                 <!-- Right Column: Benefits & WhatsApp -->
                 <div class="registration-sidebar">
                     <!-- WhatsApp Prompt Card -->
-                    <div class="sidebar-card whatsapp-card">
+                    <div class="sidebar-card whatsapp-card scroll-reveal">
                         <div class="card-icon">💬</div>
                         <h3>Complete Registration on WhatsApp</h3>
                         <p>For faster processing and immediate response, message us directly on WhatsApp:</p>
@@ -2481,7 +3069,7 @@
                     </div>
                     
                     <!-- Quick Stats Card -->
-                    <div class="sidebar-card stats-card">
+                    <div class="sidebar-card stats-card scroll-reveal">
                         <div class="card-icon">📊</div>
                         <h3>Why Choose Us?</h3>
                         <div class="stats-grid">
@@ -2505,12 +3093,13 @@
                     </div>
                     
                     <!-- Benefits Card -->
-                    <div class="sidebar-card">
+                    <div class="sidebar-card scroll-reveal">
                         <div class="card-icon">✅</div>
                         <h3>Key Benefits</h3>
                         <ul class="benefits-list">
                             <li><span class="check-icon">✓</span> Flexible scheduling</li>
                             <li><span class="check-icon">✓</span> Certified instructors</li>
+                            <li><span class="check-icon">✓</span> Female tutors available</li>
                             <li><span class="check-icon">✓</span> Personalized attention</li>
                             <li><span class="check-icon">✓</span> Progress tracking</li>
                             <li><span class="check-icon">✓</span> 24/7 support</li>
@@ -2520,25 +3109,30 @@
             </div>
 
             <!-- Why Choose Saham Qur'an Academy? -->
-            <div class="why-choose-section">
+            <div class="why-choose-section scroll-reveal" id="whyChooseRegister">
                 <h3 style="font-size: 2rem; margin-bottom: 1.5rem;">Why Choose Saham Qur'an Academy?</h3>
                 <div class="why-choose-grid">
-                    <div class="why-choose-item">
+                    <div class="why-choose-item scroll-reveal">
                         <div class="why-choose-icon">✅</div>
                         <strong class="why-choose-title">Certified Teachers</strong>
                         <p class="why-choose-desc">Expert instructors with years of experience</p>
                     </div>
-                    <div class="why-choose-item">
+                    <div class="why-choose-item scroll-reveal">
                         <div class="why-choose-icon">⏰</div>
                         <strong class="why-choose-title">Flexible Schedule</strong>
                         <p class="why-choose-desc">Learn at your own pace</p>
                     </div>
-                    <div class="why-choose-item">
+                    <div class="why-choose-item scroll-reveal">
                         <div class="why-choose-icon">🌍</div>
                         <strong class="why-choose-title">Global Reach</strong>
                         <p class="why-choose-desc">Students in 15+ countries</p>
                     </div>
-                    <div class="why-choose-item">
+                    <div class="why-choose-item scroll-reveal">
+                        <div class="why-choose-icon">👩‍🏫</div>
+                        <strong class="why-choose-title">Female Tutors</strong>
+                        <p class="why-choose-desc">Available for sisters' classes</p>
+                    </div>
+                    <div class="why-choose-item scroll-reveal">
                         <div class="why-choose-icon">💯</div>
                         <strong class="why-choose-title">Proven Results</strong>
                         <p class="why-choose-desc">50+ students completed Hifdh</p>
@@ -2549,13 +3143,13 @@
 
         <!-- CONTACT PAGE -->
         <div id="contactPage" class="page-content">
-            <div class="section-header">
+            <div class="section-header scroll-reveal">
                 <h2 class="section-title">Get in Touch</h2>
                 <p class="section-subtitle">Ready to begin your Qur'anic journey? Contact us today</p>
             </div>
 
-            <div class="grid-3">
-                <div class="card">
+            <div class="grid-3 scroll-reveal">
+                <div class="card scroll-reveal">
                     <div class="card-icon">📱</div>
                     <h3 class="card-title">WhatsApp</h3>
                     <p class="card-text" style="font-weight: 700; color: var(--primary-dark); font-size: 1.2rem; margin-bottom: 0.5rem;">+256 784 560 867</p>
@@ -2564,7 +3158,7 @@
                     <a href="https://wa.me/256784560867?text=Assalamu%20Alaikum!%20I'm%20interested%20in%20Saham%20Academy" class="btn btn-primary" style="display: inline-block; padding: 0.8rem 2rem; font-size: 0.9rem;" aria-label="Message us on WhatsApp">Message Us</a>
                 </div>
 
-                <div class="card">
+                <div class="card scroll-reveal">
                     <div class="card-icon">📞</div>
                     <h3 class="card-title">Call Us</h3>
                     <p class="card-text" style="font-weight: 700; color: var(--primary-dark); font-size: 1.2rem; margin-bottom: 0.5rem;">+256 784 560 867</p>
@@ -2572,7 +3166,7 @@
                     <p class="card-text">Available 7 days a week<br>9 AM - 9 PM EAT</p>
                 </div>
 
-                <div class="card">
+                <div class="card scroll-reveal">
                     <div class="card-icon">🌍</div>
                     <h3 class="card-title">Location</h3>
                     <p class="card-text" style="font-weight: 700; color: var(--primary-dark); font-size: 1.2rem; margin-bottom: 1rem;">Kampala, Uganda 🇺🇬</p>
@@ -2580,7 +3174,7 @@
                 </div>
             </div>
 
-            <div style="max-width: 700px; margin: 4rem auto; background: linear-gradient(135deg, #f0fdf4, #dcfce7); padding: 3rem; border-radius: 25px; text-align: center;">
+            <div style="max-width: 700px; margin: 4rem auto; background: linear-gradient(135deg, #f0fdf4, #dcfce7); padding: 3rem; border-radius: 25px; text-align: center;" class="scroll-reveal">
                 <h3 style="font-size: 2rem; margin-bottom: 1.5rem; color: var(--dark);">Ready to Enroll?</h3>
                 <p style="font-size: 1.1rem; color: #6b7280; margin-bottom: 2rem; line-height: 1.8;">
                     Contact us via WhatsApp or call to discuss your learning goals. We'll guide you through the enrollment process, answer all your questions, and help you choose the perfect course for your needs.
@@ -2588,40 +3182,56 @@
                 <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-bottom: 2rem;">
                     <div style="background: white; padding: 1.5rem; border-radius: 15px;">
                         <p style="font-weight: 700; margin-bottom: 0.5rem;">WhatsApp Classes</p>
-                        <p style="font-size: 2rem; font-weight: 900; color: var(--primary-dark);">40K UGX</p>
-                        <p style="color: #6b7280; font-size: 0.9rem;">per month</p>
+                        <div class="dual-currency">
+                            <div class="currency-ugx">40K UGX</div>
+                            <div class="currency-usd">≈ $10.81 USD</div>
+                        </div>
                     </div>
                     <div style="background: white; padding: 1.5rem; border-radius: 15px;">
                         <p style="font-weight: 700; margin-bottom: 0.5rem;">Zoom 1-on-1</p>
-                        <p style="font-size: 2rem; font-weight: 900; color: var(--primary-dark);">60K UGX</p>
-                        <p style="color: #6b7280; font-size: 0.9rem;">per month</p>
+                        <div class="dual-currency">
+                            <div class="currency-ugx">60K UGX</div>
+                            <div class="currency-usd">≈ $16.22 USD</div>
+                        </div>
                     </div>
                 </div>
-                <a href="#" onclick="showPage('register'); return false;" class="btn btn-primary" style="background: var(--primary-dark); color: white;" aria-label="Start your registration now">
+                <div class="price-badge">
+                    <span>Exchange Rate: $1 = 3,700 UGX</span>
+                </div>
+                <div class="female-tutors-badge" style="margin: 1rem auto; width: fit-content;">
+                    <span>👩‍🏫</span>
+                    <span>Female Tutors Available for Sisters</span>
+                </div>
+                <a href="#" onclick="showPage('register'); return false;" class="btn btn-primary" style="background: var(--primary-dark); color: white; margin-top: 1rem;" aria-label="Start your registration now">
                     Start Your Registration Now →
                 </a>
             </div>
 
             <!-- Why Choose Saham Qur'an Academy? -->
-            <div class="why-choose-section">
+            <div class="why-choose-section scroll-reveal" id="whyChooseContact">
                 <h3 style="font-size: 2rem; margin-bottom: 1.5rem;">Why Choose Saham Qur'an Academy?</h3>
                 <div class="why-choose-grid">
-                    <div class="why-choose-item">
+                    <div class="why-choose-item scroll-reveal">
                         <div class="why-choose-icon">✅</div>
                         <strong class="why-choose-title">Certified Teachers</strong>
                         <p class="why-choose-desc">Expert instructors with years of experience</p>
                     </div>
-                    <div class="why-choose-item">
+                    <div class="why-choose-item scroll-reveal">
                         <div class="why-choose-icon">⏰</div>
                         <strong class="why-choose-title">Flexible Schedule</strong>
                         <p class="why-choose-desc">Learn at your own pace</p>
                     </div>
-                    <div class="why-choose-item">
+                    <div class="why-choose-item scroll-reveal">
                         <div class="why-choose-icon">🌍</div>
                         <strong class="why-choose-title">Global Reach</strong>
                         <p class="why-choose-desc">Students in 15+ countries</p>
                     </div>
-                    <div class="why-choose-item">
+                    <div class="why-choose-item scroll-reveal">
+                        <div class="why-choose-icon">👩‍🏫</div>
+                        <strong class="why-choose-title">Female Tutors</strong>
+                        <p class="why-choose-desc">Available for sisters' classes</p>
+                    </div>
+                    <div class="why-choose-item scroll-reveal">
                         <div class="why-choose-icon">💯</div>
                         <strong class="why-choose-title">Proven Results</strong>
                         <p class="why-choose-desc">50+ students completed Hifdh</p>
@@ -2632,7 +3242,7 @@
     </main>
 
     <!-- Footer -->
-    <footer aria-label="Footer Information">
+    <footer aria-label="Footer Information" class="scroll-reveal" id="footerSection">
         <div class="footer-content">
             <div class="footer-logo">
                 <img src="logo.png" alt="Saham Academy Logo">
@@ -2704,6 +3314,7 @@
         let marqueeTrack = null;
         let marqueeContainerWidth = 0;
         let isMobileMenuOpen = false;
+        const EXCHANGE_RATE = 3700; // 1 USD = 3700 UGX
 
         // ========== DOM ELEMENTS CACHE ==========
         const elements = {
@@ -2712,13 +3323,14 @@
             homePage: document.getElementById('homePage'),
             mobileMenu: document.getElementById('mobileMenu'),
             mobileToggle: document.getElementById('mobileToggle'),
-            statsSection: document.querySelector('.stats'),
+            statsSection: document.getElementById('statsSection'),
             testimonialSlider: document.querySelector('.testimonial-slider'),
             testimonials: document.querySelectorAll('.testimonial-item'),
             marqueeTrack: document.getElementById('marqueeTrack'),
             marqueeContainer: document.querySelector('.marquee-container'),
             registrationForm: document.getElementById('registrationForm'),
-            successMsg: document.getElementById('successMsg')
+            successMsg: document.getElementById('successMsg'),
+            footerSection: document.getElementById('footerSection')
         };
 
         // ========== PAGE NAVIGATION ==========
@@ -2747,6 +3359,10 @@
                 if (elements.homePage) {
                     elements.homePage.style.display = 'block';
                     window.scrollTo({ top: 0, behavior: 'smooth' });
+                    // Reinitialize scroll animations for home page
+                    setTimeout(() => {
+                        initScrollAnimations();
+                    }, 100);
                 }
             } else {
                 const pageElement = document.getElementById(page + 'Page');
@@ -2754,6 +3370,10 @@
                     pageElement.style.display = 'block';
                     pageElement.classList.add('active');
                     window.scrollTo({ top: 0, behavior: 'smooth' });
+                    // Initialize scroll animations for the new page
+                    setTimeout(() => {
+                        initScrollAnimations();
+                    }, 100);
                 } else {
                     console.warn('Page element not found:', page + 'Page');
                     // Fallback to home
@@ -2806,7 +3426,45 @@
                 if (elements.pageLoader) {
                     elements.pageLoader.classList.add('hide');
                 }
+                // Initialize animations after page loads
+                setTimeout(() => {
+                    initScrollAnimations();
+                }, 300);
             }, 2000);
+        }
+
+        // ========== SCROLL ANIMATIONS ==========
+        function initScrollAnimations() {
+            const scrollRevealElements = document.querySelectorAll('.scroll-reveal');
+            
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        
+                        // Special handling for grid items
+                        if (entry.target.classList.contains('grid-3')) {
+                            const children = entry.target.children;
+                            setTimeout(() => {
+                                for (let i = 0; i < children.length; i++) {
+                                    setTimeout(() => {
+                                        children[i].classList.add('visible');
+                                    }, i * 100);
+                                }
+                            }, 300);
+                        }
+                        
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+            
+            scrollRevealElements.forEach(el => observer.observe(el));
         }
 
         // ========== NAVBAR SCROLL EFFECT ==========
@@ -3044,6 +3702,27 @@
             }
         }
 
+        // ========== CURRENCY CONVERSION ==========
+        function convertUGXtoUSD(ugxAmount) {
+            return (ugxAmount / EXCHANGE_RATE).toFixed(2);
+        }
+
+        function updateCurrencyDisplay() {
+            // Update pricing cards
+            document.querySelectorAll('.currency-ugx').forEach(el => {
+                if (el.textContent.includes('UGX')) {
+                    const ugxAmount = parseInt(el.textContent.replace('K', '000').replace('UGX', '').trim());
+                    if (!isNaN(ugxAmount)) {
+                        const usdAmount = convertUGXtoUSD(ugxAmount);
+                        const usdElement = el.nextElementSibling;
+                        if (usdElement && usdElement.classList.contains('currency-usd')) {
+                            usdElement.textContent = `≈ $${usdAmount} USD`;
+                        }
+                    }
+                }
+            });
+        }
+
         // ========== EVENT LISTENERS ==========
         function setupEventListeners() {
             // Window events
@@ -3095,6 +3774,9 @@
             initTestimonialSlider();
             initMarquee();
             
+            // Update currency displays
+            updateCurrencyDisplay();
+            
             // Start auto-play
             startTestimonialAutoPlay();
             
@@ -3131,4 +3813,3 @@
     </script>
 </body>
 </html>
-
