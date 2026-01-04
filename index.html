@@ -404,13 +404,6 @@
             overflow: hidden;
         }
 
-     
-
-        @keyframes gradientShift {
-            0% { opacity: 0.85; }
-            100% { opacity: 0.95; }
-        }
-
         .hero-container {
             max-width: 1200px;
             margin: 0 auto;
@@ -588,6 +581,26 @@
             background: white;
             color: #005f31;
             border-color: #CEDA54;
+        }
+
+        .btn-trial {
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            color: white;
+            border: none;
+        }
+
+        .btn-trial:hover {
+            background: linear-gradient(135deg, #128C7E, #25D366);
+        }
+
+        .btn-donate {
+            background: linear-gradient(135deg, #FF6B6B, #EE5A52);
+            color: white;
+            border: none;
+        }
+
+        .btn-donate:hover {
+            background: linear-gradient(135deg, #EE5A52, #FF6B6B);
         }
 
         /* Floating Animation for Hero Elements */
@@ -2002,6 +2015,7 @@
         .why-choose-section.visible .why-choose-item:nth-child(3) { transition-delay: 0.4s; }
         .why-choose-section.visible .why-choose-item:nth-child(4) { transition-delay: 0.5s; }
         .why-choose-section.visible .why-choose-item:nth-child(5) { transition-delay: 0.6s; }
+        .why-choose-section.visible .why-choose-item:nth-child(6) { transition-delay: 0.7s; }
 
         .why-choose-item:hover {
             background: rgba(255, 255, 255, 0.2);
@@ -2104,11 +2118,282 @@
             transform: translateY(0);
         }
 
+        /* Donation Page Styles */
+        .donation-hero {
+            min-height: 40vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 100px 2rem 3rem;
+            background: linear-gradient(135deg, #FF6B6B 0%, #EE5A52 100%);
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .donation-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 100;
+        }
+
+        .donation-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .donation-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: all 0.4s ease;
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .donation-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 107, 107, 0.1), transparent);
+            transition: left 0.7s ease;
+        }
+
+        .donation-card:hover::before {
+            left: 100%;
+        }
+
+        .donation-card:hover {
+            transform: translateY(-10px);
+            border-color: #FF6B6B;
+            box-shadow: 0 20px 40px rgba(255, 107, 107, 0.15);
+        }
+
+        .donation-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #FF6B6B, #EE5A52);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: white;
+            font-size: 2rem;
+            box-shadow: 0 8px 20px rgba(255, 107, 107, 0.3);
+            transition: all 0.5s ease;
+        }
+
+        .donation-card:hover .donation-icon {
+            transform: scale(1.1) rotate(10deg);
+        }
+
+        .payment-details {
+            background: #f8fafc;
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin: 1.5rem 0;
+            text-align: left;
+        }
+
+        .payment-details h4 {
+            color: var(--primary-dark);
+            margin-bottom: 0.8rem;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .payment-details ul {
+            padding-left: 1.2rem;
+            margin: 0;
+        }
+
+        .payment-details li {
+            margin-bottom: 0.5rem;
+            color: #4b5563;
+            line-height: 1.6;
+        }
+
+        .account-number {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: #FF6B6B;
+            margin: 1rem 0;
+            padding: 1rem;
+            background: rgba(255, 107, 107, 0.1);
+            border-radius: 10px;
+            border: 2px dashed #FF6B6B;
+        }
+
+        .payment-instruction {
+            background: linear-gradient(135deg, #FF6B6B, #EE5A52);
+            padding: 2.5rem;
+            border-radius: 20px;
+            color: white;
+            margin: 3rem 0;
+            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3);
+        }
+
+        .instruction-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .instruction-step {
+            text-align: center;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .instruction-step:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .step-number {
+            width: 40px;
+            height: 40px;
+            background: white;
+            color: #FF6B6B;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-weight: 800;
+            font-size: 1.2rem;
+        }
+
+        .donation-impact {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .impact-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .impact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .impact-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        /* Registration with Free Trial Styles */
+        .registration-type-selector {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            background: #f8fafc;
+            padding: 1rem;
+            border-radius: 12px;
+        }
+
+        .registration-type {
+            flex: 1;
+            text-align: center;
+            padding: 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .registration-type.active {
+            background: white;
+            border-color: var(--primary);
+            box-shadow: 0 5px 15px rgba(45, 158, 156, 0.1);
+        }
+
+        .registration-type h4 {
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+
+        .registration-type p {
+            font-size: 0.9rem;
+            color: #6b7280;
+        }
+
+        .trial-features {
+            background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+        }
+
+        .trial-features h4 {
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .feature-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #374151;
+            font-size: 0.95rem;
+        }
+
+        .feature-icon {
+            color: var(--primary);
+            font-weight: bold;
+        }
+
         /* Responsive */
         @media (max-width: 1024px) {
             .registration-layout {
                 grid-template-columns: 1fr;
                 gap: 2rem;
+            }
+            
+            .donation-options {
+                grid-template-columns: 1fr;
             }
         }
 
@@ -2194,6 +2479,10 @@
             .marquee-nav.next {
                 right: -15px !important;
             }
+
+            .instruction-steps {
+                grid-template-columns: 1fr;
+            }
         }
 
         @media (max-width: 768px) {
@@ -2276,6 +2565,18 @@
 
             .currency-usd {
                 font-size: 1rem;
+            }
+
+            .registration-type-selector {
+                flex-direction: column;
+            }
+
+            .feature-list {
+                grid-template-columns: 1fr;
+            }
+
+            .donation-impact {
+                grid-template-columns: 1fr;
             }
         }
 
@@ -2405,6 +2706,15 @@
             .currency-usd {
                 font-size: 0.9rem;
             }
+
+            .donation-card {
+                padding: 1.5rem;
+            }
+
+            .account-number {
+                font-size: 1.1rem;
+                padding: 0.8rem;
+            }
         }
     </style>
 </head>
@@ -2431,6 +2741,7 @@
                 <li><a href="#" onclick="showPage('pricing'); return false;" aria-label="Pricing Page">Pricing</a></li>
                 <li><a href="#" onclick="showPage('about'); return false;" aria-label="About Page">About</a></li>
                 <li><a href="#" onclick="showPage('register'); return false;" aria-label="Registration Page">Register</a></li>
+                <li><a href="#" onclick="showPage('donate'); return false;" aria-label="Donation Page">Donate</a></li>
                 <li><a href="#" onclick="showPage('contact'); return false;" aria-label="Contact Page">Contact</a></li>
             </ul>
             <div class="mobile-toggle" id="mobileToggle" onclick="toggleMobileMenu()" aria-label="Toggle Mobile Menu" role="button" tabindex="0">
@@ -2456,6 +2767,7 @@
             <li><a href="#" onclick="showPage('pricing'); closeMobileMenu();">Pricing</a></li>
             <li><a href="#" onclick="showPage('about'); closeMobileMenu();">About</a></li>
             <li><a href="#" onclick="showPage('register'); closeMobileMenu();">Register</a></li>
+            <li><a href="#" onclick="showPage('donate'); closeMobileMenu();">Donate</a></li>
             <li><a href="#" onclick="showPage('contact'); closeMobileMenu();">Contact</a></li>
         </ul>
     </div>
@@ -2464,7 +2776,6 @@
     <main id="main-content">
         <!-- HOME PAGE -->
         <div id="homePage">
-
             <!-- Hero Section -->
             <section class="hero">
                 <div class="hero-container">
@@ -2478,6 +2789,9 @@
                     <div class="hero-buttons">
                         <a href="#" onclick="showPage('register'); return false;" class="btn btn-primary" aria-label="Register Now">
                             Register Now →
+                        </a>
+                        <a href="#" onclick="showPage('donate'); return false;" class="btn btn-donate" aria-label="Support Our Mission">
+                            Support Our Mission →
                         </a>
                         <a href="#" onclick="showPage('courses'); return false;" class="btn btn-secondary" aria-label="Explore Courses">
                             Explore Courses
@@ -2521,7 +2835,7 @@
                             <div class="image-card-content">
                                 <h3 class="image-card-title">Qur'an Memorisation (Hifdh)</h3>
                                 <p class="image-card-text">Master Qur'an memorization with proven techniques, daily practice sessions, regular revision schedules, and personalized feedback from experienced Hafidhs with Ijazah.</p>
-                                <a href="#" onclick="showPage('register'); return false;" class="btn btn-primary" style="display: inline-block; margin-top: 1rem; padding: 0.8rem 2rem; font-size: 0.9rem;" aria-label="Register for Hifdh Course">Register Now →</a>
+                                <a href="#" onclick="showPage('register'); return false;" class="btn btn-primary" style="display: inline-block; margin-top: 1rem; padding: 0.8rem 2rem; font-size: 0.9rem;" aria-label="Register for Hifdh Course">Get Started</a>
                             </div>
                         </div>
                         <div class="image-card scroll-reveal">
@@ -2529,7 +2843,7 @@
                             <div class="image-card-content">
                                 <h3 class="image-card-title">Tajweed & Recitation</h3>
                                 <p class="image-card-text">Perfect your recitation with proper Tajweed rules, beautiful pronunciation, and authentic Qira'at from certified instructors.</p>
-                             <a href="#" onclick="showPage('register'); return false;" class="btn btn-primary" style="display: inline-block; margin-top: 1rem; padding: 0.8rem 2rem; font-size: 0.9rem;" aria-label="Register for Hifdh Course">Register Now →</a>
+                             <a href="#" onclick="showPage('register'); return false;" class="btn btn-primary" style="display: inline-block; margin-top: 1rem; padding: 0.8rem 2rem; font-size: 0.9rem;" aria-label="Register for Tajweed Course">Get Started</a>
                             </div>
                         </div>
                         <div class="image-card scroll-reveal">
@@ -2537,7 +2851,7 @@
                             <div class="image-card-content">
                                 <h3 class="image-card-title">Arabic Language</h3>
                                 <p class="image-card-text">Learn classical Arabic to understand the Qur'an deeply, from basic reading to advanced grammar and vocabulary.</p>
-                             <a href="#" onclick="showPage('register'); return false;" class="btn btn-primary" style="display: inline-block; margin-top: 1rem; padding: 0.8rem 2rem; font-size: 0.9rem;" aria-label="Register for Hifdh Course">Register Now →</a>
+                             <a href="#" onclick="showPage('register'); return false;" class="btn btn-primary" style="display: inline-block; margin-top: 1rem; padding: 0.8rem 2rem; font-size: 0.9rem;" aria-label="Register for Arabic Course">Get Started</a>
                             </div>
                         </div>
                     </div>
@@ -2600,7 +2914,14 @@
                                 </div>
                             </div>
                             
-                            <!-- Item 5 - Proven Results -->
+                            <!-- Item 5 - Free Trial -->
+                            <div class="marquee-card scroll-reveal">
+                                <div class="marquee-card-icon">🎯</div>
+                                <h3 class="marquee-white-text">Free Trial Classes</h3>
+                                <p class="marquee-white-subtext">Experience our teaching before committing</p>
+                            </div>
+                            
+                            <!-- Item 6 - Proven Results -->
                             <div class="marquee-card scroll-reveal">
                                 <div class="marquee-card-icon">💯</div>
                                 <h3 class="marquee-white-text">Proven Results</h3>
@@ -2775,6 +3096,11 @@
                         <p class="why-choose-desc">Available for sisters' classes</p>
                     </div>
                     <div class="why-choose-item scroll-reveal">
+                        <div class="why-choose-icon">🎯</div>
+                        <strong class="why-choose-title">Free Trial Classes</strong>
+                        <p class="why-choose-desc">Experience before committing</p>
+                    </div>
+                    <div class="why-choose-item scroll-reveal">
                         <div class="why-choose-icon">💯</div>
                         <strong class="why-choose-title">Proven Results</strong>
                         <p class="why-choose-desc">50+ students completed Hifdh</p>
@@ -2858,6 +3184,11 @@
                         <p class="why-choose-desc">Available for sisters' classes</p>
                     </div>
                     <div class="why-choose-item scroll-reveal">
+                        <div class="why-choose-icon">🎯</div>
+                        <strong class="why-choose-title">Free Trial Classes</strong>
+                        <p class="why-choose-desc">Experience before committing</p>
+                    </div>
+                    <div class="why-choose-item scroll-reveal">
                         <div class="why-choose-icon">💯</div>
                         <strong class="why-choose-title">Proven Results</strong>
                         <p class="why-choose-desc">50+ students completed Hifdh</p>
@@ -2927,7 +3258,7 @@
     <div class="image-card-content">
         <h3 class="image-card-title">Shkt Fahmah Nabagereka</h3>
         <p style="color: var(--primary-dark); font-weight: 700; margin-bottom: 0.8rem;">Quran Tutor</p>
-        <p class="image-card-text">A distinguished Haafidha with expertise in Quran memorization and recitation, dedicated to guiding students in mastering the Qur’an with clarity and understanding.</p>
+        <p class="image-card-text">A distinguished Haafidha with expertise in Quran memorization and recitation, dedicated to guiding students in mastering the Qur'an with clarity and understanding.</p>
     </div>
 </div>
 
@@ -2936,7 +3267,7 @@
     <div class="image-card-content">
         <h3 class="image-card-title">Sheikh Bashir Buvumbo</h3>
         <p style="color: var(--primary-dark); font-weight: 700; margin-bottom: 0.8rem;">Quran Tutor</p>
-        <p class="image-card-text">A distinguished Haafidh with expertise in Quran recitation, Tajwīd, and memorization, dedicated to guiding students to read, understand, and apply the Qur’an with confidence and precision.</p>
+        <p class="image-card-text">A distinguished Haafidh with expertise in Quran recitation, Tajwīd, and memorization, dedicated to guiding students to read, understand, and apply the Qur'an with confidence and precision.</p>
     </div>
 </div>
 
@@ -2976,6 +3307,11 @@
                         <p class="why-choose-desc">Available for sisters' classes</p>
                     </div>
                     <div class="why-choose-item scroll-reveal">
+                        <div class="why-choose-icon">🎯</div>
+                        <strong class="why-choose-title">Free Trial Classes</strong>
+                        <p class="why-choose-desc">Experience before committing</p>
+                    </div>
+                    <div class="why-choose-item scroll-reveal">
                         <div class="why-choose-icon">💯</div>
                         <strong class="why-choose-title">Proven Results</strong>
                         <p class="why-choose-desc">50+ students completed Hifdh</p>
@@ -2984,15 +3320,46 @@
             </div>
         </div>
 
-        <!-- REGISTRATION PAGE -->
+        <!-- REGISTRATION PAGE (with Free Trial integrated) -->
         <div id="registerPage" class="page-content">
             <!-- Two Column Layout: Form + Benefits -->
             <div class="registration-layout scroll-reveal" id="registrationLayout" style="margin-top: 80px;">
                 <!-- Left Column: Registration Form -->
                 <div class="registration-form-container">
                     <div class="form-header">
-                        <h2>Register for Qur'an Classes</h2>
-                        <p>Fill out the form below to begin your learning journey with Saham Academy</p>
+                        <h2>Begin Your Qur'an Journey</h2>
+                        <p>Register for full enrollment or start with our free trial classes</p>
+                    </div>
+
+                    <!-- Registration Type Selector -->
+                    <div class="registration-type-selector">
+                        <div class="registration-type active" id="typeFull" onclick="selectRegistrationType('full')">
+                            <h4>Full Enrollment</h4>
+                            <p>Start your complete learning journey</p>
+                        </div>
+                        <div class="registration-type" id="typeTrial" onclick="selectRegistrationType('trial')">
+                            <h4>Free Trial</h4>
+                            <p>2 free classes to experience our teaching</p>
+                        </div>
+                    </div>
+
+                    <!-- Free Trial Features (shown when trial is selected) -->
+                    <div id="trialFeatures" class="trial-features" style="display: none;">
+                        <h4><span class="feature-icon">🎯</span> What's Included in Your Free Trial:</h4>
+                        <div class="feature-list">
+                            <div class="feature-item">
+                                <span class="feature-icon">✓</span> 2 Free Classes
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">✓</span> Personal Assessment
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">✓</span> Course Plan
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">✓</span> No Commitment
+                            </div>
+                        </div>
                     </div>
 
                     <form
@@ -3001,6 +3368,9 @@
                         id="registrationForm"
                         class="custom-form"
                     >
+                        <!-- Hidden field for registration type -->
+                        <input type="hidden" id="registrationType" name="registration_type" value="full">
+                        
                         <!-- Personal Information -->
                         <div class="form-section">
                             <h3 class="section-title">Personal Information</h3>
@@ -3082,18 +3452,18 @@
                         <!-- Submit Section -->
                         <div class="form-submit-section">
                             <button type="submit" class="btn-submit">
-                                <span class="btn-icon">📝</span>
-                                Submit Registration
+                                <span class="btn-icon" id="submitIcon">📝</span>
+                                <span id="submitText">Submit Registration</span>
                             </button>
                             <p class="form-note">
                                 <span class="note-icon">ⓘ</span>
-                                We'll contact you within 24 hours to discuss your learning plan
+                                <span id="formNote">We'll contact you within 24 hours to discuss your learning plan</span>
                             </p>
                         </div>
 
                         <p id="successMsg" style="display:none;">
                             <span class="success-icon">✅</span>
-                            JazakAllahu khair! We'll contact you shortly on WhatsApp.
+                            <span id="successMessage">JazakAllahu khair! We'll contact you shortly on WhatsApp.</span>
                         </p>
                     </form>
                 </div>
@@ -3152,6 +3522,7 @@
                             <li><span class="check-icon">✓</span> Personalized attention</li>
                             <li><span class="check-icon">✓</span> Progress tracking</li>
                             <li><span class="check-icon">✓</span> 24/7 support</li>
+                            <li><span class="check-icon">✓</span> Free trial available</li>
                         </ul>
                     </div>
                 </div>
@@ -3182,9 +3553,186 @@
                         <p class="why-choose-desc">Available for sisters' classes</p>
                     </div>
                     <div class="why-choose-item scroll-reveal">
+                        <div class="why-choose-icon">🎯</div>
+                        <strong class="why-choose-title">Free Trial Classes</strong>
+                        <p class="why-choose-desc">Experience before committing</p>
+                    </div>
+                    <div class="why-choose-item scroll-reveal">
                         <div class="why-choose-icon">💯</div>
                         <strong class="why-choose-title">Proven Results</strong>
                         <p class="why-choose-desc">50+ students completed Hifdh</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- DONATION PAGE -->
+        <div id="donatePage" class="page-content">
+            <!-- Donation Hero -->
+            <section class="donation-hero scroll-reveal">
+                <div class="donation-container">
+                    <h1 style="font-size: 3.5rem; font-weight: 900; margin-bottom: 1rem;">Support Our Mission</h1>
+                    <p style="font-size: 1.3rem; opacity: 0.9; max-width: 700px; margin: 0 auto;">
+                        Your donations help spread Quranic knowledge worldwide and support students in need
+                    </p>
+                </div>
+            </section>
+
+            <div class="section-header scroll-reveal" style="margin-top: 3rem;">
+                <h2 class="section-title">Donation Methods</h2>
+                <p class="section-subtitle">Choose your preferred payment method to support our academy</p>
+            </div>
+
+            <div class="donation-options scroll-reveal">
+                <!-- Mobile Money Option -->
+                <div class="donation-card scroll-reveal">
+                    <div class="donation-icon">📱</div>
+                    <h3>Mobile Money</h3>
+                    <p>Fast and convenient mobile payments</p>
+                    
+                    <div class="payment-details">
+                        <h4><span>💚</span> MTN Mobile Money</h4>
+                        <div class="account-number">
+                            0784 560 867
+                        </div>
+                        <p><strong>Name:</strong> Abdulsalaam Ssenkindu</p>
+                        
+                        <h4 style="margin-top: 1.5rem;"><span>💙</span> Airtel Money</h4>
+                        <div class="account-number">
+                            0756 549 534
+                        </div>
+                        <p><strong>Name:</strong> Abdulsalaam Ssenkindu</p>
+                    </div>
+                </div>
+
+                <!-- Bank Transfer Option -->
+                <div class="donation-card scroll-reveal">
+                    <div class="donation-icon">🏦</div>
+                    <h3>Bank Transfer</h3>
+                    <p>Direct bank transfers for larger donations</p>
+                    
+                    <div class="payment-details">
+                        <h4><span>🏛️</span> Bank Details</h4>
+                        <ul>
+                            <li><strong>Bank:</strong> [Your Bank Name]</li>
+                            <li><strong>Account Name:</strong> Abdulsalaam Ssenkindu</li>
+                            <li><strong>Account Number:</strong> [Your Account Number]</li>
+                            <li><strong>Branch:</strong> [Branch Location]</li>
+                            <li><strong>SWIFT Code:</strong> [SWIFT Code]</li>
+                        </ul>
+                        <p style="margin-top: 1rem; font-size: 0.9rem; color: #6b7280;">
+                            <em>Note: Please contact us for complete bank details</em>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Payment Instructions -->
+            <div class="payment-instruction scroll-reveal">
+                <h3 style="font-size: 2rem; margin-bottom: 1rem; text-align: center;">Important: Share Payment Screenshot</h3>
+                <p style="text-align: center; opacity: 0.9; margin-bottom: 2rem; font-size: 1.1rem;">
+                    After making your donation, please follow these steps:
+                </p>
+                
+                <div class="instruction-steps">
+                    <div class="instruction-step">
+                        <div class="step-number">1</div>
+                        <h4>Make Payment</h4>
+                        <p>Complete your donation using any method above</p>
+                    </div>
+                    <div class="instruction-step">
+                        <div class="step-number">2</div>
+                        <h4>Take Screenshot</h4>
+                        <p>Capture the payment confirmation screen</p>
+                    </div>
+                    <div class="instruction-step">
+                        <div class="step-number">3</div>
+                        <h4>Share on WhatsApp</h4>
+                        <p>Send the screenshot to us for confirmation</p>
+                    </div>
+                    <div class="instruction-step">
+                        <div class="step-number">4</div>
+                        <h4>Receive Confirmation</h4>
+                        <p>We'll acknowledge your donation immediately</p>
+                    </div>
+                </div>
+                
+                <div style="text-align: center; margin-top: 2rem;">
+                    <a href="https://wa.me/256784560867?text=Assalamu%20Alaikum!%20I%20have%20made%20a%20donation%20to%20Saham%20Academy.%20Here%20is%20my%20payment%20screenshot:" 
+                       class="btn-whatsapp" 
+                       style="display: inline-flex; background: white; color: #128C7E; padding: 1rem 2.5rem; font-size: 1.1rem;"
+                       target="_blank"
+                       aria-label="Share Payment Screenshot on WhatsApp">
+                        <span class="whatsapp-icon">💬</span>
+                        Share Screenshot on WhatsApp
+                    </a>
+                </div>
+            </div>
+
+            <!-- Impact Section -->
+            <div style="text-align: center; margin: 4rem 0;" class="scroll-reveal">
+                <h2 style="font-size: 2.5rem; margin-bottom: 1rem; color: var(--dark);">How Your Donation Helps</h2>
+                <p style="font-size: 1.1rem; color: #6b7280; max-width: 700px; margin: 0 auto 3rem;">
+                    Your generous support enables us to continue our mission of spreading Quranic knowledge
+                </p>
+                
+                <div class="donation-impact">
+                    <div class="impact-card scroll-reveal">
+                        <div class="impact-icon">📚</div>
+                        <h3>Free Courses</h3>
+                        <p>Sponsor Quran education for underprivileged students</p>
+                    </div>
+                    <div class="impact-card scroll-reveal">
+                        <div class="impact-icon">👨‍🎓</div>
+                        <h3>Student Support</h3>
+                        <p>Provide learning materials and scholarships</p>
+                    </div>
+                    <div class="impact-card scroll-reveal">
+                        <div class="impact-icon">🌍</div>
+                        <h3>Global Reach</h3>
+                        <p>Expand our services to more countries worldwide</p>
+                    </div>
+                    <div class="impact-card scroll-reveal">
+                        <div class="impact-icon">🕌</div>
+                        <h3>Islamic Education</h3>
+                        <p>Support development of new Islamic courses</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Why Choose Saham Qur'an Academy? -->
+            <div class="why-choose-section scroll-reveal" id="whyChooseDonate">
+                <h3 style="font-size: 2rem; margin-bottom: 1.5rem;">Why Support Saham Qur'an Academy?</h3>
+                <div class="why-choose-grid">
+                    <div class="why-choose-item scroll-reveal">
+                        <div class="why-choose-icon">✅</div>
+                        <strong class="why-choose-title">Proven Impact</strong>
+                        <p class="why-choose-desc">500+ students transformed worldwide</p>
+                    </div>
+                    <div class="why-choose-item scroll-reveal">
+                        <div class="why-choose-icon">⏰</div>
+                        <strong class="why-choose-title">Sustainable</strong>
+                        <p class="why-choose-desc">Long-term educational programs</p>
+                    </div>
+                    <div class="why-choose-item scroll-reveal">
+                        <div class="why-choose-icon">🌍</div>
+                        <strong class="why-choose-title">Global Reach</strong>
+                        <p class="why-choose-desc">Students in 15+ countries</p>
+                    </div>
+                    <div class="why-choose-item scroll-reveal">
+                        <div class="why-choose-icon">👩‍🏫</div>
+                        <strong class="why-choose-title">Qualified Teachers</strong>
+                        <p class="why-choose-desc">Certified Islamic instructors</p>
+                    </div>
+                    <div class="why-choose-item scroll-reveal">
+                        <div class="why-choose-icon">🎯</div>
+                        <strong class="why-choose-title">Transparent</strong>
+                        <p class="why-choose-desc">Clear impact reporting</p>
+                    </div>
+                    <div class="why-choose-item scroll-reveal">
+                        <div class="why-choose-icon">💯</div>
+                        <strong class="why-choose-title">Accountable</strong>
+                        <p class="why-choose-desc">Responsible use of funds</p>
                     </div>
                 </div>
             </div>
@@ -3203,7 +3751,12 @@
                     <h3 class="card-title">WhatsApp</h3>
                     <p class="card-text" style="font-weight: 700; color: var(--primary-dark); font-size: 1.2rem; margin-bottom: 0.5rem;">+256 784 560 867</p>
                     <p class="card-text" style="font-weight: 700; color: var(--primary-dark); font-size: 1.2rem; margin-bottom: 1rem;">+256 756 549 534</p>
-                    <p class="card-text" style="margin-bottom: 1.5rem;">Fast response • Available 7 days a week</p>
+                    <p class="card-text" style="margin-bottom: 1.5rem;">
+                        <strong>Payment Instructions:</strong><br>
+                        1. Send payment to provided numbers<br>
+                        2. Share screenshot on WhatsApp<br>
+                        3. We'll confirm & start your course
+                    </p>
                     <a href="https://wa.me/256784560867?text=Assalamu%20Alaikum!%20I'm%20interested%20in%20Saham%20Academy" class="btn btn-primary" style="display: inline-block; padding: 0.8rem 2rem; font-size: 0.9rem;" aria-label="Message us on WhatsApp">Message Us</a>
                 </div>
 
@@ -3279,6 +3832,11 @@
                         <div class="why-choose-icon">👩‍🏫</div>
                         <strong class="why-choose-title">Female Tutors</strong>
                         <p class="why-choose-desc">Available for sisters' classes</p>
+                    </div>
+                    <div class="why-choose-item scroll-reveal">
+                        <div class="why-choose-icon">🎯</div>
+                        <strong class="why-choose-title">Free Trial Classes</strong>
+                        <p class="why-choose-desc">Experience before committing</p>
                     </div>
                     <div class="why-choose-item scroll-reveal">
                         <div class="why-choose-icon">💯</div>
@@ -3364,6 +3922,7 @@
         let marqueeContainerWidth = 0;
         let isMobileMenuOpen = false;
         const EXCHANGE_RATE = 3700; // 1 USD = 3700 UGX
+        let currentRegistrationType = 'full'; // 'full' or 'trial'
 
         // ========== DOM ELEMENTS CACHE ==========
         const elements = {
@@ -3379,7 +3938,15 @@
             marqueeContainer: document.querySelector('.marquee-container'),
             registrationForm: document.getElementById('registrationForm'),
             successMsg: document.getElementById('successMsg'),
-            footerSection: document.getElementById('footerSection')
+            footerSection: document.getElementById('footerSection'),
+            registrationType: document.getElementById('registrationType'),
+            trialFeatures: document.getElementById('trialFeatures'),
+            typeFull: document.getElementById('typeFull'),
+            typeTrial: document.getElementById('typeTrial'),
+            submitIcon: document.getElementById('submitIcon'),
+            submitText: document.getElementById('submitText'),
+            formNote: document.getElementById('formNote'),
+            successMessage: document.getElementById('successMessage')
         };
 
         // ========== PAGE NAVIGATION ==========
@@ -3442,6 +4009,38 @@
 
             // Close mobile menu if open
             closeMobileMenu();
+        }
+
+        // ========== REGISTRATION TYPE SELECTION ==========
+        function selectRegistrationType(type) {
+            currentRegistrationType = type;
+            
+            // Update UI
+            if (elements.typeFull && elements.typeTrial) {
+                elements.typeFull.classList.remove('active');
+                elements.typeTrial.classList.remove('active');
+                
+                if (type === 'full') {
+                    elements.typeFull.classList.add('active');
+                    elements.trialFeatures.style.display = 'none';
+                    elements.submitIcon.textContent = '📝';
+                    elements.submitText.textContent = 'Submit Registration';
+                    elements.formNote.textContent = 'We\'ll contact you within 24 hours to discuss your learning plan';
+                    elements.successMessage.textContent = 'JazakAllahu khair! We\'ll contact you shortly on WhatsApp.';
+                } else {
+                    elements.typeTrial.classList.add('active');
+                    elements.trialFeatures.style.display = 'block';
+                    elements.submitIcon.textContent = '🎯';
+                    elements.submitText.textContent = 'Request Free Trial';
+                    elements.formNote.textContent = 'We\'ll schedule your 2 free trial classes within 24 hours';
+                    elements.successMessage.textContent = 'JazakAllahu khair! We\'ll contact you shortly to schedule your free trial classes.';
+                }
+            }
+            
+            // Update hidden field
+            if (elements.registrationType) {
+                elements.registrationType.value = type;
+            }
         }
 
         // ========== MOBILE MENU ==========
@@ -3708,10 +4307,10 @@
             
             const form = elements.registrationForm;
             const submitButton = form.querySelector('button[type="submit"]');
-            const originalButtonText = submitButton.textContent;
+            const originalButtonText = submitButton.innerHTML;
             
             // Show loading state
-            submitButton.textContent = 'Submitting...';
+            submitButton.innerHTML = '<span class="btn-icon">⏳</span> Submitting...';
             submitButton.disabled = true;
             
             try {
@@ -3738,6 +4337,9 @@
                     setTimeout(() => {
                         elements.successMsg.style.display = 'none';
                     }, 10000);
+                    
+                    // Reset registration type to full
+                    selectRegistrationType('full');
                 } else {
                     throw new Error('Server responded with status: ' + response.status);
                 }
@@ -3746,7 +4348,7 @@
                 alert('Submission failed. Please try again or contact us directly.');
             } finally {
                 // Reset button state
-                submitButton.textContent = originalButtonText;
+                submitButton.innerHTML = originalButtonText;
                 submitButton.disabled = false;
             }
         }
@@ -3789,6 +4391,9 @@
             
             // Close mobile menu on Escape key
             document.addEventListener('keydown', handleEscapeKey);
+            
+            // Initialize registration type
+            selectRegistrationType('full');
         }
 
         function handleOutsideClick(e) {
